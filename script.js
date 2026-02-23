@@ -541,16 +541,176 @@ function initAnalytics() {
 }
 
 // ===========================
+// Scroll Progress Bar
+// ===========================
+function initScrollProgress() {
+    const progressBar = document.getElementById('scrollProgress');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// ===========================
+// Back to Top Button
+// ===========================
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+    
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ===========================
+// Email Popup
+// ===========================
+function initEmailPopup() {
+    const popup = document.getElementById('emailPopup');
+    const closeBtn = document.getElementById('emailPopupClose');
+    
+    if (!popup || !closeBtn) return;
+    
+    // Check if already shown in this session
+    if (sessionStorage.getItem('emailPopupShown')) return;
+    
+    // Show popup after 15 seconds
+    setTimeout(() => {
+        if (window.scrollY > 300) {
+            popup.classList.add('visible');
+            sessionStorage.setItem('emailPopupShown', 'true');
+        }
+    }, 15000);
+    
+    // Or show after scrolling 50% of page
+    let popupShown = false;
+    window.addEventListener('scroll', () => {
+        if (popupShown) return;
+        
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (window.scrollY > docHeight * 0.5) {
+            popup.classList.add('visible');
+            sessionStorage.setItem('emailPopupShown', 'true');
+            popupShown = true;
+        }
+    });
+    
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('visible');
+    });
+}
+
+// ===========================
+// Price Calculator
+// ===========================
+function initCalculator() {
+    const calcType = document.getElementById('calcType');
+    const calcUrgency = document.getElementById('calcUrgency');
+    const calcPrice = document.getElementById('calcPrice');
+    
+    if (!calcType || !calcUrgency || !calcPrice) return;
+    
+    let basePrice = 500;
+    let featuresPrice = 0;
+    let multiplier = 1;
+    
+    function updatePrice() {
+        const total = Math.round((basePrice + featuresPrice) * multiplier);
+        calcPrice.textContent = total.toLocaleString('es-ES') + '€';
+    }
+    
+    calcType.querySelectorAll('.calc-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            calcType.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            basePrice = parseInt(btn.dataset.price);
+            updatePrice();
+        });
+    });
+    
+    const checkboxes = document.querySelectorAll('.calc-checkbox input');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            featuresPrice = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    featuresPrice += parseInt(cb.dataset.price);
+                }
+            });
+            updatePrice();
+        });
+    });
+    
+    calcUrgency.querySelectorAll('.calc-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            calcUrgency.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            multiplier = parseFloat(btn.dataset.multiplier);
+            updatePrice();
+        });
+    });
+}
+
+// ===========================
 // Init Everything
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
-    // Init loader (handles scroll lock internally)
-    initLoader();
+    const loader = document.getElementById('loader');
+    
+    // Prevent scroll during loader only if loader exists
+    if (loader) {
+        document.body.style.overflow = 'hidden';
+    }
     
     // Pause initial animations
     document.querySelectorAll('.animate-in').forEach(el => {
         el.style.animationPlayState = 'paused';
     });
+    
+    // Init loader first
+    initLoader();
+    
+    // Init cursor
+    initCursor();
+    
+    // Particles
+    const canvas = document.getElementById('particleCanvas');
+    if (canvas) {
+        new ParticleSystem(canvas);
+    }
+    
+    // Init other effects
+    initParallax();
+    initMagneticButtons();
+    initNavbar();
+    initScrollReveal();
+    animateCounters();
+    initSmoothScroll();
+    initFAQ();
+    initAnalytics();
+    
+    // New features
+    initScrollProgress();
+    initBackToTop();
+    initEmailPopup();
+    initCalculator();
+    
+    // Register Service Worker
+    registerServiceWorker();
+});
     
     // Init cursor
     initCursor();
