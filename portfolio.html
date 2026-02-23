@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Proyectos | Said - Desarrollador Web & Apps</title>
+    <meta name="description" content="Portfolio de proyectos de desarrollo web, aplicaciones móviles, SaaS y automatizaciones. FitGym Pro, TimeFlow, FreshMarket y más.">
+    <link rel="canonical" href="https://said.dev/portfolio">
+    <meta property="og:title" content="Portfolio | Said">
+    <meta property="og:description" content="Proyectos de desarrollo web, apps y SaaS.">
+    <meta property="og:url" content="https://said.dev/portfolio">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span></a>
+                <ul class="nav-links">
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="sobre-mi.html">Sobre mí</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-tag">// Portfolio</span>
+            <h1 class="page-title">Mis <span class="text-gradient">proyectos</span></h1>
+            <p class="page-subtitle">Una selección de productos digitales que he desarrollado y lanzado.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="portfolio-grid portfolio-grid-full">
+                <article class="portfolio-card reveal">
+                    <div class="portfolio-image"><div class="portfolio-placeholder gym-placeholder"><div class="placeholder-content"><div class="placeholder-icon">💪</div><span class="placeholder-title">FitGym Pro</span><span class="placeholder-subtitle">Fitness App</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">App</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>FitGym Pro</h3>
+                        <p>App de gimnasio con rutinas personalizadas, seguimiento de progreso, timer de entrenamiento y planificación semanal. Los usuarios pueden registrar sus entrenamientos y ver estadísticas.</p>
+                        <div class="portfolio-tech"><span>React Native</span><span>Firebase</span><span>iOS/Android</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Rutinas personalizadas</span>
+                            <span>✓ Seguimiento progreso</span>
+                            <span>✓ Notificaciones</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card reveal" data-delay="100">
+                    <div class="portfolio-image"><div class="portfolio-placeholder time-placeholder"><div class="placeholder-content"><div class="placeholder-icon">⏱️</div><span class="placeholder-title">TimeFlow</span><span class="placeholder-subtitle">Horas Extras</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">App</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>TimeFlow</h3>
+                        <p>Sistema de control de horas extras para empresas. Dashboard de empleados, reportes automáticos en PDF y gestión de turnos. Optimiza la gestión de recursos humanos.</p>
+                        <div class="portfolio-tech"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Dashboard analytics</span>
+                            <span>✓ Reportes PDF</span>
+                            <span>✓ Multi-empresa</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card reveal" data-delay="200">
+                    <div class="portfolio-image"><div class="portfolio-placeholder saas-placeholder"><div class="placeholder-content"><div class="placeholder-icon">🛒</div><span class="placeholder-title">FreshMarket</span><span class="placeholder-subtitle">SaaS Platform</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">SaaS</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>FreshMarket</h3>
+                        <p>SaaS completo para tiendas de alimentación. Gestión de inventario, ventas, proveedores y analíticas en tiempo real. Sistema de suscripciones integrado.</p>
+                        <div class="portfolio-tech"><span>Next.js</span><span>Stripe</span><span>PostgreSQL</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Inventario automático</span>
+                            <span>✓ Pagos Stripe</span>
+                            <span>✓ Dashboard completo</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card reveal" data-delay="300">
+                    <div class="portfolio-image"><div class="portfolio-placeholder web-placeholder"><div class="placeholder-content"><div class="placeholder-icon">🖥️</div><span class="placeholder-title">Delishop</span><span class="placeholder-subtitle">E-commerce</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">Web</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>Delishop Web</h3>
+                        <p>E-commerce para tienda gourmet online. Catálogo de productos con filtros, carrito inteligente, pasarela de pagos y sistema de envíos integrado.</p>
+                        <div class="portfolio-tech"><span>Next.js</span><span>Stripe</span><span>Prisma</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Carrito inteligente</span>
+                            <span>✓ Pagos seguros</span>
+                            <span>✓ SEO optimizado</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card reveal" data-delay="400">
+                    <div class="portfolio-image"><div class="portfolio-placeholder restaurant-placeholder"><div class="placeholder-content"><div class="placeholder-icon">🍽️</div><span class="placeholder-title">La Parrilla</span><span class="placeholder-subtitle">Web Restaurante</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">Web</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>La Parrilla</h3>
+                        <p>Web para restaurante con carta digital, sistema de reservas online y galería de platos. Integración con Google Maps y redes sociales.</p>
+                        <div class="portfolio-tech"><span>Next.js</span><span>CMS</span><span>Google Maps</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Reservas online</span>
+                            <span>✓ Carta digital</span>
+                            <span>✓ SEO local</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card reveal" data-delay="500">
+                    <div class="portfolio-image"><div class="portfolio-placeholder hotel-placeholder"><div class="placeholder-content"><div class="placeholder-icon">🏨</div><span class="placeholder-title">Hotel Andorra</span><span class="placeholder-subtitle">Web Hotel</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">Web</span></div></div>
+                    <div class="portfolio-info">
+                        <h3>Hotel Andorra</h3>
+                        <p>Web corporativa para hotel con motor de reservas, galería de habitaciones y integración con Booking y TripAdvisor.</p>
+                        <div class="portfolio-tech"><span>React</span><span>Node.js</span><span>API Booking</span></div>
+                        <div class="portfolio-features">
+                            <span>✓ Motor reservas</span>
+                            <span>✓ Multi-idioma</span>
+                            <span>✓ Channel manager</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">¿Quieres que tu proyecto sea el siguiente?</h2>
+                <p class="cta-text">Hablemos sobre tu idea.</p>
+                <a href="contacto.html" class="btn btn-primary btn-lg">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span><p>Desarrollo digital desde Andorra 🇦🇩</p></div>
+                <div class="footer-links"><a href="servicios.html">Servicios</a><a href="portfolio.html">Portfolio</a><a href="sobre-mi.html">Sobre mí</a><a href="contacto.html">Contacto</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Said. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <script src="script.js"></script>
+</body>
+</html>

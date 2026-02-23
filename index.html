@@ -3,322 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Said — Desarrollo Digital | Apps, Webs & Automatizaciones</title>
-    <meta name="description" content="Desarrollo de aplicaciones, páginas web, automatizaciones y soluciones SaaS. Transforma tu idea en realidad digital.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Said — Desarrollador Web & Apps en Andorra | Freelance Digital</title>
+    <meta name="description" content="Desarrollador freelance con más de 12 proyectos realizados. Especializado en páginas web, apps móviles y SaaS para restaurantes, inmobiliarias, gimnasios y hoteles.">
+    <meta name="keywords" content="desarrollador web andorra, programador freelance, apps móviles, desarrollo web, SaaS, React, Next.js">
+    <meta name="author" content="Said">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://said.dev">
+    <meta name="theme-color" content="#00d4ff">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://said.dev">
+    <meta property="og:title" content="Said — Desarrollador Web & Apps | Freelance Digital">
+    <meta property="og:description" content="Desarrollador freelance especializado en páginas web, aplicaciones móviles y SaaS.">
+    <meta property="og:image" content="https://said.dev/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Said — Desarrollador Web & Apps">
+    <meta name="twitter:description" content="Desarrollador freelance especializado en páginas web, aplicaciones móviles y SaaS.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Said",
+        "jobTitle": "Desarrollador Web & Apps",
+        "url": "https://said.dev",
+        "telephone": "+376601249",
+        "address": {"@type": "PostalAddress", "addressCountry": "AD", "addressLocality": "Andorra"}
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="nav-cta" target="_blank" rel="noopener">Contactar</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-                <span></span><span></span><span></span>
-            </button>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-name" data-text="SAID">SAID</div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+            <div class="loader-tag">Desarrollo Digital</div>
         </div>
-    </nav>
+    </div>
+    
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span></a>
+                <ul class="nav-links">
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="sobre-mi.html">Sobre mí</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <canvas id="particleCanvas"></canvas>
         <div class="hero-content">
-            <div class="hero-badge animate-in">
-                <span class="badge-dot"></span>
-                Disponible para proyectos
-            </div>
+            <div class="hero-badge animate-in"><span class="badge-dot"></span>Disponible para proyectos</div>
             <h1 class="hero-title animate-in">
                 <span class="hero-greeting">Hola, soy</span>
-                <span class="hero-name">Said<span class="cursor-blink">_</span></span>
+                <span class="hero-name glitch" data-text="Said">Said<span class="cursor-blink">_</span></span>
             </h1>
-            <p class="hero-subtitle animate-in">
-                Transformo ideas en <span class="text-gradient">experiencias digitales</span> que impulsan tu negocio.
-            </p>
-            <p class="hero-description animate-in">
-                Desarrollo de Apps · Páginas Web · Automatizaciones · SaaS
-            </p>
+            <p class="hero-subtitle animate-in">Transformo ideas en <span class="text-gradient">experiencias digitales</span> que impulsan tu negocio.</p>
+            <p class="hero-description animate-in">Desarrollo de Apps · Páginas Web · Automatizaciones · SaaS</p>
             <div class="hero-buttons animate-in">
-                <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="btn btn-primary" target="_blank" rel="noopener">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Pedir Presupuesto
+                <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="btn btn-primary magnetic" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>Pedir Presupuesto</span>
                 </a>
-                <a href="#portfolio" class="btn btn-ghost">
-                    Ver Proyectos
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-                </a>
+                <a href="portfolio.html" class="btn btn-ghost magnetic"><span>Ver Proyectos</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
             </div>
             <div class="hero-stats animate-in">
-                <div class="stat">
-                    <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">Productos lanzados</span>
-                </div>
+                <div class="stat"><span class="stat-number" data-count="12">0</span><span class="stat-plus">+</span><span class="stat-label">Proyectos</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number" data-count="100">0</span><span class="stat-plus">%</span>
-                    <span class="stat-label">Compromiso</span>
-                </div>
+                <div class="stat"><span class="stat-number" data-count="100">0</span><span class="stat-plus">%</span><span class="stat-label">Satisfacción</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number" data-count="24">0</span><span class="stat-plus">/7</span>
-                    <span class="stat-label">Soporte</span>
-                </div>
+                <div class="stat"><span class="stat-number" data-count="4">0</span><span class="stat-plus">+</span><span class="stat-label">Sectores</span></div>
             </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section" id="servicios">
+    <section class="sectors-section">
+        <div class="container">
+            <p class="sectors-title reveal">He colaborado con negocios de</p>
+            <div class="sectors-grid reveal">
+                <div class="sector-item"><span>🍽️ Restaurantes</span></div>
+                <div class="sector-item"><span>🏠 Inmobiliarias</span></div>
+                <div class="sector-item"><span>💪 Gimnasios</span></div>
+                <div class="sector-item"><span>🏨 Hoteles</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="servicios-home">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">// Servicios</span>
-                <h2 class="section-title">Soluciones digitales <span class="text-gradient">a medida</span></h2>
-                <p class="section-subtitle">Cada proyecto es único. Desarrollo soluciones personalizadas que se adaptan a tus necesidades.</p>
+                <h2 class="section-title">Soluciones <span class="text-gradient">digitales</span></h2>
             </div>
             <div class="services-grid">
-                <div class="service-card reveal" data-delay="0">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                    </div>
-                    <h3>Desarrollo Web</h3>
-                    <p>Páginas web modernas, rápidas y responsive. Desde landing pages hasta plataformas complejas.</p>
-                    <div class="service-tags">
-                        <span>HTML/CSS/JS</span>
-                        <span>React</span>
-                        <span>Next.js</span>
-                    </div>
-                    <div class="service-arrow">→</div>
-                </div>
-                <div class="service-card reveal" data-delay="100">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                    </div>
-                    <h3>Apps Móviles</h3>
-                    <p>Aplicaciones nativas y multiplataforma que ofrecen la mejor experiencia de usuario.</p>
-                    <div class="service-tags">
-                        <span>React Native</span>
-                        <span>iOS</span>
-                        <span>Android</span>
-                    </div>
-                    <div class="service-arrow">→</div>
-                </div>
-                <div class="service-card reveal" data-delay="200">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3>SaaS</h3>
-                    <p>Plataformas de software como servicio escalables, con suscripciones y paneles de control.</p>
-                    <div class="service-tags">
-                        <span>Cloud</span>
-                        <span>API</span>
-                        <span>Dashboard</span>
-                    </div>
-                    <div class="service-arrow">→</div>
-                </div>
-                <div class="service-card reveal" data-delay="300">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-                    </div>
-                    <h3>Automatizaciones</h3>
-                    <p>Automatiza procesos repetitivos con bots, workflows y conexiones entre herramientas.</p>
-                    <div class="service-tags">
-                        <span>n8n</span>
-                        <span>Bots</span>
-                        <span>API</span>
-                    </div>
-                    <div class="service-arrow">→</div>
-                </div>
+                <article class="service-card reveal"><div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Desarrollo Web</h3><p>Páginas web modernas, rápidas y responsive.</p><a href="servicios.html#web" class="service-link">Ver más →</a></article>
+                <article class="service-card reveal" data-delay="100"><div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3>Apps Móviles</h3><p>Aplicaciones iOS y Android nativas.</p><a href="servicios.html#apps" class="service-link">Ver más →</a></article>
+                <article class="service-card reveal" data-delay="200"><div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3>SaaS</h3><p>Plataformas escalables con suscripciones.</p><a href="servicios.html#saas" class="service-link">Ver más →</a></article>
+                <article class="service-card reveal" data-delay="300"><div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><h3>Automatizaciones</h3><p>Bots, workflows y conexiones.</p><a href="servicios.html#automatizaciones" class="service-link">Ver más →</a></article>
             </div>
+            <div class="section-cta reveal"><a href="servicios.html" class="btn btn-ghost">Ver todos los servicios</a></div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="section section-dark" id="portfolio">
+    <section class="section section-dark" id="portfolio-home">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">// Portfolio</span>
                 <h2 class="section-title">Proyectos <span class="text-gradient">destacados</span></h2>
-                <p class="section-subtitle">Algunos de los productos que he construido y lanzado.</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-card reveal" data-delay="0">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder saas-gradient">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-badge">SaaS</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Plataforma SaaS</h3>
-                        <p>Software como servicio completo con panel de administración, sistema de suscripciones y API REST.</p>
-                        <div class="portfolio-tech">
-                            <span>Cloud</span>
-                            <span>API</span>
-                            <span>Dashboard</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card reveal" data-delay="150">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder app1-gradient">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-badge">App</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>App Móvil I</h3>
-                        <p>Aplicación móvil con diseño moderno, notificaciones push y experiencia de usuario premium.</p>
-                        <div class="portfolio-tech">
-                            <span>Mobile</span>
-                            <span>UX/UI</span>
-                            <span>Notifications</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card reveal" data-delay="300">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder app2-gradient">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-badge">App</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>App Móvil II</h3>
-                        <p>Segunda aplicación lanzada con funcionalidades avanzadas, integración de pagos y tiempo real.</p>
-                        <div class="portfolio-tech">
-                            <span>Mobile</span>
-                            <span>Payments</span>
-                            <span>Real-time</span>
-                        </div>
-                    </div>
-                </div>
+                <article class="portfolio-card reveal">
+                    <div class="portfolio-image"><div class="portfolio-placeholder gym-placeholder"><div class="placeholder-content"><div class="placeholder-icon">💪</div><span class="placeholder-title">FitGym Pro</span><span class="placeholder-subtitle">Fitness App</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">App</span></div></div>
+                    <div class="portfolio-info"><h3>FitGym Pro</h3><p>App de gimnasio con rutinas personalizadas y seguimiento.</p><div class="portfolio-tech"><span>React Native</span><span>Firebase</span></div></div>
+                </article>
+                <article class="portfolio-card reveal" data-delay="100">
+                    <div class="portfolio-image"><div class="portfolio-placeholder time-placeholder"><div class="placeholder-content"><div class="placeholder-icon">⏱️</div><span class="placeholder-title">TimeFlow</span><span class="placeholder-subtitle">Horas Extras</span></div></div><div class="portfolio-overlay"><span class="portfolio-badge">App</span></div></div>
+                    <div class="portfolio-info"><h3>TimeFlow</h3><p>Sistema de control de horas extras para empresas.</p><div class="portfolio-tech"><span>React</span><span>Node.js</span></div></div>
+                </article>
             </div>
+            <div class="section-cta reveal"><a href="portfolio.html" class="btn btn-ghost">Ver todos los proyectos</a></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="sobre-mi">
+    <section class="section" id="testimonios-home">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content reveal">
-                    <span class="section-tag">// Sobre mí</span>
-                    <h2 class="section-title">Desarrollador digital <span class="text-gradient">apasionado</span></h2>
-                    <p class="about-text">
-                        Soy Said, un desarrollador con pasión por crear productos digitales que marquen la diferencia. 
-                        Desde aplicaciones móviles hasta plataformas SaaS, me especializo en transformar ideas en 
-                        soluciones reales que generan valor.
-                    </p>
-                    <p class="about-text">
-                        Mi enfoque se basa en entender las necesidades del cliente, diseñar soluciones elegantes y 
-                        desarrollar productos de calidad con tecnologías modernas. Cada proyecto es una oportunidad
-                        para superar expectativas.
-                    </p>
-                    <div class="about-skills">
-                        <div class="skill-pill">JavaScript</div>
-                        <div class="skill-pill">Python</div>
-                        <div class="skill-pill">React</div>
-                        <div class="skill-pill">Node.js</div>
-                        <div class="skill-pill">React Native</div>
-                        <div class="skill-pill">n8n</div>
-                        <div class="skill-pill">APIs</div>
-                        <div class="skill-pill">Cloud</div>
-                    </div>
-                    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="btn btn-primary" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Hablemos
-                    </a>
+            <div class="section-header reveal">
+                <span class="section-tag">// Testimonios</span>
+                <h2 class="section-title">Lo que dicen <span class="text-gradient">mis clientes</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">MR</div><div class="testimonial-info"><span class="testimonial-name">María Rodríguez</span><span class="testimonial-role">Restaurante La Parrilla</span></div></div>
                 </div>
-                <div class="about-visual reveal" data-delay="200">
-                    <div class="about-card-stack">
-                        <div class="floating-card card-1">
-                            <span class="card-emoji">🚀</span>
-                            <span>Apps Launches</span>
-                        </div>
-                        <div class="floating-card card-2">
-                            <span class="card-emoji">⚡</span>
-                            <span>Fast Delivery</span>
-                        </div>
-                        <div class="floating-card card-3">
-                            <span class="card-emoji">🎯</span>
-                            <span>Pixel Perfect</span>
-                        </div>
-                        <div class="code-window">
-                            <div class="code-header">
-                                <span class="code-dot red"></span>
-                                <span class="code-dot yellow"></span>
-                                <span class="code-dot green"></span>
-                                <span class="code-title">said.js</span>
-                            </div>
-                            <pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-var">said</span> = {
-  <span class="code-prop">pasión</span>: <span class="code-string">"código"</span>,
-  <span class="code-prop">café</span>: <span class="code-number">Infinity</span>,
-  <span class="code-prop">build</span>: (<span class="code-var">idea</span>) => {
-    <span class="code-keyword">return</span> <span class="code-string">`producto digital`</span>
-  }
-};</code></pre>
-                        </div>
+                <div class="testimonial-card reveal" data-delay="100">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">CP</div><div class="testimonial-info"><span class="testimonial-name">Carlos Pérez</span><span class="testimonial-role">Inmobiliaria Premium</span></div></div>
+                </div>
+                <div class="testimonial-card reveal" data-delay="200">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente!"</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">JL</div><div class="testimonial-info"><span class="testimonial-name">Jordi López</span><span class="testimonial-role">FitCenter Gym</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-dark" id="proceso">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// Proceso</span>
+                <h2 class="section-title">Cómo <span class="text-gradient">trabajo</span></h2>
+                <p class="section-subtitle">Un proceso claro de principio a fin.</p>
+            </div>
+            <div class="process-timeline reveal">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3>Consulta</h3>
+                        <p>Analizamos tu idea y objetivos.</p>
+                        <span class="process-time">1-2 días</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3>Propuesta</h3>
+                        <p>Presupuesto detallado con plazos.</p>
+                        <span class="process-time">2-3 días</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3>Diseño</h3>
+                        <p>Creo el diseño visual de tu proyecto.</p>
+                        <span class="process-time">1-2 semanas</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3>Desarrollo</h3>
+                        <p>Programo con actualizaciones semanales.</p>
+                        <span class="process-time">2-6 semanas</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <div class="process-content">
+                        <h3>Lanzamiento</h3>
+                        <p>Ajustes finales y publicación.</p>
+                        <span class="process-time">1-2 días</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content reveal">
                 <h2 class="cta-title">¿Tienes un proyecto en mente?</h2>
                 <p class="cta-text">Cuéntame tu idea y te preparo un presupuesto sin compromiso.</p>
-                <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Contactar por WhatsApp
-                </a>
+                <a href="contacto.html" class="btn btn-primary btn-lg">Contactar</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span>
-                    <p>Desarrollo digital desde Andorra 🇦🇩</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#servicios">Servicios</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#sobre-mi">Sobre mí</a>
-                </div>
+                <div class="footer-brand"><span class="logo-bracket">&lt;</span>Said<span class="logo-bracket">/&gt;</span><p>Desarrollo digital desde Andorra 🇦🇩</p></div>
+                <div class="footer-links"><a href="servicios.html">Servicios</a><a href="portfolio.html">Portfolio</a><a href="sobre-mi.html">Sobre mí</a><a href="contacto.html">Contacto</a></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Said. Todos los derechos reservados.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Said. Todos los derechos reservados.</p></div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <script src="script.js"></script>
