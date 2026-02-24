@@ -379,7 +379,10 @@ function animateCounters() {
 // ===========================
 function initNavbar() {
     const navbar = document.getElementById('navbar');
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
     let lastScroll = 0;
+    let menuOpen = false;
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY;
@@ -393,24 +396,38 @@ function initNavbar() {
         lastScroll = currentScroll;
     });
 
-    // Mobile toggle
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    if (toggle && navLinks) {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            menuOpen = !menuOpen;
+            toggle.classList.toggle('active', menuOpen);
+            navLinks.classList.toggle('active', menuOpen);
+            document.body.style.overflow = menuOpen ? 'hidden' : '';
+            document.body.style.position = menuOpen ? 'fixed' : '';
+            document.body.style.width = menuOpen ? '100%' : '';
         });
 
-        // Close on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                menuOpen = false;
                 toggle.classList.remove('active');
                 navLinks.classList.remove('active');
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOpen) {
+                menuOpen = false;
+                toggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+            }
         });
     }
 }
