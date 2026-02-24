@@ -682,6 +682,158 @@ function initCalculator() {
 }
 
 // ===========================
+// Translations
+// ===========================
+const translations = {
+    es: {
+        nav: { services: 'Servicios', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mí', contact: 'Contacto' },
+        hero: {
+            badge: 'Disponible para proyectos',
+            greeting: 'Hola, soy',
+            subtitle: 'Transformo ideas en <span class="text-gradient">experiencias digitales</span> que impulsan tu negocio.',
+            description: 'Desarrollo de Apps · Páginas Web · Automatizaciones · SaaS',
+            cta1: 'Pedir Presupuesto',
+            cta2: 'Ver Proyectos'
+        },
+        stats: { projects: 'Proyectos', satisfaction: 'Satisfacción', sectors: 'Sectores' },
+        trust: {
+            tag: 'Garantías',
+            title: 'Por qué <span class="text-gradient">confiar en mí</span>',
+            card1: { title: 'Satisfacción garantizada', desc: 'No pagas hasta que estés 100% satisfecho con el resultado.' },
+            card2: { title: 'Entrega rápida', desc: 'Plazos realistas que cumplo. Sin sorpresas ni retrasos.' },
+            card3: { title: 'Soporte incluido', desc: '30 días de soporte gratuito después del lanzamiento.' },
+            card4: { title: 'Comunicación directa', desc: 'Hablo contigo directamente. Sin intermediarios.' }
+        },
+        pricing: {
+            tag: 'Precios',
+            title: 'Inversión <span class="text-gradient">transparente</span>',
+            subtitle: 'Precios orientativos. Cada proyecto es único.',
+            basic: { name: 'Básico', title: 'Landing Page', price: '500€', desc: 'Perfecto para empezar tu presencia digital.' },
+            pro: { name: 'Profesional', title: 'Web / App', price: '1.500€', desc: 'Para negocios que necesitan más funcionalidades.' },
+            premium: { name: 'Premium', title: 'SaaS / Plataforma', price: '2.000€', desc: 'Soluciones completas a medida.' },
+            cta: 'Solicitar presupuesto'
+        },
+        cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' }
+    },
+    ca: {
+        nav: { services: 'Serveis', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mi', contact: 'Contacte' },
+        hero: {
+            badge: 'Disponible per a projectes',
+            greeting: 'Hola, sóc',
+            subtitle: 'Transformo idees en <span class="text-gradient">experiències digitals</span> que impulsen el teu negoci.',
+            description: 'Desenvolupament d\'Apps · Pàgines Web · Automatitzacions · SaaS',
+            cta1: 'Demanar Pressupost',
+            cta2: 'Veure Projectes'
+        },
+        stats: { projects: 'Projectes', satisfaction: 'Satisfacció', sectors: 'Sectors' },
+        trust: {
+            tag: 'Garanties',
+            title: 'Per què <span class="text-gradient">confiar en mi</span>',
+            card1: { title: 'Satisfacció garantida', desc: 'No pagues fins que estiguis 100% satisfet amb el resultat.' },
+            card2: { title: 'Lliurament ràpid', desc: 'Terminis realistes que compleixo. Sense sorpreses ni retards.' },
+            card3: { title: 'Suport inclòs', desc: '30 dies de suport gratuït després del llançament.' },
+            card4: { title: 'Comunicació directa', desc: 'Parlo amb tu directament. Sense intermediaris.' }
+        },
+        pricing: {
+            tag: 'Preus',
+            title: 'Inversió <span class="text-gradient">transparent</span>',
+            subtitle: 'Preus orientatius. Cada projecte és únic.',
+            basic: { name: 'Bàsic', title: 'Landing Page', price: '500€', desc: 'Perfecte per començar la teva presència digital.' },
+            pro: { name: 'Professional', title: 'Web / App', price: '1.500€', desc: 'Per a negocis que necessiten més funcionalitats.' },
+            premium: { name: 'Premium', title: 'SaaS / Plataforma', price: '2.000€', desc: 'Solucions completes a mida.' },
+            cta: 'Sol·licitar pressupost'
+        },
+        cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' }
+    },
+    fr: {
+        nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'À propos', contact: 'Contact' },
+        hero: {
+            badge: 'Disponible pour projets',
+            greeting: 'Salut, je suis',
+            subtitle: 'Je transforme les idées en <span class="text-gradient">expériences numériques</span> qui boostent votre entreprise.',
+            description: 'Développement d\'Apps · Sites Web · Automatisations · SaaS',
+            cta1: 'Demander un devis',
+            cta2: 'Voir les projets'
+        },
+        stats: { projects: 'Projets', satisfaction: 'Satisfaction', sectors: 'Secteurs' },
+        trust: {
+            tag: 'Garanties',
+            title: 'Pourquoi <span class="text-gradient">me faire confiance</span>',
+            card1: { title: 'Satisfaction garantie', desc: 'Vous ne payez pas jusqu\'à être 100% satisfait du résultat.' },
+            card2: { title: 'Livraison rapide', desc: 'Des délais réalistes que je respecte. Sans surprises ni retards.' },
+            card3: { title: 'Support inclus', desc: '30 jours de support gratuit après le lancement.' },
+            card4: { title: 'Communication directe', desc: 'Je vous parle directement. Sans intermédiaires.' }
+        },
+        pricing: {
+            tag: 'Prix',
+            title: 'Investissement <span class="text-gradient">transparent</span>',
+            subtitle: 'Prix indicatifs. Chaque projet est unique.',
+            basic: { name: 'Basique', title: 'Landing Page', price: '500€', desc: 'Parfait pour commencer votre présence numérique.' },
+            pro: { name: 'Professionnel', title: 'Web / App', price: '1.500€', desc: 'Pour les entreprises qui ont besoin de plus de fonctionnalités.' },
+            premium: { name: 'Premium', title: 'SaaS / Plateforme', price: '2.000€', desc: 'Solutions complètes sur mesure.' },
+            cta: 'Demander un devis'
+        },
+        cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' }
+    },
+    en: {
+        nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'About', contact: 'Contact' },
+        hero: {
+            badge: 'Available for projects',
+            greeting: 'Hi, I\'m',
+            subtitle: 'I transform ideas into <span class="text-gradient">digital experiences</span> that boost your business.',
+            description: 'App Development · Websites · Automations · SaaS',
+            cta1: 'Get a Quote',
+            cta2: 'View Projects'
+        },
+        stats: { projects: 'Projects', satisfaction: 'Satisfaction', sectors: 'Sectors' },
+        trust: {
+            tag: 'Guarantees',
+            title: 'Why <span class="text-gradient">trust me</span>',
+            card1: { title: 'Satisfaction guaranteed', desc: 'You don\'t pay until you\'re 100% satisfied with the result.' },
+            card2: { title: 'Fast delivery', desc: 'Realistic deadlines that I meet. No surprises or delays.' },
+            card3: { title: 'Support included', desc: '30 days of free support after launch.' },
+            card4: { title: 'Direct communication', desc: 'I speak with you directly. No intermediaries.' }
+        },
+        pricing: {
+            tag: 'Pricing',
+            title: 'Transparent <span class="text-gradient">investment</span>',
+            subtitle: 'Indicative prices. Each project is unique.',
+            basic: { name: 'Basic', title: 'Landing Page', price: '500€', desc: 'Perfect to start your digital presence.' },
+            pro: { name: 'Professional', title: 'Web / App', price: '1.500€', desc: 'For businesses that need more features.' },
+            premium: { name: 'Premium', title: 'SaaS / Platform', price: '2.000€', desc: 'Complete custom solutions.' },
+            cta: 'Request quote'
+        },
+        cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' }
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'es';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const keys = key.split('.');
+        let value = translations[lang];
+        keys.forEach(k => value = value?.[k]);
+        if (value) el.innerHTML = value;
+    });
+}
+
+function initLanguage() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+    setLanguage(currentLang);
+}
+
+// ===========================
 // Init Everything
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
@@ -723,7 +875,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initBackToTop();
     initEmailPopup();
-    initCalculator();
+    initLanguage();
     
     // Register Service Worker
     registerServiceWorker();

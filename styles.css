@@ -874,6 +874,37 @@ img {
     border-radius: 1px;
 }
 
+.lang-selector {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 4px;
+    margin-left: 16px;
+}
+
+.lang-btn {
+    padding: 6px 10px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background: var(--gradient-main);
+    color: var(--bg-primary);
+}
+
 /* ===========================
    Hero Section
    =========================== */
@@ -2435,6 +2466,14 @@ img {
     .mobile-menu-social {
         display: flex;
         gap: 16px;
+    }
+
+    .lang-selector {
+        position: absolute;
+        top: 100px;
+        right: 20px;
+        margin-left: 0;
+        z-index: 1002;
     }
 
     .mobile-menu-social a {
