@@ -5,18 +5,18 @@
 // ===========================
 function initLoader() {
     const loader = document.getElementById('loader');
-    
+
     if (!loader) {
         document.body.style.overflow = '';
         return;
     }
-    
+
     document.body.style.overflow = 'hidden';
-    
+
     setTimeout(() => {
         loader.classList.add('hidden');
         document.body.style.overflow = '';
-        
+
         document.querySelectorAll('.animate-in').forEach((el, i) => {
             el.style.animationPlayState = 'running';
         });
@@ -29,33 +29,33 @@ function initLoader() {
 function initCursor() {
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursorFollower');
-    
+
     if (!cursor || !follower) return;
-    
+
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
     let followerX = 0, followerY = 0;
-    
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
-    
+
     function animateCursor() {
         cursorX += (mouseX - cursorX) * 0.2;
         cursorY += (mouseY - cursorY) * 0.2;
         followerX += (mouseX - followerX) * 0.1;
         followerY += (mouseY - followerY) * 0.1;
-        
+
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
         follower.style.left = followerX + 'px';
         follower.style.top = followerY + 'px';
-        
+
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
-    
+
     // Hover effects
     const hoverElements = document.querySelectorAll('a, button, .service-card, .portfolio-card, .skill-pill');
     hoverElements.forEach(el => {
@@ -121,7 +121,7 @@ class ParticleSystem {
         window.addEventListener('mousemove', (e) => {
             this.mouse.x = e.clientX;
             this.mouse.y = e.clientY;
-            
+
             // Add trail on mouse move
             if (Math.random() > 0.7) {
                 this.trails.push({
@@ -147,11 +147,11 @@ class ParticleSystem {
         this.trails = this.trails.filter(t => {
             t.life -= 0.02;
             if (t.life <= 0) return false;
-            
+
             this.ctx.beginPath();
             this.ctx.arc(t.x, t.y, 3 * t.life, 0, Math.PI * 2);
             this.ctx.fillStyle = t.color.replace(')', `, ${t.life * 0.5})`).replace('rgb', 'rgba').replace('#', 'rgba(');
-            
+
             // Convert hex to rgba
             const hex = t.color;
             const r = parseInt(hex.slice(1, 3), 16);
@@ -159,7 +159,7 @@ class ParticleSystem {
             const b = parseInt(hex.slice(5, 7), 16);
             this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${t.life * 0.5})`;
             this.ctx.fill();
-            
+
             return true;
         });
 
@@ -175,7 +175,7 @@ class ParticleSystem {
             // Bounce with energy
             if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1.1;
             if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1.1;
-            
+
             // Keep in bounds
             p.x = Math.max(0, Math.min(this.canvas.width, p.x));
             p.y = Math.max(0, Math.min(this.canvas.height, p.y));
@@ -188,11 +188,11 @@ class ParticleSystem {
                 if (dist < this.mouse.radius) {
                     const force = (this.mouse.radius - dist) / this.mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    
+
                     // Create swirl effect
                     p.vx += Math.cos(angle + Math.PI / 2) * force * 0.02;
                     p.vy += Math.sin(angle + Math.PI / 2) * force * 0.02;
-                    
+
                     // Limit velocity
                     const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
                     if (speed > 3) {
@@ -207,7 +207,7 @@ class ParticleSystem {
             const r = parseInt(hex.slice(1, 3), 16);
             const g = parseInt(hex.slice(3, 5), 16);
             const b = parseInt(hex.slice(5, 7), 16);
-            
+
             // Glow effect
             const gradient = this.ctx.createRadialGradient(
                 p.x, p.y, 0,
@@ -215,12 +215,12 @@ class ParticleSystem {
             );
             gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${p.opacity})`);
             gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-            
+
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.radius * pulseScale * 3, 0, Math.PI * 2);
             this.ctx.fillStyle = gradient;
             this.ctx.fill();
-            
+
             // Core
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.radius * pulseScale, 0, Math.PI * 2);
@@ -236,17 +236,17 @@ class ParticleSystem {
 
                 if (dist < this.connectionDistance) {
                     const opacity = (1 - dist / this.connectionDistance) * 0.25;
-                    
+
                     // Create gradient line
                     const lineGradient = this.ctx.createLinearGradient(p.x, p.y, p2.x, p2.y);
                     lineGradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${opacity})`);
-                    
+
                     const hex2 = p2.color;
                     const r2 = parseInt(hex2.slice(1, 3), 16);
                     const g2 = parseInt(hex2.slice(3, 5), 16);
                     const b2 = parseInt(hex2.slice(5, 7), 16);
                     lineGradient.addColorStop(1, `rgba(${r2}, ${g2}, ${b2}, ${opacity})`);
-                    
+
                     this.ctx.beginPath();
                     this.ctx.moveTo(p.x, p.y);
                     this.ctx.lineTo(p2.x, p2.y);
@@ -267,20 +267,20 @@ class ParticleSystem {
 function initParallax() {
     const heroContent = document.querySelector('.hero-content');
     const hero = document.querySelector('.hero');
-    
+
     if (!heroContent || !hero) return;
-    
+
     hero.addEventListener('mousemove', (e) => {
         const rect = hero.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         const moveX = x * 0.02;
         const moveY = y * 0.02;
-        
+
         heroContent.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
-    
+
     hero.addEventListener('mouseleave', () => {
         heroContent.style.transform = 'translate(0, 0)';
     });
@@ -291,21 +291,21 @@ function initParallax() {
 // ===========================
 function initMagneticButtons() {
     const magneticElements = document.querySelectorAll('.magnetic');
-    
+
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            
+
             el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            
+
             const span = el.querySelector('span');
             if (span) {
                 span.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
             }
         });
-        
+
         el.addEventListener('mouseleave', () => {
             el.style.transform = 'translate(0, 0)';
             const span = el.querySelector('span');
@@ -454,13 +454,13 @@ function initSmoothScroll() {
 // ===========================
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
+
             // Close all other items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
@@ -468,11 +468,11 @@ function initFAQ() {
                     otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 }
             });
-            
+
             // Toggle current item
             item.classList.toggle('active');
             question.setAttribute('aria-expanded', !isActive);
-            
+
             // Track FAQ interaction
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
@@ -516,18 +516,18 @@ function initAnalytics() {
             }
         });
     });
-    
+
     // Track scroll depth
     let maxScroll = 0;
     const scrollMilestones = [25, 50, 75, 100];
     const trackedMilestones = new Set();
-    
+
     window.addEventListener('scroll', () => {
         const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-        
+
         if (scrollPercent > maxScroll) {
             maxScroll = scrollPercent;
-            
+
             scrollMilestones.forEach(milestone => {
                 if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
                     trackedMilestones.add(milestone);
@@ -541,7 +541,7 @@ function initAnalytics() {
             });
         }
     });
-    
+
     // Track time on page
     let timeOnPage = 0;
     setInterval(() => {
@@ -563,7 +563,7 @@ function initAnalytics() {
 function initScrollProgress() {
     const progressBar = document.getElementById('scrollProgress');
     if (!progressBar) return;
-    
+
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -578,7 +578,7 @@ function initScrollProgress() {
 function initBackToTop() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
             btn.classList.add('visible');
@@ -586,7 +586,7 @@ function initBackToTop() {
             btn.classList.remove('visible');
         }
     });
-    
+
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -598,12 +598,12 @@ function initBackToTop() {
 function initEmailPopup() {
     const popup = document.getElementById('emailPopup');
     const closeBtn = document.getElementById('emailPopupClose');
-    
+
     if (!popup || !closeBtn) return;
-    
+
     // Check if already shown in this session
     if (sessionStorage.getItem('emailPopupShown')) return;
-    
+
     // Show popup after 15 seconds
     setTimeout(() => {
         if (window.scrollY > 300) {
@@ -611,12 +611,12 @@ function initEmailPopup() {
             sessionStorage.setItem('emailPopupShown', 'true');
         }
     }, 15000);
-    
+
     // Or show after scrolling 50% of page
     let popupShown = false;
     window.addEventListener('scroll', () => {
         if (popupShown) return;
-        
+
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         if (window.scrollY > docHeight * 0.5) {
             popup.classList.add('visible');
@@ -624,7 +624,7 @@ function initEmailPopup() {
             popupShown = true;
         }
     });
-    
+
     closeBtn.addEventListener('click', () => {
         popup.classList.remove('visible');
     });
@@ -637,18 +637,18 @@ function initCalculator() {
     const calcType = document.getElementById('calcType');
     const calcUrgency = document.getElementById('calcUrgency');
     const calcPrice = document.getElementById('calcPrice');
-    
+
     if (!calcType || !calcUrgency || !calcPrice) return;
-    
+
     let basePrice = 500;
     let featuresPrice = 0;
     let multiplier = 1;
-    
+
     function updatePrice() {
         const total = Math.round((basePrice + featuresPrice) * multiplier);
         calcPrice.textContent = total.toLocaleString('es-ES') + '€';
     }
-    
+
     calcType.querySelectorAll('.calc-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             calcType.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
@@ -657,7 +657,7 @@ function initCalculator() {
             updatePrice();
         });
     });
-    
+
     const checkboxes = document.querySelectorAll('.calc-checkbox input');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
@@ -670,7 +670,7 @@ function initCalculator() {
             updatePrice();
         });
     });
-    
+
     calcUrgency.querySelectorAll('.calc-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             calcUrgency.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
@@ -812,11 +812,18 @@ let currentLang = localStorage.getItem('lang') || 'es';
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
-    
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+
+    // Update active state in dropdown
+    document.querySelectorAll('.lang-dropdown-content button').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    
+
+    // Update displayed language code
+    const currentLangEl = document.getElementById('currentLang');
+    if (currentLangEl) {
+        currentLangEl.textContent = lang.toUpperCase();
+    }
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         const keys = key.split('.');
@@ -827,9 +834,27 @@ function setLanguage(lang) {
 }
 
 function initLanguage() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    const dropdown = document.getElementById('langDropdown');
+    const dropBtn = document.getElementById('langDropBtn');
+
+    if (dropBtn && dropdown) {
+        dropBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+        });
+    }
+
+    document.querySelectorAll('.lang-dropdown-content button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.dataset.lang);
+            if (dropdown) dropdown.classList.remove('active');
+        });
     });
+
     setLanguage(currentLang);
 }
 
@@ -838,29 +863,29 @@ function initLanguage() {
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
-    
+
     // Prevent scroll during loader only if loader exists
     if (loader) {
         document.body.style.overflow = 'hidden';
     }
-    
+
     // Pause initial animations
     document.querySelectorAll('.animate-in').forEach(el => {
         el.style.animationPlayState = 'paused';
     });
-    
+
     // Init loader first
     initLoader();
-    
+
     // Init cursor
     initCursor();
-    
+
     // Particles
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
         new ParticleSystem(canvas);
     }
-    
+
     // Init other effects
     initParallax();
     initMagneticButtons();
@@ -870,13 +895,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initFAQ();
     initAnalytics();
-    
+
     // New features
     initScrollProgress();
     initBackToTop();
     initEmailPopup();
     initLanguage();
-    
+
     // Register Service Worker
     registerServiceWorker();
 });
