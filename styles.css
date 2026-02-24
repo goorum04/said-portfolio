@@ -1539,6 +1539,11 @@ img {
     margin-bottom: 16px;
 }
 
+.portfolio-info p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
 .portfolio-tech {
     display: flex;
     flex-wrap: wrap;
