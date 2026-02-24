@@ -686,6 +686,36 @@
     margin-top: 48px;
 }
 
+@media (max-width: 991px) {
+    .pricing-grid {
+        display: flex;
+        overflow-x: auto;
+        padding: 20px 24px;
+        margin-left: -24px;
+        margin-right: -24px;
+        gap: 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .pricing-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-card {
+        flex: 0 0 300px;
+        scroll-snap-align: center;
+        transform: none !important;
+        /* Disable scale to avoid clipping in scroll */
+        margin-bottom: 20px;
+    }
+
+    .pricing-card.featured {
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    }
+}
+
 .pricing-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
