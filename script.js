@@ -711,26 +711,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register Service Worker
     registerServiceWorker();
 });
-    
-    // Init cursor
-    initCursor();
-    
-    // Particles
-    const canvas = document.getElementById('particleCanvas');
-    if (canvas) {
-        new ParticleSystem(canvas);
-    }
-    
-    // Init other effects
-    initParallax();
-    initMagneticButtons();
-    initNavbar();
-    initScrollReveal();
-    animateCounters();
-    initSmoothScroll();
-    initFAQ();
-    initAnalytics();
-    
-    // Register Service Worker
-    registerServiceWorker();
-});
