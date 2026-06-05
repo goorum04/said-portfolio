@@ -24,6 +24,183 @@ function initLoader() {
 }
 
 // ===========================
+// NFC Welcome Experience
+// ===========================
+function isNFCVisit() {
+    const p = new URLSearchParams(window.location.search);
+    return p.get('nfc') === '1' || p.get('from') === 'tarjeta';
+}
+
+function initNFCWelcome() {
+    const overlay  = document.getElementById('nfcOverlay');
+    const canvas   = document.getElementById('nfcCanvas');
+    const ripple   = document.getElementById('nfcRipple');
+    const content  = document.getElementById('nfcContent');
+    const nameWrap = document.getElementById('nfcNameWrap');
+    const name     = document.getElementById('nfcName');
+    const role     = document.getElementById('nfcRole');
+    const message  = document.getElementById('nfcMessage');
+    const cta      = document.getElementById('nfcCta');
+    const skip     = document.getElementById('nfcSkip');
+
+    if (!overlay) return;
+
+    overlay.classList.add('nfc-overlay--active');
+    overlay.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+
+    // Canvas setup
+    const ctx = canvas.getContext('2d');
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    const COLORS = ['#00d4ff', '#7c3aed', '#ec4899', '#22c55e', '#f59e0b'];
+
+    // Ambient drifting particles
+    const ambient = Array.from({ length: 55 }, () => ({
+        x:  Math.random() * canvas.width,
+        y:  Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r:  Math.random() * 1.4 + 0.3,
+        op: Math.random() * 0.35 + 0.1,
+        c:  COLORS[Math.floor(Math.random() * COLORS.length)]
+    }));
+
+    // Burst particle pool
+    const burst = [];
+
+    function spawnBurst(count) {
+        for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 4 + 1.5;
+            burst.push({
+                x: cx, y: cy,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                r:    Math.random() * 2.5 + 0.8,
+                life: 1,
+                decay: Math.random() * 0.012 + 0.006,
+                c: COLORS[Math.floor(Math.random() * COLORS.length)]
+            });
+        }
+    }
+
+    function hexToRgb(hex) {
+        const n = parseInt(hex.slice(1), 16);
+        return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    let raf;
+
+    function drawFrame() {
+        ctx.fillStyle = 'rgba(10, 10, 15, 0.12)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Ambient
+        ambient.forEach(p => {
+            p.x = (p.x + p.vx + canvas.width)  % canvas.width;
+            p.y = (p.y + p.vy + canvas.height) % canvas.height;
+            const [r, g, b] = hexToRgb(p.c);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${p.op})`;
+            ctx.fill();
+        });
+
+        // Burst particles
+        for (let i = burst.length - 1; i >= 0; i--) {
+            const p = burst[i];
+            p.x  += p.vx;
+            p.y  += p.vy;
+            p.vy += 0.03;
+            p.life -= p.decay;
+            if (p.life <= 0) { burst.splice(i, 1); continue; }
+            const [r, g, b] = hexToRgb(p.c);
+            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.8})`);
+            grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${p.life})`;
+            ctx.fill();
+        }
+
+        raf = requestAnimationFrame(drawFrame);
+    }
+    drawFrame();
+
+    // Phase timeline
+    const T1 = 1800; // ripple → content
+    const BURST1 = 1200;
+    const ROLE_T = T1 + 600;
+    const MSG_T  = T1 + 1200;
+    const CTA_T  = T1 + 1900;
+    const AUTO_T = T1 + 7500;
+
+    setTimeout(() => spawnBurst(120), BURST1);
+
+    setTimeout(() => {
+        ripple.classList.add('nfc-ripple-wrap--hide');
+        content.style.opacity = '1';
+        nameWrap.classList.add('nfc-name-wrap--reveal', 'nfc-name-wrap--sweep');
+        name.classList.add('nfc-name--reveal');
+    }, T1);
+
+    setTimeout(() => role.classList.add('nfc-role--reveal'), ROLE_T);
+
+    setTimeout(() => {
+        message.classList.add('nfc-message--reveal');
+        spawnBurst(40);
+    }, MSG_T);
+
+    setTimeout(() => cta.classList.add('nfc-cta--reveal'), CTA_T);
+
+    const autoTimer = setTimeout(dismiss, AUTO_T);
+
+    function dismiss() {
+        clearTimeout(autoTimer);
+        overlay.classList.add('nfc-overlay--exit');
+
+        spawnBurst(60);
+        // Let burst render through the fade, then cut the loop
+        const stopRaf = setTimeout(() => cancelAnimationFrame(raf), 1000);
+
+        overlay.addEventListener('transitionend', function onDone() {
+            clearTimeout(stopRaf);
+            cancelAnimationFrame(raf);
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+            document.querySelectorAll('.animate-in').forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+        }, { once: true });
+
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({ event: 'nfc_welcome_dismissed' });
+        }
+    }
+
+    cta.addEventListener('click', dismiss);
+    skip.addEventListener('click', dismiss);
+
+    window.addEventListener('resize', () => {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({ event: 'nfc_card_scan' });
+    }
+}
+
+// ===========================
 // Custom Cursor
 // ===========================
 function initCursor() {
@@ -864,18 +1041,19 @@ function initLanguage() {
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
 
-    // Prevent scroll during loader only if loader exists
-    if (loader) {
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Pause initial animations
+    // Pause initial animations regardless of path
     document.querySelectorAll('.animate-in').forEach(el => {
         el.style.animationPlayState = 'paused';
     });
 
-    // Init loader first
-    initLoader();
+    if (isNFCVisit()) {
+        // Hide regular loader instantly — no flash
+        if (loader) loader.style.display = 'none';
+        initNFCWelcome();
+    } else {
+        if (loader) document.body.style.overflow = 'hidden';
+        initLoader();
+    }
 
     // Init cursor
     initCursor();

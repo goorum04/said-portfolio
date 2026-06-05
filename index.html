@@ -104,6 +104,44 @@
         </div>
     </div>
 
+    <!-- NFC Welcome Overlay -->
+    <div class="nfc-overlay" id="nfcOverlay" aria-hidden="true">
+        <canvas class="nfc-canvas" id="nfcCanvas"></canvas>
+
+        <div class="nfc-ripple-wrap" id="nfcRipple">
+            <div class="nfc-ring nfc-ring--1"></div>
+            <div class="nfc-ring nfc-ring--2"></div>
+            <div class="nfc-ring nfc-ring--3"></div>
+            <div class="nfc-ring nfc-ring--4"></div>
+            <div class="nfc-chip-icon" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M8.5 8.5a6 6 0 0 1 7 7"/>
+                    <path d="M5 5a10 10 0 0 1 14 14"/>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="nfc-content" id="nfcContent">
+            <div class="nfc-name-wrap" id="nfcNameWrap">
+                <span class="nfc-name" id="nfcName">SAID</span>
+            </div>
+            <p class="nfc-role" id="nfcRole">Freelance Digital Developer&nbsp;·&nbsp;Andorra</p>
+            <p class="nfc-message" id="nfcMessage">
+                Gracias por escanear mi tarjeta —<br>
+                <span class="nfc-message-highlight">aquí empieza tu proyecto</span>
+            </p>
+            <button class="nfc-cta" id="nfcCta" type="button">
+                Explorar mi trabajo
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+            </button>
+        </div>
+
+        <button class="nfc-skip" id="nfcSkip" type="button" aria-label="Saltar intro">Saltar ×</button>
+    </div>
+
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
