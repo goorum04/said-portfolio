@@ -34,10 +34,12 @@ function isNFCVisit() {
 function initNFCWelcome() {
     const overlay  = document.getElementById('nfcOverlay');
     const canvas   = document.getElementById('nfcCanvas');
+    const flash    = document.getElementById('nfcFlash');
     const ripple   = document.getElementById('nfcRipple');
     const content  = document.getElementById('nfcContent');
     const nameWrap = document.getElementById('nfcNameWrap');
-    const name     = document.getElementById('nfcName');
+    const nameEl   = document.getElementById('nfcName');
+    const divider  = document.getElementById('nfcDivider');
     const role     = document.getElementById('nfcRole');
     const message  = document.getElementById('nfcMessage');
     const cta      = document.getElementById('nfcCta');
@@ -49,86 +51,159 @@ function initNFCWelcome() {
     overlay.removeAttribute('aria-hidden');
     document.body.style.overflow = 'hidden';
 
-    // Canvas setup
+    // ── Canvas ───────────────────────────────────────────
     const ctx = canvas.getContext('2d');
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
-    const COLORS = ['#00d4ff', '#7c3aed', '#ec4899', '#22c55e', '#f59e0b'];
+    let CX = canvas.width / 2;
+    let CY = canvas.height / 2;
 
-    // Ambient drifting particles
-    const ambient = Array.from({ length: 55 }, () => ({
+    const C = {
+        cyan:   [0,   212, 255],
+        purple: [124, 58,  237],
+        pink:   [236, 72,  153],
+        white:  [255, 255, 255],
+        teal:   [0,   255, 180]
+    };
+    const PALETTE = Object.values(C);
+
+    // Ambient star field
+    const stars = Array.from({ length: 120 }, () => ({
         x:  Math.random() * canvas.width,
         y:  Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        r:  Math.random() * 1.4 + 0.3,
-        op: Math.random() * 0.35 + 0.1,
-        c:  COLORS[Math.floor(Math.random() * COLORS.length)]
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r:  Math.random() * 1.8 + 0.2,
+        op: Math.random() * 0.5 + 0.08,
+        rgb: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+        twinkle: Math.random() * Math.PI * 2
     }));
 
-    // Burst particle pool
+    // Burst pool
     const burst = [];
 
-    function spawnBurst(count) {
+    function spawnBurst(count, cx, cy, speedMult) {
+        cx = cx ?? CX; cy = cy ?? CY; speedMult = speedMult ?? 1;
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2;
-            const speed = Math.random() * 4 + 1.5;
+            const speed = (Math.random() * 5 + 2) * speedMult;
+            const rgb   = PALETTE[Math.floor(Math.random() * PALETTE.length)];
             burst.push({
                 x: cx, y: cy,
                 vx: Math.cos(angle) * speed,
                 vy: Math.sin(angle) * speed,
-                r:    Math.random() * 2.5 + 0.8,
+                r:    Math.random() * 3 + 1,
                 life: 1,
-                decay: Math.random() * 0.012 + 0.006,
-                c: COLORS[Math.floor(Math.random() * COLORS.length)]
+                decay: Math.random() * 0.01 + 0.005,
+                rgb,
+                tail: []
             });
         }
     }
 
-    function hexToRgb(hex) {
-        const n = parseInt(hex.slice(1), 16);
-        return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    // Radial shockwave rings drawn on canvas
+    const shockwaves = [];
+    function spawnShockwave() {
+        shockwaves.push({ r: 0, life: 1, rgb: C.cyan });
+        shockwaves.push({ r: 0, life: 1, rgb: C.purple, delay: 8 });
     }
 
+    let t = 0;
     let raf;
 
     function drawFrame() {
-        ctx.fillStyle = 'rgba(10, 10, 15, 0.12)';
+        t++;
+        CX = canvas.width / 2;
+        CY = canvas.height / 2;
+
+        // Trail effect — don't clear fully
+        ctx.fillStyle = 'rgba(5, 5, 8, 0.18)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Ambient
-        ambient.forEach(p => {
-            p.x = (p.x + p.vx + canvas.width)  % canvas.width;
-            p.y = (p.y + p.vy + canvas.height) % canvas.height;
-            const [r, g, b] = hexToRgb(p.c);
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${p.op})`;
-            ctx.fill();
-        });
-
-        // Burst particles
-        for (let i = burst.length - 1; i >= 0; i--) {
-            const p = burst[i];
-            p.x  += p.vx;
-            p.y  += p.vy;
-            p.vy += 0.03;
-            p.life -= p.decay;
-            if (p.life <= 0) { burst.splice(i, 1); continue; }
-            const [r, g, b] = hexToRgb(p.c);
-            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
-            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.8})`);
+        // Stars / ambient
+        stars.forEach(s => {
+            s.x = (s.x + s.vx + canvas.width)  % canvas.width;
+            s.y = (s.y + s.vy + canvas.height) % canvas.height;
+            s.twinkle += 0.04;
+            const alpha = s.op * (0.6 + 0.4 * Math.sin(s.twinkle));
+            const [r, g, b] = s.rgb;
+            // Glow
+            const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
+            grd.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
             grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+            ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
             ctx.fillStyle = grd;
             ctx.fill();
             ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+            ctx.fill();
+        });
+
+        // Shockwaves
+        for (let i = shockwaves.length - 1; i >= 0; i--) {
+            const sw = shockwaves[i];
+            if (sw.delay > 0) { sw.delay--; continue; }
+            sw.r    += 18;
+            sw.life -= 0.035;
+            if (sw.life <= 0) { shockwaves.splice(i, 1); continue; }
+            const [r, g, b] = sw.rgb;
+            ctx.beginPath();
+            ctx.arc(CX, CY, sw.r, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(${r},${g},${b},${sw.life * 0.7})`;
+            ctx.lineWidth = 3 * sw.life;
+            ctx.stroke();
+        }
+
+        // Burst particles with glow tails
+        for (let i = burst.length - 1; i >= 0; i--) {
+            const p = burst[i];
+            p.tail.push({ x: p.x, y: p.y });
+            if (p.tail.length > 7) p.tail.shift();
+
+            p.x  += p.vx;
+            p.y  += p.vy;
+            p.vx *= 0.985;
+            p.vy *= 0.985;
+            p.vy += 0.06;
+            p.life -= p.decay;
+
+            if (p.life <= 0) { burst.splice(i, 1); continue; }
+
+            const [r, g, b] = p.rgb;
+
+            // Tail
+            if (p.tail.length > 1) {
+                for (let j = 1; j < p.tail.length; j++) {
+                    const alpha = (j / p.tail.length) * p.life * 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(p.tail[j-1].x, p.tail[j-1].y);
+                    ctx.lineTo(p.tail[j].x, p.tail[j].y);
+                    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+                    ctx.lineWidth = p.r * (j / p.tail.length) * 0.8;
+                    ctx.stroke();
+                }
+            }
+
+            // Glow
+            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
+            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.9})`);
+            grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+
+            // Core
+            ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${p.life})`;
+            ctx.fillStyle = `rgba(255,255,255,${p.life * 0.9})`;
             ctx.fill();
         }
 
@@ -136,44 +211,62 @@ function initNFCWelcome() {
     }
     drawFrame();
 
-    // Phase timeline
-    const T1 = 1800; // ripple → content
-    const BURST1 = 1200;
-    const ROLE_T = T1 + 600;
-    const MSG_T  = T1 + 1200;
-    const CTA_T  = T1 + 1900;
-    const AUTO_T = T1 + 7500;
+    // ── Phase timeline ────────────────────────────────────
+    const T_BURST1  = 1000;  // first burst
+    const T_REVEAL  = 1600;  // name appears
+    const T_DIVIDER = T_REVEAL + 400;
+    const T_ROLE    = T_REVEAL + 700;
+    const T_MSG     = T_REVEAL + 1200;
+    const T_CTA     = T_REVEAL + 1900;
+    const T_AUTO    = T_REVEAL + 7500;
 
-    setTimeout(() => spawnBurst(120), BURST1);
+    // Burst 1 — during ripple phase
+    setTimeout(() => {
+        spawnBurst(180);
+        spawnShockwave();
+    }, T_BURST1);
 
+    // Reveal name + flash
     setTimeout(() => {
         ripple.classList.add('nfc-ripple-wrap--hide');
         content.style.opacity = '1';
-        nameWrap.classList.add('nfc-name-wrap--reveal', 'nfc-name-wrap--sweep');
-        name.classList.add('nfc-name--reveal');
-    }, T1);
 
-    setTimeout(() => role.classList.add('nfc-role--reveal'), ROLE_T);
+        // White flash
+        if (flash) {
+            flash.classList.add('nfc-flash--go');
+            setTimeout(() => flash.classList.remove('nfc-flash--go'), 600);
+        }
+
+        // Second big burst on reveal
+        spawnBurst(250);
+        spawnShockwave();
+
+        nameWrap.classList.add('nfc-name-wrap--reveal');
+        nameEl.classList.add('nfc-name--reveal');
+    }, T_REVEAL);
+
+    setTimeout(() => {
+        if (divider) divider.classList.add('nfc-divider--reveal');
+    }, T_DIVIDER);
+
+    setTimeout(() => role.classList.add('nfc-role--reveal'), T_ROLE);
 
     setTimeout(() => {
         message.classList.add('nfc-message--reveal');
-        spawnBurst(40);
-    }, MSG_T);
+        spawnBurst(80);
+    }, T_MSG);
 
-    setTimeout(() => cta.classList.add('nfc-cta--reveal'), CTA_T);
+    setTimeout(() => cta.classList.add('nfc-cta--reveal'), T_CTA);
 
-    const autoTimer = setTimeout(dismiss, AUTO_T);
+    const autoTimer = setTimeout(dismiss, T_AUTO);
 
+    // ── Dismiss ───────────────────────────────────────────
     function dismiss() {
         clearTimeout(autoTimer);
+        spawnBurst(120);
         overlay.classList.add('nfc-overlay--exit');
 
-        spawnBurst(60);
-        // Let burst render through the fade, then cut the loop
-        const stopRaf = setTimeout(() => cancelAnimationFrame(raf), 1000);
-
-        overlay.addEventListener('transitionend', function onDone() {
-            clearTimeout(stopRaf);
+        overlay.addEventListener('transitionend', () => {
             cancelAnimationFrame(raf);
             overlay.style.display = 'none';
             document.body.style.overflow = '';
@@ -189,11 +282,6 @@ function initNFCWelcome() {
 
     cta.addEventListener('click', dismiss);
     skip.addEventListener('click', dismiss);
-
-    window.addEventListener('resize', () => {
-        canvas.width  = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
 
     if (typeof dataLayer !== 'undefined') {
         dataLayer.push({ event: 'nfc_card_scan' });
