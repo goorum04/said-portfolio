@@ -245,6 +245,18 @@
     mix-blend-mode: screen;
 }
 
+/* Mobile: disable expensive blend mode, simpler aurora */
+@media (max-width: 768px) {
+    .nfc-canvas { mix-blend-mode: normal; }
+    .nfc-overlay--active::before {
+        background:
+            radial-gradient(ellipse 100% 70% at 50% 50%, rgba(0,212,255,0.2) 0%, transparent 65%),
+            radial-gradient(ellipse 80% 50% at 80% 80%, rgba(124,58,237,0.25) 0%, transparent 60%);
+        animation: none;
+    }
+    .nfc-overlay--active::after { display: none; }
+}
+
 /* Flash overlay — JS adds .nfc-flash--go to trigger */
 .nfc-flash {
     position: absolute;

@@ -42,7 +42,38 @@ function initNFCWelcome() {
     const skip     = document.getElementById('nfcSkip');
     const letters  = document.querySelectorAll('.nfc-letter');
 
-    if (!overlay || typeof gsap === 'undefined') return;
+    if (!overlay) return;
+
+    // If GSAP didn't load (CDN blocked/slow), fall back to CSS and dismiss quickly
+    if (typeof gsap === 'undefined') {
+        overlay.classList.add('nfc-overlay--active');
+        overlay.removeAttribute('aria-hidden');
+        content.style.opacity = '1';
+        letters.forEach((l, i) => {
+            l.style.opacity = '1';
+            l.style.transition = `opacity 0.4s ease ${0.1 + i * 0.08}s, transform 0.4s ease ${0.1 + i * 0.08}s`;
+            l.style.transform = 'translateY(0) scale(1)';
+        });
+        document.getElementById('nfcRole').style.opacity = '1';
+        document.getElementById('nfcMessage').style.opacity = '1';
+        cta.style.opacity = '1';
+        const fbDismiss = () => {
+            overlay.classList.add('nfc-overlay--exit');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+                document.querySelectorAll('.animate-in').forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+            }, 950);
+        };
+        cta.addEventListener('click', fbDismiss);
+        skip.addEventListener('click', fbDismiss);
+        setTimeout(fbDismiss, 8000);
+        return;
+    }
+
+    const isMobile = window.innerWidth < 768;
 
     overlay.classList.add('nfc-overlay--active');
     overlay.removeAttribute('aria-hidden');
@@ -84,8 +115,12 @@ function initNFCWelcome() {
     };
     const PALETTE = Object.values(C);
 
-    // Star field
-    const stars = Array.from({ length: 140 }, () => ({
+    // Star field — fewer on mobile for smooth 60fps
+    const STAR_COUNT  = isMobile ? 55 : 140;
+    const BURST_COUNT = isMobile ? 80 : 200;
+    const BURST_BIG   = isMobile ? 110 : 280;
+
+    const stars = Array.from({ length: STAR_COUNT }, () => ({
         x: 0, y: 0,
         vx: (Math.random() - 0.5) * 0.35,
         vy: (Math.random() - 0.5) * 0.35,
@@ -132,7 +167,8 @@ function initNFCWelcome() {
     function drawFrame() {
         ctx.clearRect(0, 0, W, H);
         // Trail layer — screen blend so black=transparent
-        ctx.fillStyle = 'rgba(0,0,0,0.22)';
+        // Mobile: opaque dark fill (no mix-blend-mode). Desktop: transparent trail
+        ctx.fillStyle = isMobile ? 'rgba(5,5,12,0.88)' : 'rgba(0,0,0,0.22)';
         ctx.fillRect(0, 0, W, H);
 
         // Stars
@@ -209,7 +245,7 @@ function initNFCWelcome() {
     const tl = gsap.timeline();
 
     // Phase 1: burst during ripple (t=1s)
-    tl.add(() => { spawnBurst(200); spawnShockwave(); }, 1.0);
+    tl.add(() => { spawnBurst(BURST_COUNT); spawnShockwave(); }, 1.0);
 
     // Phase 2: reveal — flash + burst + letters
     tl.add(() => {
@@ -219,7 +255,7 @@ function initNFCWelcome() {
             flash.classList.add('nfc-flash--go');
             setTimeout(() => flash.classList.remove('nfc-flash--go'), 600);
         }
-        spawnBurst(280);
+        spawnBurst(BURST_BIG);
         spawnShockwave();
     }, 1.6);
 
