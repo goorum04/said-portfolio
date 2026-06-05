@@ -124,8 +124,17 @@
         </div>
 
         <div class="nfc-content" id="nfcContent">
+            <!-- SVG filter for real bloom (invisible, referenced by CSS) -->
+            <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+                <defs>
+                    <filter id="nfc-bloom" x="-40%" y="-40%" width="180%" height="180%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                </defs>
+            </svg>
             <div class="nfc-name-wrap" id="nfcNameWrap">
-                <span class="nfc-name" id="nfcName">SAID</span>
+                <span class="nfc-letter">S</span><span class="nfc-letter">a</span><span class="nfc-letter">e</span><span class="nfc-letter">T</span><span class="nfc-letter">e</span><span class="nfc-letter">c</span><span class="nfc-letter">h</span>
             </div>
             <hr class="nfc-divider" id="nfcDivider">
             <p class="nfc-role" id="nfcRole">Freelance Digital Developer&nbsp;·&nbsp;Andorra</p>
@@ -613,7 +622,8 @@
         </form>
     </div>
 
-    <script src="script.js?v=1.5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="script.js?v=2.0"></script>
 </body>
 
 </html>

@@ -37,246 +37,253 @@ function initNFCWelcome() {
     const flash    = document.getElementById('nfcFlash');
     const ripple   = document.getElementById('nfcRipple');
     const content  = document.getElementById('nfcContent');
-    const nameWrap = document.getElementById('nfcNameWrap');
-    const nameEl   = document.getElementById('nfcName');
     const divider  = document.getElementById('nfcDivider');
-    const role     = document.getElementById('nfcRole');
-    const message  = document.getElementById('nfcMessage');
     const cta      = document.getElementById('nfcCta');
     const skip     = document.getElementById('nfcSkip');
+    const letters  = document.querySelectorAll('.nfc-letter');
 
-    if (!overlay) return;
+    if (!overlay || typeof gsap === 'undefined') return;
 
     overlay.classList.add('nfc-overlay--active');
     overlay.removeAttribute('aria-hidden');
     document.body.style.overflow = 'hidden';
 
-    // ── Canvas ───────────────────────────────────────────
-    const ctx = canvas.getContext('2d');
-    function resize() {
-        canvas.width  = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
+    // Set initial states for GSAP-controlled elements
+    gsap.set(letters, { opacity: 0, y: 50, scale: 1.3 });
+    gsap.set([divider], { width: 0, opacity: 0 });
+    gsap.set(['#nfcRole', '#nfcMessage', '#nfcCta'], { opacity: 0, y: 24 });
 
-    let CX = canvas.width / 2;
-    let CY = canvas.height / 2;
+    // ── Canvas with devicePixelRatio ─────────────────────
+    const ctx = canvas.getContext('2d');
+    let W, H, CX, CY, dpr;
+
+    function resize() {
+        dpr = window.devicePixelRatio || 1;
+        W   = window.innerWidth;
+        H   = window.innerHeight;
+        canvas.width  = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width  = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+        CX = W / 2;
+        CY = H / 2;
+        // Re-init star positions on resize
+        stars.forEach(s => {
+            s.x = Math.random() * W;
+            s.y = Math.random() * H;
+        });
+    }
 
     const C = {
         cyan:   [0,   212, 255],
         purple: [124, 58,  237],
         pink:   [236, 72,  153],
         white:  [255, 255, 255],
-        teal:   [0,   255, 180]
+        gold:   [255, 200,  50]
     };
     const PALETTE = Object.values(C);
 
-    // Ambient star field
-    const stars = Array.from({ length: 120 }, () => ({
-        x:  Math.random() * canvas.width,
-        y:  Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r:  Math.random() * 1.8 + 0.2,
-        op: Math.random() * 0.5 + 0.08,
+    // Star field
+    const stars = Array.from({ length: 140 }, () => ({
+        x: 0, y: 0,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r:  Math.random() * 1.6 + 0.3,
+        op: Math.random() * 0.55 + 0.1,
         rgb: PALETTE[Math.floor(Math.random() * PALETTE.length)],
-        twinkle: Math.random() * Math.PI * 2
+        phase: Math.random() * Math.PI * 2
     }));
 
-    // Burst pool
-    const burst = [];
+    // Burst / spark pool — elongated rectangles instead of circles
+    const sparks = [];
 
-    function spawnBurst(count, cx, cy, speedMult) {
-        cx = cx ?? CX; cy = cy ?? CY; speedMult = speedMult ?? 1;
+    function spawnBurst(count, speedMult) {
+        speedMult = speedMult || 1;
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2;
-            const speed = (Math.random() * 5 + 2) * speedMult;
+            const speed = (Math.random() * 6 + 2.5) * speedMult;
             const rgb   = PALETTE[Math.floor(Math.random() * PALETTE.length)];
-            burst.push({
-                x: cx, y: cy,
+            sparks.push({
+                x: CX, y: CY,
                 vx: Math.cos(angle) * speed,
                 vy: Math.sin(angle) * speed,
-                r:    Math.random() * 3 + 1,
+                w:  Math.random() * 14 + 4,   // length of spark
+                h:  Math.random() * 1.8 + 0.8, // thickness
                 life: 1,
-                decay: Math.random() * 0.01 + 0.005,
-                rgb,
-                tail: []
+                decay: Math.random() * 0.013 + 0.005,
+                rgb
             });
         }
     }
 
-    // Radial shockwave rings drawn on canvas
-    const shockwaves = [];
+    // Canvas shockwaves
+    const waves = [];
     function spawnShockwave() {
-        shockwaves.push({ r: 0, life: 1, rgb: C.cyan });
-        shockwaves.push({ r: 0, life: 1, rgb: C.purple, delay: 8 });
+        waves.push({ r: 0, life: 1, rgb: C.cyan, speed: 20 });
+        waves.push({ r: 0, life: 0.8, rgb: C.purple, speed: 14, delay: 6 });
     }
 
-    let t = 0;
+    resize();
+    window.addEventListener('resize', resize);
+
     let raf;
 
     function drawFrame() {
-        t++;
-        CX = canvas.width / 2;
-        CY = canvas.height / 2;
+        ctx.clearRect(0, 0, W, H);
+        // Trail layer — screen blend so black=transparent
+        ctx.fillStyle = 'rgba(0,0,0,0.22)';
+        ctx.fillRect(0, 0, W, H);
 
-        // With mix-blend-mode:screen, black = fully transparent — clear each frame
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Subtle dark fill so trails work (black still transparent in screen mode)
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Stars / ambient
+        // Stars
         stars.forEach(s => {
-            s.x = (s.x + s.vx + canvas.width)  % canvas.width;
-            s.y = (s.y + s.vy + canvas.height) % canvas.height;
-            s.twinkle += 0.04;
-            const alpha = s.op * (0.6 + 0.4 * Math.sin(s.twinkle));
+            s.x = (s.x + s.vx + W) % W;
+            s.y = (s.y + s.vy + H) % H;
+            s.phase += 0.035;
+            const alpha = s.op * (0.55 + 0.45 * Math.sin(s.phase));
             const [r, g, b] = s.rgb;
-            // Glow
-            const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
+            const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3.5);
             grd.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
             grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
             ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+            ctx.arc(s.x, s.y, s.r * 3.5, 0, Math.PI * 2);
             ctx.fillStyle = grd;
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
             ctx.fill();
         });
 
         // Shockwaves
-        for (let i = shockwaves.length - 1; i >= 0; i--) {
-            const sw = shockwaves[i];
-            if (sw.delay > 0) { sw.delay--; continue; }
-            sw.r    += 18;
-            sw.life -= 0.035;
-            if (sw.life <= 0) { shockwaves.splice(i, 1); continue; }
-            const [r, g, b] = sw.rgb;
+        for (let i = waves.length - 1; i >= 0; i--) {
+            const w = waves[i];
+            if (w.delay > 0) { w.delay--; continue; }
+            w.r    += w.speed;
+            w.life -= 0.03;
+            if (w.life <= 0) { waves.splice(i, 1); continue; }
+            const [r, g, b] = w.rgb;
             ctx.beginPath();
-            ctx.arc(CX, CY, sw.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(${r},${g},${b},${sw.life * 0.7})`;
-            ctx.lineWidth = 3 * sw.life;
+            ctx.arc(CX, CY, w.r, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(${r},${g},${b},${w.life * 0.75})`;
+            ctx.lineWidth = 2.5 * w.life;
             ctx.stroke();
         }
 
-        // Burst particles with glow tails
-        for (let i = burst.length - 1; i >= 0; i--) {
-            const p = burst[i];
-            p.tail.push({ x: p.x, y: p.y });
-            if (p.tail.length > 7) p.tail.shift();
-
+        // Elongated sparks
+        for (let i = sparks.length - 1; i >= 0; i--) {
+            const p = sparks[i];
             p.x  += p.vx;
             p.y  += p.vy;
-            p.vx *= 0.985;
-            p.vy *= 0.985;
-            p.vy += 0.06;
+            p.vx *= 0.982;
+            p.vy *= 0.982;
+            p.vy += 0.07;
             p.life -= p.decay;
-
-            if (p.life <= 0) { burst.splice(i, 1); continue; }
+            if (p.life <= 0) { sparks.splice(i, 1); continue; }
 
             const [r, g, b] = p.rgb;
+            const angle = Math.atan2(p.vy, p.vx);
 
-            // Tail
-            if (p.tail.length > 1) {
-                for (let j = 1; j < p.tail.length; j++) {
-                    const alpha = (j / p.tail.length) * p.life * 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(p.tail[j-1].x, p.tail[j-1].y);
-                    ctx.lineTo(p.tail[j].x, p.tail[j].y);
-                    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
-                    ctx.lineWidth = p.r * (j / p.tail.length) * 0.8;
-                    ctx.stroke();
-                }
-            }
-
-            // Glow
-            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.9})`);
+            // Glow halo
+            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.w * 1.8);
+            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.7})`);
             grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, p.w * 1.8, 0, Math.PI * 2);
             ctx.fillStyle = grd;
             ctx.fill();
 
-            // Core
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255,255,255,${p.life * 0.9})`;
-            ctx.fill();
+            // Elongated spark body
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(angle);
+            ctx.fillStyle = `rgba(${r},${g},${b},${p.life})`;
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            // Bright white core
+            ctx.fillStyle = `rgba(255,255,255,${p.life * 0.8})`;
+            ctx.fillRect(-p.w * 0.3, -p.h * 0.35, p.w * 0.6, p.h * 0.7);
+            ctx.restore();
         }
 
         raf = requestAnimationFrame(drawFrame);
     }
     drawFrame();
 
-    // ── Phase timeline ────────────────────────────────────
-    const T_BURST1  = 1000;  // first burst
-    const T_REVEAL  = 1600;  // name appears
-    const T_DIVIDER = T_REVEAL + 400;
-    const T_ROLE    = T_REVEAL + 700;
-    const T_MSG     = T_REVEAL + 1200;
-    const T_CTA     = T_REVEAL + 1900;
-    const T_AUTO    = T_REVEAL + 7500;
+    // ── GSAP timeline ────────────────────────────────────
+    const tl = gsap.timeline();
 
-    // Burst 1 — during ripple phase
-    setTimeout(() => {
-        spawnBurst(180);
-        spawnShockwave();
-    }, T_BURST1);
+    // Phase 1: burst during ripple (t=1s)
+    tl.add(() => { spawnBurst(200); spawnShockwave(); }, 1.0);
 
-    // Reveal name + flash
-    setTimeout(() => {
+    // Phase 2: reveal — flash + burst + letters
+    tl.add(() => {
         ripple.classList.add('nfc-ripple-wrap--hide');
-        content.style.opacity = '1';
-
-        // White flash
+        gsap.set(content, { opacity: 1 });
         if (flash) {
             flash.classList.add('nfc-flash--go');
             setTimeout(() => flash.classList.remove('nfc-flash--go'), 600);
         }
-
-        // Second big burst on reveal
-        spawnBurst(250);
+        spawnBurst(280);
         spawnShockwave();
+    }, 1.6);
 
-        nameWrap.classList.add('nfc-name-wrap--reveal');
-        nameEl.classList.add('nfc-name--reveal');
-    }, T_REVEAL);
+    // Letters stagger in (S → A → I → D, or S → A → E → T → E → C → H)
+    tl.from(letters, {
+        opacity: 0, y: 50, scale: 1.35,
+        stagger: 0.08,
+        ease: 'back.out(1.8)',
+        duration: 0.55,
+        clearProps: 'transform'
+    }, 1.65);
 
-    setTimeout(() => {
-        if (divider) divider.classList.add('nfc-divider--reveal');
-    }, T_DIVIDER);
+    // Divider line draws itself
+    tl.to(divider, {
+        width: 'min(300px, 68vw)',
+        opacity: 1,
+        duration: 0.75,
+        ease: 'power3.out'
+    }, 2.15);
 
-    setTimeout(() => role.classList.add('nfc-role--reveal'), T_ROLE);
+    // Role
+    tl.to('#nfcRole', {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+    }, 2.45);
 
-    setTimeout(() => {
-        message.classList.add('nfc-message--reveal');
-        spawnBurst(80);
-    }, T_MSG);
+    // Message
+    tl.to('#nfcMessage', {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+    }, 3.0);
 
-    setTimeout(() => cta.classList.add('nfc-cta--reveal'), T_CTA);
+    // CTA
+    tl.to('#nfcCta', {
+        opacity: 1, y: 0, scale: 1,
+        duration: 0.65,
+        ease: 'back.out(2)'
+    }, 3.7);
 
-    const autoTimer = setTimeout(dismiss, T_AUTO);
+    // Auto-dismiss at t=9.5s
+    tl.add(dismiss, 9.5);
 
     // ── Dismiss ───────────────────────────────────────────
+    let dismissed = false;
     function dismiss() {
-        clearTimeout(autoTimer);
-        spawnBurst(120);
-        overlay.classList.add('nfc-overlay--exit');
-
-        overlay.addEventListener('transitionend', () => {
-            cancelAnimationFrame(raf);
-            overlay.style.display = 'none';
-            document.body.style.overflow = '';
-            document.querySelectorAll('.animate-in').forEach(el => {
-                el.style.animationPlayState = 'running';
-            });
-        }, { once: true });
-
+        if (dismissed) return;
+        dismissed = true;
+        tl.kill();
+        spawnBurst(100);
+        gsap.to(overlay, {
+            opacity: 0,
+            duration: 0.95,
+            ease: 'power2.inOut',
+            onComplete() {
+                cancelAnimationFrame(raf);
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+                document.querySelectorAll('.animate-in').forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+            }
+        });
         if (typeof dataLayer !== 'undefined') {
             dataLayer.push({ event: 'nfc_welcome_dismissed' });
         }
