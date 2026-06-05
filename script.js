@@ -121,8 +121,10 @@ function initNFCWelcome() {
         CX = canvas.width / 2;
         CY = canvas.height / 2;
 
-        // Trail effect — don't clear fully
-        ctx.fillStyle = 'rgba(5, 5, 8, 0.18)';
+        // With mix-blend-mode:screen, black = fully transparent — clear each frame
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Subtle dark fill so trails work (black still transparent in screen mode)
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Stars / ambient
