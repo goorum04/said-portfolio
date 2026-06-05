@@ -369,7 +369,6 @@
     font-weight: 900;
     letter-spacing: 0.12em;
     color: #fff;
-    filter: url(#nfc-bloom);
     text-shadow:
         0 0 30px rgba(0, 212, 255, 1),
         0 0 70px rgba(0, 212, 255, 0.6),

@@ -223,13 +223,12 @@ function initNFCWelcome() {
         spawnShockwave();
     }, 1.6);
 
-    // Letters stagger in (S → A → I → D, or S → A → E → T → E → C → H)
-    tl.from(letters, {
-        opacity: 0, y: 50, scale: 1.35,
+    // Letters stagger in — use .to() since gsap.set() already set initial state
+    tl.to(letters, {
+        opacity: 1, y: 0, scale: 1,
         stagger: 0.08,
         ease: 'back.out(1.8)',
-        duration: 0.55,
-        clearProps: 'transform'
+        duration: 0.55
     }, 1.65);
 
     // Divider line draws itself

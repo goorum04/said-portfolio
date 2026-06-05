@@ -124,15 +124,6 @@
         </div>
 
         <div class="nfc-content" id="nfcContent">
-            <!-- SVG filter for real bloom (invisible, referenced by CSS) -->
-            <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-                <defs>
-                    <filter id="nfc-bloom" x="-40%" y="-40%" width="180%" height="180%">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                    </filter>
-                </defs>
-            </svg>
             <div class="nfc-name-wrap" id="nfcNameWrap">
                 <span class="nfc-letter">S</span><span class="nfc-letter">a</span><span class="nfc-letter">e</span><span class="nfc-letter">T</span><span class="nfc-letter">e</span><span class="nfc-letter">c</span><span class="nfc-letter">h</span>
             </div>
