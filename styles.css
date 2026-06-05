@@ -2160,53 +2160,107 @@ img {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    justify-content: space-between;
+    padding: 20px 22px;
+    background: #0a0a14;
     transition: transform var(--transition-smooth);
 }
 
+/* soft single-color glow per project */
 .card-mock::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 22px 22px;
+    width: 70%;
+    height: 80%;
+    top: -20%;
+    right: -14%;
+    background: radial-gradient(circle at center, var(--accent, #00d4ff) 0%, transparent 68%);
+    opacity: 0.28;
+    transition: opacity 0.5s ease, transform 0.6s ease;
     pointer-events: none;
 }
 
-.portfolio-card:hover .card-mock { transform: scale(1.04); }
+.portfolio-card:hover .card-mock::before {
+    opacity: 0.45;
+    transform: scale(1.2) translate(-6%, 8%);
+}
+
+/* fine grid texture */
+.card-mock::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.mock-index {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.mock-index::before {
+    content: '/ ';
+    color: var(--accent, #00d4ff);
+}
+
+.mock-foot {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+}
 
 .mock-name {
     font-family: var(--font-display);
-    font-size: clamp(1.3rem, 3.5vw, 1.9rem);
-    font-weight: 900;
-    color: white;
-    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.05rem);
+    font-weight: 800;
+    color: #fff;
     letter-spacing: -0.03em;
-    padding: 0 20px;
-    position: relative;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.6);
-    line-height: 1.1;
+    line-height: 1.05;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.mock-type {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: rgba(255,255,255,0.42);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    position: relative;
+.mock-arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.4s ease;
 }
 
-.card-mock--shop  { background: linear-gradient(135deg, #1a0a00 0%, #6b2200 50%, #d4420f 100%); }
-.card-mock--chat  { background: linear-gradient(135deg, #001a14 0%, #004d38 50%, #009473 100%); }
-.card-mock--vip   { background: linear-gradient(135deg, #0e0020 0%, #3d0099 50%, #7c3aed 100%); }
-.card-mock--pay   { background: linear-gradient(135deg, #020c1a 0%, #0a2d55 50%, #1565c0 100%); }
-.card-mock--tour  { background: linear-gradient(135deg, #110b04 0%, #3d2a13 50%, #7d5b3c 100%); }
-.card-mock--trade { background: linear-gradient(135deg, #001205 0%, #003d18 50%, #006b2d 100%); }
-.card-mock--voice { background: linear-gradient(135deg, #000814 0%, #002766 50%, #0052cc 100%); }
-.card-mock--dash  { background: linear-gradient(135deg, #040814 0%, #0d1f40 50%, #1a3a78 100%); }
+.portfolio-card:hover .mock-arrow {
+    color: #0a0a14;
+    background: var(--accent, #00d4ff);
+    border-color: var(--accent, #00d4ff);
+    box-shadow: 0 8px 24px -6px var(--accent, #00d4ff);
+    transform: rotate(-45deg);
+}
+
+.card-mock--shop  { --accent: #ff6b35; }
+.card-mock--chat  { --accent: #25d366; }
+.card-mock--vip   { --accent: #a855f7; }
+.card-mock--pay   { --accent: #38bdf8; }
+.card-mock--tour  { --accent: #f5a623; }
+.card-mock--trade { --accent: #00e676; }
+.card-mock--voice { --accent: #00d4ff; }
+.card-mock--dash  { --accent: #818cf8; }
 
 
 .gym-placeholder {
