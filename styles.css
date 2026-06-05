@@ -2141,11 +2141,23 @@ img {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 18px 20px;
     transition: transform var(--transition-smooth);
     position: relative;
     overflow: hidden;
+}
+
+.portfolio-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .portfolio-card:hover .portfolio-placeholder {
@@ -2155,44 +2167,45 @@ img {
 .placeholder-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 4px;
     z-index: 2;
-    text-align: center;
+    position: relative;
 }
 
 .placeholder-icon {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
-    transition: all var(--transition-smooth);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -62%);
+    font-size: 5.5rem;
+    line-height: 1;
+    z-index: 1;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    pointer-events: none;
+    user-select: none;
 }
 
 .portfolio-card:hover .placeholder-icon {
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -68%) scale(1.12);
+    filter: drop-shadow(0 12px 32px rgba(255, 255, 255, 0.15));
 }
 
 .placeholder-title {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
 }
 
 .placeholder-subtitle {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.65);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.14em;
 }
 
 .gym-placeholder {
