@@ -9,64 +9,59 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    overflow: hidden;
     pointer-events: none;
+    /* No overflow:hidden — avoids Safari blur clipping bug */
 }
 
 .hf-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0;
-    will-change: transform, opacity;
-    animation:
-        hfOrbReveal 1.8s ease forwards,
-        hfOrbDrift var(--t, 16s) ease-in-out infinite alternate;
-    animation-delay: var(--d, 0s), var(--d, 0s);
+    filter: blur(80px);
+    /* Always visible — opacity set per orb, not via animation fill */
+    will-change: transform;
+    animation: hfOrbDrift var(--t, 16s) ease-in-out infinite alternate;
+    animation-delay: var(--d, 0s);
 }
 
 .hf-orb--cyan {
-    width: min(750px, 90vw);
-    height: min(750px, 90vw);
-    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.28) 0%, transparent 65%);
-    top: -30%;
-    left: -20%;
+    width: min(700px, 110vw);
+    height: min(700px, 110vw);
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.45) 0%, rgba(0, 212, 255, 0.1) 40%, transparent 70%);
+    opacity: 0.85;
+    top: -25%;
+    left: -25%;
     --t: 18s;
-    --d: 0.3s;
+    --d: 0s;
 }
 
 .hf-orb--purple {
-    width: min(650px, 80vw);
-    height: min(650px, 80vw);
-    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.38) 0%, transparent 65%);
-    top: -5%;
-    right: -18%;
+    width: min(600px, 100vw);
+    height: min(600px, 100vw);
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.55) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 70%);
+    opacity: 0.85;
+    top: -10%;
+    right: -20%;
     --t: 22s;
-    --d: 0.8s;
+    --d: -7s;
 }
 
 .hf-orb--pink {
-    width: min(500px, 65vw);
-    height: min(500px, 65vw);
-    background: radial-gradient(circle at center, rgba(236, 72, 153, 0.22) 0%, transparent 65%);
-    bottom: -15%;
-    left: 25%;
+    width: min(480px, 85vw);
+    height: min(480px, 85vw);
+    background: radial-gradient(circle at center, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0.1) 40%, transparent 70%);
+    opacity: 0.75;
+    bottom: -10%;
+    left: 20%;
     --t: 20s;
-    --d: 1.2s;
-}
-
-@keyframes hfOrbReveal {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+    --d: -4s;
 }
 
 @keyframes hfOrbDrift {
     0%   { transform: translate(0, 0) scale(1); }
-    20%  { transform: translate(3%, -5%) scale(1.05); }
-    40%  { transform: translate(-4%, 3%) scale(0.96); }
-    60%  { transform: translate(5%, 4%) scale(1.04); }
-    80%  { transform: translate(-2%, -3%) scale(0.98); }
-    100% { transform: translate(2%, 2%) scale(1.02); }
+    25%  { transform: translate(3%, -6%) scale(1.06); }
+    50%  { transform: translate(-4%, 3%) scale(0.96); }
+    75%  { transform: translate(5%, 4%) scale(1.04); }
+    100% { transform: translate(-2%, -3%) scale(0.98); }
 }
 
 /* ─── HERO GRID TEXTURE ─── */
@@ -88,6 +83,11 @@
 @keyframes hfGridFade {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+/* Fallback: if animation is blocked, grid still appears */
+@supports not (animation-timeline: scroll()) {
+    .hf-hero-grid { opacity: 1; }
 }
 
 /* ─── HERO BOTTOM GRADIENT FADE ─── */
@@ -516,33 +516,71 @@
 /* ─── MOBILE OPTIMIZATIONS ─── */
 
 @media (max-width: 768px) {
-    .hf-orb {
-        filter: blur(70px);
+    /* Bigger, more visible orbs on mobile — closer to center */
+    .hf-orb { filter: blur(60px); }
+
+    .hf-orb--cyan {
+        width: 100vw;
+        height: 100vw;
+        top: -20%;
+        left: -35%;
+        opacity: 0.9;
     }
 
-    .hf-orb--cyan  { top: -10%; left: -30%; opacity: 0.7; }
-    .hf-orb--purple { right: -30%; opacity: 0.7; }
-    .hf-orb--pink  { bottom: -10%; }
+    .hf-orb--purple {
+        width: 90vw;
+        height: 90vw;
+        top: -5%;
+        right: -35%;
+        opacity: 0.9;
+    }
+
+    .hf-orb--pink {
+        width: 75vw;
+        height: 75vw;
+        bottom: 5%;
+        left: 10%;
+        opacity: 0.8;
+    }
 
     .hf-hero-grid  { display: none; }
     .hf-hero-fade  { height: 120px; }
 
-    .hf-t-card { width: 280px; padding: 22px; }
+    .hf-t-card { width: 270px; padding: 20px; }
+    .hf-marquee-track { animation-duration: 28s; }
 
-    .hf-marquee-track {
-        animation-duration: 32s;
+    /* On mobile: always show glow borders on cards (no hover needed) */
+    .service-card {
+        border-color: rgba(0, 212, 255, 0.12) !important;
+    }
+
+    /* Pricing featured card always visible glow */
+    .pricing-card.featured {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.12);
     }
 }
 
+/* ─── REDUCED MOTION — Keep orbs visible, just static ─── */
+
 @media (prefers-reduced-motion: reduce) {
-    .hf-orb,
-    .hf-marquee-track,
+    .hf-orb {
+        /* Cancel drift animation but keep element visible */
+        animation: none !important;
+        /* opacity is already set per orb, not via animation, so stays visible */
+    }
+
+    .hf-marquee-track {
+        animation: none !important;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 12px;
+    }
+
     .cta-section::before {
         animation: none !important;
     }
 
-    .hf-marquee-track {
-        overflow-x: auto;
+    .whatsapp-float {
         animation: none !important;
     }
 }
