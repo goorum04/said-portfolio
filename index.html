@@ -45,6 +45,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=1.7">
+    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.2">
 
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');</script>
 
@@ -176,7 +177,15 @@
     </header>
 
     <section class="hero" id="hero">
+        <!-- Higgsfield ambient layer -->
+        <div class="hf-hero-ambient">
+            <div class="hf-orb hf-orb--cyan"></div>
+            <div class="hf-orb hf-orb--purple"></div>
+            <div class="hf-orb hf-orb--pink"></div>
+        </div>
+        <div class="hf-hero-grid"></div>
         <canvas id="particleCanvas"></canvas>
+        <div class="hf-hero-fade"></div>
         <div class="hero-content">
             <div class="hero-badge animate-in"><span class="badge-dot"></span><span data-i18n="hero.badge">Disponible
                     para proyectos</span></div>
@@ -218,6 +227,7 @@
         </div>
     </section>
 
+    <hr class="hf-separator">
     <section class="sectors-section">
         <div class="container">
             <p class="sectors-title reveal">He colaborado con negocios de</p>
@@ -230,6 +240,7 @@
         </div>
     </section>
 
+    <hr class="hf-separator">
     <section class="section" id="servicios-home">
         <div class="container">
             <div class="section-header reveal">
@@ -338,63 +349,106 @@
                 <span class="section-tag">// Testimonios</span>
                 <h2 class="section-title">Lo que dicen <span class="text-gradient">mis clientes</span></h2>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas
-                        aumentaron un 40%."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MR</div>
-                        <div class="testimonial-info"><span class="testimonial-name">María Rodríguez</span><span
-                                class="testimonial-role">Restaurante La Parrilla</span></div>
+            <!-- Infinite scrolling testimonials marquee -->
+            <div class="hf-testimonials-marquee">
+                <div class="hf-marquee-track">
+                    <!-- Set 1 -->
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">MR</div>
+                            <div class="hf-t-info"><span class="hf-t-name">María Rodríguez</span><span class="hf-t-role">Restaurante La Parrilla</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal" data-delay="100">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">CP</div>
-                        <div class="testimonial-info"><span class="testimonial-name">Carlos Pérez</span><span
-                                class="testimonial-role">Inmobiliaria Premium</span></div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">CP</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Carlos Pérez</span><span class="hf-t-role">Inmobiliaria Premium</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal" data-delay="200">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">JL</div>
-                        <div class="testimonial-info"><span class="testimonial-name">Jordi López</span><span
-                                class="testimonial-role">FitCenter Gym</span></div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">JL</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Jordi López</span><span class="hf-t-role">FitCenter Gym</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal" data-delay="300">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Nuestra web de hotel quedó espectacular. Reservas online funcionando
-                        perfecto."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AM</div>
-                        <div class="testimonial-info"><span class="testimonial-name">Ana Martínez</span><span
-                                class="testimonial-role">Hotel Andorra Center</span></div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">AM</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Ana Martínez</span><span class="hf-t-role">Hotel Andorra Center</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal" data-delay="400">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">RS</div>
-                        <div class="testimonial-info"><span class="testimonial-name">Roberto Sánchez</span><span
-                                class="testimonial-role">Consultoría BCN</span></div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">RS</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Roberto Sánchez</span><span class="hf-t-role">Consultoría BCN</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal" data-delay="500">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"El SaaS que creó para nuestra tienda superó todas las expectativas."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">LG</div>
-                        <div class="testimonial-info"><span class="testimonial-name">Laura García</span><span
-                                class="testimonial-role">Delishop Gourmet</span></div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">LG</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Laura García</span><span class="hf-t-role">Delishop Gourmet</span></div>
+                        </div>
+                    </div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">MR</div>
+                            <div class="hf-t-info"><span class="hf-t-name">María Rodríguez</span><span class="hf-t-role">Restaurante La Parrilla</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">CP</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Carlos Pérez</span><span class="hf-t-role">Inmobiliaria Premium</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">JL</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Jordi López</span><span class="hf-t-role">FitCenter Gym</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">AM</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Ana Martínez</span><span class="hf-t-role">Hotel Andorra Center</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">RS</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Roberto Sánchez</span><span class="hf-t-role">Consultoría BCN</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="hf-t-text">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">LG</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Laura García</span><span class="hf-t-role">Delishop Gourmet</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -609,6 +663,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
     <script src="script.js?v=2.0"></script>
+    <script src="higgsfield-visuals.js?v=1.2"></script>
 </body>
 
 </html>
