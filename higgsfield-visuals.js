@@ -176,23 +176,8 @@
         hero.addEventListener('mouseenter', () => { spot.style.opacity = '1'; });
     }
 
-    /* ─── DATA STREAM LINES (global fixed background) ─── */
-    function initDataStream() {
-        const wrap = document.createElement('div');
-        wrap.className = 'hf-datastream hf-datastream--global';
-        document.body.insertBefore(wrap, document.body.firstChild);
-
-        const count = 18;
-        for (let i = 0; i < count; i++) {
-            const line = document.createElement('div');
-            line.className = 'hf-ds-line';
-            const leftPct = 2 + (i / count) * 96;
-            const dur = (2.5 + Math.random() * 4).toFixed(2);
-            const del = (Math.random() * -8).toFixed(2);
-            line.style.cssText = `left:${leftPct}%;--ds-dur:${dur}s;--ds-del:${del}s`;
-            wrap.appendChild(line);
-        }
-    }
+    /* ─── DATA STREAM LINES — REMOVED (replaced by aurora + hex grid) ─── */
+    function initDataStream() { /* no-op */ }
 
     /* ─── GLITCH EFFECT ON HERO TITLE ─── */
     function initGlitch() {
@@ -202,9 +187,96 @@
         title.setAttribute('data-text', title.textContent);
     }
 
-    /* ─── PARTICLE CANVAS (global fixed, neural-net style) ─── */
+    /* ─── AURORA BANDS (CSS-injected, drift across full page) ─── */
+    function initAurora() {
+        const wrap = document.createElement('div');
+        wrap.className = 'hf-aurora';
+        document.body.insertBefore(wrap, document.body.firstChild);
+        for (let i = 0; i < 3; i++) {
+            const band = document.createElement('div');
+            band.className = `hf-aurora-band hf-aurora-band--${i + 1}`;
+            wrap.appendChild(band);
+        }
+    }
+
+    /* ─── HEX GRID CANVAS ─── */
+    function initHexGrid() {
+        if (window.innerWidth < 768) return; // skip on mobile for perf
+        const canvas = document.createElement('canvas');
+        canvas.className = 'hf-hex-canvas';
+        document.body.insertBefore(canvas, document.body.firstChild);
+
+        const ctx = canvas.getContext('2d');
+        const SIZE = 38; // circumradius
+        const W = canvas.width  = window.innerWidth;
+        const H = canvas.height = window.innerHeight;
+        const hw = Math.sqrt(3) * SIZE;
+        const hh = 2 * SIZE;
+        const hexes = [];
+
+        function hex(cx, cy) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                const a = Math.PI / 3 * i - Math.PI / 6;
+                const px = cx + SIZE * Math.cos(a);
+                const py = cy + SIZE * Math.sin(a);
+                i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+        }
+
+        // Build grid positions
+        for (let row = -1; row * hh * 0.75 < H + hh; row++) {
+            for (let col = -1; col * hw < W + hw; col++) {
+                const cx = col * hw + (row % 2 === 0 ? hw / 2 : 0);
+                const cy = row * hh * 0.75;
+                hexes.push({ cx, cy, glow: 0, glowDir: 0, timer: Math.random() * 400 | 0 });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            hexes.forEach(h => {
+                // Randomly trigger glow
+                h.timer--;
+                if (h.timer <= 0 && h.glowDir === 0) {
+                    h.glowDir = 1;
+                    h.timer = 600 + Math.random() * 1200 | 0;
+                }
+                if (h.glowDir === 1) {
+                    h.glow = Math.min(1, h.glow + 0.025);
+                    if (h.glow >= 1) h.glowDir = -1;
+                } else if (h.glowDir === -1) {
+                    h.glow = Math.max(0, h.glow - 0.018);
+                    if (h.glow <= 0) h.glowDir = 0;
+                }
+
+                const baseAlpha = 0.045;
+                const glowAlpha = baseAlpha + h.glow * 0.18;
+                const isCyan = (hexes.indexOf(h) % 3 !== 0);
+                const col = isCyan ? '0,212,255' : '124,58,237';
+
+                ctx.strokeStyle = `rgba(${col},${glowAlpha})`;
+                ctx.lineWidth = h.glow > 0 ? 1.2 : 0.6;
+                hex(h.cx, h.cy);
+                ctx.stroke();
+
+                if (h.glow > 0.3) {
+                    ctx.fillStyle = `rgba(${col},${h.glow * 0.025})`;
+                    hex(h.cx, h.cy);
+                    ctx.fill();
+                }
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    }
+
+    /* ─── PARTICLE CANVAS — enhanced with cyan+purple mix and hub pulses ─── */
     function initParticles() {
-        /* Hide the hero-embedded canvas — we use a global fixed one instead */
         const heroCanvas = document.getElementById('particleCanvas');
         if (heroCanvas) heroCanvas.style.display = 'none';
 
@@ -212,64 +284,99 @@
         canvas.className = 'hf-global-canvas';
         document.body.insertBefore(canvas, document.body.firstChild);
 
-        const ctx = canvas.getContext('2d');
-        let W, H, particles;
-
-        const PARTICLE_COUNT  = window.innerWidth < 768 ? 35 : 65;
-        const CONNECTION_DIST = 145;
-        const SPEED           = 0.32;
-        const DOT_COLOR       = '0,212,255';
-        const LINE_COLOR      = '0,212,255';
+        const ctx    = canvas.getContext('2d');
+        const mobile = window.innerWidth < 768;
+        const COUNT  = mobile ? 28 : 60;
+        const CDIST  = 140;
+        const SPEED  = 0.3;
+        const CYAN   = [0, 212, 255];
+        const PURPLE = [124, 58, 237];
+        let W, H, particles, pulses = [];
 
         function resize() {
             W = canvas.width  = window.innerWidth;
             H = canvas.height = window.innerHeight;
         }
 
-        function makeParticle() {
+        function mkParticle(i) {
+            const isHub  = i < COUNT * 0.15;
+            const isCyan = Math.random() > 0.35;
             return {
-                x:  Math.random() * W,
-                y:  Math.random() * H,
+                x: Math.random() * W,  y: Math.random() * H,
                 vx: (Math.random() - 0.5) * SPEED,
                 vy: (Math.random() - 0.5) * SPEED,
-                r:  1 + Math.random() * 1.4
+                r: isHub ? 2.8 + Math.random() * 0.8 : 1 + Math.random() * 1.2,
+                isHub,
+                c: isCyan ? CYAN : PURPLE,
+                pt: isHub ? (Math.random() * 300 | 0) : Infinity
             };
         }
 
         resize();
-        particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
+        particles = Array.from({ length: COUNT }, (_, i) => mkParticle(i));
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
 
+            // Connections
             for (let i = 0; i < particles.length; i++) {
                 const a = particles[i];
-                a.x += a.vx;
-                a.y += a.vy;
+                a.x += a.vx; a.y += a.vy;
                 if (a.x < 0 || a.x > W) a.vx *= -1;
                 if (a.y < 0 || a.y > H) a.vy *= -1;
 
-                ctx.beginPath();
-                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${DOT_COLOR},0.65)`;
-                ctx.fill();
+                if (a.isHub && --a.pt <= 0) {
+                    pulses.push({ x: a.x, y: a.y, r: 0, maxR: CDIST * 0.85, c: a.c, alpha: 0.55 });
+                    a.pt = 220 + Math.random() * 380 | 0;
+                }
 
                 for (let j = i + 1; j < particles.length; j++) {
                     const b = particles[j];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
+                    const dx = a.x - b.x, dy = a.y - b.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < CONNECTION_DIST) {
-                        const alpha = (1 - dist / CONNECTION_DIST) * 0.17;
+                    if (dist < CDIST) {
+                        const t = 1 - dist / CDIST;
+                        const r = ((a.c[0] + b.c[0]) / 2) | 0;
+                        const g = ((a.c[1] + b.c[1]) / 2) | 0;
+                        const bl = ((a.c[2] + b.c[2]) / 2) | 0;
                         ctx.beginPath();
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
-                        ctx.strokeStyle = `rgba(${LINE_COLOR},${alpha})`;
-                        ctx.lineWidth = 0.8;
+                        ctx.strokeStyle = `rgba(${r},${g},${bl},${t * 0.16})`;
+                        ctx.lineWidth = 0.75;
                         ctx.stroke();
                     }
                 }
             }
+
+            // Pulses
+            for (let i = pulses.length - 1; i >= 0; i--) {
+                const p = pulses[i];
+                p.r += 1.8; p.alpha *= 0.968;
+                if (p.alpha < 0.015 || p.r > p.maxR) { pulses.splice(i, 1); continue; }
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(${p.c.join(',')},${p.alpha})`;
+                ctx.lineWidth = 1.1;
+                ctx.stroke();
+            }
+
+            // Dots
+            particles.forEach(a => {
+                if (a.isHub) {
+                    const g = ctx.createRadialGradient(a.x, a.y, 0, a.x, a.y, a.r * 3.5);
+                    g.addColorStop(0, `rgba(${a.c.join(',')},0.95)`);
+                    g.addColorStop(1, `rgba(${a.c.join(',')},0)`);
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r * 3.5, 0, Math.PI * 2);
+                    ctx.fillStyle = g;
+                    ctx.fill();
+                }
+                ctx.beginPath();
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${a.c.join(',')},0.7)`;
+                ctx.fill();
+            });
 
             requestAnimationFrame(draw);
         }
@@ -312,9 +419,10 @@
         initCtaSpotlight();
         initNavHighlight();
         initCinematicOverlays();
+        initAurora();
+        initHexGrid();
         initHeroParallax();
         initHeroSpotlight();
-        initDataStream();
         initGlitch();
         initParticles();
         initCinematicReveals();
