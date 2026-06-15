@@ -659,11 +659,11 @@
 /* ─── GLITCH EFFECT on hero title ─── */
 
 @keyframes hfGlitch1 {
-    0%, 94%, 100% { clip-path: none; transform: none; }
-    95% { clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%); transform: translateX(-3px); }
-    96% { clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%); transform: translateX(3px); }
-    97% { clip-path: polygon(0 5%,  100% 5%,  100% 15%, 0 15%); transform: translateX(-2px); }
-    98% { clip-path: none; transform: none; }
+    0%, 94%, 100% { clip-path: inset(0 0 100% 0); transform: none; opacity: 0; }
+    95% { clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%); transform: translateX(-3px); opacity: 1; }
+    96% { clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%); transform: translateX(3px); opacity: 1; }
+    97% { clip-path: polygon(0 5%,  100% 5%,  100% 15%, 0 15%); transform: translateX(-2px); opacity: 1; }
+    98% { clip-path: inset(0 0 100% 0); transform: none; opacity: 0; }
 }
 
 @keyframes hfGlitch2 {
