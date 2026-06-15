@@ -565,13 +565,182 @@
     }
 }
 
+/* ─── FILM GRAIN OVERLAY ─── */
+
+.hf-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 99990;
+    pointer-events: none;
+    opacity: 0.042;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    animation: hfGrainShift 0.18s steps(1) infinite;
+    mix-blend-mode: overlay;
+}
+
+@keyframes hfGrainShift {
+    0%   { background-position:   0%   0%; }
+    12%  { background-position: -5%  -10%; }
+    25%  { background-position: 15%    5%; }
+    37%  { background-position:  7%  -25%; }
+    50%  { background-position: -5%   25%; }
+    62%  { background-position: 15%   10%; }
+    75%  { background-position:  0%   15%; }
+    87%  { background-position: -12%   8%; }
+    100% { background-position:  0%    0%; }
+}
+
+/* ─── VIGNETTE ─── */
+
+.hf-vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 99989;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 82% 82% at 50% 50%,
+        transparent 0%,
+        rgba(0, 0, 0, 0.62) 100%
+    );
+}
+
+/* ─── SCANLINES OVERLAY ─── */
+
+.hf-scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 99988;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.035) 0px,
+        rgba(0, 0, 0, 0.035) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+/* ─── HERO SPOTLIGHT (mouse-follow glow) ─── */
+
+.hf-spotlight {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 68%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    will-change: left, top;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+/* ─── CINEMATIC SECTION REVEAL ─── */
+
+.hf-reveal {
+    opacity: 0;
+    transform: translateY(36px) scale(0.975);
+    filter: blur(8px);
+    transition:
+        opacity    0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        transform  0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        filter     0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+}
+
+.hf-reveal.hf-visible {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+}
+
+/* ─── GLITCH EFFECT on hero title ─── */
+
+@keyframes hfGlitch1 {
+    0%, 94%, 100% { clip-path: none; transform: none; }
+    95% { clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%); transform: translateX(-3px); }
+    96% { clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%); transform: translateX(3px); }
+    97% { clip-path: polygon(0 5%,  100% 5%,  100% 15%, 0 15%); transform: translateX(-2px); }
+    98% { clip-path: none; transform: none; }
+}
+
+@keyframes hfGlitch2 {
+    0%, 94%, 100% { clip-path: none; transform: none; opacity: 0; }
+    95% { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); transform: translateX(4px); opacity: 1; }
+    97% { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); transform: translateX(-3px); opacity: 1; }
+    99% { opacity: 0; }
+}
+
+.hf-glitch {
+    position: relative;
+}
+
+.hf-glitch::before,
+.hf-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hf-glitch::before {
+    color: rgba(0, 212, 255, 0.7);
+    animation: hfGlitch1 7s linear infinite;
+}
+
+.hf-glitch::after {
+    color: rgba(236, 72, 153, 0.7);
+    animation: hfGlitch2 7s linear infinite;
+    animation-delay: 0.08s;
+}
+
+/* ─── DATA STREAM LINES (hero background decoration) ─── */
+
+.hf-datastream {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hf-ds-line {
+    position: absolute;
+    top: -20%;
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.35), transparent);
+    animation: hfDsfall var(--ds-dur, 3s) linear infinite;
+    animation-delay: var(--ds-del, 0s);
+    opacity: 0;
+}
+
+@keyframes hfDsfall {
+    0%   { transform: translateY(0);    opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(200%); opacity: 0; }
+}
+
+/* ─── HERO ORB INTENSITY BOOST ─── */
+
+.hf-orb--cyan {
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.6) 0%, rgba(0, 212, 255, 0.15) 40%, transparent 70%) !important;
+    opacity: 0.95 !important;
+}
+
+.hf-orb--purple {
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.7) 0%, rgba(124, 58, 237, 0.18) 40%, transparent 70%) !important;
+    opacity: 0.95 !important;
+}
+
 /* ─── REDUCED MOTION — Keep orbs visible, just static ─── */
 
 @media (prefers-reduced-motion: reduce) {
     .hf-orb {
-        /* Cancel drift animation but keep element visible */
         animation: none !important;
-        /* opacity is already set per orb, not via animation, so stays visible */
     }
 
     .hf-marquee-track {
@@ -581,11 +750,16 @@
         padding-bottom: 12px;
     }
 
-    .cta-section::before {
-        animation: none !important;
-    }
-
-    .whatsapp-float {
-        animation: none !important;
+    .cta-section::before { animation: none !important; }
+    .whatsapp-float       { animation: none !important; }
+    .hf-grain             { animation: none !important; }
+    .hf-glitch::before,
+    .hf-glitch::after     { display: none; }
+    .hf-ds-line           { display: none; }
+    .hf-reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
     }
 }

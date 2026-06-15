@@ -111,6 +111,207 @@
         });
     }
 
+    /* ─── FILM GRAIN + VIGNETTE + SCANLINES ─── */
+    function initCinematicOverlays() {
+        const grain = document.createElement('div');
+        grain.className = 'hf-grain';
+        document.body.appendChild(grain);
+
+        const vignette = document.createElement('div');
+        vignette.className = 'hf-vignette';
+        document.body.appendChild(vignette);
+
+        const scanlines = document.createElement('div');
+        scanlines.className = 'hf-scanlines';
+        document.body.appendChild(scanlines);
+    }
+
+    /* ─── HERO PARALLAX ON SCROLL ─── */
+    function initHeroParallax() {
+        const heroContent = document.querySelector('.hero-content');
+        const heroAmbient = document.querySelector('.hf-hero-ambient');
+        if (!heroContent) return;
+
+        const hero = document.querySelector('.hero');
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const heroH = hero ? hero.offsetHeight : window.innerHeight;
+                if (scrollY < heroH) {
+                    const p = scrollY / heroH;
+                    heroContent.style.transform = `translateY(${scrollY * 0.28}px)`;
+                    heroContent.style.opacity   = Math.max(0, 1 - p * 1.6);
+                    if (heroAmbient) {
+                        heroAmbient.style.transform = `translateY(${scrollY * 0.12}px)`;
+                    }
+                }
+                ticking = false;
+            });
+        });
+    }
+
+    /* ─── HERO SPOTLIGHT (mouse follow) ─── */
+    function initHeroSpotlight() {
+        const hero = document.querySelector('.hero');
+        if (!hero || window.matchMedia('(pointer: coarse)').matches) return;
+
+        const spot = document.createElement('div');
+        spot.className = 'hf-spotlight';
+        hero.appendChild(spot);
+
+        let rafId;
+        hero.addEventListener('mousemove', e => {
+            cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                const rect = hero.getBoundingClientRect();
+                spot.style.left = (e.clientX - rect.left) + 'px';
+                spot.style.top  = (e.clientY - rect.top)  + 'px';
+            });
+        });
+        hero.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
+        hero.addEventListener('mouseenter', () => { spot.style.opacity = '1'; });
+    }
+
+    /* ─── DATA STREAM LINES (falling vertical lines, hero only) ─── */
+    function initDataStream() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+
+        const wrap = document.createElement('div');
+        wrap.className = 'hf-datastream';
+        hero.insertBefore(wrap, hero.firstChild);
+
+        const count = 14;
+        for (let i = 0; i < count; i++) {
+            const line = document.createElement('div');
+            line.className = 'hf-ds-line';
+            const leftPct = 4 + (i / count) * 92;
+            const dur = (2.5 + Math.random() * 3.5).toFixed(2);
+            const del = (Math.random() * -6).toFixed(2);
+            line.style.cssText = `left:${leftPct}%;--ds-dur:${dur}s;--ds-del:${del}s`;
+            wrap.appendChild(line);
+        }
+    }
+
+    /* ─── GLITCH EFFECT ON HERO TITLE ─── */
+    function initGlitch() {
+        const title = document.querySelector('.hero-title');
+        if (!title) return;
+        title.classList.add('hf-glitch');
+        title.setAttribute('data-text', title.textContent);
+    }
+
+    /* ─── PARTICLE CANVAS (neural-net style) ─── */
+    function initParticles() {
+        const canvas = document.getElementById('particleCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let W, H, particles, raf;
+
+        const PARTICLE_COUNT   = window.innerWidth < 768 ? 40 : 70;
+        const CONNECTION_DIST  = 140;
+        const SPEED            = 0.35;
+        const DOT_COLOR        = '0,212,255';
+        const LINE_COLOR       = '0,212,255';
+
+        function resize() {
+            W = canvas.width  = canvas.offsetWidth;
+            H = canvas.height = canvas.offsetHeight;
+        }
+
+        function makeParticle() {
+            return {
+                x:  Math.random() * W,
+                y:  Math.random() * H,
+                vx: (Math.random() - 0.5) * SPEED,
+                vy: (Math.random() - 0.5) * SPEED,
+                r:  1 + Math.random() * 1.4
+            };
+        }
+
+        function init() {
+            resize();
+            particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            for (let i = 0; i < particles.length; i++) {
+                const a = particles[i];
+                a.x += a.vx;
+                a.y += a.vy;
+                if (a.x < 0 || a.x > W) a.vx *= -1;
+                if (a.y < 0 || a.y > H) a.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${DOT_COLOR},0.7)`;
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CONNECTION_DIST) {
+                        const alpha = (1 - dist / CONNECTION_DIST) * 0.18;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = `rgba(${LINE_COLOR},${alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            raf = requestAnimationFrame(draw);
+        }
+
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                if (!raf) { init(); draw(); }
+            } else {
+                cancelAnimationFrame(raf);
+                raf = null;
+            }
+        });
+        obs.observe(canvas);
+
+        window.addEventListener('resize', () => { resize(); });
+    }
+
+    /* ─── CINEMATIC SECTION REVEALS ─── */
+    function initCinematicReveals() {
+        const targets = document.querySelectorAll(
+            '.service-card, .portfolio-card, .pricing-card, .trust-card, ' +
+            '.process-step, .sector-item, .stat-card, .section-header'
+        );
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const delay = (i % 6) * 70;
+                    setTimeout(() => {
+                        entry.target.classList.add('hf-visible');
+                    }, delay);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        targets.forEach(el => {
+            el.classList.add('hf-reveal');
+            obs.observe(el);
+        });
+    }
+
     /* ─── INIT ON DOM READY ─── */
     function init() {
         initTilt();
@@ -119,6 +320,13 @@
         initRevealEnhancement();
         initCtaSpotlight();
         initNavHighlight();
+        initCinematicOverlays();
+        initHeroParallax();
+        initHeroSpotlight();
+        initDataStream();
+        initGlitch();
+        initParticles();
+        initCinematicReveals();
     }
 
     if (document.readyState === 'loading') {
