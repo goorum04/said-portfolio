@@ -176,22 +176,19 @@
         hero.addEventListener('mouseenter', () => { spot.style.opacity = '1'; });
     }
 
-    /* ─── DATA STREAM LINES (falling vertical lines, hero only) ─── */
+    /* ─── DATA STREAM LINES (global fixed background) ─── */
     function initDataStream() {
-        const hero = document.querySelector('.hero');
-        if (!hero) return;
-
         const wrap = document.createElement('div');
-        wrap.className = 'hf-datastream';
-        hero.insertBefore(wrap, hero.firstChild);
+        wrap.className = 'hf-datastream hf-datastream--global';
+        document.body.insertBefore(wrap, document.body.firstChild);
 
-        const count = 14;
+        const count = 18;
         for (let i = 0; i < count; i++) {
             const line = document.createElement('div');
             line.className = 'hf-ds-line';
-            const leftPct = 4 + (i / count) * 92;
-            const dur = (2.5 + Math.random() * 3.5).toFixed(2);
-            const del = (Math.random() * -6).toFixed(2);
+            const leftPct = 2 + (i / count) * 96;
+            const dur = (2.5 + Math.random() * 4).toFixed(2);
+            const del = (Math.random() * -8).toFixed(2);
             line.style.cssText = `left:${leftPct}%;--ds-dur:${dur}s;--ds-del:${del}s`;
             wrap.appendChild(line);
         }
@@ -205,23 +202,28 @@
         title.setAttribute('data-text', title.textContent);
     }
 
-    /* ─── PARTICLE CANVAS (neural-net style) ─── */
+    /* ─── PARTICLE CANVAS (global fixed, neural-net style) ─── */
     function initParticles() {
-        const canvas = document.getElementById('particleCanvas');
-        if (!canvas) return;
+        /* Hide the hero-embedded canvas — we use a global fixed one instead */
+        const heroCanvas = document.getElementById('particleCanvas');
+        if (heroCanvas) heroCanvas.style.display = 'none';
+
+        const canvas = document.createElement('canvas');
+        canvas.className = 'hf-global-canvas';
+        document.body.insertBefore(canvas, document.body.firstChild);
 
         const ctx = canvas.getContext('2d');
-        let W, H, particles, raf;
+        let W, H, particles;
 
-        const PARTICLE_COUNT   = window.innerWidth < 768 ? 40 : 70;
-        const CONNECTION_DIST  = 140;
-        const SPEED            = 0.35;
-        const DOT_COLOR        = '0,212,255';
-        const LINE_COLOR       = '0,212,255';
+        const PARTICLE_COUNT  = window.innerWidth < 768 ? 35 : 65;
+        const CONNECTION_DIST = 145;
+        const SPEED           = 0.32;
+        const DOT_COLOR       = '0,212,255';
+        const LINE_COLOR      = '0,212,255';
 
         function resize() {
-            W = canvas.width  = canvas.offsetWidth;
-            H = canvas.height = canvas.offsetHeight;
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
         }
 
         function makeParticle() {
@@ -234,10 +236,8 @@
             };
         }
 
-        function init() {
-            resize();
-            particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
-        }
+        resize();
+        particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
@@ -251,7 +251,7 @@
 
                 ctx.beginPath();
                 ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${DOT_COLOR},0.7)`;
+                ctx.fillStyle = `rgba(${DOT_COLOR},0.65)`;
                 ctx.fill();
 
                 for (let j = i + 1; j < particles.length; j++) {
@@ -260,7 +260,7 @@
                     const dy = a.y - b.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < CONNECTION_DIST) {
-                        const alpha = (1 - dist / CONNECTION_DIST) * 0.18;
+                        const alpha = (1 - dist / CONNECTION_DIST) * 0.17;
                         ctx.beginPath();
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
@@ -271,20 +271,11 @@
                 }
             }
 
-            raf = requestAnimationFrame(draw);
+            requestAnimationFrame(draw);
         }
 
-        const obs = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                if (!raf) { init(); draw(); }
-            } else {
-                cancelAnimationFrame(raf);
-                raf = null;
-            }
-        });
-        obs.observe(canvas);
-
-        window.addEventListener('resize', () => { resize(); });
+        draw();
+        window.addEventListener('resize', resize);
     }
 
     /* ─── CINEMATIC SECTION REVEALS ─── */
