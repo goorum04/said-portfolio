@@ -1102,14 +1102,14 @@ about: {
             pageHero: {
                 subtitle: "Desarrollador digital apasionado por crear productos que marcan la diferencia.",
                 tag: "// Sobre mí",
-                title: "Hola, soy Said",
+                title: 'Hola, soy <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Otros",
                 tag: "// Skills",
-                title: "Tecnologías que domino",
+                title: 'Tecnologías que <span class="text-gradient">domino</span>',
             },
             story: {
                 intro: "Soy Said, un desarrollador con pasión por crear productos digitales que generen valor real. Con más de 12 proyectos realizados, he ayudado a negocios de diversos sectores a digitalizar sus procesos y aumentar su visibilidad online.",
@@ -1131,7 +1131,51 @@ about: {
                 support: "Soporte",
                 supportDesc: "No desaparezco después del lanzamiento. Siempre disponible.",
                 tag: "// Valores",
-                title: "Cómo trabajo",
+                title: 'Cómo <span class="text-gradient">trabajo</span>',
+            },
+        },
+        services: {
+            tag: "// Servicios",
+            title: 'Soluciones digitales <span class="text-gradient">a medida</span>',
+            subtitle: "Desarrollo productos digitales que impulsan tu negocio. Cada proyecto se adapta a tus necesidades específicas.",
+            tech: "Tecnologías:",
+            from: "Desde:",
+            web: {
+                title: "Desarrollo Web",
+                desc: "Páginas web modernas, rápidas y optimizadas para convertir visitantes en clientes. Desde landing pages hasta tiendas online completas.",
+                f1: "Diseño responsive para todos los dispositivos",
+                f2: "Optimización SEO y velocidad de carga",
+                f3: "Panel de administración fácil de usar",
+                f4: "Integración con herramientas de marketing",
+            },
+            apps: {
+                title: "Apps Móviles",
+                desc: "Aplicaciones nativas para iOS y Android que ofrecen la mejor experiencia de usuario. Perfectas para fidelizar clientes y mejorar procesos internos.",
+                f1: "Publicación en App Store y Google Play",
+                f2: "Notificaciones push integradas",
+                f3: "Funcionamiento offline",
+                f4: "Sincronización en tiempo real",
+            },
+            saas: {
+                title: "Plataformas SaaS",
+                desc: "Software como servicio completo con sistema de suscripciones, dashboard de administración y API para integraciones.",
+                f1: "Sistema de pagos con Stripe",
+                f2: "Dashboard de métricas en tiempo real",
+                f3: "Gestión de usuarios y roles",
+                f4: "API REST documentada",
+            },
+            auto: {
+                title: "Automatizaciones",
+                desc: "Automatiza tareas repetitivas y conecta tus herramientas. Ahorra horas de trabajo manual con workflows inteligentes.",
+                f1: "Integración con cualquier API",
+                f2: "Bots de WhatsApp y Telegram",
+                f3: "Sincronización entre plataformas",
+                f4: "Reportes automáticos",
+            },
+            cta: {
+                title: "¿Listo para empezar?",
+                desc: "Cuéntame tu proyecto y te envío un presupuesto personalizado.",
+                btn: "Contactar",
             },
         },
         blog: {
@@ -1143,7 +1187,7 @@ about: {
             pageHero: {
                 subtitle: "Tutoriales, consejos y tendencias sobre desarrollo web, apps y SaaS.",
                 tag: "// Blog",
-                title: "Consejos de desarrollo",
+                title: 'Consejos de <span class="text-gradient">desarrollo</span>',
             },
             post1: {
                 date: "15 Feb 2026",
@@ -1204,7 +1248,7 @@ about: {
                 q3: "¿Trabajas con clientes fuera de Andorra?",
                 q4: "¿Pides pago por adelantado?",
                 tag: "// FAQ",
-                title: "Preguntas frecuentes",
+                title: 'Preguntas <span class="text-gradient">frecuentes</span>',
             },
             form: {
                 budgetLabel: "Presupuesto orientativo",
@@ -1231,7 +1275,7 @@ about: {
             pageHero: {
                 subtitle: "Cuéntame tu idea y te responderé en menos de 24 horas.",
                 tag: "// Contacto",
-                title: "Hablemos de tu proyecto",
+                title: 'Hablemos de tu <span class="text-gradient">proyecto</span>',
             },
             successModal: {
                 closeButton: "Cerrar",
@@ -1242,7 +1286,7 @@ about: {
         portfolio: {
             pageHero: {
                 tag: "// Portfolio",
-                title: "Mis proyectos",
+                title: 'Mis <span class="text-gradient">proyectos</span>',
                 subtitle: "Una selección de productos digitales que he desarrollado y lanzado.",
             },
             botPresupuestos: {
@@ -1281,11 +1325,11 @@ about: {
                 tag: "// Case Study",
                 testimonial: "\"Antes perdíamos clientes porque tardábamos en responder. Ahora el bot responde en segundos a cualquier hora y nosotros nos centramos en cerrar ventas, no en hacer presupuestos.\"",
                 testimonialAuthor: "— Cliente, sector servicios",
-                title: "Bot Presupuestos: De horas a segundos",
-                week1: "Semana 1: Mapeo de flujos de conversación y lógica de precios",
-                week23: "Semana 2-3: Desarrollo del bot en TypeScript + integración API",
-                week4: "Semana 4: Testing con casos reales y afinado de respuestas",
-                week5: "Semana 5: Despliegue en producción y monitorización",
+                title: 'Bot Presupuestos: <span class="text-gradient">De horas a segundos</span>',
+                week1: '<strong>Semana 1:</strong> Mapeo de flujos de conversación y lógica de precios',
+                week23: '<strong>Semana 2-3:</strong> Desarrollo del bot en TypeScript + integración API',
+                week4: '<strong>Semana 4:</strong> Testing con casos reales y afinado de respuestas',
+                week5: '<strong>Semana 5:</strong> Despliegue en producción y monitorización',
             },
             cta: {
                 button: "Contactar",
@@ -1327,11 +1371,6 @@ about: {
                 name: "Nómina Pro",
                 problem: "PYMEs con departamentos de RRHH invirtiendo días enteros cada mes en calcular nóminas manualmente en Excel, con riesgo de errores y disputas con empleados.",
                 solution: "Sistema de gestión de nóminas que calcula salarios, deducciones y retenciones automáticamente, generando los documentos listos para firmar en segundos.",
-            },
-            pageHero: {
-                subtitle: "Una selección de productos digitales que he desarrollado y lanzado.",
-                tag: "// Portfolio",
-                title: "Mis proyectos",
             },
             proteinShop: {
                 badge: "E-commerce",
@@ -1472,14 +1511,14 @@ about: {
             pageHero: {
                 subtitle: "Desenvolupador digital apasionat per crear productes que marquen la diferència.",
                 tag: "// Sobre mi",
-                title: "Hola, soc Said",
+                title: 'Hola, soc <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Altres",
                 tag: "// Skills",
-                title: "Tecnologies que domino",
+                title: 'Tecnologies que <span class="text-gradient">domino</span>',
             },
             story: {
                 intro: "Soc Said, un desenvolupador amb passió per crear productes digitals que generin valor real. Amb més de 12 projectes realitzats, he ajudat negocis de diversos sectors a digitalitzar els seus processos i augmentar la seva visibilitat online.",
@@ -1501,7 +1540,51 @@ about: {
                 support: "Suport",
                 supportDesc: "No desapareixo després del llançament. Sempre disponible.",
                 tag: "// Valors",
-                title: "Com treballo",
+                title: 'Com <span class="text-gradient">treballo</span>',
+            },
+        },
+        services: {
+            tag: "// Serveis",
+            title: 'Solucions digitals <span class="text-gradient">a mida</span>',
+            subtitle: "Desenvolupo productes digitals que impulsen el teu negoci. Cada projecte s'adapta a les teves necessitats específiques.",
+            tech: "Tecnologies:",
+            from: "Des de:",
+            web: {
+                title: "Desenvolupament Web",
+                desc: "Pàgines web modernes, ràpides i optimitzades per convertir visitants en clients. Des de landing pages fins a botigues online completes.",
+                f1: "Disseny responsive per a tots els dispositius",
+                f2: "Optimització SEO i velocitat de càrrega",
+                f3: "Panell d'administració fàcil d'usar",
+                f4: "Integració amb eines de màrqueting",
+            },
+            apps: {
+                title: "Apps Mòbils",
+                desc: "Aplicacions natives per a iOS i Android que ofereixen la millor experiència d'usuari. Perfectes per fidelitzar clients i millorar processos interns.",
+                f1: "Publicació a App Store i Google Play",
+                f2: "Notificacions push integrades",
+                f3: "Funcionament offline",
+                f4: "Sincronització en temps real",
+            },
+            saas: {
+                title: "Plataformes SaaS",
+                desc: "Programari com a servei complet amb sistema de subscripcions, dashboard d'administració i API per a integracions.",
+                f1: "Sistema de pagaments amb Stripe",
+                f2: "Dashboard de mètriques en temps real",
+                f3: "Gestió d'usuaris i rols",
+                f4: "API REST documentada",
+            },
+            auto: {
+                title: "Automatitzacions",
+                desc: "Automatitza tasques repetitives i connecta les teves eines. Estalvia hores de feina manual amb workflows intel·ligents.",
+                f1: "Integració amb qualsevol API",
+                f2: "Bots de WhatsApp i Telegram",
+                f3: "Sincronització entre plataformes",
+                f4: "Informes automàtics",
+            },
+            cta: {
+                title: "Llest per començar?",
+                desc: "Explica'm el teu projecte i t'envio un pressupost personalitzat.",
+                btn: "Contactar",
             },
         },
         blog: {
@@ -1513,7 +1596,7 @@ about: {
             pageHero: {
                 subtitle: "Tutorials, consells i tendències sobre desenvolupament web, apps i SaaS.",
                 tag: "// Blog",
-                title: "Consells de desenvolupament",
+                title: 'Consells de <span class="text-gradient">desenvolupament</span>',
             },
             post1: {
                 date: "15 Feb 2026",
@@ -1574,7 +1657,7 @@ about: {
                 q3: "Treballes amb clients fora d\'Andorra?",
                 q4: "Demanames pagament per endavant?",
                 tag: "// FAQ",
-                title: "Preguntes freqüents",
+                title: 'Preguntes <span class="text-gradient">freqüents</span>',
             },
             form: {
                 budgetLabel: "Pressupost orientatiu",
@@ -1601,7 +1684,7 @@ about: {
             pageHero: {
                 subtitle: "Conta\'m la teva idea i et respondere en menys de 24 hores.",
                 tag: "// Contacte",
-                title: "Parlem del teu projecte",
+                title: 'Parlem del teu <span class="text-gradient">projecte</span>',
             },
             successModal: {
                 closeButton: "Tancar",
@@ -1646,11 +1729,11 @@ about: {
                 tag: "// Cas d\'ús",
                 testimonial: "\"Abans perdíem clients perquè tardàvem a respondre. Ara el bot respon en segons a qualsevol hora i nosaltres ens centrem en tancar vendes, no en fer pressupostos.\"",
                 testimonialAuthor: "— Client, sector servicis",
-                title: "Bot Pressupostos: De hores a segons",
-                week1: "Setmana 1: Mapeig de fluxos de conversació i lògica de preus",
-                week23: "Setmana 2-3: Desenvolupament del bot en TypeScript + integració API",
-                week4: "Setmana 4: Testing amb casos reals i ajustament de respostes",
-                week5: "Setmana 5: Despliegue en producció i monitorització",
+                title: 'Bot Pressupostos: <span class="text-gradient">De hores a segons</span>',
+                week1: '<strong>Setmana 1:</strong> Mapeig de fluxos de conversació i lògica de preus',
+                week23: '<strong>Setmana 2-3:</strong> Desenvolupament del bot en TypeScript + integració API',
+                week4: '<strong>Setmana 4:</strong> Testing amb casos reals i ajustament de respostes',
+                week5: '<strong>Setmana 5:</strong> Despliegue en producció i monitorització',
             },
             cta: {
                 button: "Contactar",
@@ -1696,7 +1779,7 @@ about: {
             pageHero: {
                 subtitle: "Una selecció de productes digitals que he desenvolupat i llançat.",
                 tag: "// Portafolis",
-                title: "Els meus projectes",
+                title: 'Els meus <span class="text-gradient">projectes</span>',
             },
             proteinShop: {
                 badge: "E-commerce",
@@ -1837,14 +1920,14 @@ about: {
             pageHero: {
                 subtitle: "Développeur numérique passionné par créer des produits qui font la différence.",
                 tag: "// À propos",
-                title: "Bonjour, je m\'appelle Said",
+                title: 'Bonjour, je m\'appelle <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Autres",
                 tag: "// Compétences",
-                title: "Technologies que je maîtrise",
+                title: 'Technologies que je <span class="text-gradient">maîtrise</span>',
             },
             story: {
                 intro: "Je suis Said, un développeur passionné par créer des produits numériques qui génèrent une valeur réelle. Avec plus de 12 projets réalisés, j\'ai aidé des entreprises de divers secteurs à numériser leurs processus et augmenter leur visibilité en ligne.",
@@ -1866,7 +1949,51 @@ about: {
                 support: "Support",
                 supportDesc: "Je ne disparais pas après le lancement. Toujours disponible.",
                 tag: "// Valeurs",
-                title: "Comment je travaille",
+                title: 'Comment je <span class="text-gradient">travaille</span>',
+            },
+        },
+        services: {
+            tag: "// Services",
+            title: 'Solutions numériques <span class="text-gradient">sur mesure</span>',
+            subtitle: "Je développe des produits numériques qui boostent votre entreprise. Chaque projet s'adapte à vos besoins spécifiques.",
+            tech: "Technologies :",
+            from: "À partir de :",
+            web: {
+                title: "Développement Web",
+                desc: "Sites web modernes, rapides et optimisés pour convertir les visiteurs en clients. Des landing pages aux boutiques en ligne complètes.",
+                f1: "Design responsive pour tous les appareils",
+                f2: "Optimisation SEO et vitesse de chargement",
+                f3: "Panneau d'administration facile à utiliser",
+                f4: "Intégration avec des outils marketing",
+            },
+            apps: {
+                title: "Applications Mobiles",
+                desc: "Applications natives pour iOS et Android offrant la meilleure expérience utilisateur. Parfaites pour fidéliser les clients et améliorer les processus internes.",
+                f1: "Publication sur App Store et Google Play",
+                f2: "Notifications push intégrées",
+                f3: "Fonctionnement hors ligne",
+                f4: "Synchronisation en temps réel",
+            },
+            saas: {
+                title: "Plateformes SaaS",
+                desc: "Logiciel en tant que service complet avec système d'abonnements, tableau de bord d'administration et API pour les intégrations.",
+                f1: "Système de paiement avec Stripe",
+                f2: "Tableau de bord de métriques en temps réel",
+                f3: "Gestion des utilisateurs et des rôles",
+                f4: "API REST documentée",
+            },
+            auto: {
+                title: "Automatisations",
+                desc: "Automatisez les tâches répétitives et connectez vos outils. Économisez des heures de travail manuel avec des workflows intelligents.",
+                f1: "Intégration avec n'importe quelle API",
+                f2: "Bots WhatsApp et Telegram",
+                f3: "Synchronisation entre plateformes",
+                f4: "Rapports automatiques",
+            },
+            cta: {
+                title: "Prêt à commencer ?",
+                desc: "Racontez-moi votre projet et je vous envoie un devis personnalisé.",
+                btn: "Contacter",
             },
         },
         blog: {
@@ -1878,7 +2005,7 @@ about: {
             pageHero: {
                 subtitle: "Tutoriels, conseils et tendances sur le développement web, les applications et les SaaS.",
                 tag: "// Blog",
-                title: "Conseils de développement",
+                title: 'Conseils de <span class="text-gradient">développement</span>',
             },
             post1: {
                 date: "15 Feb 2026",
@@ -1939,7 +2066,7 @@ about: {
                 q3: "Travaillez-vous avec des clients en dehors d\'Andorre?",
                 q4: "Demandez-vous un paiement à l\'avance?",
                 tag: "// FAQ",
-                title: "Questions fréquemment posées",
+                title: 'Questions <span class="text-gradient">fréquemment posées</span>',
             },
             form: {
                 budgetLabel: "Budget estimé",
@@ -1966,7 +2093,7 @@ about: {
             pageHero: {
                 subtitle: "Dites-moi votre idée et je vous répondrai en moins de 24 heures.",
                 tag: "// Contact",
-                title: "Parlons de votre projet",
+                title: 'Parlons de votre <span class="text-gradient">projet</span>',
             },
             successModal: {
                 closeButton: "Fermer",
@@ -2011,11 +2138,11 @@ about: {
                 tag: "// Étude de cas",
                 testimonial: "\"Avant, nous perdions des clients parce que nous tardions à répondre. Maintenant, le bot répond en quelques secondes à tout moment et nous pouvons nous concentrer sur la fermeture de ventes, pas sur la rédaction de devis.\"",
                 testimonialAuthor: "— Client, secteur services",
-                title: "Bot Devis: Des heures aux secondes",
-                week1: "Semaine 1: Cartographie des flux de conversation et logique de tarification",
-                week23: "Semaines 2-3: Développement du bot en TypeScript + intégration API",
-                week4: "Semaine 4: Tests avec cas réels et fine-tuning des réponses",
-                week5: "Semaine 5: Déploiement en production et surveillance",
+                title: 'Bot Devis: <span class="text-gradient">Des heures aux secondes</span>',
+                week1: '<strong>Semaine 1:</strong> Cartographie des flux de conversation et logique de tarification',
+                week23: '<strong>Semaines 2-3:</strong> Développement du bot en TypeScript + intégration API',
+                week4: '<strong>Semaine 4:</strong> Tests avec cas réels et fine-tuning des réponses',
+                week5: '<strong>Semaine 5:</strong> Déploiement en production et surveillance',
             },
             cta: {
                 button: "Contacter",
@@ -2061,7 +2188,7 @@ about: {
             pageHero: {
                 subtitle: "Une sélection de produits numériques que j\'ai développés et lancés.",
                 tag: "// Portfolio",
-                title: "Mes projets",
+                title: 'Mes <span class="text-gradient">projets</span>',
             },
             proteinShop: {
                 badge: "E-commerce",
@@ -2202,14 +2329,14 @@ about: {
             pageHero: {
                 subtitle: "Digital developer passionate about creating products that make a difference.",
                 tag: "// About me",
-                title: "Hello, I\'m Said",
+                title: 'Hello, I\'m <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Others",
                 tag: "// Skills",
-                title: "Technologies I master",
+                title: 'Technologies I <span class="text-gradient">master</span>',
             },
             story: {
                 intro: "I\'m Said, a developer passionate about creating digital products that generate real value. With over 12 projects completed, I\'ve helped businesses across various sectors digitize their processes and increase their online visibility.",
@@ -2231,7 +2358,51 @@ about: {
                 support: "Support",
                 supportDesc: "I don\'t disappear after launch. Always available.",
                 tag: "// Values",
-                title: "How I work",
+                title: 'How I <span class="text-gradient">work</span>',
+            },
+        },
+        services: {
+            tag: "// Services",
+            title: 'Digital solutions <span class="text-gradient">made to measure</span>',
+            subtitle: "I build digital products that drive your business forward. Every project is tailored to your specific needs.",
+            tech: "Technologies:",
+            from: "From:",
+            web: {
+                title: "Web Development",
+                desc: "Modern, fast websites optimized to convert visitors into customers. From landing pages to full online stores.",
+                f1: "Responsive design for all devices",
+                f2: "SEO optimization and fast loading speed",
+                f3: "Easy-to-use admin panel",
+                f4: "Integration with marketing tools",
+            },
+            apps: {
+                title: "Mobile Apps",
+                desc: "Native iOS and Android apps that deliver the best user experience. Perfect for building customer loyalty and improving internal processes.",
+                f1: "Published on App Store and Google Play",
+                f2: "Built-in push notifications",
+                f3: "Offline functionality",
+                f4: "Real-time sync",
+            },
+            saas: {
+                title: "SaaS Platforms",
+                desc: "Complete software-as-a-service with a subscription system, admin dashboard, and API for integrations.",
+                f1: "Payment system with Stripe",
+                f2: "Real-time metrics dashboard",
+                f3: "User and role management",
+                f4: "Documented REST API",
+            },
+            auto: {
+                title: "Automation",
+                desc: "Automate repetitive tasks and connect your tools. Save hours of manual work with smart workflows.",
+                f1: "Integration with any API",
+                f2: "WhatsApp and Telegram bots",
+                f3: "Cross-platform sync",
+                f4: "Automated reports",
+            },
+            cta: {
+                title: "Ready to get started?",
+                desc: "Tell me about your project and I'll send you a personalized quote.",
+                btn: "Contact me",
             },
         },
         blog: {
@@ -2243,7 +2414,7 @@ about: {
             pageHero: {
                 subtitle: "Tutorials, tips, and trends on web development, apps, and SaaS.",
                 tag: "// Blog",
-                title: "Development tips",
+                title: 'Development <span class="text-gradient">tips</span>',
             },
             post1: {
                 date: "15 Feb 2026",
@@ -2304,7 +2475,7 @@ about: {
                 q3: "Do you work with clients outside Andorra?",
                 q4: "Do you ask for payment upfront?",
                 tag: "// FAQ",
-                title: "Frequently asked questions",
+                title: 'Frequently <span class="text-gradient">asked questions</span>',
             },
             form: {
                 budgetLabel: "Estimated budget",
@@ -2331,7 +2502,7 @@ about: {
             pageHero: {
                 subtitle: "Tell me your idea and I\'ll reply in less than 24 hours.",
                 tag: "// Contact",
-                title: "Let\'s talk about your project",
+                title: 'Let\'s talk about your <span class="text-gradient">project</span>',
             },
             successModal: {
                 closeButton: "Close",
@@ -2376,11 +2547,11 @@ about: {
                 tag: "// Case Study",
                 testimonial: "\"Before we lost customers because we took too long to respond. Now the bot responds in seconds anytime and we focus on closing sales, not writing quotes.\"",
                 testimonialAuthor: "— Client, service sector",
-                title: "Quote Bot: From hours to seconds",
-                week1: "Week 1: Map conversation flows and pricing logic",
-                week23: "Weeks 2-3: Develop bot in TypeScript + API integration",
-                week4: "Week 4: Test with real cases and fine-tune responses",
-                week5: "Week 5: Deploy to production and monitor",
+                title: 'Quote Bot: <span class="text-gradient">From hours to seconds</span>',
+                week1: '<strong>Week 1:</strong> Map conversation flows and pricing logic',
+                week23: '<strong>Weeks 2-3:</strong> Develop bot in TypeScript + API integration',
+                week4: '<strong>Week 4:</strong> Test with real cases and fine-tune responses',
+                week5: '<strong>Week 5:</strong> Deploy to production and monitor',
             },
             cta: {
                 button: "Contact",
@@ -2426,7 +2597,7 @@ about: {
             pageHero: {
                 subtitle: "A selection of digital products I have developed and launched.",
                 tag: "// Portfolio",
-                title: "My projects",
+                title: 'My <span class="text-gradient">projects</span>',
             },
             proteinShop: {
                 badge: "E-commerce",

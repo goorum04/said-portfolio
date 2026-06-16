@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="portfolio.finFlow.badge">Portfolio | Proyectos Web, Apps y SaaS | Said - Desarrollador Andorra</title>
+    <title>Portfolio | Proyectos Web, Apps y SaaS | Said - Desarrollador Andorra</title>
     <meta name="description"
         content="Portfolio con más de 12 proyectos: FitGym Pro (app gimnasio), TimeFlow (control horario), FreshMarket (SaaS alimentación), webs para restaurantes e inmobiliarias.">
     <meta name="keywords"
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="styles.css?v=1.8">
     <link rel="stylesheet" href="higgsfield-visuals.css?v=1.8">
 
-    <style data-i18n="portfolio.visitasVirtuales.name">
+    <style>
         /* Visitas Virtuales — Demo Modal */
         .project-modal{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;padding:16px}
         .project-modal.active{display:flex}
@@ -115,7 +115,7 @@
     <section class="page-hero">
         <div class="container">
             <span class="section-tag" data-i18n="portfolio.pageHero.tag">// Portfolio</span>
-            <h1 class="page-title">Mis <span class="text-gradient">proyectos</span></h1>
+            <h1 class="page-title" data-i18n="portfolio.pageHero.title">Mis <span class="text-gradient">proyectos</span></h1>
             <p class="page-subtitle" data-i18n="portfolio.pageHero.subtitle">Una selección de productos digitales que he desarrollado y lanzado.</p>
         </div>
     </section>
@@ -136,8 +136,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Protein Shop</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.proteinShop.problem"> Tienda de suplementos deportivos sin presencia digital propia, dependiendo de marketplaces con márgenes bajos y sin control sobre la experiencia de compra.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.proteinShop.solution"> E-commerce propio con catálogo interactivo, carrito de compra y checkout optimizado para maximizar la conversión y fidelizar clientes.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.proteinShop.problem">Tienda de suplementos deportivos sin presencia digital propia, dependiendo de marketplaces con márgenes bajos y sin control sobre la experiencia de compra.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.proteinShop.solution">E-commerce propio con catálogo interactivo, carrito de compra y checkout optimizado para maximizar la conversión y fidelizar clientes.</span></p>
                         <div class="portfolio-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.proteinShop.feature1">✓ Catálogo interactivo</span>
@@ -160,8 +160,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Bot Presupuestos</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.botPresupuestos.problem"> Negocios perdiendo horas respondiendo las mismas preguntas de precio por WhatsApp. Los clientes esperaban horas por un presupuesto que tardaba un día en llegar.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.botPresupuestos.solution"> Bot que guía al cliente con preguntas clave y genera un presupuesto personalizado de forma instantánea, sin intervención humana, disponible 24/7.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.botPresupuestos.problem">Negocios perdiendo horas respondiendo las mismas preguntas de precio por WhatsApp. Los clientes esperaban horas por un presupuesto que tardaba un día en llegar.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.botPresupuestos.solution">Bot que guía al cliente con preguntas clave y genera un presupuesto personalizado de forma instantánea, sin intervención humana, disponible 24/7.</span></p>
                         <div class="portfolio-tech"><span>TypeScript</span><span>Node.js</span><span>WhatsApp API</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.botPresupuestos.feature1">✓ Presupuestos al instante</span>
@@ -184,8 +184,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>NLVip</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.nlVip.problem"> Entrenador personal con una reputación excepcional y una forma de trabajar muy cercana y personalizada. La demanda creció tanto que no podía atender a todos sin perder la calidad que le hacía diferente — cada cliente nuevo era un cliente al que no podía darle lo que merecía.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.nlVip.solution"> App de membresías VIP que le permite gestionar quién accede a sus servicios, publicar contenido exclusivo para sus miembros y mantener esa atención personal que le define, sin colapsar su agenda.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.nlVip.problem">Entrenador personal con una reputación excepcional y una forma de trabajar muy cercana y personalizada. La demanda creció tanto que no podía atender a todos sin perder la calidad que le hacía diferente — cada cliente nuevo era un cliente al que no podía darle lo que merecía.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.nlVip.solution">App de membresías VIP que le permite gestionar quién accede a sus servicios, publicar contenido exclusivo para sus miembros y mantener esa atención personal que le define, sin colapsar su agenda.</span></p>
                         <div class="portfolio-tech"><span>React Native</span><span>Node.js</span><span>Stripe</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.nlVip.feature1">✓ Acceso por membresía</span>
@@ -208,8 +208,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Nómina Pro</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.nominaPro.problem"> PYMEs con departamentos de RRHH invirtiendo días enteros cada mes en calcular nóminas manualmente en Excel, con riesgo de errores y disputas con empleados.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.nominaPro.solution"> Sistema de gestión de nóminas que calcula salarios, deducciones y retenciones automáticamente, generando los documentos listos para firmar en segundos.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.nominaPro.problem">PYMEs con departamentos de RRHH invirtiendo días enteros cada mes en calcular nóminas manualmente en Excel, con riesgo de errores y disputas con empleados.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.nominaPro.solution">Sistema de gestión de nóminas que calcula salarios, deducciones y retenciones automáticamente, generando los documentos listos para firmar en segundos.</span></p>
                         <div class="portfolio-tech"><span>JavaScript</span><span>Node.js</span><span>PDF.js</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.nominaPro.feature1">✓ Cálculo automático</span>
@@ -232,8 +232,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Visitas Virtuales</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.visitasVirtuales.problem"> Inmobiliarias, arquitectos y estudios de interiorismo necesitan mostrar espacios a clientes que no pueden desplazarse — pero contratar fotógrafos especializados en 360° es caro, lento y depende de terceros para cada actualización.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.visitasVirtuales.solution"> Plataforma que convierte fotos normales de una habitación, tomadas desde distintos ángulos con cualquier móvil, en un tour virtual navegable. Subes las capturas de cada punto del espacio y el sistema las ensambla en una experiencia inmersiva lista para compartir. Los diseñadores de interiores pueden además subir su catálogo de muebles y objetos, colocarlos dentro del espacio en 3D y mostrarle al cliente exactamente cómo quedaría ese sofá, esa lámpara o esa estantería en la habitación real — antes de comprar nada.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.visitasVirtuales.problem">Inmobiliarias, arquitectos y estudios de interiorismo necesitan mostrar espacios a clientes que no pueden desplazarse — pero contratar fotógrafos especializados en 360° es caro, lento y depende de terceros para cada actualización.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.visitasVirtuales.solution">Plataforma que convierte fotos normales de una habitación, tomadas desde distintos ángulos con cualquier móvil, en un tour virtual navegable. Subes las capturas de cada punto del espacio y el sistema las ensambla en una experiencia inmersiva lista para compartir. Los diseñadores de interiores pueden además subir su catálogo de muebles y objetos, colocarlos dentro del espacio en 3D y mostrarle al cliente exactamente cómo quedaría ese sofá, esa lámpara o esa estantería en la habitación real — antes de comprar nada.</span></p>
                         <div class="portfolio-tech"><span>TypeScript</span><span>WebGL</span><span>Three.js</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.visitasVirtuales.feature1">✓ Tour desde fotos con el móvil</span>
@@ -241,8 +241,8 @@
                             <span data-i18n="portfolio.visitasVirtuales.feature3">✓ Inmobiliarias, arquitectos e interiorismo</span>
                         </div>
                         <button class="btn-demo-project" id="visitasDemoBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg data-i18n="portfolio.visitasVirtuales.demoButton">
-                            Ver demo en vivo
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                            <span data-i18n="portfolio.visitasVirtuales.demoButton">Ver demo en vivo</span>
                         </button>
                     </div>
                 </article>
@@ -260,8 +260,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Trading Bot</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.tradingBot.problem"> Operar en múltiples mercados — cripto, forex, metales y índices — requiere monitorizar gráficos 24/7, ejecutar con precisión milimétrica y mantener la cabeza fría. Ningún trader lo consigue a largo plazo: la fatiga y las emociones destruyen la estrategia.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.tradingBot.solution"> Bot de trading algorítmico multi-mercado que opera en cripto, forex (EUR/USD, GBP/USD…), metales (oro, plata) e índices bursátiles. Analiza indicadores técnicos en tiempo real, ejecuta órdenes automáticamente y gestiona el riesgo por posición — sin intervención humana y sin emociones.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.tradingBot.problem">Operar en múltiples mercados — cripto, forex, metales y índices — requiere monitorizar gráficos 24/7, ejecutar con precisión milimétrica y mantener la cabeza fría. Ningún trader lo consigue a largo plazo: la fatiga y las emociones destruyen la estrategia.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.tradingBot.solution">Bot de trading algorítmico multi-mercado que opera en cripto, forex (EUR/USD, GBP/USD…), metales (oro, plata) e índices bursátiles. Analiza indicadores técnicos en tiempo real, ejecuta órdenes automáticamente y gestiona el riesgo por posición — sin intervención humana y sin emociones.</span></p>
                         <div class="portfolio-tech"><span>Python</span><span>MetaTrader 5</span><span>CCXT</span><span>Pandas</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.tradingBot.feature1">✓ Cripto, forex, metales e índices</span>
@@ -284,8 +284,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>Jarvis</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.jarvis.problem"> Los asistentes de voz del mercado son genéricos, viven en el ecosistema de una gran corporación y no saben nada sobre ti. Pedirle algo a Alexa o Siri es útil para encender la luz, no para gestionar tu vida.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.jarvis.solution"> Un asistente de IA personal que vive en tu propio ordenador — como el Jarvis de Iron Man. Le hablas desde el teléfono, él te escucha, piensa, y te responde con voz natural. Te conoce, recuerda tus conversaciones anteriores y trabaja solo para ti.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.jarvis.problem">Los asistentes de voz del mercado son genéricos, viven en el ecosistema de una gran corporación y no saben nada sobre ti. Pedirle algo a Alexa o Siri es útil para encender la luz, no para gestionar tu vida.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.jarvis.solution">Un asistente de IA personal que vive en tu propio ordenador — como el Jarvis de Iron Man. Le hablas desde el teléfono, él te escucha, piensa, y te responde con voz natural. Te conoce, recuerda tus conversaciones anteriores y trabaja solo para ti.</span></p>
                         <div class="portfolio-tech"><span>JavaScript</span><span>OpenAI API</span><span>Text-to-Speech</span><span>Node.js</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.jarvis.feature1">✓ Voz de entrada y salida natural</span>
@@ -308,8 +308,8 @@
                     </div>
                     <div class="portfolio-info">
                         <h3>FinFlow</h3>
-                        <p><strong>El problema:</strong data-i18n="portfolio.finFlow.problem"> Sage domina el mercado de gestión financiera para PYMEs pero acumula los mismos fallos desde hace años: interfaz anticuada y lenta, soporte inaccesible, integraciones rotas con Stripe y bancos, y suscripciones abusivas que suben de precio sin previo aviso.</p>
-                        <p><strong>La solución:</strong data-i18n="portfolio.finFlow.solution"> Alternativa moderna que hace lo mismo que Sage pero sin sus lacras — UX limpia pensada para equipos no técnicos, integraciones nativas con los servicios que ya usas, soporte real en menos de 24h, y precio transparente desde el primer día.</p>
+                        <p><strong>El problema:</strong> <span data-i18n="portfolio.finFlow.problem">Sage domina el mercado de gestión financiera para PYMEs pero acumula los mismos fallos desde hace años: interfaz anticuada y lenta, soporte inaccesible, integraciones rotas con Stripe y bancos, y suscripciones abusivas que suben de precio sin previo aviso.</span></p>
+                        <p><strong>La solución:</strong> <span data-i18n="portfolio.finFlow.solution">Alternativa moderna que hace lo mismo que Sage pero sin sus lacras — UX limpia pensada para equipos no técnicos, integraciones nativas con los servicios que ya usas, soporte real en menos de 24h, y precio transparente desde el primer día.</span></p>
                         <div class="portfolio-tech"><span>TypeScript</span><span>React</span><span>OpenAI API</span></div>
                         <div class="portfolio-features">
                             <span data-i18n="portfolio.finFlow.feature1">✓ UX moderna sin curva</span>
@@ -326,7 +326,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="portfolio.caseStudy.tag">// Case Study</span>
-                <h2 class="section-title">Bot Presupuestos: <span class="text-gradient">De horas a segundos</span></h2>
+                <h2 class="section-title" data-i18n="portfolio.caseStudy.title">Bot Presupuestos: <span class="text-gradient">De horas a segundos</span></h2>
             </div>
 
             <div class="case-study reveal">
@@ -357,10 +357,10 @@
                     <div class="case-block">
                         <h4 data-i18n="portfolio.caseStudy.blockProcess">🛠️ Proceso</h4>
                         <ul class="case-process">
-                            <li><strong>Semana 1:</strong> Mapeo de flujos de conversación y lógica de precios</li>
-                            <li><strong>Semana 2-3:</strong> Desarrollo del bot en TypeScript + integración API</li>
-                            <li><strong>Semana 4:</strong> Testing con casos reales y afinado de respuestas</li>
-                            <li><strong>Semana 5:</strong> Despliegue en producción y monitorización</li>
+                            <li data-i18n="portfolio.caseStudy.week1"><strong>Semana 1:</strong> Mapeo de flujos de conversación y lógica de precios</li>
+                            <li data-i18n="portfolio.caseStudy.week23"><strong>Semana 2-3:</strong> Desarrollo del bot en TypeScript + integración API</li>
+                            <li data-i18n="portfolio.caseStudy.week4"><strong>Semana 4:</strong> Testing con casos reales y afinado de respuestas</li>
+                            <li data-i18n="portfolio.caseStudy.week5"><strong>Semana 5:</strong> Despliegue en producción y monitorización</li>
                         </ul>
                     </div>
 
@@ -442,13 +442,13 @@
             <div class="footer-content">
                 <div class="footer-brand"><span class="logo-bracket">&lt;</span>Said<span
                         class="logo-bracket">/&gt;</span>
-                    <p>Desarrollo digital desde Andorra 🇦🇩</p>
+                    <p data-i18n="footer.tagline">Desarrollo digital desde Andorra 🇦🇩</p>
                 </div>
-                <div class="footer-links"><a href="servicios.html">Servicios</a><a href="portfolio.html">Portfolio</a><a
-                        href="sobre-mi.html">Sobre mí</a><a href="contacto.html">Contacto</a></div>
+                <div class="footer-links"><a href="servicios.html" data-i18n="nav.services">Servicios</a><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a><a
+                        href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a><a href="contacto.html" data-i18n="nav.contact">Contacto</a></div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Said. Todos los derechos reservados.</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Said. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -488,7 +488,7 @@
     </div>
 
     <script src="higgsfield-visuals.js?v=1.8"></script>
-    <script src="script.js?v=2.2"></script>
+    <script src="script.js?v=2.3"></script>
     <script>
     (function () {
         var modal = document.getElementById('modalVisitas');
