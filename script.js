@@ -995,6 +995,13 @@ function initCalculator() {
 // ===========================
 const translations = {
     es: {
+        loader: { tag: 'Desarrollo Digital' },
+        nfc: {
+            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
+            message: 'Gracias por escanear mi tarjeta —<br><span class="nfc-message-highlight">aquí empieza tu proyecto</span>',
+            cta: 'Explorar mi trabajo',
+            skip: 'Saltar'
+        },
         nav: { services: 'Servicios', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mí', contact: 'Contacto' },
         hero: {
             badge: 'Disponible para proyectos',
@@ -1005,6 +1012,50 @@ const translations = {
             cta2: 'Ver Proyectos'
         },
         stats: { projects: 'Proyectos', satisfaction: 'Satisfacción', sectors: 'Sectores' },
+        sectors: {
+            title: 'He colaborado con negocios de',
+            restaurants: '🍽️ Restaurantes',
+            realestate: '🏠 Inmobiliarias',
+            gyms: '💪 Gimnasios',
+            hotels: '🏨 Hoteles'
+        },
+        servicesHome: {
+            tag: '// Servicios',
+            title: 'Soluciones <span class="text-gradient">digitales</span>',
+            web: { title: 'Desarrollo Web', desc: 'Páginas web modernas, rápidas y responsive.' },
+            apps: { title: 'Apps Móviles', desc: 'Aplicaciones iOS y Android nativas.' },
+            saas: { title: 'SaaS', desc: 'Plataformas escalables con suscripciones.' },
+            auto: { title: 'Automatizaciones', desc: 'Bots, workflows y conexiones.' },
+            link: 'Ver más →',
+            cta: 'Ver todos los servicios'
+        },
+        portfolioHome: {
+            tag: '// Portfolio',
+            title: 'Proyectos <span class="text-gradient">destacados</span>',
+            shop: { badge: 'E-commerce', desc: 'Tienda online de suplementos deportivos con catálogo interactivo y checkout optimizado para conversión.' },
+            bot: { badge: 'Bot', desc: 'Bot que genera presupuestos personalizados automáticamente, disponible 24/7 sin intervención humana.' },
+            cta: 'Ver todos los proyectos'
+        },
+        testimonialsHome: {
+            tag: '// Testimonios',
+            title: 'Lo que dicen <span class="text-gradient">mis clientes</span>',
+            t1: '"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."',
+            t2: '"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."',
+            t3: '"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"',
+            t4: '"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."',
+            t5: '"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."',
+            t6: '"El SaaS que creó para nuestra tienda superó todas las expectativas."'
+        },
+        process: {
+            tag: '// Proceso',
+            title: 'Cómo <span class="text-gradient">trabajo</span>',
+            subtitle: 'Un proceso claro de principio a fin.',
+            step1: { title: 'Consulta', desc: 'Analizamos tu idea y objetivos.', time: '1-2 días' },
+            step2: { title: 'Propuesta', desc: 'Presupuesto detallado con plazos.', time: '2-3 días' },
+            step3: { title: 'Diseño', desc: 'Creo el diseño visual de tu proyecto.', time: '1-2 semanas' },
+            step4: { title: 'Desarrollo', desc: 'Programo con actualizaciones semanales.', time: '2-6 semanas' },
+            step5: { title: 'Lanzamiento', desc: 'Ajustes finales y publicación.', time: '1-2 días' }
+        },
         trust: {
             tag: 'Garantías',
             title: 'Por qué <span class="text-gradient">confiar en mí</span>',
@@ -1017,14 +1068,34 @@ const translations = {
             tag: 'Precios',
             title: 'Inversión <span class="text-gradient">transparente</span>',
             subtitle: 'Precios orientativos. Cada proyecto es único.',
-            basic: { name: 'Básico', title: 'Landing Page', price: '500€', desc: 'Perfecto para empezar tu presencia digital.' },
-            pro: { name: 'Profesional', title: 'Web / App', price: '1.500€', desc: 'Para negocios que necesitan más funcionalidades.' },
-            premium: { name: 'Premium', title: 'SaaS / Plataforma', price: '2.000€', desc: 'Soluciones completas a medida.' },
-            cta: 'Solicitar presupuesto'
+            basic: {
+                name: 'Básico', title: 'Landing Page', desc: 'Perfecto para empezar tu presencia digital.',
+                f1: 'Diseño responsive', f2: 'SEO básico', f3: 'Formulario de contacto', f4: '1 revisión incluida', f5: 'Entrega en 1-2 semanas',
+                action: 'Empezar'
+            },
+            pro: {
+                name: 'Recomendado', title: 'Web Profesional', desc: 'Ideal para negocios que quieren crecer.',
+                f1: 'Hasta 5 páginas', f2: 'SEO avanzado', f3: 'Panel de administración', f4: 'Integración redes sociales', f5: '3 revisiones incluidas', f6: 'Entrega en 2-4 semanas',
+                action: 'Empezar'
+            },
+            premium: {
+                name: 'Premium', title: 'App / SaaS', desc: 'Soluciones complejas a medida.',
+                f1: 'App móvil o plataforma SaaS', f2: 'Backend completo', f3: 'Base de datos', f4: 'APIs y integraciones', f5: 'Revisiones ilimitadas', f6: 'Soporte 3 meses',
+                action: 'Consultar'
+            }
         },
-        cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' }
+        cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' },
+        footer: { tagline: 'Desarrollo digital desde Andorra 🇦🇩', copyright: '&copy; 2026 Said. Todos los derechos reservados.' },
+        emailPopup: { title: '🎁 Recibe consejos gratis', desc: 'Trucos de desarrollo web y ofertas exclusivas. Sin spam.', placeholder: 'Tu email', submit: 'Suscribirme' }
     },
     ca: {
+        loader: { tag: 'Desenvolupament Digital' },
+        nfc: {
+            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
+            message: 'Gràcies per escanejar la meva targeta —<br><span class="nfc-message-highlight">aquí comença el teu projecte</span>',
+            cta: 'Explorar la meva feina',
+            skip: 'Saltar'
+        },
         nav: { services: 'Serveis', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mi', contact: 'Contacte' },
         hero: {
             badge: 'Disponible per a projectes',
@@ -1035,6 +1106,50 @@ const translations = {
             cta2: 'Veure Projectes'
         },
         stats: { projects: 'Projectes', satisfaction: 'Satisfacció', sectors: 'Sectors' },
+        sectors: {
+            title: 'He col·laborat amb negocis de',
+            restaurants: '🍽️ Restaurants',
+            realestate: '🏠 Immobiliàries',
+            gyms: '💪 Gimnasos',
+            hotels: '🏨 Hotels'
+        },
+        servicesHome: {
+            tag: '// Serveis',
+            title: 'Solucions <span class="text-gradient">digitals</span>',
+            web: { title: 'Desenvolupament Web', desc: 'Pàgines web modernes, ràpides i responsive.' },
+            apps: { title: 'Apps Mòbils', desc: 'Aplicacions iOS i Android natives.' },
+            saas: { title: 'SaaS', desc: 'Plataformes escalables amb subscripcions.' },
+            auto: { title: 'Automatitzacions', desc: 'Bots, workflows i connexions.' },
+            link: 'Veure més →',
+            cta: 'Veure tots els serveis'
+        },
+        portfolioHome: {
+            tag: '// Portfolio',
+            title: 'Projectes <span class="text-gradient">destacats</span>',
+            shop: { badge: 'E-commerce', desc: 'Botiga online de suplements esportius amb catàleg interactiu i checkout optimitzat per a conversió.' },
+            bot: { badge: 'Bot', desc: 'Bot que genera pressupostos personalitzats automàticament, disponible 24/7 sense intervenció humana.' },
+            cta: 'Veure tots els projectes'
+        },
+        testimonialsHome: {
+            tag: '// Testimonis',
+            title: 'Què diuen <span class="text-gradient">els meus clients</span>',
+            t1: '"Said va desenvolupar la nostra web de reserves en temps rècord. Les reserves van augmentar un 40%."',
+            t2: '"Professional i ràpid. La nostra app immobiliària funciona perfectament."',
+            t3: '"L\'app del gimnàs ens va permetre digitalitzar-ho tot. Excel·lent feina!"',
+            t4: '"La nostra web d\'hotel va quedar espectacular. Reserves online funcionant perfecte."',
+            t5: '"Va automatitzar tots els nostres processos. Estalviem 10 hores setmanals."',
+            t6: '"El SaaS que va crear per a la nostra botiga va superar totes les expectatives."'
+        },
+        process: {
+            tag: '// Procés',
+            title: 'Com <span class="text-gradient">treballo</span>',
+            subtitle: 'Un procés clar de principi a fi.',
+            step1: { title: 'Consulta', desc: 'Analitzem la teva idea i objectius.', time: '1-2 dies' },
+            step2: { title: 'Proposta', desc: 'Pressupost detallat amb terminis.', time: '2-3 dies' },
+            step3: { title: 'Disseny', desc: 'Creo el disseny visual del teu projecte.', time: '1-2 setmanes' },
+            step4: { title: 'Desenvolupament', desc: 'Programo amb actualitzacions setmanals.', time: '2-6 setmanes' },
+            step5: { title: 'Llançament', desc: 'Ajustos finals i publicació.', time: '1-2 dies' }
+        },
         trust: {
             tag: 'Garanties',
             title: 'Per què <span class="text-gradient">confiar en mi</span>',
@@ -1047,14 +1162,34 @@ const translations = {
             tag: 'Preus',
             title: 'Inversió <span class="text-gradient">transparent</span>',
             subtitle: 'Preus orientatius. Cada projecte és únic.',
-            basic: { name: 'Bàsic', title: 'Landing Page', price: '500€', desc: 'Perfecte per començar la teva presència digital.' },
-            pro: { name: 'Professional', title: 'Web / App', price: '1.500€', desc: 'Per a negocis que necessiten més funcionalitats.' },
-            premium: { name: 'Premium', title: 'SaaS / Plataforma', price: '2.000€', desc: 'Solucions completes a mida.' },
-            cta: 'Sol·licitar pressupost'
+            basic: {
+                name: 'Bàsic', title: 'Landing Page', desc: 'Perfecte per començar la teva presència digital.',
+                f1: 'Disseny responsive', f2: 'SEO bàsic', f3: 'Formulari de contacte', f4: '1 revisió inclosa', f5: 'Lliurament en 1-2 setmanes',
+                action: 'Començar'
+            },
+            pro: {
+                name: 'Recomanat', title: 'Web Professional', desc: 'Ideal per a negocis que volen créixer.',
+                f1: 'Fins a 5 pàgines', f2: 'SEO avançat', f3: 'Panell d\'administració', f4: 'Integració xarxes socials', f5: '3 revisions incloses', f6: 'Lliurament en 2-4 setmanes',
+                action: 'Començar'
+            },
+            premium: {
+                name: 'Premium', title: 'App / SaaS', desc: 'Solucions complexes a mida.',
+                f1: 'App mòbil o plataforma SaaS', f2: 'Backend complet', f3: 'Base de dades', f4: 'APIs i integracions', f5: 'Revisions il·limitades', f6: 'Suport 3 mesos',
+                action: 'Consultar'
+            }
         },
-        cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' }
+        cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' },
+        footer: { tagline: 'Desenvolupament digital des d\'Andorra 🇦🇩', copyright: '&copy; 2026 Said. Tots els drets reservats.' },
+        emailPopup: { title: '🎁 Rep consells gratis', desc: 'Trucs de desenvolupament web i ofertes exclusives. Sense spam.', placeholder: 'El teu email', submit: 'Subscriure\'m' }
     },
     fr: {
+        loader: { tag: 'Développement Numérique' },
+        nfc: {
+            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorre',
+            message: 'Merci d\'avoir scanné ma carte —<br><span class="nfc-message-highlight">ici commence votre projet</span>',
+            cta: 'Explorer mon travail',
+            skip: 'Passer'
+        },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'À propos', contact: 'Contact' },
         hero: {
             badge: 'Disponible pour projets',
@@ -1065,6 +1200,50 @@ const translations = {
             cta2: 'Voir les projets'
         },
         stats: { projects: 'Projets', satisfaction: 'Satisfaction', sectors: 'Secteurs' },
+        sectors: {
+            title: 'J\'ai collaboré avec des entreprises de',
+            restaurants: '🍽️ Restaurants',
+            realestate: '🏠 Agences immobilières',
+            gyms: '💪 Salles de sport',
+            hotels: '🏨 Hôtels'
+        },
+        servicesHome: {
+            tag: '// Services',
+            title: 'Solutions <span class="text-gradient">numériques</span>',
+            web: { title: 'Développement Web', desc: 'Sites web modernes, rapides et responsive.' },
+            apps: { title: 'Applications Mobiles', desc: 'Applications iOS et Android natives.' },
+            saas: { title: 'SaaS', desc: 'Plateformes évolutives avec abonnements.' },
+            auto: { title: 'Automatisations', desc: 'Bots, workflows et connexions.' },
+            link: 'Voir plus →',
+            cta: 'Voir tous les services'
+        },
+        portfolioHome: {
+            tag: '// Portfolio',
+            title: 'Projets <span class="text-gradient">phares</span>',
+            shop: { badge: 'E-commerce', desc: 'Boutique en ligne de compléments sportifs avec catalogue interactif et checkout optimisé pour la conversion.' },
+            bot: { badge: 'Bot', desc: 'Bot qui génère des devis personnalisés automatiquement, disponible 24/7 sans intervention humaine.' },
+            cta: 'Voir tous les projets'
+        },
+        testimonialsHome: {
+            tag: '// Témoignages',
+            title: 'Ce que disent <span class="text-gradient">mes clients</span>',
+            t1: '"Said a développé notre site de réservations en un temps record. Les réservations ont augmenté de 40%."',
+            t2: '"Professionnel et rapide. Notre application immobilière fonctionne parfaitement."',
+            t3: '"L\'application de la salle de sport nous a permis de tout numériser. Excellent travail!"',
+            t4: '"Notre site d\'hôtel est devenu spectaculaire. Les réservations en ligne fonctionnent parfaitement."',
+            t5: '"Il a automatisé tous nos processus. Nous économisons 10 heures par semaine."',
+            t6: '"Le SaaS qu\'il a créé pour notre boutique a dépassé toutes nos attentes."'
+        },
+        process: {
+            tag: '// Processus',
+            title: 'Comment je <span class="text-gradient">travaille</span>',
+            subtitle: 'Un processus clair du début à la fin.',
+            step1: { title: 'Consultation', desc: 'Nous analysons votre idée et vos objectifs.', time: '1-2 jours' },
+            step2: { title: 'Proposition', desc: 'Devis détaillé avec délais.', time: '2-3 jours' },
+            step3: { title: 'Design', desc: 'Je crée le design visuel de votre projet.', time: '1-2 semaines' },
+            step4: { title: 'Développement', desc: 'Je programme avec des mises à jour hebdomadaires.', time: '2-6 semaines' },
+            step5: { title: 'Lancement', desc: 'Ajustements finaux et publication.', time: '1-2 jours' }
+        },
         trust: {
             tag: 'Garanties',
             title: 'Pourquoi <span class="text-gradient">me faire confiance</span>',
@@ -1077,14 +1256,34 @@ const translations = {
             tag: 'Prix',
             title: 'Investissement <span class="text-gradient">transparent</span>',
             subtitle: 'Prix indicatifs. Chaque projet est unique.',
-            basic: { name: 'Basique', title: 'Landing Page', price: '500€', desc: 'Parfait pour commencer votre présence numérique.' },
-            pro: { name: 'Professionnel', title: 'Web / App', price: '1.500€', desc: 'Pour les entreprises qui ont besoin de plus de fonctionnalités.' },
-            premium: { name: 'Premium', title: 'SaaS / Plateforme', price: '2.000€', desc: 'Solutions complètes sur mesure.' },
-            cta: 'Demander un devis'
+            basic: {
+                name: 'Basique', title: 'Landing Page', desc: 'Parfait pour commencer votre présence numérique.',
+                f1: 'Design responsive', f2: 'SEO basique', f3: 'Formulaire de contact', f4: '1 révision incluse', f5: 'Livraison en 1-2 semaines',
+                action: 'Commencer'
+            },
+            pro: {
+                name: 'Recommandé', title: 'Site Professionnel', desc: 'Idéal pour les entreprises qui veulent grandir.',
+                f1: 'Jusqu\'à 5 pages', f2: 'SEO avancé', f3: 'Panneau d\'administration', f4: 'Intégration réseaux sociaux', f5: '3 révisions incluses', f6: 'Livraison en 2-4 semaines',
+                action: 'Commencer'
+            },
+            premium: {
+                name: 'Premium', title: 'App / SaaS', desc: 'Solutions complexes sur mesure.',
+                f1: 'App mobile ou plateforme SaaS', f2: 'Backend complet', f3: 'Base de données', f4: 'APIs et intégrations', f5: 'Révisions illimitées', f6: 'Support 3 mois',
+                action: 'Consulter'
+            }
         },
-        cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' }
+        cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' },
+        footer: { tagline: 'Développement numérique depuis l\'Andorre 🇦🇩', copyright: '&copy; 2026 Said. Tous droits réservés.' },
+        emailPopup: { title: '🎁 Recevez des conseils gratuits', desc: 'Astuces de développement web et offres exclusives. Sans spam.', placeholder: 'Votre email', submit: 'M\'abonner' }
     },
     en: {
+        loader: { tag: 'Digital Development' },
+        nfc: {
+            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
+            message: 'Thanks for scanning my card —<br><span class="nfc-message-highlight">this is where your project begins</span>',
+            cta: 'Explore my work',
+            skip: 'Skip'
+        },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'About', contact: 'Contact' },
         hero: {
             badge: 'Available for projects',
@@ -1095,6 +1294,50 @@ const translations = {
             cta2: 'View Projects'
         },
         stats: { projects: 'Projects', satisfaction: 'Satisfaction', sectors: 'Sectors' },
+        sectors: {
+            title: 'I\'ve collaborated with businesses in',
+            restaurants: '🍽️ Restaurants',
+            realestate: '🏠 Real Estate',
+            gyms: '💪 Gyms',
+            hotels: '🏨 Hotels'
+        },
+        servicesHome: {
+            tag: '// Services',
+            title: 'Digital <span class="text-gradient">solutions</span>',
+            web: { title: 'Web Development', desc: 'Modern, fast and responsive websites.' },
+            apps: { title: 'Mobile Apps', desc: 'Native iOS and Android applications.' },
+            saas: { title: 'SaaS', desc: 'Scalable platforms with subscriptions.' },
+            auto: { title: 'Automations', desc: 'Bots, workflows and integrations.' },
+            link: 'See more →',
+            cta: 'View all services'
+        },
+        portfolioHome: {
+            tag: '// Portfolio',
+            title: 'Featured <span class="text-gradient">projects</span>',
+            shop: { badge: 'E-commerce', desc: 'Online store for sports supplements with an interactive catalog and conversion-optimized checkout.' },
+            bot: { badge: 'Bot', desc: 'Bot that automatically generates personalized quotes, available 24/7 with no human intervention.' },
+            cta: 'View all projects'
+        },
+        testimonialsHome: {
+            tag: '// Testimonials',
+            title: 'What <span class="text-gradient">my clients say</span>',
+            t1: '"Said built our booking site in record time. Bookings increased by 40%."',
+            t2: '"Professional and fast. Our real estate app works perfectly."',
+            t3: '"The gym app let us digitize everything. Excellent work!"',
+            t4: '"Our hotel website turned out spectacular. Online bookings work perfectly."',
+            t5: '"He automated all our processes. We save 10 hours a week."',
+            t6: '"The SaaS he built for our shop exceeded all expectations."'
+        },
+        process: {
+            tag: '// Process',
+            title: 'How I <span class="text-gradient">work</span>',
+            subtitle: 'A clear process from start to finish.',
+            step1: { title: 'Consultation', desc: 'We analyze your idea and goals.', time: '1-2 days' },
+            step2: { title: 'Proposal', desc: 'Detailed quote with timelines.', time: '2-3 days' },
+            step3: { title: 'Design', desc: 'I create the visual design of your project.', time: '1-2 weeks' },
+            step4: { title: 'Development', desc: 'I build it with weekly updates.', time: '2-6 weeks' },
+            step5: { title: 'Launch', desc: 'Final adjustments and publishing.', time: '1-2 days' }
+        },
         trust: {
             tag: 'Guarantees',
             title: 'Why <span class="text-gradient">trust me</span>',
@@ -1107,12 +1350,25 @@ const translations = {
             tag: 'Pricing',
             title: 'Transparent <span class="text-gradient">investment</span>',
             subtitle: 'Indicative prices. Each project is unique.',
-            basic: { name: 'Basic', title: 'Landing Page', price: '500€', desc: 'Perfect to start your digital presence.' },
-            pro: { name: 'Professional', title: 'Web / App', price: '1.500€', desc: 'For businesses that need more features.' },
-            premium: { name: 'Premium', title: 'SaaS / Platform', price: '2.000€', desc: 'Complete custom solutions.' },
-            cta: 'Request quote'
+            basic: {
+                name: 'Basic', title: 'Landing Page', desc: 'Perfect to start your digital presence.',
+                f1: 'Responsive design', f2: 'Basic SEO', f3: 'Contact form', f4: '1 revision included', f5: 'Delivery in 1-2 weeks',
+                action: 'Get Started'
+            },
+            pro: {
+                name: 'Recommended', title: 'Professional Website', desc: 'Ideal for businesses that want to grow.',
+                f1: 'Up to 5 pages', f2: 'Advanced SEO', f3: 'Admin panel', f4: 'Social media integration', f5: '3 revisions included', f6: 'Delivery in 2-4 weeks',
+                action: 'Get Started'
+            },
+            premium: {
+                name: 'Premium', title: 'App / SaaS', desc: 'Complex custom solutions.',
+                f1: 'Mobile app or SaaS platform', f2: 'Full backend', f3: 'Database', f4: 'APIs and integrations', f5: 'Unlimited revisions', f6: '3 months of support',
+                action: 'Get in Touch'
+            }
         },
-        cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' }
+        cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' },
+        footer: { tagline: 'Digital development from Andorra 🇦🇩', copyright: '&copy; 2026 Said. All rights reserved.' },
+        emailPopup: { title: '🎁 Get free tips', desc: 'Web development tricks and exclusive offers. No spam.', placeholder: 'Your email', submit: 'Subscribe' }
     }
 };
 
@@ -1139,6 +1395,14 @@ function setLanguage(lang) {
         let value = translations[lang];
         keys.forEach(k => value = value?.[k]);
         if (value) el.innerHTML = value;
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        const keys = key.split('.');
+        let value = translations[lang];
+        keys.forEach(k => value = value?.[k]);
+        if (value) el.placeholder = value;
     });
 }
 
