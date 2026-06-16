@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Presupuesto Web y Apps | Said - Desarrollador Andorra</title>
     <meta name="description"
-        content="Contacta con Said para tu proyecto web, app móvil o SaaS. Respuesta en 24h. WhatsApp +376 601 249. Presupuesto sin compromiso. Disponible para nuevos proyectos.">
+        content="Contacta con Said para tu proyecto web, app móvil o SaaS. Respuesta en 24h. WhatsApp +376 601 249. Presupuesto sin compromiso. Disponible para nuevos proyectos." data-i18n="contact.contactInfo.availability">
     <meta name="keywords"
         content="contactar desarrollador, presupuesto web andorra, presupuesto app, desarrollador freelance andorra, WhatsApp Said">
     <meta name="author" content="Said">
@@ -88,9 +88,9 @@
 
     <section class="page-hero">
         <div class="container">
-            <span class="section-tag">// Contacto</span>
+            <span class="section-tag" data-i18n="contact.pageHero.tag">// Contacto</span>
             <h1 class="page-title">Hablemos de tu <span class="text-gradient">proyecto</span></h1>
-            <p class="page-subtitle">Cuéntame tu idea y te responderé en menos de 24 horas.</p>
+            <p class="page-subtitle" data-i18n="contact.pageHero.subtitle">Cuéntame tu idea y te responderé en menos de 24 horas.</p>
         </div>
     </section>
 
@@ -98,8 +98,8 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h2>Información de contacto</h2>
-                    <p>La forma más rápida de contactar es por WhatsApp. También puedes escribirme directamente.</p>
+                    <h2 data-i18n="contact.contactInfo.title">Información de contacto</h2>
+                    <p data-i18n="contact.contactInfo.description">La forma más rápida de contactar es por WhatsApp. También puedes escribirme directamente.</p>
 
                     <div class="contact-methods">
                         <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto"
@@ -113,7 +113,7 @@
                             <div class="contact-details"><span class="contact-label">WhatsApp</span><span
                                     class="contact-value">+376 601 249</span></div>
                         </a>
-                        <a href="mailto:s91564774@gmail.com" class="contact-method">
+                        <a href="mailto:s91564774@gmail.com" class="contact-method" data-i18n="contact.contactInfo.emailValue">
                             <div class="contact-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -122,7 +122,7 @@
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
                             </div>
-                            <div class="contact-details"><span class="contact-label">Email</span><span
+                            <div class="contact-details"><span class="contact-label" data-i18n="contact.contactInfo.emailLabel">Email</span><span
                                     class="contact-value">s91564774@gmail.com</span></div>
                         </a>
                         <div class="contact-method">
@@ -133,8 +133,8 @@
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
                             </div>
-                            <div class="contact-details"><span class="contact-label">Ubicación</span><span
-                                    class="contact-value">Andorra 🇦🇩</span></div>
+                            <div class="contact-details"><span class="contact-label" data-i18n="contact.contactInfo.locationLabel">Ubicación</span><span
+                                    class="contact-value" data-i18n="contact.contactInfo.locationValue">Andorra 🇦🇩</span></div>
                         </div>
                     </div>
 
@@ -152,40 +152,40 @@
                         <input type="hidden" name="_next" value="https://autoappsand.com/contacto.html?enviado=1">
 
                         <div class="form-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                            <label for="name" data-i18n="contact.form.nameLabel">Nombre</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre" data-i18n="contact.form.namePlaceholder">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com" data-i18n="contact.form.emailPlaceholder">
                         </div>
                         <div class="form-group">
-                            <label for="project">Tipo de proyecto</label>
+                            <label for="project" data-i18n="contact.form.projectLabel">Tipo de proyecto</label>
                             <select id="project" name="project" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="web">Página Web</option>
-                                <option value="app">App Móvil</option>
-                                <option value="saas">Plataforma SaaS</option>
-                                <option value="automatizacion">Automatización</option>
-                                <option value="otro">Otro</option>
+                                <option value="" data-i18n="contact.form.projectSelectOption">Selecciona una opción</option>
+                                <option value="web" data-i18n="contact.form.projectWeb">Página Web</option>
+                                <option value="app" data-i18n="contact.form.projectApp">App Móvil</option>
+                                <option value="saas" data-i18n="contact.form.projectSaaS">Plataforma SaaS</option>
+                                <option value="automatizacion" data-i18n="contact.form.projectAutomation">Automatización</option>
+                                <option value="otro" data-i18n="contact.form.projectOther">Otro</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="budget">Presupuesto orientativo</label>
+                            <label for="budget" data-i18n="contact.form.budgetLabel">Presupuesto orientativo</label>
                             <select id="budget" name="budget">
-                                <option value="">Selecciona un rango</option>
-                                <option value="<1000">Menos de 1.000€</option>
-                                <option value="1000-2000">1.000€ - 2.000€</option>
-                                <option value="2000-5000">2.000€ - 5.000€</option>
-                                <option value=">5000">Más de 5.000€</option>
+                                <option value="" data-i18n="contact.form.budgetSelectOption">Selecciona un rango</option>
+                                <option value="<1000" data-i18n="contact.form.budgetRange1">Menos de 1.000€</option>
+                                <option value="1000-2000" data-i18n="contact.form.budgetRange2">1.000€ - 2.000€</option>
+                                <option value="2000-5000" data-i18n="contact.form.budgetRange3">2.000€ - 5.000€</option>
+                                <option value=" data-i18n="contact.form.budgetRange4">5000">Más de 5.000€</option>
                             </select>
                         </div>
                         <div class="form-group full-width">
-                            <label for="message">Cuéntame tu proyecto</label>
+                            <label for="message" data-i18n="contact.form.messageLabel">Cuéntame tu proyecto</label>
                             <textarea id="message" name="message" rows="5" required
-                                placeholder="Describe brevemente qué necesitas..."></textarea>
+                                placeholder="Describe brevemente qué necesitas..." data-i18n="contact.form.messagePlaceholder"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+                        <button type="submit" class="btn btn-primary btn-lg" data-i18n="contact.form.submitButton">Enviar mensaje</button>
                     </form>
                 </div>
             </div>
@@ -195,11 +195,11 @@
     <section class="section section-dark">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">// FAQ</span>
+                <span class="section-tag" data-i18n="contact.faq.tag">// FAQ</span>
                 <h2 class="section-title">Preguntas <span class="text-gradient">frecuentes</span></h2>
             </div>
             <div class="faq-grid">
-                <div class="faq-item reveal"><button class="faq-question"><span>¿Cuánto cuesta una web?</span><svg
+                <div class="faq-item reveal"><button class="faq-question"><span data-i18n="contact.faq.q1">¿Cuánto cuesta una web?</span><svg
                             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M6 9l6 6 6-6" />
@@ -235,7 +235,7 @@
                             <path d="M6 9l6 6 6-6" />
                         </svg></button>
                     <div class="faq-answer">
-                        <p>Solo un 30-50% para empezar, y el resto al entregar. Acepto transferencia, Bizum y PayPal.
+                        <p data-i18n="contact.faq.a4">Solo un 30-50% para empezar, y el resto al entregar. Acepto transferencia, Bizum y PayPal.
                         </p>
                     </div>
                 </div>
@@ -269,9 +269,9 @@
     <div id="successModal" class="modal" style="display:none">
         <div class="modal-content">
             <div class="modal-icon">✓</div>
-            <h3>¡Mensaje enviado!</h3>
-            <p>Te responderé en menos de 24 horas.</p>
-            <button class="btn btn-primary" onclick="closeModal()">Cerrar</button>
+            <h3 data-i18n="contact.successModal.title">¡Mensaje enviado!</h3>
+            <p data-i18n="contact.successModal.message">Te responderé en menos de 24 horas.</p>
+            <button class="btn btn-primary" onclick="closeModal()" data-i18n="contact.successModal.closeButton">Cerrar</button>
         </div>
     </div>
 
@@ -286,7 +286,7 @@
     </script>
 
     <script src="higgsfield-visuals.js?v=1.8"></script>
-    <script src="script.js?v=2.1"></script>
+    <script src="script.js?v=2.2"></script>
 </body>
 
 </html>
