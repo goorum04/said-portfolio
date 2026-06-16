@@ -1240,6 +1240,11 @@ about: {
             },
         },
         portfolio: {
+            pageHero: {
+                tag: "// Portfolio",
+                title: "Mis proyectos",
+                subtitle: "Una selección de productos digitales que he desarrollado y lanzado.",
+            },
             botPresupuestos: {
                 badge: "Bot",
                 feature1: "Presupuestos al instante",
