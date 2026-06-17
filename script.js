@@ -1378,8 +1378,8 @@ about: {
                 feature2: "Carrito dinámico",
                 feature3: "Diseño responsivo",
                 name: "Protein Shop",
-                problem: "Tienda de suplementos deportivos sin presencia digital propia, dependiendo de marketplaces con márgenes bajos y sin control sobre la experiencia de compra.",
-                solution: "E-commerce propio con catálogo interactivo, carrito de compra y checkout optimizado para maximizar la conversión y fidelizar clientes.",
+                problem: "Tenía su catálogo en Shopify, lo que le obligaba a pagar cada vez que quería cambiar el diseño o el template — sin poder salirse del molde de Shopify.",
+                solution: "Le construimos una web propia con diseño 100% a medida y la conectamos a su cuenta de Shopify vía API, para que siga gestionando sus productos desde allí — pero ahora con control total del diseño y sin pagar por cada cambio.",
             },
             tradingBot: {
                 badge: "Bot",
@@ -1787,8 +1787,8 @@ about: {
                 feature2: "Carret dinàmic",
                 feature3: "Disseny responsiu",
                 name: "Protein Shop",
-                problem: "Botiga de suplements esportius sense presència digital pròpia, depenent de mercats amb marges baixos i sense control sobre l\'experiència de compra.",
-                solution: "E-commerce propi amb catàleg interactiu, carret de compra i checkout optimitzat per maximitzar la conversió i fidelitzar clients.",
+                problem: "Tenia el seu catàleg a Shopify, la qual cosa l\'obligava a pagar cada cop que volia canviar el disseny o el template — sense poder sortir del motlle de Shopify.",
+                solution: "Li vam construir una web pròpia amb disseny 100% a mida i la vam connectar al seu compte de Shopify via API, perquè pugui seguir gestionant els seus productes des d'allà — però ara amb control total del disseny i sense pagar per cada canvi.",
             },
             tradingBot: {
                 badge: "Bot",
@@ -2196,8 +2196,8 @@ about: {
                 feature2: "Panier dynamique",
                 feature3: "Design réactif",
                 name: "Protein Shop",
-                problem: "Magasin de suppléments sportifs sans présence numérique propre, dépendant des places de marché avec des marges faibles et sans contrôle sur l\'expérience d\'achat.",
-                solution: "E-commerce propriétaire avec catalogue interactif, panier et paiement optimisés pour maximiser les conversions et fidéliser les clients.",
+                problem: "Son catalogue était sur Shopify, ce qui l\'obligeait à payer à chaque modification de design ou de template — sans pouvoir sortir du cadre imposé par Shopify.",
+                solution: "Nous lui avons construit un site sur mesure et l\'avons connecté à son compte Shopify via API, pour qu\'il continue à gérer ses produits depuis là-bas — mais avec un contrôle total du design et sans payer pour chaque modification.",
             },
             tradingBot: {
                 badge: "Bot",
@@ -2605,8 +2605,8 @@ about: {
                 feature2: "Dynamic cart",
                 feature3: "Responsive design",
                 name: "Protein Shop",
-                problem: "Sports supplement store without its own digital presence, relying on marketplaces with low margins and no control over the shopping experience.",
-                solution: "Proprietary e-commerce with interactive catalog, shopping cart, and optimized checkout to maximize conversions and customer loyalty.",
+                problem: "His catalog was on Shopify, which meant paying every time he wanted to change the design or template — with no way to break out of Shopify's constraints.",
+                solution: "We built him a fully custom website and connected it to his Shopify account via API, so he can keep managing his products there — but now with complete design freedom and no fees for every change.",
             },
             tradingBot: {
                 badge: "Bot",
