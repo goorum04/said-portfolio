@@ -5,7 +5,6 @@
 // ===========================
 function initLoader() {
     const loader = document.getElementById('loader');
-    const canvas = document.getElementById('loaderCanvas');
 
     if (!loader) {
         document.body.style.overflow = '';
@@ -13,53 +12,6 @@ function initLoader() {
     }
 
     document.body.style.overflow = 'hidden';
-
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let raf;
-
-        const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-        resize();
-        window.addEventListener('resize', resize);
-
-        const pts = Array.from({ length: 70 }, () => ({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            r: Math.random() * 1.4 + 0.2,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            a: Math.random() * 0.45 + 0.08,
-            cyan: Math.random() > 0.45
-        }));
-
-        const tick = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            pts.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = p.cyan
-                    ? `rgba(0,212,255,${p.a})`
-                    : `rgba(124,58,237,${p.a})`;
-                ctx.fill();
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0) p.x = canvas.width;
-                else if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                else if (p.y > canvas.height) p.y = 0;
-            });
-            raf = requestAnimationFrame(tick);
-        };
-        tick();
-
-        setTimeout(() => {
-            cancelAnimationFrame(raf);
-            window.removeEventListener('resize', resize);
-        }, 3200);
-    }
 
     setTimeout(() => {
         loader.classList.add('hidden');

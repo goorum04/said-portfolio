@@ -4,12 +4,12 @@
 .loader {
     position: fixed;
     inset: 0;
-    background: var(--bg-primary);
+    background: #0a0a0f;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
     overflow: hidden;
 }
 
@@ -19,174 +19,130 @@
     pointer-events: none;
 }
 
-.loader-canvas {
+/* Aurora background blobs */
+.loader-glow {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    border-radius: 50%;
+    filter: blur(80px);
     pointer-events: none;
 }
 
-.loader-scene {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ---- Orbital Rings ---- */
-.loader-rings {
-    position: absolute;
-    inset: 0;
-    perspective: 600px;
-}
-
-.loader-ring {
-    position: absolute;
+.loader-glow--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.13) 0%, transparent 70%);
     top: 50%;
     left: 50%;
-    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: lgPulse1 5s ease-in-out infinite;
 }
 
-.loader-ring::before {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
+.loader-glow--2 {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+    top: 22%;
+    left: 32%;
+    animation: lgPulse2 6.5s ease-in-out infinite 1s;
 }
 
-.loader-ring--1 {
-    width: 210px;
-    height: 210px;
-    margin: -105px 0 0 -105px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    animation: loaderRing1 3.8s linear infinite;
+.loader-glow--3 {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+    top: 62%;
+    left: 62%;
+    animation: lgPulse3 4.8s ease-in-out infinite 0.5s;
 }
 
-.loader-ring--1::before {
-    width: 8px;
-    height: 8px;
-    top: -4px;
-    background: #00d4ff;
-    box-shadow: 0 0 10px #00d4ff, 0 0 22px rgba(0, 212, 255, 0.5);
+@keyframes lgPulse1 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);     opacity: 0.85; }
+    50%       { transform: translate(-50%, -50%) scale(1.35); opacity: 1; }
+}
+@keyframes lgPulse2 {
+    0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.75; }
+    50%       { transform: translate(50px, -35px) scale(1.28); opacity: 1; }
+}
+@keyframes lgPulse3 {
+    0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.65; }
+    50%       { transform: translate(-40px, 28px) scale(1.22); opacity: 0.95; }
 }
 
-.loader-ring--2 {
-    width: 163px;
-    height: 163px;
-    margin: -81.5px 0 0 -81.5px;
-    border: 1px solid rgba(124, 58, 237, 0.25);
-    animation: loaderRing2 2.7s linear infinite reverse;
-}
-
-.loader-ring--2::before {
-    width: 7px;
-    height: 7px;
-    top: -3.5px;
-    background: #7c3aed;
-    box-shadow: 0 0 10px #7c3aed, 0 0 20px rgba(124, 58, 237, 0.5);
-}
-
-.loader-ring--3 {
-    width: 122px;
-    height: 122px;
-    margin: -61px 0 0 -61px;
-    border: 1px solid rgba(236, 72, 153, 0.2);
-    animation: loaderRing3 1.9s linear infinite;
-}
-
-.loader-ring--3::before {
-    width: 5px;
-    height: 5px;
-    top: -2.5px;
-    background: #ec4899;
-    box-shadow: 0 0 8px #ec4899, 0 0 16px rgba(236, 72, 153, 0.4);
-}
-
-@keyframes loaderRing1 {
-    from { transform: rotateX(72deg) rotateZ(0deg); }
-    to   { transform: rotateX(72deg) rotateZ(360deg); }
-}
-
-@keyframes loaderRing2 {
-    from { transform: rotateX(65deg) rotateY(28deg) rotateZ(0deg); }
-    to   { transform: rotateX(65deg) rotateY(28deg) rotateZ(360deg); }
-}
-
-@keyframes loaderRing3 {
-    from { transform: rotateX(78deg) rotateY(-22deg) rotateZ(0deg); }
-    to   { transform: rotateX(78deg) rotateY(-22deg) rotateZ(360deg); }
-}
-
-/* ---- Central Orb ---- */
-.loader-orb {
+/* Center mark */
+.loader-mark {
     position: relative;
-    width: 48px;
-    height: 48px;
-    z-index: 2;
+    z-index: 1;
 }
 
-.loader-orb-core {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #00d4ff, #7c3aed);
-    animation: loaderOrbPulse 2.2s ease-in-out infinite;
-    box-shadow:
-        0 0 20px rgba(0, 212, 255, 0.4),
-        0 0 40px rgba(124, 58, 237, 0.2),
-        inset 0 0 12px rgba(255, 255, 255, 0.15);
-}
-
-.loader-orb-glow {
-    position: absolute;
-    inset: -22px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.18) 0%, rgba(124, 58, 237, 0.1) 40%, transparent 70%);
-    animation: loaderOrbPulse 2.2s ease-in-out infinite 0.7s;
-    pointer-events: none;
-}
-
-@keyframes loaderOrbPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50%       { transform: scale(1.15); opacity: 0.85; }
-}
-
-/* ---- SVG Progress Ring ---- */
-.loader-progress-svg {
-    position: absolute;
-    inset: 0;
-    width: 260px;
-    height: 260px;
-    transform: rotate(-90deg);
+.loader-svg {
+    width: 160px;
+    height: 160px;
     overflow: visible;
 }
 
-.loader-progress-track {
+/* Track (faint background circle) */
+.lsvg-track {
     fill: none;
     stroke: rgba(255, 255, 255, 0.05);
     stroke-width: 1.5;
 }
 
-.loader-progress-fill {
+/* Outer ring — draws itself from 12 o'clock */
+.lsvg-ring {
     fill: none;
     stroke: url(#lpg);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-dasharray: 339.3;
     stroke-dashoffset: 339.3;
-    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
-    animation: loaderProgressDraw 2.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.55));
+    animation: lRingDraw 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes loaderProgressDraw {
+/* Diamond — draws then spins slowly */
+.lsvg-diamond {
+    fill: rgba(124, 58, 237, 0.07);
+    stroke: rgba(124, 58, 237, 0.5);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-dasharray: 215;
+    stroke-dashoffset: 215;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        lDiamondDraw 1.6s ease-out 0.25s forwards,
+        lDiamondSpin 9s linear 1.85s infinite;
+}
+
+/* Center core — pulses */
+.lsvg-core {
+    fill: url(#lpg);
+    transform-box: fill-box;
+    transform-origin: center;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.7));
+    animation: lCorePulse 2s ease-in-out infinite 0.4s;
+}
+
+@keyframes lRingDraw {
     0%   { stroke-dashoffset: 339.3; }
-    60%  { stroke-dashoffset: 98; }
+    55%  { stroke-dashoffset: 95; }
     100% { stroke-dashoffset: 0; }
+}
+
+@keyframes lDiamondDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes lDiamondSpin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes lCorePulse {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.5); opacity: 0.75; }
 }
 
 /* ===========================

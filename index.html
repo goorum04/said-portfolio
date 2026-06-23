@@ -96,26 +96,21 @@
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <div class="loader" id="loader">
-        <canvas class="loader-canvas" id="loaderCanvas"></canvas>
-        <div class="loader-scene">
-            <div class="loader-rings">
-                <div class="loader-ring loader-ring--1"></div>
-                <div class="loader-ring loader-ring--2"></div>
-                <div class="loader-ring loader-ring--3"></div>
-            </div>
-            <div class="loader-orb">
-                <div class="loader-orb-core"></div>
-                <div class="loader-orb-glow"></div>
-            </div>
-            <svg class="loader-progress-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <div class="loader-glow loader-glow--1"></div>
+        <div class="loader-glow loader-glow--2"></div>
+        <div class="loader-glow loader-glow--3"></div>
+        <div class="loader-mark">
+            <svg class="loader-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="lpg" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#00d4ff"/>
                         <stop offset="100%" stop-color="#7c3aed"/>
                     </linearGradient>
                 </defs>
-                <circle class="loader-progress-track" cx="60" cy="60" r="54"/>
-                <circle class="loader-progress-fill" cx="60" cy="60" r="54"/>
+                <circle class="lsvg-track" cx="60" cy="60" r="54"/>
+                <circle class="lsvg-ring" cx="60" cy="60" r="54"/>
+                <polygon class="lsvg-diamond" points="60,22 98,60 60,98 22,60"/>
+                <circle class="lsvg-core" cx="60" cy="60" r="7"/>
             </svg>
         </div>
     </div>
