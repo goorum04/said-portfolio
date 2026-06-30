@@ -11,12 +11,23 @@
     z-index: 10000;
     transition: opacity 0.7s ease, visibility 0.7s ease;
     overflow: hidden;
+    /* Failsafe: hide the loader even if JavaScript never runs (e.g. a blocked
+       CDN or a slow mobile connection), so it can never trap the user. */
+    animation: loaderFailsafe 0.7s ease 3s forwards;
 }
 
 .loader.hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+}
+
+@keyframes loaderFailsafe {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 /* Aurora background blobs */
