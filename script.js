@@ -1014,16 +1014,17 @@ const translations = {
         },
         nav: { services: 'Servicios', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mí', contact: 'Contacto' },
         hero: {
-            badge: 'Disponible para proyectos',
+            badge: 'Aceptando nuevos proyectos',
             greeting: 'Hola, soy',
-            subtitle: 'Transformo ideas en <span class="text-gradient">experiencias digitales</span> que impulsan tu negocio.',
+            headline: 'Webs, apps y SaaS que <span class="text-gradient">impulsan tu negocio</span>',
+            subtitle: 'Somos un estudio digital en Andorra. Diseñamos y desarrollamos productos a medida que hacen crecer tu negocio.',
             description: 'Desarrollo de Apps · Páginas Web · Automatizaciones · SaaS',
             cta1: 'Pedir Presupuesto',
             cta2: 'Ver Proyectos'
         },
         stats: { projects: 'Proyectos', satisfaction: 'Satisfacción', sectors: 'Sectores' },
         sectors: {
-            title: 'He colaborado con negocios de',
+            title: 'Hemos trabajado con negocios de',
             restaurants: '🍽️ Restaurantes',
             realestate: '🏠 Inmobiliarias',
             gyms: '💪 Gimnasios',
@@ -1049,7 +1050,7 @@ const translations = {
         testimonialsHome: {
             tag: '// Testimonios',
             title: 'Lo que dicen <span class="text-gradient">mis clientes</span>',
-            t1: '"Said desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."',
+            t1: '"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."',
             t2: '"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."',
             t3: '"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"',
             t4: '"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."',
@@ -1063,16 +1064,16 @@ const translations = {
             step1: { title: 'Consulta', desc: 'Analizamos tu idea y objetivos.', time: '1-2 días' },
             step2: { title: 'Propuesta', desc: 'Presupuesto detallado con plazos.', time: '2-3 días' },
             step3: { title: 'Diseño', desc: 'Creo el diseño visual de tu proyecto.', time: '1-2 semanas' },
-            step4: { title: 'Desarrollo', desc: 'Programo con actualizaciones semanales.', time: '2-6 semanas' },
+            step4: { title: 'Desarrollo', desc: 'Programamos con actualizaciones semanales.', time: '2-6 semanas' },
             step5: { title: 'Lanzamiento', desc: 'Ajustes finales y publicación.', time: '1-2 días' }
         },
         trust: {
             tag: 'Garantías',
-            title: 'Por qué <span class="text-gradient">confiar en mí</span>',
+            title: 'Por qué <span class="text-gradient">confiar en nosotros</span>',
             card1: { title: 'Satisfacción garantizada', desc: 'No pagas hasta que estés 100% satisfecho con el resultado.' },
-            card2: { title: 'Entrega rápida', desc: 'Plazos realistas que cumplo. Sin sorpresas ni retrasos.' },
+            card2: { title: 'Entrega rápida', desc: 'Plazos realistas que cumplimos. Sin sorpresas ni retrasos.' },
             card3: { title: 'Soporte incluido', desc: '30 días de soporte gratuito después del lanzamiento.' },
-            card4: { title: 'Comunicación directa', desc: 'Hablo contigo directamente. Sin intermediarios.' }
+            card4: { title: 'Comunicación directa', desc: 'Hablas directamente con el equipo. Sin intermediarios.' }
         },
         pricing: {
             tag: 'Precios',
@@ -1119,7 +1120,7 @@ const translations = {
             q5: { q: '¿Ofreces soporte después del lanzamiento?', a: 'Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.' },
             q6: { q: '¿Qué es el posicionamiento en IA (GEO)?', a: 'Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.' }
         },
-        audit: { hero: 'Auditoría gratis' }
+        audit: { hero: 'Auditoría gratis', banner: 'Auditoría de posicionamiento en IA <strong>gratis</strong> · sin compromiso' }
     ,
 about: {
             cta: {
@@ -1446,16 +1447,17 @@ about: {
         },
         nav: { services: 'Serveis', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mi', contact: 'Contacte' },
         hero: {
-            badge: 'Disponible per a projectes',
+            badge: 'Acceptant nous projectes',
             greeting: 'Hola, sóc',
-            subtitle: 'Transformo idees en <span class="text-gradient">experiències digitals</span> que impulsen el teu negoci.',
+            headline: 'Webs, apps i SaaS que <span class="text-gradient">impulsen el teu negoci</span>',
+            subtitle: 'Som un estudi digital a Andorra. Dissenyem i desenvolupem productes a mida que fan créixer el teu negoci.',
             description: 'Desenvolupament d\'Apps · Pàgines Web · Automatitzacions · SaaS',
             cta1: 'Demanar Pressupost',
             cta2: 'Veure Projectes'
         },
         stats: { projects: 'Projectes', satisfaction: 'Satisfacció', sectors: 'Sectors' },
         sectors: {
-            title: 'He col·laborat amb negocis de',
+            title: 'Hem treballat amb negocis de',
             restaurants: '🍽️ Restaurants',
             realestate: '🏠 Immobiliàries',
             gyms: '💪 Gimnasos',
@@ -1481,7 +1483,7 @@ about: {
         testimonialsHome: {
             tag: '// Testimonis',
             title: 'Què diuen <span class="text-gradient">els meus clients</span>',
-            t1: '"Said va desenvolupar la nostra web de reserves en temps rècord. Les reserves van augmentar un 40%."',
+            t1: '"SaeTech va desenvolupar la nostra web de reserves en temps rècord. Les reserves van augmentar un 40%."',
             t2: '"Professional i ràpid. La nostra app immobiliària funciona perfectament."',
             t3: '"L\'app del gimnàs ens va permetre digitalitzar-ho tot. Excel·lent feina!"',
             t4: '"La nostra web d\'hotel va quedar espectacular. Reserves online funcionant perfecte."',
@@ -1495,16 +1497,16 @@ about: {
             step1: { title: 'Consulta', desc: 'Analitzem la teva idea i objectius.', time: '1-2 dies' },
             step2: { title: 'Proposta', desc: 'Pressupost detallat amb terminis.', time: '2-3 dies' },
             step3: { title: 'Disseny', desc: 'Creo el disseny visual del teu projecte.', time: '1-2 setmanes' },
-            step4: { title: 'Desenvolupament', desc: 'Programo amb actualitzacions setmanals.', time: '2-6 setmanes' },
+            step4: { title: 'Desenvolupament', desc: 'Programem amb actualitzacions setmanals.', time: '2-6 setmanes' },
             step5: { title: 'Llançament', desc: 'Ajustos finals i publicació.', time: '1-2 dies' }
         },
         trust: {
             tag: 'Garanties',
-            title: 'Per què <span class="text-gradient">confiar en mi</span>',
+            title: 'Per què <span class="text-gradient">confiar en nosaltres</span>',
             card1: { title: 'Satisfacció garantida', desc: 'No pagues fins que estiguis 100% satisfet amb el resultat.' },
-            card2: { title: 'Lliurament ràpid', desc: 'Terminis realistes que compleixo. Sense sorpreses ni retards.' },
+            card2: { title: 'Lliurament ràpid', desc: 'Terminis realistes que complim. Sense sorpreses ni retards.' },
             card3: { title: 'Suport inclòs', desc: '30 dies de suport gratuït després del llançament.' },
-            card4: { title: 'Comunicació directa', desc: 'Parlo amb tu directament. Sense intermediaris.' }
+            card4: { title: 'Comunicació directa', desc: 'Parles directament amb l\'equip. Sense intermediaris.' }
         },
         pricing: {
             tag: 'Preus',
@@ -1551,7 +1553,7 @@ about: {
             q5: { q: 'Ofereixes suport després del llançament?', a: 'Incloc 30 dies de suport gratuït després de l\'entrega. Després pots contractar un pla de manteniment mensual opcional si el necessites.' },
             q6: { q: 'Què és el posicionament en IA (GEO)?', a: 'Optimitzo el teu negoci perquè ChatGPT, Claude o Perplexity et recomanin, no només Google. És un canal amb molt poca competència encara. Demana\'m una auditoria gratis.' }
         },
-        audit: { hero: 'Auditoria gratis' }
+        audit: { hero: 'Auditoria gratis', banner: 'Auditoria de posicionament en IA <strong>gratis</strong> · sense compromís' }
     ,
 about: {
             cta: {
@@ -1878,16 +1880,17 @@ about: {
         },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'À propos', contact: 'Contact' },
         hero: {
-            badge: 'Disponible pour projets',
+            badge: 'Nouveaux projets acceptés',
             greeting: 'Salut, je suis',
-            subtitle: 'Je transforme les idées en <span class="text-gradient">expériences numériques</span> qui boostent votre entreprise.',
+            headline: 'Sites web, apps et SaaS qui <span class="text-gradient">boostent votre entreprise</span>',
+            subtitle: 'Nous sommes un studio digital en Andorre. Nous concevons et développons des produits sur mesure qui font grandir votre entreprise.',
             description: 'Développement d\'Apps · Sites Web · Automatisations · SaaS',
             cta1: 'Demander un devis',
             cta2: 'Voir les projets'
         },
         stats: { projects: 'Projets', satisfaction: 'Satisfaction', sectors: 'Secteurs' },
         sectors: {
-            title: 'J\'ai collaboré avec des entreprises de',
+            title: 'Nous avons travaillé avec des entreprises de',
             restaurants: '🍽️ Restaurants',
             realestate: '🏠 Agences immobilières',
             gyms: '💪 Salles de sport',
@@ -1913,7 +1916,7 @@ about: {
         testimonialsHome: {
             tag: '// Témoignages',
             title: 'Ce que disent <span class="text-gradient">mes clients</span>',
-            t1: '"Said a développé notre site de réservations en un temps record. Les réservations ont augmenté de 40%."',
+            t1: '"SaeTech a développé notre site de réservations en un temps record. Les réservations ont augmenté de 40%."',
             t2: '"Professionnel et rapide. Notre application immobilière fonctionne parfaitement."',
             t3: '"L\'application de la salle de sport nous a permis de tout numériser. Excellent travail!"',
             t4: '"Notre site d\'hôtel est devenu spectaculaire. Les réservations en ligne fonctionnent parfaitement."',
@@ -1927,16 +1930,16 @@ about: {
             step1: { title: 'Consultation', desc: 'Nous analysons votre idée et vos objectifs.', time: '1-2 jours' },
             step2: { title: 'Proposition', desc: 'Devis détaillé avec délais.', time: '2-3 jours' },
             step3: { title: 'Design', desc: 'Je crée le design visuel de votre projet.', time: '1-2 semaines' },
-            step4: { title: 'Développement', desc: 'Je programme avec des mises à jour hebdomadaires.', time: '2-6 semaines' },
+            step4: { title: 'Développement', desc: 'Nous développons avec des mises à jour hebdomadaires.', time: '2-6 semaines' },
             step5: { title: 'Lancement', desc: 'Ajustements finaux et publication.', time: '1-2 jours' }
         },
         trust: {
             tag: 'Garanties',
-            title: 'Pourquoi <span class="text-gradient">me faire confiance</span>',
+            title: 'Pourquoi <span class="text-gradient">nous faire confiance</span>',
             card1: { title: 'Satisfaction garantie', desc: 'Vous ne payez pas jusqu\'à être 100% satisfait du résultat.' },
-            card2: { title: 'Livraison rapide', desc: 'Des délais réalistes que je respecte. Sans surprises ni retards.' },
+            card2: { title: 'Livraison rapide', desc: 'Des délais réalistes que nous respectons. Sans surprises ni retards.' },
             card3: { title: 'Support inclus', desc: '30 jours de support gratuit après le lancement.' },
-            card4: { title: 'Communication directe', desc: 'Je vous parle directement. Sans intermédiaires.' }
+            card4: { title: 'Communication directe', desc: 'Vous parlez directement avec l\'équipe. Sans intermédiaires.' }
         },
         pricing: {
             tag: 'Prix',
@@ -1983,7 +1986,7 @@ about: {
             q5: { q: 'Proposez-vous un support après le lancement ?', a: 'J\'inclus 30 jours de support gratuit après la livraison. Ensuite, vous pouvez souscrire un forfait de maintenance mensuel optionnel si besoin.' },
             q6: { q: 'Qu\'est-ce que le référencement IA (GEO) ?', a: 'J\'optimise votre entreprise pour que ChatGPT, Claude ou Perplexity vous recommandent, pas seulement Google. C\'est un canal avec très peu de concurrence. Demandez-moi un audit gratuit.' }
         },
-        audit: { hero: 'Audit gratuit' }
+        audit: { hero: 'Audit gratuit', banner: 'Audit de référencement IA <strong>gratuit</strong> · sans engagement' }
     ,
 about: {
             cta: {
@@ -2310,16 +2313,17 @@ about: {
         },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'About', contact: 'Contact' },
         hero: {
-            badge: 'Available for projects',
+            badge: 'Accepting new projects',
             greeting: 'Hi, I\'m',
-            subtitle: 'I transform ideas into <span class="text-gradient">digital experiences</span> that boost your business.',
+            headline: 'Websites, apps & SaaS that <span class="text-gradient">grow your business</span>',
+            subtitle: 'We\'re a digital studio in Andorra. We design and build custom products that grow your business.',
             description: 'App Development · Websites · Automations · SaaS',
             cta1: 'Get a Quote',
             cta2: 'View Projects'
         },
         stats: { projects: 'Projects', satisfaction: 'Satisfaction', sectors: 'Sectors' },
         sectors: {
-            title: 'I\'ve collaborated with businesses in',
+            title: 'We\'ve worked with businesses in',
             restaurants: '🍽️ Restaurants',
             realestate: '🏠 Real Estate',
             gyms: '💪 Gyms',
@@ -2345,7 +2349,7 @@ about: {
         testimonialsHome: {
             tag: '// Testimonials',
             title: 'What <span class="text-gradient">my clients say</span>',
-            t1: '"Said built our booking site in record time. Bookings increased by 40%."',
+            t1: '"SaeTech built our booking site in record time. Bookings increased by 40%."',
             t2: '"Professional and fast. Our real estate app works perfectly."',
             t3: '"The gym app let us digitize everything. Excellent work!"',
             t4: '"Our hotel website turned out spectacular. Online bookings work perfectly."',
@@ -2359,16 +2363,16 @@ about: {
             step1: { title: 'Consultation', desc: 'We analyze your idea and goals.', time: '1-2 days' },
             step2: { title: 'Proposal', desc: 'Detailed quote with timelines.', time: '2-3 days' },
             step3: { title: 'Design', desc: 'I create the visual design of your project.', time: '1-2 weeks' },
-            step4: { title: 'Development', desc: 'I build it with weekly updates.', time: '2-6 weeks' },
+            step4: { title: 'Development', desc: 'We build it with weekly updates.', time: '2-6 weeks' },
             step5: { title: 'Launch', desc: 'Final adjustments and publishing.', time: '1-2 days' }
         },
         trust: {
             tag: 'Guarantees',
-            title: 'Why <span class="text-gradient">trust me</span>',
+            title: 'Why <span class="text-gradient">trust us</span>',
             card1: { title: 'Satisfaction guaranteed', desc: 'You don\'t pay until you\'re 100% satisfied with the result.' },
-            card2: { title: 'Fast delivery', desc: 'Realistic deadlines that I meet. No surprises or delays.' },
+            card2: { title: 'Fast delivery', desc: 'Realistic deadlines that we meet. No surprises or delays.' },
             card3: { title: 'Support included', desc: '30 days of free support after launch.' },
-            card4: { title: 'Direct communication', desc: 'I speak with you directly. No intermediaries.' }
+            card4: { title: 'Direct communication', desc: 'You talk directly with the team. No intermediaries.' }
         },
         pricing: {
             tag: 'Pricing',
@@ -2415,7 +2419,7 @@ about: {
             q5: { q: 'Do you offer support after launch?', a: 'I include 30 days of free support after delivery. After that, you can take an optional monthly maintenance plan if you need it.' },
             q6: { q: 'What is AI positioning (GEO)?', a: 'I optimize your business so ChatGPT, Claude or Perplexity recommend you, not just Google. It\'s a channel with very little competition yet. Ask me for a free audit.' }
         },
-        audit: { hero: 'Free audit' }
+        audit: { hero: 'Free audit', banner: 'Free <strong>AI positioning</strong> audit · no commitment' }
     ,
 about: {
             cta: {
