@@ -3392,12 +3392,15 @@ img {
         z-index: 1002;
     }
 
-    /* Removing the override that re-shows lang-dropdown on scroll for mobile to follow user request */
-    /* .navbar.scrolled .lang-dropdown {
+    /* Keep the language switcher usable on mobile even after scrolling.
+       The global ".navbar.scrolled .lang-dropdown" rule hides it (opacity:0 +
+       pointer-events:none); on mobile that left the only language control dead
+       as soon as the user scrolled 50px. Re-enable it here. */
+    .navbar.scrolled .lang-dropdown {
         opacity: 1;
         transform: none;
-        pointer-events: all;
-    } */
+        pointer-events: auto;
+    }
 
     .mobile-menu-social a {
         width: 40px;
