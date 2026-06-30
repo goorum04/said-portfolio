@@ -381,6 +381,13 @@ function initCursor() {
 // ===========================
 // Enhanced Particle System
 // ===========================
+const HEX_RGB = {
+    '#00d4ff': [0, 212, 255],
+    '#7c3aed': [124, 58, 237],
+    '#ec4899': [236, 72, 153],
+    '#22c55e': [34, 197, 94]
+};
+
 class ParticleSystem {
     constructor(canvas) {
         this.canvas = canvas;
@@ -388,14 +395,23 @@ class ParticleSystem {
         this.particles = [];
         this.trails = [];
         this.mouse = { x: null, y: null, radius: 200 };
-        this.particleCount = 100;
-        this.connectionDistance = 150;
+        this.connectionDistance = 130;
         this.colors = ['#00d4ff', '#7c3aed', '#ec4899', '#22c55e'];
+        this.running = true;
 
         this.resize();
         this.init();
         this.bindEvents();
         this.animate();
+    }
+
+    // Fewer particles on smaller screens — O(n²) connections make this the
+    // single biggest CPU cost, so it must scale with the viewport.
+    targetCount() {
+        const w = window.innerWidth;
+        if (w <= 768) return 30;
+        if (w <= 1280) return 50;
+        return 70;
     }
 
     resize() {
@@ -405,7 +421,10 @@ class ParticleSystem {
 
     init() {
         this.particles = [];
-        for (let i = 0; i < this.particleCount; i++) {
+        const count = this.targetCount();
+        for (let i = 0; i < count; i++) {
+            const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+            const rgb = HEX_RGB[color];
             this.particles.push({
                 x: Math.random() * this.canvas.width,
                 y: Math.random() * this.canvas.height,
@@ -413,7 +432,8 @@ class ParticleSystem {
                 vy: (Math.random() - 0.5) * 0.8,
                 radius: Math.random() * 2.5 + 0.5,
                 opacity: Math.random() * 0.6 + 0.2,
-                color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                color,
+                r: rgb[0], g: rgb[1], b: rgb[2],
                 pulse: Math.random() * Math.PI * 2,
                 pulseSpeed: Math.random() * 0.02 + 0.01
             });
@@ -432,12 +452,9 @@ class ParticleSystem {
 
             // Add trail on mouse move
             if (Math.random() > 0.7) {
-                this.trails.push({
-                    x: e.clientX,
-                    y: e.clientY,
-                    life: 1,
-                    color: this.colors[Math.floor(Math.random() * this.colors.length)]
-                });
+                const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+                const rgb = HEX_RGB[color];
+                this.trails.push({ x: e.clientX, y: e.clientY, life: 1, r: rgb[0], g: rgb[1], b: rgb[2] });
             }
         });
 
@@ -445,33 +462,52 @@ class ParticleSystem {
             this.mouse.x = null;
             this.mouse.y = null;
         });
+
+        // Pause when the tab is hidden — no point burning CPU off-screen.
+        document.addEventListener('visibilitychange', () => {
+            this.running = !document.hidden;
+            if (this.running) this.animate();
+        });
+
+        // Pause when the hero canvas scrolls out of view.
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                const visible = entries[0].isIntersecting;
+                if (visible && !this.running) {
+                    this.running = true;
+                    this.animate();
+                } else if (!visible) {
+                    this.running = false;
+                }
+            }, { threshold: 0 });
+            io.observe(this.canvas);
+        }
     }
 
     animate() {
-        this.ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        if (!this.running) return;
+
+        const ctx = this.ctx;
+        ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
+        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Draw and update trails
         this.trails = this.trails.filter(t => {
             t.life -= 0.02;
             if (t.life <= 0) return false;
-
-            this.ctx.beginPath();
-            this.ctx.arc(t.x, t.y, 3 * t.life, 0, Math.PI * 2);
-            this.ctx.fillStyle = t.color.replace(')', `, ${t.life * 0.5})`).replace('rgb', 'rgba').replace('#', 'rgba(');
-
-            // Convert hex to rgba
-            const hex = t.color;
-            const r = parseInt(hex.slice(1, 3), 16);
-            const g = parseInt(hex.slice(3, 5), 16);
-            const b = parseInt(hex.slice(5, 7), 16);
-            this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${t.life * 0.5})`;
-            this.ctx.fill();
-
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, 3 * t.life, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${t.r}, ${t.g}, ${t.b}, ${t.life * 0.5})`;
+            ctx.fill();
             return true;
         });
 
-        this.particles.forEach((p, i) => {
+        const particles = this.particles;
+        const connDist = this.connectionDistance;
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+
             // Pulse animation
             p.pulse += p.pulseSpeed;
             const pulseScale = 1 + Math.sin(p.pulse) * 0.3;
@@ -496,12 +532,8 @@ class ParticleSystem {
                 if (dist < this.mouse.radius) {
                     const force = (this.mouse.radius - dist) / this.mouse.radius;
                     const angle = Math.atan2(dy, dx);
-
-                    // Create swirl effect
                     p.vx += Math.cos(angle + Math.PI / 2) * force * 0.02;
                     p.vy += Math.sin(angle + Math.PI / 2) * force * 0.02;
-
-                    // Limit velocity
                     const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
                     if (speed > 3) {
                         p.vx = (p.vx / speed) * 3;
@@ -510,60 +542,36 @@ class ParticleSystem {
                 }
             }
 
-            // Draw particle with glow
-            const hex = p.color;
-            const r = parseInt(hex.slice(1, 3), 16);
-            const g = parseInt(hex.slice(3, 5), 16);
-            const b = parseInt(hex.slice(5, 7), 16);
-
-            // Glow effect
-            const gradient = this.ctx.createRadialGradient(
-                p.x, p.y, 0,
-                p.x, p.y, p.radius * pulseScale * 3
-            );
-            gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${p.opacity})`);
-            gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-
-            this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.radius * pulseScale * 3, 0, Math.PI * 2);
-            this.ctx.fillStyle = gradient;
-            this.ctx.fill();
+            // Soft glow halo (single translucent circle — cheaper than a
+            // per-frame radial gradient).
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * pulseScale * 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.opacity * 0.12})`;
+            ctx.fill();
 
             // Core
-            this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.radius * pulseScale, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.opacity})`;
-            this.ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * pulseScale, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.opacity})`;
+            ctx.fill();
 
-            // Connect with gradient lines
-            for (let j = i + 1; j < this.particles.length; j++) {
-                const p2 = this.particles[j];
+            // Connect with solid lines (no per-pair gradient allocation)
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < this.connectionDistance) {
-                    const opacity = (1 - dist / this.connectionDistance) * 0.25;
-
-                    // Create gradient line
-                    const lineGradient = this.ctx.createLinearGradient(p.x, p.y, p2.x, p2.y);
-                    lineGradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${opacity})`);
-
-                    const hex2 = p2.color;
-                    const r2 = parseInt(hex2.slice(1, 3), 16);
-                    const g2 = parseInt(hex2.slice(3, 5), 16);
-                    const b2 = parseInt(hex2.slice(5, 7), 16);
-                    lineGradient.addColorStop(1, `rgba(${r2}, ${g2}, ${b2}, ${opacity})`);
-
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(p.x, p.y);
-                    this.ctx.lineTo(p2.x, p2.y);
-                    this.ctx.strokeStyle = lineGradient;
-                    this.ctx.lineWidth = opacity * 2;
-                    this.ctx.stroke();
+                if (dist < connDist) {
+                    const opacity = (1 - dist / connDist) * 0.25;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${opacity})`;
+                    ctx.lineWidth = opacity * 2;
+                    ctx.stroke();
                 }
             }
-        });
+        }
 
         requestAnimationFrame(() => this.animate());
     }
@@ -2805,10 +2813,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Init cursor
     initCursor();
 
-    // Particles
+    // Particles — skip entirely for users who prefer reduced motion.
     const canvas = document.getElementById('particleCanvas');
-    if (canvas) {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (canvas && !reduceMotion) {
         new ParticleSystem(canvas);
+    } else if (canvas) {
+        canvas.style.display = 'none';
     }
 
     // Init other effects
