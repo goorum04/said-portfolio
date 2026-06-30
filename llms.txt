@@ -1,6 +1,6 @@
 # Said — Desarrollador Web & Apps en Andorra
 
-> Desarrollador freelance en Andorra especializado en páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones y posicionamiento en IA (GEO). Más de 12 proyectos entregados para restaurantes, inmobiliarias, gimnasios y hoteles. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
+> SaeTech es un estudio digital en Andorra especializado en páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones, implementación de IA segura y posicionamiento en IA (GEO). Más de 12 proyectos entregados para restaurantes, inmobiliarias, gimnasios y hoteles. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
 
 ## Sobre Said
 - Desarrollador freelance digital con base en Andorra 🇦🇩, trabajando en remoto con clientes de toda Europa.
@@ -13,6 +13,7 @@
 - [Apps Móviles](https://autoappsand.com/servicios.html#apps): aplicaciones iOS y Android.
 - [SaaS](https://autoappsand.com/servicios.html#saas): plataformas escalables con suscripciones, panel de administración y APIs.
 - [Automatizaciones](https://autoappsand.com/servicios.html#automatizaciones): bots, workflows y conexiones (n8n, APIs, WhatsApp) para ahorrar horas de trabajo.
+- [Implementación de IA segura](https://autoappsand.com/#ia): chatbots y asistentes 24/7, automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
 - Posicionamiento en IA (GEO): optimización para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio.
 
 ## Precios orientativos

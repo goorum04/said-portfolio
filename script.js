@@ -1018,7 +1018,7 @@ const translations = {
             greeting: 'Hola, soy',
             headline: 'Webs, apps y SaaS que <span class="text-gradient">impulsan tu negocio</span>',
             subtitle: 'Somos un estudio digital en Andorra. Diseñamos y desarrollamos productos a medida que hacen crecer tu negocio.',
-            description: 'Desarrollo de Apps · Páginas Web · Automatizaciones · SaaS',
+            description: 'Implementación de IA · Apps · Páginas Web · Automatizaciones · SaaS',
             cta1: 'Pedir Presupuesto',
             cta2: 'Ver Proyectos'
         },
@@ -1037,6 +1037,7 @@ const translations = {
             apps: { title: 'Apps Móviles', desc: 'Aplicaciones iOS y Android nativas.' },
             saas: { title: 'SaaS', desc: 'Plataformas escalables con suscripciones.' },
             auto: { title: 'Automatizaciones', desc: 'Bots, workflows y conexiones.' },
+            ai: { title: 'IA Segura', desc: 'Chatbots, automatización e integración de IA protegiendo tus datos.' },
             link: 'Ver más →',
             cta: 'Ver todos los servicios'
         },
@@ -1120,7 +1121,17 @@ const translations = {
             q5: { q: '¿Ofreces soporte después del lanzamiento?', a: 'Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.' },
             q6: { q: '¿Qué es el posicionamiento en IA (GEO)?', a: 'Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.' }
         },
-        audit: { hero: 'Auditoría gratis', banner: 'Auditoría de posicionamiento en IA <strong>gratis</strong> · sin compromiso' }
+        audit: { hero: 'Auditoría gratis', banner: 'Auditoría de posicionamiento en IA <strong>gratis</strong> · sin compromiso' },
+        ai: {
+            tag: '// Inteligencia Artificial',
+            title: 'Implementación de IA <span class="text-gradient">segura</span> para tu negocio',
+            subtitle: 'Integramos IA donde aporta valor real — y protegiendo siempre tus datos.',
+            f1: '<strong>Chatbots y asistentes</strong> que atienden 24/7, entrenados con tu propia información.',
+            f2: '<strong>Automatización inteligente</strong> de tareas repetitivas para ahorrar horas de trabajo.',
+            f3: '<strong>Integración</strong> con ChatGPT, Claude y las herramientas que ya usas.',
+            f4: '<strong>Seguridad y privacidad</strong>: tus datos cifrados, con control de accesos y sin filtrarse a terceros.',
+            cta: 'Hablemos de tu proyecto de IA'
+        }
     ,
 about: {
             cta: {
@@ -1451,7 +1462,7 @@ about: {
             greeting: 'Hola, sóc',
             headline: 'Webs, apps i SaaS que <span class="text-gradient">impulsen el teu negoci</span>',
             subtitle: 'Som un estudi digital a Andorra. Dissenyem i desenvolupem productes a mida que fan créixer el teu negoci.',
-            description: 'Desenvolupament d\'Apps · Pàgines Web · Automatitzacions · SaaS',
+            description: 'Implementació d\'IA · Apps · Pàgines Web · Automatitzacions · SaaS',
             cta1: 'Demanar Pressupost',
             cta2: 'Veure Projectes'
         },
@@ -1470,6 +1481,7 @@ about: {
             apps: { title: 'Apps Mòbils', desc: 'Aplicacions iOS i Android natives.' },
             saas: { title: 'SaaS', desc: 'Plataformes escalables amb subscripcions.' },
             auto: { title: 'Automatitzacions', desc: 'Bots, workflows i connexions.' },
+            ai: { title: 'IA Segura', desc: 'Chatbots, automatització i integració d\'IA protegint les teves dades.' },
             link: 'Veure més →',
             cta: 'Veure tots els serveis'
         },
@@ -1553,7 +1565,17 @@ about: {
             q5: { q: 'Ofereixes suport després del llançament?', a: 'Incloc 30 dies de suport gratuït després de l\'entrega. Després pots contractar un pla de manteniment mensual opcional si el necessites.' },
             q6: { q: 'Què és el posicionament en IA (GEO)?', a: 'Optimitzo el teu negoci perquè ChatGPT, Claude o Perplexity et recomanin, no només Google. És un canal amb molt poca competència encara. Demana\'m una auditoria gratis.' }
         },
-        audit: { hero: 'Auditoria gratis', banner: 'Auditoria de posicionament en IA <strong>gratis</strong> · sense compromís' }
+        audit: { hero: 'Auditoria gratis', banner: 'Auditoria de posicionament en IA <strong>gratis</strong> · sense compromís' },
+        ai: {
+            tag: '// Intel·ligència Artificial',
+            title: 'Implementació d\'IA <span class="text-gradient">segura</span> per al teu negoci',
+            subtitle: 'Integrem IA on aporta valor real — i protegint sempre les teves dades.',
+            f1: '<strong>Chatbots i assistents</strong> que atenen 24/7, entrenats amb la teva pròpia informació.',
+            f2: '<strong>Automatització intel·ligent</strong> de tasques repetitives per estalviar hores de feina.',
+            f3: '<strong>Integració</strong> amb ChatGPT, Claude i les eines que ja fas servir.',
+            f4: '<strong>Seguretat i privadesa</strong>: les teves dades xifrades, amb control d\'accessos i sense filtrar-se a tercers.',
+            cta: 'Parlem del teu projecte d\'IA'
+        }
     ,
 about: {
             cta: {
@@ -1884,7 +1906,7 @@ about: {
             greeting: 'Salut, je suis',
             headline: 'Sites web, apps et SaaS qui <span class="text-gradient">boostent votre entreprise</span>',
             subtitle: 'Nous sommes un studio digital en Andorre. Nous concevons et développons des produits sur mesure qui font grandir votre entreprise.',
-            description: 'Développement d\'Apps · Sites Web · Automatisations · SaaS',
+            description: 'Implémentation d\'IA · Apps · Sites Web · Automatisations · SaaS',
             cta1: 'Demander un devis',
             cta2: 'Voir les projets'
         },
@@ -1903,6 +1925,7 @@ about: {
             apps: { title: 'Applications Mobiles', desc: 'Applications iOS et Android natives.' },
             saas: { title: 'SaaS', desc: 'Plateformes évolutives avec abonnements.' },
             auto: { title: 'Automatisations', desc: 'Bots, workflows et connexions.' },
+            ai: { title: 'IA Sécurisée', desc: 'Chatbots, automatisation et intégration d\'IA en protégeant vos données.' },
             link: 'Voir plus →',
             cta: 'Voir tous les services'
         },
@@ -1986,7 +2009,17 @@ about: {
             q5: { q: 'Proposez-vous un support après le lancement ?', a: 'J\'inclus 30 jours de support gratuit après la livraison. Ensuite, vous pouvez souscrire un forfait de maintenance mensuel optionnel si besoin.' },
             q6: { q: 'Qu\'est-ce que le référencement IA (GEO) ?', a: 'J\'optimise votre entreprise pour que ChatGPT, Claude ou Perplexity vous recommandent, pas seulement Google. C\'est un canal avec très peu de concurrence. Demandez-moi un audit gratuit.' }
         },
-        audit: { hero: 'Audit gratuit', banner: 'Audit de référencement IA <strong>gratuit</strong> · sans engagement' }
+        audit: { hero: 'Audit gratuit', banner: 'Audit de référencement IA <strong>gratuit</strong> · sans engagement' },
+        ai: {
+            tag: '// Intelligence Artificielle',
+            title: 'Implémentation d\'IA <span class="text-gradient">sécurisée</span> pour votre entreprise',
+            subtitle: 'Nous intégrons l\'IA là où elle apporte une vraie valeur — en protégeant toujours vos données.',
+            f1: '<strong>Chatbots et assistants</strong> disponibles 24/7, entraînés avec vos propres informations.',
+            f2: '<strong>Automatisation intelligente</strong> des tâches répétitives pour gagner des heures de travail.',
+            f3: '<strong>Intégration</strong> avec ChatGPT, Claude et les outils que vous utilisez déjà.',
+            f4: '<strong>Sécurité et confidentialité</strong> : vos données chiffrées, avec contrôle d\'accès et sans fuite vers des tiers.',
+            cta: 'Parlons de votre projet d\'IA'
+        }
     ,
 about: {
             cta: {
@@ -2317,7 +2350,7 @@ about: {
             greeting: 'Hi, I\'m',
             headline: 'Websites, apps & SaaS that <span class="text-gradient">grow your business</span>',
             subtitle: 'We\'re a digital studio in Andorra. We design and build custom products that grow your business.',
-            description: 'App Development · Websites · Automations · SaaS',
+            description: 'AI Implementation · Apps · Websites · Automations · SaaS',
             cta1: 'Get a Quote',
             cta2: 'View Projects'
         },
@@ -2336,6 +2369,7 @@ about: {
             apps: { title: 'Mobile Apps', desc: 'Native iOS and Android applications.' },
             saas: { title: 'SaaS', desc: 'Scalable platforms with subscriptions.' },
             auto: { title: 'Automations', desc: 'Bots, workflows and integrations.' },
+            ai: { title: 'Secure AI', desc: 'Chatbots, automation and AI integration while protecting your data.' },
             link: 'See more →',
             cta: 'View all services'
         },
@@ -2419,7 +2453,17 @@ about: {
             q5: { q: 'Do you offer support after launch?', a: 'I include 30 days of free support after delivery. After that, you can take an optional monthly maintenance plan if you need it.' },
             q6: { q: 'What is AI positioning (GEO)?', a: 'I optimize your business so ChatGPT, Claude or Perplexity recommend you, not just Google. It\'s a channel with very little competition yet. Ask me for a free audit.' }
         },
-        audit: { hero: 'Free audit', banner: 'Free <strong>AI positioning</strong> audit · no commitment' }
+        audit: { hero: 'Free audit', banner: 'Free <strong>AI positioning</strong> audit · no commitment' },
+        ai: {
+            tag: '// Artificial Intelligence',
+            title: '<span class="text-gradient">Secure</span> AI implementation for your business',
+            subtitle: 'We integrate AI where it adds real value — always protecting your data.',
+            f1: '<strong>Chatbots and assistants</strong> available 24/7, trained on your own information.',
+            f2: '<strong>Smart automation</strong> of repetitive tasks to save hours of work.',
+            f3: '<strong>Integration</strong> with ChatGPT, Claude and the tools you already use.',
+            f4: '<strong>Security and privacy</strong>: your data encrypted, with access control and no leaks to third parties.',
+            cta: 'Let\'s talk about your AI project'
+        }
     ,
 about: {
             cta: {
