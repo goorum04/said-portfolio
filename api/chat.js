@@ -5,6 +5,11 @@
 const ALLOWED_ORIGINS = [
     'https://saetechai.com',
     'https://www.saetechai.com',
+    // http fallbacks: the site redirects http->https client-side, but if a
+    // visitor's first paint happens over http (GitHub Pages served it before
+    // the redirect kicked in), the chat request would otherwise be blocked.
+    'http://saetechai.com',
+    'http://www.saetechai.com',
     'https://goorum04.github.io',
 ];
 
