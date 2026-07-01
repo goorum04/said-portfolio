@@ -9,7 +9,8 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow: hidden;
 }
 
 .loader.hidden {
@@ -18,149 +19,174 @@
     pointer-events: none;
 }
 
-.loader-content {
-    text-align: center;
-}
-
-.loader-name {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 15vw, 10rem);
-    font-weight: 900;
-    color: var(--text-primary);
-    letter-spacing: 0.2em;
-    position: relative;
-    animation: loaderPulse 1.5s ease-in-out infinite;
-}
-
-.loader-name::before,
-.loader-name::after {
-    content: attr(data-text);
+.loader-canvas {
     position: absolute;
-    left: 0;
-    top: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
-.loader-name::before {
-    color: var(--accent-cyan);
-    animation: glitch1 2s infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+.loader-scene {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.loader-name::after {
-    color: var(--accent-purple);
-    animation: glitch2 2s infinite;
-    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+/* ---- Orbital Rings ---- */
+.loader-rings {
+    position: absolute;
+    inset: 0;
+    perspective: 600px;
 }
 
-@keyframes loaderPulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.8;
-        transform: scale(1.02);
-    }
+.loader-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
 }
 
-@keyframes glitch1 {
-
-    0%,
-    90%,
-    100% {
-        transform: translate(0);
-    }
-
-    92% {
-        transform: translate(-8px, -2px);
-    }
-
-    94% {
-        transform: translate(8px, 2px);
-    }
-
-    96% {
-        transform: translate(-4px, 1px);
-    }
-
-    98% {
-        transform: translate(4px, -1px);
-    }
+.loader-ring::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-@keyframes glitch2 {
-
-    0%,
-    90%,
-    100% {
-        transform: translate(0);
-    }
-
-    91% {
-        transform: translate(6px, 2px);
-    }
-
-    93% {
-        transform: translate(-6px, -2px);
-    }
-
-    95% {
-        transform: translate(3px, -1px);
-    }
-
-    97% {
-        transform: translate(-3px, 1px);
-    }
+.loader-ring--1 {
+    width: 210px;
+    height: 210px;
+    margin: -105px 0 0 -105px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    animation: loaderRing1 3.8s linear infinite;
 }
 
-.loader-bar {
-    width: 200px;
-    height: 2px;
-    background: var(--glass-border);
-    border-radius: 2px;
-    margin: 32px auto;
-    overflow: hidden;
+.loader-ring--1::before {
+    width: 8px;
+    height: 8px;
+    top: -4px;
+    background: #00d4ff;
+    box-shadow: 0 0 10px #00d4ff, 0 0 22px rgba(0, 212, 255, 0.5);
 }
 
-.loader-progress {
+.loader-ring--2 {
+    width: 163px;
+    height: 163px;
+    margin: -81.5px 0 0 -81.5px;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    animation: loaderRing2 2.7s linear infinite reverse;
+}
+
+.loader-ring--2::before {
+    width: 7px;
+    height: 7px;
+    top: -3.5px;
+    background: #7c3aed;
+    box-shadow: 0 0 10px #7c3aed, 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.loader-ring--3 {
+    width: 122px;
+    height: 122px;
+    margin: -61px 0 0 -61px;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+    animation: loaderRing3 1.9s linear infinite;
+}
+
+.loader-ring--3::before {
+    width: 5px;
+    height: 5px;
+    top: -2.5px;
+    background: #ec4899;
+    box-shadow: 0 0 8px #ec4899, 0 0 16px rgba(236, 72, 153, 0.4);
+}
+
+@keyframes loaderRing1 {
+    from { transform: rotateX(72deg) rotateZ(0deg); }
+    to   { transform: rotateX(72deg) rotateZ(360deg); }
+}
+
+@keyframes loaderRing2 {
+    from { transform: rotateX(65deg) rotateY(28deg) rotateZ(0deg); }
+    to   { transform: rotateX(65deg) rotateY(28deg) rotateZ(360deg); }
+}
+
+@keyframes loaderRing3 {
+    from { transform: rotateX(78deg) rotateY(-22deg) rotateZ(0deg); }
+    to   { transform: rotateX(78deg) rotateY(-22deg) rotateZ(360deg); }
+}
+
+/* ---- Central Orb ---- */
+.loader-orb {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    z-index: 2;
+}
+
+.loader-orb-core {
+    width: 100%;
     height: 100%;
-    background: var(--gradient-main);
-    width: 0%;
-    animation: loadProgress 2s ease-out forwards;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    animation: loaderOrbPulse 2.2s ease-in-out infinite;
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.4),
+        0 0 40px rgba(124, 58, 237, 0.2),
+        inset 0 0 12px rgba(255, 255, 255, 0.15);
 }
 
-@keyframes loadProgress {
-    0% {
-        width: 0%;
-    }
-
-    50% {
-        width: 70%;
-    }
-
-    100% {
-        width: 100%;
-    }
+.loader-orb-glow {
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.18) 0%, rgba(124, 58, 237, 0.1) 40%, transparent 70%);
+    animation: loaderOrbPulse 2.2s ease-in-out infinite 0.7s;
+    pointer-events: none;
 }
 
-.loader-tag {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeIn 0.5s ease 0.5s forwards;
+@keyframes loaderOrbPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.15); opacity: 0.85; }
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+/* ---- SVG Progress Ring ---- */
+.loader-progress-svg {
+    position: absolute;
+    inset: 0;
+    width: 260px;
+    height: 260px;
+    transform: rotate(-90deg);
+    overflow: visible;
+}
+
+.loader-progress-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 1.5;
+}
+
+.loader-progress-fill {
+    fill: none;
+    stroke: url(#lpg);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 339.3;
+    stroke-dashoffset: 339.3;
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
+    animation: loaderProgressDraw 2.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loaderProgressDraw {
+    0%   { stroke-dashoffset: 339.3; }
+    60%  { stroke-dashoffset: 98; }
+    100% { stroke-dashoffset: 0; }
 }
 
 /* ===========================
