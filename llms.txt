@@ -1,0 +1,44 @@
+# Said — Desarrollador Web & Apps en Andorra
+
+> Desarrollador freelance en Andorra especializado en páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones y posicionamiento en IA (GEO). Más de 12 proyectos entregados para restaurantes, inmobiliarias, gimnasios y hoteles. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
+
+## Sobre Said
+- Desarrollador freelance digital con base en Andorra 🇦🇩, trabajando en remoto con clientes de toda Europa.
+- Más de 12 proyectos entregados en 4+ sectores (hostelería, inmobiliario, fitness, hoteles).
+- Stack principal: React, Next.js, React Native, Node.js, TypeScript y automatizaciones con n8n.
+- Web: https://autoappsand.com
+
+## Servicios
+- [Desarrollo Web](https://autoappsand.com/servicios.html#web): páginas web modernas, rápidas y responsive optimizadas para conversión.
+- [Apps Móviles](https://autoappsand.com/servicios.html#apps): aplicaciones iOS y Android.
+- [SaaS](https://autoappsand.com/servicios.html#saas): plataformas escalables con suscripciones, panel de administración y APIs.
+- [Automatizaciones](https://autoappsand.com/servicios.html#automatizaciones): bots, workflows y conexiones (n8n, APIs, WhatsApp) para ahorrar horas de trabajo.
+- Posicionamiento en IA (GEO): optimización para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio.
+
+## Precios orientativos
+- Landing page: desde 500 €
+- Web profesional (hasta 5 páginas): desde 1.500 €
+- App móvil o plataforma SaaS: desde 1.500 €
+- Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
+
+## Páginas principales
+- [Inicio](https://autoappsand.com/)
+- [Servicios](https://autoappsand.com/servicios.html)
+- [Portfolio](https://autoappsand.com/portfolio.html)
+- [Blog](https://autoappsand.com/blog.html)
+- [Sobre mí](https://autoappsand.com/sobre-mi.html)
+- [Contacto](https://autoappsand.com/contacto.html)
+
+## Preguntas frecuentes
+- ¿Cuánto cuesta un proyecto? Una landing desde 500 € y una web profesional o app desde 1.500 €, siempre con presupuesto cerrado por adelantado.
+- ¿Cuánto tardas en entregar? Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas, con avances cada semana.
+- ¿El código y los accesos son míos? Sí. Al finalizar se entrega todo el código fuente y los accesos, sin dependencias ocultas ni lock-in.
+- ¿Trabajas con clientes fuera de Andorra? Sí, en remoto con clientes de toda Europa, con comunicación directa por WhatsApp o videollamada.
+- ¿Ofreces soporte después del lanzamiento? Sí, 30 días de soporte gratuito incluido y planes de mantenimiento mensual opcionales.
+- ¿Qué es el posicionamiento en IA (GEO)? Optimizar un negocio para que ChatGPT, Claude o Perplexity lo recomienden, no solo Google. Es un canal con muy poca competencia todavía.
+
+## Contacto
+- WhatsApp: https://wa.me/376601249
+- Teléfono: +376 601249
+- Email: contacto@said.dev
+- Ubicación: Andorra
