@@ -44,7 +44,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.8">
+    <link rel="stylesheet" href="styles.css?v=1.9">
     <link rel="stylesheet" href="higgsfield-visuals.css?v=1.8">
 
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');</script>
@@ -84,6 +84,20 @@
         "address": {"@type": "PostalAddress", "addressLocality": "Andorra", "addressCountry": "AD"},
         "priceRange": "€€",
         "openingHours": "Mo-Fr 09:00-18:00"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "¿Cuánto cuesta un proyecto?", "acceptedAnswer": {"@type": "Answer", "text": "Una landing desde 500€ y una web profesional o app desde 1.500€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos."}},
+            {"@type": "Question", "name": "¿Cuánto tardas en entregar?", "acceptedAnswer": {"@type": "Answer", "text": "Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento."}},
+            {"@type": "Question", "name": "¿El código y los accesos son míos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo."}},
+            {"@type": "Question", "name": "¿Trabajas con clientes fuera de Andorra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios."}},
+            {"@type": "Question", "name": "¿Ofreces soporte después del lanzamiento?", "acceptedAnswer": {"@type": "Answer", "text": "Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas."}},
+            {"@type": "Question", "name": "¿Qué es el posicionamiento en IA (GEO)?", "acceptedAnswer": {"@type": "Answer", "text": "Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis."}}
+        ]
     }
     </script>
 </head>
@@ -221,6 +235,15 @@
                         stroke="currentColor" stroke-width="2">
                         <path d="M7 17l9.2-9.2M17 17V7H7" />
                     </svg></a>
+                <a href="https://wa.me/376601249?text=Hola%20Said%2C%20quiero%20una%20auditor%C3%ADa%20digital%20gratis"
+                    class="btn btn-audit magnetic" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l1.9 4.8L18.7 9l-4.8 1.9L12 16l-1.9-5.1L5.3 9l4.8-1.2L12 3z" />
+                        <path d="M19 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z" />
+                    </svg>
+                    <span data-i18n="audit.hero">Auditoría gratis</span>
+                </a>
             </div>
             <div class="hero-stats animate-in">
                 <div class="stat"><span class="stat-number" data-count="12">0</span><span
@@ -306,6 +329,55 @@
         </div>
     </section>
 
+    <hr class="hf-separator">
+    <!-- GEO / AI Positioning Section -->
+    <section class="section geo-section" id="posicionamiento-ia">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="geo.tag">// Posicionamiento IA</span>
+                <h2 class="section-title" data-i18n="geo.title">Que la <span class="text-gradient">IA recomiende</span> tu negocio</h2>
+                <p class="section-subtitle" data-i18n="geo.subtitle">El 40% de las personas ya pregunta a ChatGPT, Claude o Perplexity antes que a Google. Te posiciono para aparecer en sus respuestas.</p>
+            </div>
+            <div class="geo-compare reveal">
+                <table class="geo-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="geo.th.feature">&nbsp;</th>
+                            <th data-i18n="geo.th.seo">SEO tradicional</th>
+                            <th class="geo-col-highlight" data-i18n="geo.th.geo">Posicionamiento IA (GEO)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r1.label">Dónde apareces</td>
+                            <td data-i18n="geo.r1.seo">Resultados de Google</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r1.geo">Respuestas de ChatGPT, Claude, Perplexity y Gemini</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r2.label">Competencia</td>
+                            <td data-i18n="geo.r2.seo">Muy alta, miles de webs</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r2.geo">Baja: solo el 1% de empresas en Andorra lo trabaja</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r3.label">Intención de compra</td>
+                            <td data-i18n="geo.r3.seo">Media, el usuario aún compara</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r3.geo">Alta: la IA ya recomienda una opción concreta</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r4.label">Cómo se consigue</td>
+                            <td data-i18n="geo.r4.seo">Keywords y enlaces</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r4.geo">Contenido optimizado, datos estructurados y llms.txt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section-cta reveal"><a
+                    href="https://wa.me/376601249?text=Hola%20Said%2C%20quiero%20una%20auditor%C3%ADa%20de%20posicionamiento%20en%20IA%20gratis"
+                    class="btn btn-primary" target="_blank" rel="noopener" data-i18n="geo.cta">Auditoría GEO gratis</a>
+            </div>
+        </div>
+    </section>
+
     <section class="section section-dark" id="portfolio-home">
         <div class="container">
             <div class="section-header reveal">
@@ -327,6 +399,7 @@
                     <div class="portfolio-info">
                         <h3>Protein Shop</h3>
                         <p data-i18n="portfolioHome.shop.desc">Tienda online de suplementos deportivos con catálogo interactivo y checkout optimizado para conversión.</p>
+                        <div class="portfolio-metric"><span class="metric-arrow">↗</span><span data-i18n="portfolioHome.shop.metric">+32% conversión en checkout</span></div>
                         <div class="portfolio-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                     </div>
                 </article>
@@ -344,6 +417,7 @@
                     <div class="portfolio-info">
                         <h3>Bot Presupuestos</h3>
                         <p data-i18n="portfolioHome.bot.desc">Bot que genera presupuestos personalizados automáticamente, disponible 24/7 sin intervención humana.</p>
+                        <div class="portfolio-metric"><span class="metric-arrow">↗</span><span data-i18n="portfolioHome.bot.metric">Respuestas en segundos, 24/7</span></div>
                         <div class="portfolio-tech"><span>TypeScript</span><span>Node.js</span><span>WhatsApp API</span></div>
                     </div>
                 </article>
@@ -616,6 +690,43 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="faq.tag">// FAQ</span>
+                <h2 class="section-title" data-i18n="faq.title">Preguntas <span class="text-gradient">frecuentes</span></h2>
+                <p class="section-subtitle" data-i18n="faq.subtitle">Lo que más me preguntan antes de empezar un proyecto.</p>
+            </div>
+            <div class="faq-list reveal">
+                <details class="faq-item">
+                    <summary data-i18n="faq.q1.q">¿Cuánto cuesta un proyecto?</summary>
+                    <p data-i18n="faq.q1.a">Una landing desde 500€ y una web profesional o app desde 1.500€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q2.q">¿Cuánto tardas en entregar?</summary>
+                    <p data-i18n="faq.q2.a">Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q3.q">¿El código y los accesos son míos?</summary>
+                    <p data-i18n="faq.q3.a">Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q4.q">¿Trabajas con clientes fuera de Andorra?</summary>
+                    <p data-i18n="faq.q4.a">Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q5.q">¿Ofreces soporte después del lanzamiento?</summary>
+                    <p data-i18n="faq.q5.a">Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q6.q">¿Qué es el posicionamiento en IA (GEO)?</summary>
+                    <p data-i18n="faq.q6.a">Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="container">
             <div class="cta-content reveal">
@@ -672,7 +783,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
-    <script src="script.js?v=2.5"></script>
+    <script src="script.js?v=2.6"></script>
     <script src="higgsfield-visuals.js?v=1.8"></script>
 </body>
 

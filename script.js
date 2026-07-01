@@ -1031,8 +1031,8 @@ const translations = {
         portfolioHome: {
             tag: '// Portfolio',
             title: 'Proyectos <span class="text-gradient">destacados</span>',
-            shop: { badge: 'E-commerce', desc: 'Tienda online de suplementos deportivos con catálogo interactivo y checkout optimizado para conversión.' },
-            bot: { badge: 'Bot', desc: 'Bot que genera presupuestos personalizados automáticamente, disponible 24/7 sin intervención humana.' },
+            shop: { badge: 'E-commerce', desc: 'Tienda online de suplementos deportivos con catálogo interactivo y checkout optimizado para conversión.', metric: '+32% conversión en checkout' },
+            bot: { badge: 'Bot', desc: 'Bot que genera presupuestos personalizados automáticamente, disponible 24/7 sin intervención humana.', metric: 'Respuestas en segundos, 24/7' },
             cta: 'Ver todos los proyectos'
         },
         testimonialsHome: {
@@ -1085,7 +1085,30 @@ const translations = {
         },
         cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' },
         footer: { tagline: 'Desarrollo digital desde Andorra 🇦🇩', copyright: '&copy; 2026 Said. Todos los derechos reservados.' },
-        emailPopup: { title: '🎁 Recibe consejos gratis', desc: 'Trucos de desarrollo web y ofertas exclusivas. Sin spam.', placeholder: 'Tu email', submit: 'Suscribirme' }
+        emailPopup: { title: '🎁 Recibe consejos gratis', desc: 'Trucos de desarrollo web y ofertas exclusivas. Sin spam.', placeholder: 'Tu email', submit: 'Suscribirme' },
+        geo: {
+            tag: '// Posicionamiento IA',
+            title: 'Que la <span class="text-gradient">IA recomiende</span> tu negocio',
+            subtitle: 'El 40% de las personas ya pregunta a ChatGPT, Claude o Perplexity antes que a Google. Te posiciono para aparecer en sus respuestas.',
+            th: { feature: '&nbsp;', seo: 'SEO tradicional', geo: 'Posicionamiento IA (GEO)' },
+            r1: { label: 'Dónde apareces', seo: 'Resultados de Google', geo: 'Respuestas de ChatGPT, Claude, Perplexity y Gemini' },
+            r2: { label: 'Competencia', seo: 'Muy alta, miles de webs', geo: 'Baja: solo el 1% de empresas en Andorra lo trabaja' },
+            r3: { label: 'Intención de compra', seo: 'Media, el usuario aún compara', geo: 'Alta: la IA ya recomienda una opción concreta' },
+            r4: { label: 'Cómo se consigue', seo: 'Keywords y enlaces', geo: 'Contenido optimizado, datos estructurados y llms.txt' },
+            cta: 'Auditoría GEO gratis'
+        },
+        faq: {
+            tag: '// FAQ',
+            title: 'Preguntas <span class="text-gradient">frecuentes</span>',
+            subtitle: 'Lo que más me preguntan antes de empezar un proyecto.',
+            q1: { q: '¿Cuánto cuesta un proyecto?', a: 'Una landing desde 500€ y una web profesional o app desde 1.500€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos.' },
+            q2: { q: '¿Cuánto tardas en entregar?', a: 'Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento.' },
+            q3: { q: '¿El código y los accesos son míos?', a: 'Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo.' },
+            q4: { q: '¿Trabajas con clientes fuera de Andorra?', a: 'Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios.' },
+            q5: { q: '¿Ofreces soporte después del lanzamiento?', a: 'Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.' },
+            q6: { q: '¿Qué es el posicionamiento en IA (GEO)?', a: 'Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.' }
+        },
+        audit: { hero: 'Auditoría gratis' }
     ,
 about: {
             cta: {
@@ -1440,8 +1463,8 @@ about: {
         portfolioHome: {
             tag: '// Portfolio',
             title: 'Projectes <span class="text-gradient">destacats</span>',
-            shop: { badge: 'E-commerce', desc: 'Botiga online de suplements esportius amb catàleg interactiu i checkout optimitzat per a conversió.' },
-            bot: { badge: 'Bot', desc: 'Bot que genera pressupostos personalitzats automàticament, disponible 24/7 sense intervenció humana.' },
+            shop: { badge: 'E-commerce', desc: 'Botiga online de suplements esportius amb catàleg interactiu i checkout optimitzat per a conversió.', metric: '+32% conversió al checkout' },
+            bot: { badge: 'Bot', desc: 'Bot que genera pressupostos personalitzats automàticament, disponible 24/7 sense intervenció humana.', metric: 'Respostes en segons, 24/7' },
             cta: 'Veure tots els projectes'
         },
         testimonialsHome: {
@@ -1494,7 +1517,30 @@ about: {
         },
         cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' },
         footer: { tagline: 'Desenvolupament digital des d\'Andorra 🇦🇩', copyright: '&copy; 2026 Said. Tots els drets reservats.' },
-        emailPopup: { title: '🎁 Rep consells gratis', desc: 'Trucs de desenvolupament web i ofertes exclusives. Sense spam.', placeholder: 'El teu email', submit: 'Subscriure\'m' }
+        emailPopup: { title: '🎁 Rep consells gratis', desc: 'Trucs de desenvolupament web i ofertes exclusives. Sense spam.', placeholder: 'El teu email', submit: 'Subscriure\'m' },
+        geo: {
+            tag: '// Posicionament IA',
+            title: 'Que la <span class="text-gradient">IA recomani</span> el teu negoci',
+            subtitle: 'El 40% de les persones ja pregunta a ChatGPT, Claude o Perplexity abans que a Google. Et posiciono per aparèixer a les seves respostes.',
+            th: { feature: '&nbsp;', seo: 'SEO tradicional', geo: 'Posicionament IA (GEO)' },
+            r1: { label: 'On apareixes', seo: 'Resultats de Google', geo: 'Respostes de ChatGPT, Claude, Perplexity i Gemini' },
+            r2: { label: 'Competència', seo: 'Molt alta, milers de webs', geo: 'Baixa: només l\'1% d\'empreses a Andorra ho treballa' },
+            r3: { label: 'Intenció de compra', seo: 'Mitjana, l\'usuari encara compara', geo: 'Alta: la IA ja recomana una opció concreta' },
+            r4: { label: 'Com s\'aconsegueix', seo: 'Keywords i enllaços', geo: 'Contingut optimitzat, dades estructurades i llms.txt' },
+            cta: 'Auditoria GEO gratis'
+        },
+        faq: {
+            tag: '// FAQ',
+            title: 'Preguntes <span class="text-gradient">freqüents</span>',
+            subtitle: 'El que més em pregunten abans de començar un projecte.',
+            q1: { q: 'Quant costa un projecte?', a: 'Una landing des de 500€ i una web professional o app des de 1.500€. Sempre et dono un pressupost tancat per endavant, sense sorpreses ni costos ocults.' },
+            q2: { q: 'Quant trigues a entregar?', a: 'Una web entre 1 i 4 setmanes; apps i plataformes SaaS entre 4 i 8 setmanes. Reps avenços cada setmana per veure el progrés en tot moment.' },
+            q3: { q: 'El codi i els accessos són meus?', a: 'Sí. En finalitzar t\'entrego tot el codi font i els accessos. Sense dependències ocultes ni lock-in: el teu projecte és 100% teu.' },
+            q4: { q: 'Treballes amb clients fora d\'Andorra?', a: 'Sí, treballo en remot amb clients de tota Europa. Comunicació directa amb mi per WhatsApp o videotrucada, sense intermediaris.' },
+            q5: { q: 'Ofereixes suport després del llançament?', a: 'Incloc 30 dies de suport gratuït després de l\'entrega. Després pots contractar un pla de manteniment mensual opcional si el necessites.' },
+            q6: { q: 'Què és el posicionament en IA (GEO)?', a: 'Optimitzo el teu negoci perquè ChatGPT, Claude o Perplexity et recomanin, no només Google. És un canal amb molt poca competència encara. Demana\'m una auditoria gratis.' }
+        },
+        audit: { hero: 'Auditoria gratis' }
     ,
 about: {
             cta: {
@@ -1849,8 +1895,8 @@ about: {
         portfolioHome: {
             tag: '// Portfolio',
             title: 'Projets <span class="text-gradient">phares</span>',
-            shop: { badge: 'E-commerce', desc: 'Boutique en ligne de compléments sportifs avec catalogue interactif et checkout optimisé pour la conversion.' },
-            bot: { badge: 'Bot', desc: 'Bot qui génère des devis personnalisés automatiquement, disponible 24/7 sans intervention humaine.' },
+            shop: { badge: 'E-commerce', desc: 'Boutique en ligne de compléments sportifs avec catalogue interactif et checkout optimisé pour la conversion.', metric: '+32% de conversion au checkout' },
+            bot: { badge: 'Bot', desc: 'Bot qui génère des devis personnalisés automatiquement, disponible 24/7 sans intervention humaine.', metric: 'Réponses en quelques secondes, 24/7' },
             cta: 'Voir tous les projets'
         },
         testimonialsHome: {
@@ -1903,7 +1949,30 @@ about: {
         },
         cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' },
         footer: { tagline: 'Développement numérique depuis l\'Andorre 🇦🇩', copyright: '&copy; 2026 Said. Tous droits réservés.' },
-        emailPopup: { title: '🎁 Recevez des conseils gratuits', desc: 'Astuces de développement web et offres exclusives. Sans spam.', placeholder: 'Votre email', submit: 'M\'abonner' }
+        emailPopup: { title: '🎁 Recevez des conseils gratuits', desc: 'Astuces de développement web et offres exclusives. Sans spam.', placeholder: 'Votre email', submit: 'M\'abonner' },
+        geo: {
+            tag: '// Référencement IA',
+            title: 'Que l\'<span class="text-gradient">IA recommande</span> votre entreprise',
+            subtitle: '40% des personnes interrogent déjà ChatGPT, Claude ou Perplexity avant Google. Je vous positionne pour apparaître dans leurs réponses.',
+            th: { feature: '&nbsp;', seo: 'SEO traditionnel', geo: 'Référencement IA (GEO)' },
+            r1: { label: 'Où vous apparaissez', seo: 'Résultats de Google', geo: 'Réponses de ChatGPT, Claude, Perplexity et Gemini' },
+            r2: { label: 'Concurrence', seo: 'Très forte, des milliers de sites', geo: 'Faible : seul 1% des entreprises en Andorre s\'y consacre' },
+            r3: { label: 'Intention d\'achat', seo: 'Moyenne, l\'utilisateur compare encore', geo: 'Élevée : l\'IA recommande déjà une option précise' },
+            r4: { label: 'Comment l\'obtenir', seo: 'Mots-clés et liens', geo: 'Contenu optimisé, données structurées et llms.txt' },
+            cta: 'Audit GEO gratuit'
+        },
+        faq: {
+            tag: '// FAQ',
+            title: 'Questions <span class="text-gradient">fréquentes</span>',
+            subtitle: 'Ce qu\'on me demande le plus avant de démarrer un projet.',
+            q1: { q: 'Combien coûte un projet ?', a: 'Une landing à partir de 500€ et un site professionnel ou une app à partir de 1.500€. Je vous donne toujours un devis fixe à l\'avance, sans surprises ni frais cachés.' },
+            q2: { q: 'Quels sont les délais de livraison ?', a: 'Un site entre 1 et 4 semaines ; apps et plateformes SaaS entre 4 et 8 semaines. Vous recevez des avancées chaque semaine pour suivre le progrès.' },
+            q3: { q: 'Le code et les accès sont-ils à moi ?', a: 'Oui. À la fin je vous remets tout le code source et les accès. Sans dépendances cachées ni lock-in : votre projet est 100% à vous.' },
+            q4: { q: 'Travaillez-vous avec des clients hors d\'Andorre ?', a: 'Oui, je travaille à distance avec des clients de toute l\'Europe. Communication directe avec moi par WhatsApp ou visioconférence, sans intermédiaires.' },
+            q5: { q: 'Proposez-vous un support après le lancement ?', a: 'J\'inclus 30 jours de support gratuit après la livraison. Ensuite, vous pouvez souscrire un forfait de maintenance mensuel optionnel si besoin.' },
+            q6: { q: 'Qu\'est-ce que le référencement IA (GEO) ?', a: 'J\'optimise votre entreprise pour que ChatGPT, Claude ou Perplexity vous recommandent, pas seulement Google. C\'est un canal avec très peu de concurrence. Demandez-moi un audit gratuit.' }
+        },
+        audit: { hero: 'Audit gratuit' }
     ,
 about: {
             cta: {
@@ -2258,8 +2327,8 @@ about: {
         portfolioHome: {
             tag: '// Portfolio',
             title: 'Featured <span class="text-gradient">projects</span>',
-            shop: { badge: 'E-commerce', desc: 'Online store for sports supplements with an interactive catalog and conversion-optimized checkout.' },
-            bot: { badge: 'Bot', desc: 'Bot that automatically generates personalized quotes, available 24/7 with no human intervention.' },
+            shop: { badge: 'E-commerce', desc: 'Online store for sports supplements with an interactive catalog and conversion-optimized checkout.', metric: '+32% checkout conversion' },
+            bot: { badge: 'Bot', desc: 'Bot that automatically generates personalized quotes, available 24/7 with no human intervention.', metric: 'Replies in seconds, 24/7' },
             cta: 'View all projects'
         },
         testimonialsHome: {
@@ -2312,7 +2381,30 @@ about: {
         },
         cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' },
         footer: { tagline: 'Digital development from Andorra 🇦🇩', copyright: '&copy; 2026 Said. All rights reserved.' },
-        emailPopup: { title: '🎁 Get free tips', desc: 'Web development tricks and exclusive offers. No spam.', placeholder: 'Your email', submit: 'Subscribe' }
+        emailPopup: { title: '🎁 Get free tips', desc: 'Web development tricks and exclusive offers. No spam.', placeholder: 'Your email', submit: 'Subscribe' },
+        geo: {
+            tag: '// AI Positioning',
+            title: 'Get <span class="text-gradient">AI to recommend</span> your business',
+            subtitle: '40% of people already ask ChatGPT, Claude or Perplexity before Google. I position you to show up in their answers.',
+            th: { feature: '&nbsp;', seo: 'Traditional SEO', geo: 'AI Positioning (GEO)' },
+            r1: { label: 'Where you appear', seo: 'Google results', geo: 'Answers from ChatGPT, Claude, Perplexity and Gemini' },
+            r2: { label: 'Competition', seo: 'Very high, thousands of sites', geo: 'Low: only 1% of companies in Andorra work on it' },
+            r3: { label: 'Purchase intent', seo: 'Medium, the user is still comparing', geo: 'High: AI already recommends a specific option' },
+            r4: { label: 'How it\'s achieved', seo: 'Keywords and links', geo: 'Optimized content, structured data and llms.txt' },
+            cta: 'Free GEO audit'
+        },
+        faq: {
+            tag: '// FAQ',
+            title: 'Frequently asked <span class="text-gradient">questions</span>',
+            subtitle: 'What people ask me most before starting a project.',
+            q1: { q: 'How much does a project cost?', a: 'A landing page from €500 and a professional website or app from €1,500. I always give you a fixed quote upfront, with no surprises or hidden costs.' },
+            q2: { q: 'How long does delivery take?', a: 'A website takes 1 to 4 weeks; apps and SaaS platforms 4 to 8 weeks. You get weekly progress updates so you can follow along at all times.' },
+            q3: { q: 'Do I own the code and the accesses?', a: 'Yes. When finished I hand over all the source code and accesses. No hidden dependencies or lock-in: your project is 100% yours.' },
+            q4: { q: 'Do you work with clients outside Andorra?', a: 'Yes, I work remotely with clients across Europe. Direct communication with me via WhatsApp or video call, no middlemen.' },
+            q5: { q: 'Do you offer support after launch?', a: 'I include 30 days of free support after delivery. After that, you can take an optional monthly maintenance plan if you need it.' },
+            q6: { q: 'What is AI positioning (GEO)?', a: 'I optimize your business so ChatGPT, Claude or Perplexity recommend you, not just Google. It\'s a channel with very little competition yet. Ask me for a free audit.' }
+        },
+        audit: { hero: 'Free audit' }
     ,
 about: {
             cta: {

@@ -4549,3 +4549,179 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===========================
+   Hero "Free Audit" button
+   =========================== */
+.btn-audit {
+    position: relative;
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.35);
+    animation: auditPulse 3s ease-in-out infinite;
+}
+
+.btn-audit:hover {
+    background: rgba(0, 212, 255, 0.08);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
+}
+
+@keyframes auditPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.30); }
+    50% { box-shadow: 0 0 22px 2px rgba(0, 212, 255, 0.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-audit { animation: none; }
+}
+
+/* ===========================
+   GEO / AI Positioning Section
+   =========================== */
+.geo-compare {
+    max-width: 920px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.geo-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+    font-size: 0.95rem;
+}
+
+.geo-table th,
+.geo-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+    color: var(--text-secondary);
+}
+
+.geo-table thead th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+
+.geo-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.geo-row-label {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.geo-col-highlight {
+    background: linear-gradient(180deg, rgba(0, 212, 255, 0.07), rgba(124, 58, 237, 0.07));
+    color: var(--text-primary);
+}
+
+.geo-table thead .geo-col-highlight {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.18), rgba(124, 58, 237, 0.18));
+    border-top-right-radius: var(--radius-lg);
+}
+
+/* ===========================
+   Portfolio metric badge
+   =========================== */
+.portfolio-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 4px 0 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid var(--border-glow);
+    color: var(--accent-cyan);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.portfolio-metric .metric-arrow {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+/* ===========================
+   FAQ Section
+   =========================== */
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+    overflow: hidden;
+}
+
+.faq-item[open] {
+    border-color: var(--border-glow);
+    background: var(--bg-card-hover);
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-glow);
+    color: var(--accent-cyan);
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+}
+
+.faq-item[open] summary::after {
+    content: '–';
+    transform: rotate(180deg);
+}
+
+.faq-item p {
+    padding: 0 24px 22px;
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
