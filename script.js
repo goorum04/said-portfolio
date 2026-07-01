@@ -935,7 +935,7 @@ function initWhatsAppFloatVisibility() {
 // Calls a Vercel serverless function that proxies to the Claude API, keeping
 // the API key server-side. Update this URL after deploying the /api/chat
 // function to Vercel (see api/chat.js).
-const CHAT_API_URL = 'https://said-portfolio-chat.vercel.app/api/chat';
+const CHAT_API_URL = 'https://said-portfolio-ashy.vercel.app/api/chat';
 
 function initChatbot() {
     const t = () => translations[currentLang].chatbot;
