@@ -3088,9 +3088,28 @@ img {
 
 .mascot-body {
     display: block;
+    position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.3s ease;
+}
+
+/* Real 3D model (GLB) overlay — replaces the PNG once it has loaded */
+model-viewer.mascot-3d {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: transparent;
+    --poster-color: transparent;
+    --progress-bar-color: transparent;
+    transition: opacity 0.6s ease;
+}
+
+model-viewer.mascot-3d.ready {
+    opacity: 1;
 }
 
 .chat-widget-toggle-avatar {

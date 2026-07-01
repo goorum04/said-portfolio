@@ -1035,6 +1035,59 @@ function initChatbot() {
     });
 
     initMascotRoam(toggle, panel);
+    upgradeMascotTo3D(toggle);
+}
+
+// ===========================
+// Aria mascot 3D upgrade
+// ===========================
+// Swaps the mascot's PNG for a real auto-rotating 3D model (GLB) once the
+// page is fully loaded and idle. The image stays as an instant fallback and
+// is only replaced after the model has actually loaded, so slow connections
+// or WebGL failures never leave a hole. Skipped on save-data connections and
+// for reduced-motion users.
+function upgradeMascotTo3D(toggle) {
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function start() {
+        setTimeout(() => {
+            const s = document.createElement('script');
+            s.type = 'module';
+            s.src = 'model-viewer.min.js?v=1';
+            s.onload = () => {
+                customElements.whenDefined('model-viewer').then(() => {
+                    const body = toggle.querySelector('.mascot-body');
+                    const img = body && body.querySelector('img');
+                    if (!body || !img) return;
+
+                    const mv = document.createElement('model-viewer');
+                    mv.className = 'chat-widget-toggle-avatar mascot-3d';
+                    mv.src = 'aria-3d.glb?v=1';
+                    mv.setAttribute('auto-rotate', '');
+                    mv.setAttribute('auto-rotate-delay', '0');
+                    mv.setAttribute('rotation-per-second', '30deg');
+                    mv.setAttribute('interaction-prompt', 'none');
+                    mv.setAttribute('disable-zoom', '');
+                    mv.setAttribute('camera-orbit', '0deg 85deg 105%');
+                    mv.setAttribute('exposure', '1.1');
+
+                    mv.addEventListener('load', () => {
+                        img.remove();
+                        mv.classList.add('ready');
+                    }, { once: true });
+                    mv.addEventListener('error', () => mv.remove(), { once: true });
+
+                    body.appendChild(mv);
+                });
+            };
+            document.head.appendChild(s);
+        }, 3500);
+    }
+
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
 }
 
 // ===========================
