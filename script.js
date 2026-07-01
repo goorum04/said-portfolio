@@ -944,25 +944,23 @@ function initChatbot() {
     const toggle = document.createElement('button');
     toggle.className = 'chat-widget-toggle';
     toggle.setAttribute('aria-label', t().label);
-    toggle.innerHTML = `
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>`;
+    toggle.innerHTML = `<img src="chat-avatar.svg?v=1" alt="" class="chat-widget-toggle-avatar">`;
 
     const panel = document.createElement('div');
     panel.className = 'chat-widget-panel';
     panel.innerHTML = `
         <div class="chat-widget-header">
+            <img src="chat-avatar.svg?v=1" alt="" class="chat-widget-avatar">
             <div class="chat-widget-header-text">
-                <h3 data-i18n="chatbot.title">Asistente IA · SaeTech</h3>
-                <p data-i18n="chatbot.subtitle">Ejemplo interactivo de lo que podemos construir para tu negocio.</p>
+                <h3 data-i18n="chatbot.title">Aria · SaeTech</h3>
+                <p data-i18n="chatbot.subtitle">Pregúntame sobre nuestros servicios y precios.</p>
             </div>
             <button type="button" class="chat-widget-close" aria-label="Close">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
         </div>
         <div class="chat-widget-messages"></div>
-        <p class="chat-widget-disclaimer" data-i18n="chatbot.disclaimer">Demo funcional con la API de Claude (Anthropic). Las respuestas son generadas por IA.</p>
+        <p class="chat-widget-disclaimer" data-i18n="chatbot.disclaimer">Aria responde con IA (Claude). Las respuestas pueden contener errores.</p>
         <form class="chat-widget-form">
             <input type="text" class="chat-widget-input" data-i18n-placeholder="chatbot.placeholder" placeholder="Escribe tu pregunta..." autocomplete="off">
             <button type="submit" class="chat-widget-send" aria-label="Send">
@@ -1862,15 +1860,15 @@ about: {
             }
         },
         chatbot: {
-            label: 'Asistente IA',
-            title: 'Asistente IA · SaeTech',
+            label: 'Aria, asistente de SaeTech',
+            title: 'Aria · SaeTech',
             subtitle: 'Pregúntame sobre nuestros servicios y precios.',
-            welcome: '¡Hola! Soy el asistente virtual de SaeTech. Pregúntame lo que quieras sobre nuestros servicios, precios o cómo trabajamos.',
+            welcome: '¡Hola! Soy Aria, la asistente virtual de SaeTech. Pregúntame lo que quieras sobre nuestros servicios, precios o cómo trabajamos.',
             placeholder: 'Escribe tu pregunta...',
             send: 'Enviar',
             error: 'Ups, algo ha fallado. Prueba de nuevo o escríbenos por WhatsApp.',
             typing: 'Escribiendo…',
-            disclaimer: 'Asistente con IA (Claude). Las respuestas pueden contener errores.'
+            disclaimer: 'Aria responde con IA (Claude). Las respuestas pueden contener errores.'
         },
     },
     ca: {
@@ -2589,15 +2587,15 @@ about: {
             }
         },
         chatbot: {
-            label: 'Assistent IA',
-            title: 'Assistent IA · SaeTech',
+            label: 'Aria, assistent de SaeTech',
+            title: 'Aria · SaeTech',
             subtitle: 'Pregunta\'m sobre els nostres serveis i preus.',
-            welcome: 'Hola! Sóc l\'assistent virtual de SaeTech. Pregunta\'m el que vulguis sobre els nostres serveis, preus o com treballem.',
+            welcome: 'Hola! Sóc l\'Aria, l\'assistent virtual de SaeTech. Pregunta\'m el que vulguis sobre els nostres serveis, preus o com treballem.',
             placeholder: 'Escriu la teva pregunta...',
             send: 'Enviar',
             error: 'Vaja, alguna cosa ha fallat. Torna-ho a provar o escriu-nos per WhatsApp.',
             typing: 'Escrivint…',
-            disclaimer: 'Assistent amb IA (Claude). Les respostes poden contenir errors.'
+            disclaimer: 'L\'Aria respon amb IA (Claude). Les respostes poden contenir errors.'
         },
     },
     fr: {
@@ -3316,15 +3314,15 @@ about: {
             }
         },
         chatbot: {
-            label: 'Assistant IA',
-            title: 'Assistant IA · SaeTech',
+            label: 'Aria, assistante de SaeTech',
+            title: 'Aria · SaeTech',
             subtitle: 'Posez-moi vos questions sur nos services et nos prix.',
-            welcome: 'Bonjour ! Je suis l\'assistant virtuel de SaeTech. Posez-moi vos questions sur nos services, nos prix ou notre façon de travailler.',
+            welcome: 'Bonjour ! Je suis Aria, l\'assistante virtuelle de SaeTech. Posez-moi vos questions sur nos services, nos prix ou notre façon de travailler.',
             placeholder: 'Écrivez votre question...',
             send: 'Envoyer',
             error: 'Oups, une erreur est survenue. Réessayez ou écrivez-nous sur WhatsApp.',
             typing: 'En train d\'écrire…',
-            disclaimer: 'Assistant avec IA (Claude). Les réponses peuvent contenir des erreurs.'
+            disclaimer: 'Aria répond avec l\'IA (Claude). Les réponses peuvent contenir des erreurs.'
         },
     },
     en: {
@@ -4043,15 +4041,15 @@ about: {
             }
         },
         chatbot: {
-            label: 'AI Assistant',
-            title: 'AI Assistant · SaeTech',
+            label: 'Aria, SaeTech\'s assistant',
+            title: 'Aria · SaeTech',
             subtitle: 'Ask me about our services and pricing.',
-            welcome: 'Hi! I\'m SaeTech\'s virtual assistant. Ask me anything about our services, pricing, or how we work.',
+            welcome: 'Hi! I\'m Aria, SaeTech\'s virtual assistant. Ask me anything about our services, pricing, or how we work.',
             placeholder: 'Type your question...',
             send: 'Send',
             error: 'Oops, something went wrong. Try again or message us on WhatsApp.',
             typing: 'Typing…',
-            disclaimer: 'AI-powered assistant (Claude). Responses may contain errors.'
+            disclaimer: 'Aria responds with AI (Claude). Responses may contain errors.'
         },
         }
 };
