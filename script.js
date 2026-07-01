@@ -712,38 +712,40 @@ function initNavbar() {
         lastScroll = currentScroll;
     });
 
+    // Lock/unlock background scroll without using `position: fixed` on the
+    // body — on mobile (especially iOS Safari) that jumps the page to the top
+    // and can leave it feeling "frozen" after closing. Just hiding overflow is
+    // enough because the menu overlay already covers the whole screen.
+    function openMenu() {
+        menuOpen = true;
+        toggle.classList.add('active');
+        navLinks.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        menuOpen = false;
+        toggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
     if (toggle && navLinks) {
         toggle.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            menuOpen = !menuOpen;
-            toggle.classList.toggle('active', menuOpen);
-            navLinks.classList.toggle('active', menuOpen);
-            document.body.style.overflow = menuOpen ? 'hidden' : '';
-            document.body.style.position = menuOpen ? 'fixed' : '';
-            document.body.style.width = menuOpen ? '100%' : '';
+            if (menuOpen) closeMenu();
+            else openMenu();
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                menuOpen = false;
-                toggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.width = '';
+                if (menuOpen) closeMenu();
             });
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menuOpen) {
-                menuOpen = false;
-                toggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.width = '';
-            }
+            if (e.key === 'Escape' && menuOpen) closeMenu();
         });
     }
 }
