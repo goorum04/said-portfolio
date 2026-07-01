@@ -928,13 +928,13 @@ function initChatbot() {
     const toggle = document.createElement('button');
     toggle.className = 'chat-widget-toggle';
     toggle.setAttribute('aria-label', t().label);
-    toggle.innerHTML = `<span class="mascot-body"><img src="aria-mascot.png?v=1" alt="" class="chat-widget-toggle-avatar"></span>`;
+    toggle.innerHTML = `<span class="mascot-body"><img src="aria-mascot.png?v=2" alt="" class="chat-widget-toggle-avatar"></span>`;
 
     const panel = document.createElement('div');
     panel.className = 'chat-widget-panel';
     panel.innerHTML = `
         <div class="chat-widget-header">
-            <img src="chat-avatar.svg?v=1" alt="" class="chat-widget-avatar">
+            <img src="aria-mascot.png?v=2" alt="" class="chat-widget-avatar">
             <div class="chat-widget-header-text">
                 <h3 data-i18n="chatbot.title">Aria · SaeTech</h3>
                 <p data-i18n="chatbot.subtitle">Pregúntame sobre nuestros servicios y precios.</p>

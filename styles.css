@@ -3172,6 +3172,8 @@ img {
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
+    /* the mascot image is full-body: crop to the head for the header avatar */
+    object-position: top;
     flex-shrink: 0;
     background: rgba(255, 255, 255, 0.25);
 }
