@@ -928,13 +928,15 @@ function initChatbot() {
     const toggle = document.createElement('button');
     toggle.className = 'chat-widget-toggle';
     toggle.setAttribute('aria-label', t().label);
-    toggle.innerHTML = `<span class="mascot-body"><img src="aria-mascot.png?v=2" alt="" class="chat-widget-toggle-avatar"></span>`;
+    toggle.innerHTML = `
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>`;
 
     const panel = document.createElement('div');
     panel.className = 'chat-widget-panel';
     panel.innerHTML = `
         <div class="chat-widget-header">
-            <img src="aria-mascot.png?v=2" alt="" class="chat-widget-avatar">
             <div class="chat-widget-header-text">
                 <h3 data-i18n="chatbot.title">Aria · SaeTech</h3>
                 <p data-i18n="chatbot.subtitle">Pregúntame sobre nuestros servicios y precios.</p>
@@ -1034,183 +1036,6 @@ function initChatbot() {
         }
     });
 
-    initMascotRoam(toggle, panel);
-    upgradeMascotTo3D(toggle);
-}
-
-// ===========================
-// Aria mascot 3D upgrade
-// ===========================
-// Swaps the mascot's PNG for a real auto-rotating 3D model (GLB) once the
-// page is fully loaded and idle. The image stays as an instant fallback and
-// is only replaced after the model has actually loaded, so slow connections
-// or WebGL failures never leave a hole. Skipped on save-data connections and
-// for reduced-motion users.
-function upgradeMascotTo3D(toggle) {
-    const conn = navigator.connection;
-    if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    function start() {
-        setTimeout(() => {
-            const s = document.createElement('script');
-            s.type = 'module';
-            s.src = 'model-viewer.min.js?v=1';
-            s.onload = () => {
-                customElements.whenDefined('model-viewer').then(() => {
-                    const body = toggle.querySelector('.mascot-body');
-                    const img = body && body.querySelector('img');
-                    if (!body || !img) return;
-
-                    const mv = document.createElement('model-viewer');
-                    mv.className = 'chat-widget-toggle-avatar mascot-3d';
-                    mv.src = 'aria-3d.glb?v=1';
-                    mv.setAttribute('auto-rotate', '');
-                    mv.setAttribute('auto-rotate-delay', '0');
-                    mv.setAttribute('rotation-per-second', '30deg');
-                    mv.setAttribute('interaction-prompt', 'none');
-                    mv.setAttribute('disable-zoom', '');
-                    mv.setAttribute('camera-orbit', '0deg 85deg 105%');
-                    mv.setAttribute('exposure', '1.1');
-
-                    mv.addEventListener('load', () => {
-                        img.remove();
-                        mv.classList.add('ready');
-                    }, { once: true });
-                    mv.addEventListener('error', () => mv.remove(), { once: true });
-
-                    body.appendChild(mv);
-                });
-            };
-            document.head.appendChild(s);
-        }, 3500);
-    }
-
-    if (document.readyState === 'complete') start();
-    else window.addEventListener('load', start, { once: true });
-}
-
-// ===========================
-// Aria mascot roam
-// ===========================
-// Lets the chat toggle wander around the viewport like a little pet. It
-// freezes while hovered (so it's easy to click), returns to its corner while
-// the chat panel is open, and stays put entirely for users who prefer
-// reduced motion.
-function initMascotRoam(toggle, panel) {
-    if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let base = null;   // the toggle's natural CSS position (no transform)
-    let cur = null;    // where the mascot currently is, in viewport coords
-    let timer = null;
-    let walkTimer = null;
-    let paused = false;
-    const bodyEl = toggle.querySelector('.mascot-body');
-
-    function readBase() {
-        const r = toggle.getBoundingClientRect();
-        base = { x: r.left, y: r.top };
-        cur = { x: r.left, y: r.top };
-    }
-
-    function stopWalking() {
-        clearTimeout(walkTimer);
-        toggle.classList.remove('walking');
-    }
-
-    // Move to (x, y) at roughly `speed` px/s; returns the trip duration in s.
-    function goTo(x, y, speed) {
-        const dist = Math.hypot(x - cur.x, y - cur.y);
-        const dur = Math.max(1.2, dist / (speed || 55));
-        // Face the direction of travel and do the little walk waddle.
-        if (bodyEl && Math.abs(x - cur.x) > 8) {
-            bodyEl.style.transform = (x < cur.x) ? 'scaleX(-1)' : '';
-        }
-        toggle.classList.add('walking');
-        clearTimeout(walkTimer);
-        walkTimer = setTimeout(() => toggle.classList.remove('walking'), dur * 1000);
-        toggle.style.transitionDuration = dur + 's';
-        toggle.style.transform = 'translate3d(' + (x - base.x) + 'px,' + (y - base.y) + 'px,0)';
-        cur = { x: x, y: y };
-        return dur;
-    }
-
-    function roam() {
-        if (paused || document.hidden) return;
-        const margin = 16;
-        const topLimit = 96; // keep clear of the navbar
-        const w = toggle.offsetWidth || 60;
-        const h = toggle.offsetHeight || 60;
-        const x = margin + Math.random() * Math.max(1, window.innerWidth - w - margin * 2);
-        const y = topLimit + Math.random() * Math.max(1, window.innerHeight - h - topLimit - margin);
-        const dur = goTo(x, y);
-        timer = setTimeout(roam, dur * 1000 + 2000 + Math.random() * 4000);
-    }
-
-    function stop() {
-        clearTimeout(timer);
-        timer = null;
-    }
-
-    function goHome() {
-        stop();
-        goTo(base.x, base.y, 160);
-    }
-
-    // Freeze in place while hovered so the mascot is easy to catch.
-    toggle.addEventListener('mouseenter', () => {
-        paused = true;
-        stop();
-        stopWalking();
-        const r = toggle.getBoundingClientRect();
-        toggle.style.transitionDuration = '0s';
-        toggle.style.transform = 'translate3d(' + (r.left - base.x) + 'px,' + (r.top - base.y) + 'px,0)';
-        cur = { x: r.left, y: r.top };
-    });
-    toggle.addEventListener('mouseleave', () => {
-        if (panel.classList.contains('open')) return;
-        paused = false;
-        stop();
-        timer = setTimeout(roam, 1500);
-    });
-
-    // Dock in the corner while the chat is open; wander again when it closes.
-    new MutationObserver(() => {
-        if (panel.classList.contains('open')) {
-            paused = true;
-            goHome();
-        } else {
-            paused = false;
-            stop();
-            timer = setTimeout(roam, 2500);
-        }
-    }).observe(panel, { attributes: true, attributeFilter: ['class'] });
-
-    // On resize the safe area changes: send it home and re-measure.
-    window.addEventListener('resize', () => {
-        stop();
-        toggle.style.transitionDuration = '0.3s';
-        toggle.style.transform = 'none';
-        setTimeout(() => {
-            readBase();
-            if (!paused) roam();
-        }, 400);
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stop();
-        } else if (!paused && !panel.classList.contains('open')) {
-            stop();
-            timer = setTimeout(roam, 2000);
-        }
-    });
-
-    // Let the page settle (loader, fonts) before the first stroll.
-    setTimeout(() => {
-        readBase();
-        roam();
-    }, 4000);
 }
 
 // ===========================
