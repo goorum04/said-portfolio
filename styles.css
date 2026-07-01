@@ -3063,41 +3063,46 @@ img {
    =========================== */
 .chat-widget-toggle {
     position: fixed;
-    bottom: 28px;
+    bottom: 24px;
     right: 100px;
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-main);
+    width: 66px;
+    height: 88px;
+    background: none;
     border: none;
-    border-radius: 50%;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
     z-index: 999;
     /* transform is animated by the mascot-roam logic in script.js, which sets
        the duration per trip; keep the property here so trips ease smoothly */
-    transition: transform 4s ease-in-out, box-shadow var(--transition-fast);
+    transition: transform 4s ease-in-out;
     will-change: transform;
+    filter: drop-shadow(0 6px 14px rgba(0, 212, 255, 0.35));
 }
 
 .chat-widget-toggle:hover {
-    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.55);
+    filter: drop-shadow(0 8px 20px rgba(0, 212, 255, 0.55)) brightness(1.1);
 }
 
-.chat-widget-toggle:hover .chat-widget-toggle-avatar {
-    filter: brightness(1.15);
+.mascot-body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
 }
 
 .chat-widget-toggle-avatar {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     animation: mascotBob 3s ease-in-out infinite;
-    transition: filter var(--transition-fast);
+}
+
+/* Little walk waddle while the mascot travels between waypoints */
+.chat-widget-toggle.walking .chat-widget-toggle-avatar {
+    animation: mascotWalk 0.55s ease-in-out infinite;
 }
 
 @keyframes mascotBob {
@@ -3109,6 +3114,18 @@ img {
 
     50% {
         transform: translateY(-4px);
+    }
+}
+
+@keyframes mascotWalk {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(4deg);
     }
 }
 

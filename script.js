@@ -928,7 +928,7 @@ function initChatbot() {
     const toggle = document.createElement('button');
     toggle.className = 'chat-widget-toggle';
     toggle.setAttribute('aria-label', t().label);
-    toggle.innerHTML = `<img src="chat-avatar.svg?v=1" alt="" class="chat-widget-toggle-avatar">`;
+    toggle.innerHTML = `<span class="mascot-body"><img src="aria-mascot.png?v=1" alt="" class="chat-widget-toggle-avatar"></span>`;
 
     const panel = document.createElement('div');
     panel.className = 'chat-widget-panel';
@@ -1050,7 +1050,9 @@ function initMascotRoam(toggle, panel) {
     let base = null;   // the toggle's natural CSS position (no transform)
     let cur = null;    // where the mascot currently is, in viewport coords
     let timer = null;
+    let walkTimer = null;
     let paused = false;
+    const bodyEl = toggle.querySelector('.mascot-body');
 
     function readBase() {
         const r = toggle.getBoundingClientRect();
@@ -1058,10 +1060,22 @@ function initMascotRoam(toggle, panel) {
         cur = { x: r.left, y: r.top };
     }
 
+    function stopWalking() {
+        clearTimeout(walkTimer);
+        toggle.classList.remove('walking');
+    }
+
     // Move to (x, y) at roughly `speed` px/s; returns the trip duration in s.
     function goTo(x, y, speed) {
         const dist = Math.hypot(x - cur.x, y - cur.y);
         const dur = Math.max(1.2, dist / (speed || 55));
+        // Face the direction of travel and do the little walk waddle.
+        if (bodyEl && Math.abs(x - cur.x) > 8) {
+            bodyEl.style.transform = (x < cur.x) ? 'scaleX(-1)' : '';
+        }
+        toggle.classList.add('walking');
+        clearTimeout(walkTimer);
+        walkTimer = setTimeout(() => toggle.classList.remove('walking'), dur * 1000);
         toggle.style.transitionDuration = dur + 's';
         toggle.style.transform = 'translate3d(' + (x - base.x) + 'px,' + (y - base.y) + 'px,0)';
         cur = { x: x, y: y };
@@ -1094,6 +1108,7 @@ function initMascotRoam(toggle, panel) {
     toggle.addEventListener('mouseenter', () => {
         paused = true;
         stop();
+        stopWalking();
         const r = toggle.getBoundingClientRect();
         toggle.style.transitionDuration = '0s';
         toggle.style.transform = 'translate3d(' + (r.left - base.x) + 'px,' + (r.top - base.y) + 'px,0)';
