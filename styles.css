@@ -4847,3 +4847,68 @@ img {
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
+
+/* ===========================
+   Company hero headline + audit banner
+   =========================== */
+.hero-headline {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6.2vw, 4.4rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    max-width: 16ch;
+    margin: 0 auto;
+}
+
+.hero-audit-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: -36px auto 56px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.08));
+    border: 1px solid var(--border-glow);
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero-audit-banner:hover {
+    border-color: var(--accent-cyan);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.14), rgba(124, 58, 237, 0.14));
+    transform: translateY(-2px);
+}
+
+.hero-audit-banner strong {
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+.hero-audit-icon {
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+.hero-audit-arrow {
+    color: var(--accent-cyan);
+    font-weight: 700;
+    transition: transform var(--transition-fast);
+}
+
+.hero-audit-banner:hover .hero-audit-arrow {
+    transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+    .hero-audit-banner {
+        margin: -16px auto 48px;
+        font-size: 0.82rem;
+        padding: 10px 16px;
+    }
+}
