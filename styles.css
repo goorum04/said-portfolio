@@ -3037,8 +3037,17 @@ img {
     color: white;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     z-index: 999;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-fast), opacity 0.3s ease, transform 0.3s ease;
     animation: whatsappPulse 3s ease-in-out infinite;
+}
+
+/* Hidden while the hero (with its own WhatsApp CTAs) is in view, so the
+   fixed floating button never overlaps the hero's audit banner while
+   scrolling past it. */
+.whatsapp-float.wf-hidden {
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
 }
 
 .whatsapp-float:hover {

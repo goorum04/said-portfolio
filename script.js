@@ -912,6 +912,24 @@ function initBackToTop() {
 }
 
 // ===========================
+// Hide floating WhatsApp button while the hero is in view
+// ===========================
+// The hero already has two WhatsApp CTAs (the primary button and the audit
+// banner). On mobile, the fixed floating button can visually overlap the
+// wide audit banner while scrolling past it, covering its arrow/CTA. Hiding
+// it while the hero is visible avoids that collision entirely.
+function initWhatsAppFloatVisibility() {
+    const hero = document.getElementById('hero');
+    const fab = document.querySelector('.whatsapp-float');
+    if (!hero || !fab || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver((entries) => {
+        fab.classList.toggle('wf-hidden', entries[0].isIntersecting);
+    }, { threshold: 0 });
+    io.observe(hero);
+}
+
+// ===========================
 // Email Popup
 // ===========================
 function initEmailPopup() {
@@ -3974,6 +3992,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // New features
     initScrollProgress();
     initBackToTop();
+    initWhatsAppFloatVisibility();
     initEmailPopup();
     initLanguage();
 
