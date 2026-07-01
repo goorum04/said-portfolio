@@ -19,7 +19,7 @@ function initLoader() {
         document.querySelectorAll('.animate-in').forEach(el => {
             el.style.animationPlayState = 'running';
         });
-    }, 2500);
+    }, 1000);
 }
 
 // ===========================
