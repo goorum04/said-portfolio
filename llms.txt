@@ -9,12 +9,12 @@
 - Web: https://autoappsand.com
 
 ## Servicios
-- [Desarrollo Web](https://autoappsand.com/servicios.html#web): páginas web modernas, rápidas y responsive optimizadas para conversión.
-- [Apps Móviles](https://autoappsand.com/servicios.html#apps): aplicaciones iOS y Android.
-- [SaaS](https://autoappsand.com/servicios.html#saas): plataformas escalables con suscripciones, panel de administración y APIs.
-- [Automatizaciones](https://autoappsand.com/servicios.html#automatizaciones): bots, workflows y conexiones (n8n, APIs, WhatsApp) para ahorrar horas de trabajo.
-- [Implementación de IA segura](https://autoappsand.com/#ia): chatbots y asistentes 24/7, automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
-- Posicionamiento en IA (GEO): optimización para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio.
+- [Desarrollo Web](https://autoappsand.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
+- [Apps Móviles](https://autoappsand.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
+- [Plataformas SaaS](https://autoappsand.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
+- [Automatizaciones](https://autoappsand.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
+- [Implementación de IA segura](https://autoappsand.com/servicio-ia.html): chatbots y asistentes 24/7 entrenados con datos propios (RAG), automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
+- [Posicionamiento SEO y GEO](https://autoappsand.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
 
 ## Precios orientativos
 - Landing page: desde 500 €
