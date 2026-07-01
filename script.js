@@ -912,24 +912,6 @@ function initBackToTop() {
 }
 
 // ===========================
-// Hide floating buttons while the hero is in view
-// ===========================
-// The hero already has two WhatsApp CTAs (the primary button and the audit
-// banner). On mobile, the fixed floating buttons can visually overlap the
-// wide audit banner while scrolling past it, covering its arrow/CTA. Hiding
-// them while the hero is visible avoids that collision entirely.
-function initWhatsAppFloatVisibility() {
-    const hero = document.getElementById('hero');
-    const floats = document.querySelectorAll('.whatsapp-float, .chat-widget-toggle');
-    if (!hero || !floats.length || !('IntersectionObserver' in window)) return;
-
-    const io = new IntersectionObserver((entries) => {
-        floats.forEach(fab => fab.classList.toggle('wf-hidden', entries[0].isIntersecting));
-    }, { threshold: 0 });
-    io.observe(hero);
-}
-
-// ===========================
 // AI Chat Widget (live demo)
 // ===========================
 // Calls a Vercel serverless function that proxies to the Claude API, keeping
@@ -4161,7 +4143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initBackToTop();
     initChatbot();
-    initWhatsAppFloatVisibility();
     initEmailPopup();
     initLanguage();
 

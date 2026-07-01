@@ -3041,15 +3041,6 @@ img {
     animation: whatsappPulse 3s ease-in-out infinite;
 }
 
-/* Hidden while the hero (with its own WhatsApp CTAs) is in view, so the
-   fixed floating button never overlaps the hero's audit banner while
-   scrolling past it. */
-.whatsapp-float.wf-hidden {
-    opacity: 0;
-    transform: scale(0.6);
-    pointer-events: none;
-}
-
 .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
@@ -3099,12 +3090,6 @@ img {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.chat-widget-toggle.wf-hidden {
-    opacity: 0;
-    transform: scale(0.6);
-    pointer-events: none;
 }
 
 .chat-widget-panel {
