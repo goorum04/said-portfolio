@@ -4998,3 +4998,36 @@ img {
         text-align: center;
     }
 }
+
+/* ===========================
+   Blog cover image
+   =========================== */
+.blog-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    line-height: 0;
+}
+
+.blog-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Article hero cover */
+.article-cover {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 8px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    line-height: 0;
+}
+
+.article-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

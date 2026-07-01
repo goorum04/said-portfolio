@@ -1217,6 +1217,14 @@ about: {
                 f3: "Sincronización entre plataformas",
                 f4: "Reportes automáticos",
             },
+            ai: {
+                title: "IA Segura",
+                desc: "Implementamos inteligencia artificial donde aporta valor real para tu negocio — chatbots, asistentes y automatización inteligente — protegiendo siempre tus datos.",
+                f1: "Chatbots y asistentes 24/7 entrenados con tu información",
+                f2: "Automatización inteligente de procesos y atención",
+                f3: "Integración con ChatGPT, Claude y tus herramientas",
+                f4: "Datos cifrados, control de accesos y privacidad garantizada",
+            },
             cta: {
                 title: "¿Listo para empezar?",
                 desc: "Cuéntame tu proyecto y te envío un presupuesto personalizado.",
@@ -1660,6 +1668,14 @@ about: {
                 f2: "Bots de WhatsApp i Telegram",
                 f3: "Sincronització entre plataformes",
                 f4: "Informes automàtics",
+            },
+            ai: {
+                title: "IA Segura",
+                desc: "Implementem intel·ligència artificial on aporta valor real per al teu negoci — chatbots, assistents i automatització intel·ligent — protegint sempre les teves dades.",
+                f1: "Chatbots i assistents 24/7 entrenats amb la teva informació",
+                f2: "Automatització intel·ligent de processos i atenció",
+                f3: "Integració amb ChatGPT, Claude i les teves eines",
+                f4: "Dades xifrades, control d'accessos i privadesa garantida",
             },
             cta: {
                 title: "Llest per començar?",
@@ -2105,6 +2121,14 @@ about: {
                 f3: "Synchronisation entre plateformes",
                 f4: "Rapports automatiques",
             },
+            ai: {
+                title: "IA Sécurisée",
+                desc: "Nous implémentons l'intelligence artificielle là où elle apporte une vraie valeur à votre entreprise — chatbots, assistants et automatisation intelligente — en protégeant toujours vos données.",
+                f1: "Chatbots et assistants 24/7 entraînés avec vos informations",
+                f2: "Automatisation intelligente des processus et du support",
+                f3: "Intégration avec ChatGPT, Claude et vos outils",
+                f4: "Données chiffrées, contrôle d'accès et confidentialité garantie",
+            },
             cta: {
                 title: "Prêt à commencer ?",
                 desc: "Racontez-moi votre projet et je vous envoie un devis personnalisé.",
@@ -2548,6 +2572,14 @@ about: {
                 f2: "WhatsApp and Telegram bots",
                 f3: "Cross-platform sync",
                 f4: "Automated reports",
+            },
+            ai: {
+                title: "Secure AI",
+                desc: "We implement artificial intelligence where it adds real value to your business — chatbots, assistants and smart automation — always protecting your data.",
+                f1: "24/7 chatbots and assistants trained on your information",
+                f2: "Smart automation of processes and support",
+                f3: "Integration with ChatGPT, Claude and your tools",
+                f4: "Encrypted data, access control and guaranteed privacy",
             },
             cta: {
                 title: "Ready to get started?",
