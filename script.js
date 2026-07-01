@@ -912,42 +912,8 @@ function initBackToTop() {
 }
 
 // ===========================
-// Email Popup
-// ===========================
-function initEmailPopup() {
-    const popup = document.getElementById('emailPopup');
-    const closeBtn = document.getElementById('emailPopupClose');
-
-    if (!popup || !closeBtn) return;
-
-    // Check if already shown in this session
-    if (sessionStorage.getItem('emailPopupShown')) return;
-
-    // Show popup after 15 seconds
-    setTimeout(() => {
-        if (window.scrollY > 300) {
-            popup.classList.add('visible');
-            sessionStorage.setItem('emailPopupShown', 'true');
-        }
-    }, 15000);
-
-    // Or show after scrolling 50% of page
-    let popupShown = false;
-    window.addEventListener('scroll', () => {
-        if (popupShown) return;
-
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (window.scrollY > docHeight * 0.5) {
-            popup.classList.add('visible');
-            sessionStorage.setItem('emailPopupShown', 'true');
-            popupShown = true;
-        }
-    });
-
-    closeBtn.addEventListener('click', () => {
-        popup.classList.remove('visible');
-    });
-}
+// Email Popup (disabled)
+function initEmailPopup() {}
 
 // ===========================
 // Price Calculator
