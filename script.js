@@ -1186,6 +1186,7 @@ about: {
             subtitle: "Desarrollo productos digitales que impulsan tu negocio. Cada proyecto se adapta a tus necesidades específicas.",
             tech: "Tecnologías:",
             from: "Desde:",
+            viewFull: "Ver página completa →",
             web: {
                 title: "Desarrollo Web",
                 desc: "Páginas web modernas, rápidas y optimizadas para convertir visitantes en clientes. Desde landing pages hasta tiendas online completas.",
@@ -1901,6 +1902,7 @@ about: {
             subtitle: "Desenvolupo productes digitals que impulsen el teu negoci. Cada projecte s'adapta a les teves necessitats específiques.",
             tech: "Tecnologies:",
             from: "Des de:",
+            viewFull: "Veure pàgina completa →",
             web: {
                 title: "Desenvolupament Web",
                 desc: "Pàgines web modernes, ràpides i optimitzades per convertir visitants en clients. Des de landing pages fins a botigues online completes.",
@@ -2616,6 +2618,7 @@ about: {
             subtitle: "Je développe des produits numériques qui boostent votre entreprise. Chaque projet s'adapte à vos besoins spécifiques.",
             tech: "Technologies :",
             from: "À partir de :",
+            viewFull: "Voir la page complète →",
             web: {
                 title: "Développement Web",
                 desc: "Sites web modernes, rapides et optimisés pour convertir les visiteurs en clients. Des landing pages aux boutiques en ligne complètes.",
@@ -3331,6 +3334,7 @@ about: {
             subtitle: "I build digital products that drive your business forward. Every project is tailored to your specific needs.",
             tech: "Technologies:",
             from: "From:",
+            viewFull: "View full page →",
             web: {
                 title: "Web Development",
                 desc: "Modern, fast websites optimized to convert visitors into customers. From landing pages to full online stores.",
