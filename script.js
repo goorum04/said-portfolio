@@ -1225,6 +1225,14 @@ about: {
                 f3: "Integración con ChatGPT, Claude y tus herramientas",
                 f4: "Datos cifrados, control de accesos y privacidad garantizada",
             },
+            seo: {
+                title: "Posicionamiento SEO y GEO",
+                desc: "Optimizamos tu web para que te encuentren: tanto en Google (SEO) como en las nuevas búsquedas con IA como ChatGPT, Claude y Perplexity (GEO).",
+                f1: "Auditoría SEO técnica y de contenidos",
+                f2: "Velocidad, Core Web Vitals y datos estructurados (schema.org)",
+                f3: "Posicionamiento en IA (GEO): aparecer en ChatGPT, Claude y Perplexity",
+                f4: "Implementación de llms.txt y seguimiento de resultados",
+            },
             cta: {
                 title: "¿Listo para empezar?",
                 desc: "Cuéntame tu proyecto y te envío un presupuesto personalizado.",
@@ -1676,6 +1684,14 @@ about: {
                 f2: "Automatització intel·ligent de processos i atenció",
                 f3: "Integració amb ChatGPT, Claude i les teves eines",
                 f4: "Dades xifrades, control d'accessos i privadesa garantida",
+            },
+            seo: {
+                title: "Posicionament SEO i GEO",
+                desc: "Optimitzem la teva web perquè et trobin: tant a Google (SEO) com a les noves cerques amb IA com ChatGPT, Claude i Perplexity (GEO).",
+                f1: "Auditoria SEO tècnica i de continguts",
+                f2: "Velocitat, Core Web Vitals i dades estructurades (schema.org)",
+                f3: "Posicionament en IA (GEO): aparèixer a ChatGPT, Claude i Perplexity",
+                f4: "Implementació de llms.txt i seguiment de resultats",
             },
             cta: {
                 title: "Llest per començar?",
@@ -2129,6 +2145,14 @@ about: {
                 f3: "Intégration avec ChatGPT, Claude et vos outils",
                 f4: "Données chiffrées, contrôle d'accès et confidentialité garantie",
             },
+            seo: {
+                title: "Référencement SEO et GEO",
+                desc: "Nous optimisons votre site pour qu'on vous trouve : aussi bien sur Google (SEO) que sur les nouvelles recherches par IA comme ChatGPT, Claude et Perplexity (GEO).",
+                f1: "Audit SEO technique et de contenu",
+                f2: "Vitesse, Core Web Vitals et données structurées (schema.org)",
+                f3: "Référencement IA (GEO) : apparaître sur ChatGPT, Claude et Perplexity",
+                f4: "Implémentation de llms.txt et suivi des résultats",
+            },
             cta: {
                 title: "Prêt à commencer ?",
                 desc: "Racontez-moi votre projet et je vous envoie un devis personnalisé.",
@@ -2580,6 +2604,14 @@ about: {
                 f2: "Smart automation of processes and support",
                 f3: "Integration with ChatGPT, Claude and your tools",
                 f4: "Encrypted data, access control and guaranteed privacy",
+            },
+            seo: {
+                title: "SEO & GEO Positioning",
+                desc: "We optimize your site so people find you: both on Google (SEO) and on the new AI searches like ChatGPT, Claude and Perplexity (GEO).",
+                f1: "Technical and content SEO audit",
+                f2: "Speed, Core Web Vitals and structured data (schema.org)",
+                f3: "AI positioning (GEO): show up on ChatGPT, Claude and Perplexity",
+                f4: "llms.txt implementation and results tracking",
             },
             cta: {
                 title: "Ready to get started?",
