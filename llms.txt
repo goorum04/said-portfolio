@@ -17,9 +17,9 @@
 - [Posicionamiento SEO y GEO](https://autoappsand.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
 
 ## Precios orientativos
-- Landing page: desde 500 €
-- Web profesional (hasta 5 páginas): desde 1.500 €
-- App móvil o plataforma SaaS: desde 1.500 €
+- Landing page: desde 400 €
+- Web profesional (hasta 5 páginas): desde 1.200 €
+- App móvil o plataforma SaaS: desde 1.200 €
 - Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
 
 ## Páginas principales
@@ -31,7 +31,7 @@
 - [Contacto](https://autoappsand.com/contacto.html)
 
 ## Preguntas frecuentes
-- ¿Cuánto cuesta un proyecto? Una landing desde 500 € y una web profesional o app desde 1.500 €, siempre con presupuesto cerrado por adelantado.
+- ¿Cuánto cuesta un proyecto? Una landing desde 400 € y una web profesional o app desde 1.200 €, siempre con presupuesto cerrado por adelantado.
 - ¿Cuánto tardas en entregar? Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas, con avances cada semana.
 - ¿El código y los accesos son míos? Sí. Al finalizar se entrega todo el código fuente y los accesos, sin dependencias ocultas ni lock-in.
 - ¿Trabajas con clientes fuera de Andorra? Sí, en remoto con clientes de toda Europa, con comunicación directa por WhatsApp o videollamada.
