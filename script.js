@@ -1033,6 +1033,116 @@ function initChatbot() {
             sendBtn.disabled = false;
         }
     });
+
+    initMascotRoam(toggle, panel);
+}
+
+// ===========================
+// Aria mascot roam
+// ===========================
+// Lets the chat toggle wander around the viewport like a little pet. It
+// freezes while hovered (so it's easy to click), returns to its corner while
+// the chat panel is open, and stays put entirely for users who prefer
+// reduced motion.
+function initMascotRoam(toggle, panel) {
+    if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let base = null;   // the toggle's natural CSS position (no transform)
+    let cur = null;    // where the mascot currently is, in viewport coords
+    let timer = null;
+    let paused = false;
+
+    function readBase() {
+        const r = toggle.getBoundingClientRect();
+        base = { x: r.left, y: r.top };
+        cur = { x: r.left, y: r.top };
+    }
+
+    // Move to (x, y) at roughly `speed` px/s; returns the trip duration in s.
+    function goTo(x, y, speed) {
+        const dist = Math.hypot(x - cur.x, y - cur.y);
+        const dur = Math.max(1.2, dist / (speed || 55));
+        toggle.style.transitionDuration = dur + 's';
+        toggle.style.transform = 'translate3d(' + (x - base.x) + 'px,' + (y - base.y) + 'px,0)';
+        cur = { x: x, y: y };
+        return dur;
+    }
+
+    function roam() {
+        if (paused || document.hidden) return;
+        const margin = 16;
+        const topLimit = 96; // keep clear of the navbar
+        const w = toggle.offsetWidth || 60;
+        const h = toggle.offsetHeight || 60;
+        const x = margin + Math.random() * Math.max(1, window.innerWidth - w - margin * 2);
+        const y = topLimit + Math.random() * Math.max(1, window.innerHeight - h - topLimit - margin);
+        const dur = goTo(x, y);
+        timer = setTimeout(roam, dur * 1000 + 2000 + Math.random() * 4000);
+    }
+
+    function stop() {
+        clearTimeout(timer);
+        timer = null;
+    }
+
+    function goHome() {
+        stop();
+        goTo(base.x, base.y, 160);
+    }
+
+    // Freeze in place while hovered so the mascot is easy to catch.
+    toggle.addEventListener('mouseenter', () => {
+        paused = true;
+        stop();
+        const r = toggle.getBoundingClientRect();
+        toggle.style.transitionDuration = '0s';
+        toggle.style.transform = 'translate3d(' + (r.left - base.x) + 'px,' + (r.top - base.y) + 'px,0)';
+        cur = { x: r.left, y: r.top };
+    });
+    toggle.addEventListener('mouseleave', () => {
+        if (panel.classList.contains('open')) return;
+        paused = false;
+        stop();
+        timer = setTimeout(roam, 1500);
+    });
+
+    // Dock in the corner while the chat is open; wander again when it closes.
+    new MutationObserver(() => {
+        if (panel.classList.contains('open')) {
+            paused = true;
+            goHome();
+        } else {
+            paused = false;
+            stop();
+            timer = setTimeout(roam, 2500);
+        }
+    }).observe(panel, { attributes: true, attributeFilter: ['class'] });
+
+    // On resize the safe area changes: send it home and re-measure.
+    window.addEventListener('resize', () => {
+        stop();
+        toggle.style.transitionDuration = '0.3s';
+        toggle.style.transform = 'none';
+        setTimeout(() => {
+            readBase();
+            if (!paused) roam();
+        }, 400);
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stop();
+        } else if (!paused && !panel.classList.contains('open')) {
+            stop();
+            timer = setTimeout(roam, 2000);
+        }
+    });
+
+    // Let the page settle (loader, fonts) before the first stroll.
+    setTimeout(() => {
+        readBase();
+        roam();
+    }, 4000);
 }
 
 // ===========================

@@ -3077,12 +3077,18 @@ img {
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
     z-index: 999;
-    transition: all var(--transition-fast), opacity 0.3s ease, transform 0.3s ease;
+    /* transform is animated by the mascot-roam logic in script.js, which sets
+       the duration per trip; keep the property here so trips ease smoothly */
+    transition: transform 4s ease-in-out, box-shadow var(--transition-fast);
+    will-change: transform;
 }
 
 .chat-widget-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.45);
+    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.55);
+}
+
+.chat-widget-toggle:hover .chat-widget-toggle-avatar {
+    filter: brightness(1.15);
 }
 
 .chat-widget-toggle-avatar {
@@ -3090,6 +3096,20 @@ img {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    animation: mascotBob 3s ease-in-out infinite;
+    transition: filter var(--transition-fast);
+}
+
+@keyframes mascotBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
 .chat-widget-panel {
