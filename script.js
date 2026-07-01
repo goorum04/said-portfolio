@@ -1038,6 +1038,7 @@ const translations = {
             saas: { title: 'SaaS', desc: 'Plataformas escalables con suscripciones.' },
             auto: { title: 'Automatizaciones', desc: 'Bots, workflows y conexiones.' },
             ai: { title: 'IA Segura', desc: 'Chatbots, automatización e integración de IA protegiendo tus datos.' },
+            seo: { title: 'SEO y GEO', desc: 'Aparece en Google y en las búsquedas con IA como ChatGPT, Claude y Perplexity.' },
             link: 'Ver más →',
             cta: 'Ver todos los servicios'
         },
@@ -1498,6 +1499,7 @@ about: {
             saas: { title: 'SaaS', desc: 'Plataformes escalables amb subscripcions.' },
             auto: { title: 'Automatitzacions', desc: 'Bots, workflows i connexions.' },
             ai: { title: 'IA Segura', desc: 'Chatbots, automatització i integració d\'IA protegint les teves dades.' },
+            seo: { title: 'SEO i GEO', desc: 'Apareix a Google i a les cerques amb IA com ChatGPT, Claude i Perplexity.' },
             link: 'Veure més →',
             cta: 'Veure tots els serveis'
         },
@@ -1958,6 +1960,7 @@ about: {
             saas: { title: 'SaaS', desc: 'Plateformes évolutives avec abonnements.' },
             auto: { title: 'Automatisations', desc: 'Bots, workflows et connexions.' },
             ai: { title: 'IA Sécurisée', desc: 'Chatbots, automatisation et intégration d\'IA en protégeant vos données.' },
+            seo: { title: 'SEO et GEO', desc: 'Apparaissez sur Google et sur les recherches par IA comme ChatGPT, Claude et Perplexity.' },
             link: 'Voir plus →',
             cta: 'Voir tous les services'
         },
@@ -2418,6 +2421,7 @@ about: {
             saas: { title: 'SaaS', desc: 'Scalable platforms with subscriptions.' },
             auto: { title: 'Automations', desc: 'Bots, workflows and integrations.' },
             ai: { title: 'Secure AI', desc: 'Chatbots, automation and AI integration while protecting your data.' },
+            seo: { title: 'SEO & GEO', desc: 'Show up on Google and on AI searches like ChatGPT, Claude and Perplexity.' },
             link: 'See more →',
             cta: 'View all services'
         },
