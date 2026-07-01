@@ -945,7 +945,6 @@ function initChatbot() {
     toggle.className = 'chat-widget-toggle';
     toggle.setAttribute('aria-label', t().label);
     toggle.innerHTML = `
-        <span class="chat-widget-badge" data-i18n="chatbot.badge">Demo</span>
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>`;
@@ -1864,15 +1863,14 @@ about: {
         },
         chatbot: {
             label: 'Asistente IA',
-            badge: 'Demo',
             title: 'Asistente IA · SaeTech',
-            subtitle: 'Ejemplo interactivo de lo que podemos construir para tu negocio.',
+            subtitle: 'Pregúntame sobre nuestros servicios y precios.',
             welcome: '¡Hola! Soy el asistente virtual de SaeTech. Pregúntame lo que quieras sobre nuestros servicios, precios o cómo trabajamos.',
             placeholder: 'Escribe tu pregunta...',
             send: 'Enviar',
             error: 'Ups, algo ha fallado. Prueba de nuevo o escríbenos por WhatsApp.',
             typing: 'Escribiendo…',
-            disclaimer: 'Demo funcional con la API de Claude (Anthropic). Las respuestas son generadas por IA.'
+            disclaimer: 'Asistente con IA (Claude). Las respuestas pueden contener errores.'
         },
     },
     ca: {
@@ -2592,15 +2590,14 @@ about: {
         },
         chatbot: {
             label: 'Assistent IA',
-            badge: 'Demo',
             title: 'Assistent IA · SaeTech',
-            subtitle: 'Exemple interactiu del que podem construir per al teu negoci.',
+            subtitle: 'Pregunta\'m sobre els nostres serveis i preus.',
             welcome: 'Hola! Sóc l\'assistent virtual de SaeTech. Pregunta\'m el que vulguis sobre els nostres serveis, preus o com treballem.',
             placeholder: 'Escriu la teva pregunta...',
             send: 'Enviar',
             error: 'Vaja, alguna cosa ha fallat. Torna-ho a provar o escriu-nos per WhatsApp.',
             typing: 'Escrivint…',
-            disclaimer: 'Demo funcional amb l\'API de Claude (Anthropic). Les respostes són generades per IA.'
+            disclaimer: 'Assistent amb IA (Claude). Les respostes poden contenir errors.'
         },
     },
     fr: {
@@ -3320,15 +3317,14 @@ about: {
         },
         chatbot: {
             label: 'Assistant IA',
-            badge: 'Démo',
             title: 'Assistant IA · SaeTech',
-            subtitle: 'Exemple interactif de ce que nous pouvons construire pour votre entreprise.',
+            subtitle: 'Posez-moi vos questions sur nos services et nos prix.',
             welcome: 'Bonjour ! Je suis l\'assistant virtuel de SaeTech. Posez-moi vos questions sur nos services, nos prix ou notre façon de travailler.',
             placeholder: 'Écrivez votre question...',
             send: 'Envoyer',
             error: 'Oups, une erreur est survenue. Réessayez ou écrivez-nous sur WhatsApp.',
             typing: 'En train d\'écrire…',
-            disclaimer: 'Démo fonctionnelle avec l\'API Claude (Anthropic). Les réponses sont générées par IA.'
+            disclaimer: 'Assistant avec IA (Claude). Les réponses peuvent contenir des erreurs.'
         },
     },
     en: {
@@ -4048,15 +4044,14 @@ about: {
         },
         chatbot: {
             label: 'AI Assistant',
-            badge: 'Demo',
             title: 'AI Assistant · SaeTech',
-            subtitle: 'Interactive example of what we can build for your business.',
+            subtitle: 'Ask me about our services and pricing.',
             welcome: 'Hi! I\'m SaeTech\'s virtual assistant. Ask me anything about our services, pricing, or how we work.',
             placeholder: 'Type your question...',
             send: 'Send',
             error: 'Oops, something went wrong. Try again or message us on WhatsApp.',
             typing: 'Typing…',
-            disclaimer: 'Working demo powered by the Claude API (Anthropic). Responses are AI-generated.'
+            disclaimer: 'AI-powered assistant (Claude). Responses may contain errors.'
         },
         }
 };
