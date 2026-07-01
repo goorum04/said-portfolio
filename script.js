@@ -773,6 +773,9 @@ function initFAQ() {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        // Native <details>/<summary> FAQ items (e.g. the home page) have no
+        // .faq-question — skip them so this never throws and aborts init.
+        if (!question) return;
 
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
