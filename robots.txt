@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autoappsand.com/sitemap.xml
+Sitemap: https://saetechai.com/sitemap.xml
 
 Crawl-delay: 1

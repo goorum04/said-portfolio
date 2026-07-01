@@ -6,15 +6,15 @@
 - Desarrollador freelance digital con base en Andorra 🇦🇩, trabajando en remoto con clientes de toda Europa.
 - Más de 12 proyectos entregados en 4+ sectores (hostelería, inmobiliario, fitness, hoteles).
 - Stack principal: React, Next.js, React Native, Node.js, TypeScript y automatizaciones con n8n.
-- Web: https://autoappsand.com
+- Web: https://saetechai.com
 
 ## Servicios
-- [Desarrollo Web](https://autoappsand.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
-- [Apps Móviles](https://autoappsand.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
-- [Plataformas SaaS](https://autoappsand.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
-- [Automatizaciones](https://autoappsand.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
-- [Implementación de IA segura](https://autoappsand.com/servicio-ia.html): chatbots y asistentes 24/7 entrenados con datos propios (RAG), automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
-- [Posicionamiento SEO y GEO](https://autoappsand.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
+- [Desarrollo Web](https://saetechai.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
+- [Apps Móviles](https://saetechai.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
+- [Plataformas SaaS](https://saetechai.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
+- [Automatizaciones](https://saetechai.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
+- [Implementación de IA segura](https://saetechai.com/servicio-ia.html): chatbots y asistentes 24/7 entrenados con datos propios (RAG), automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
+- [Posicionamiento SEO y GEO](https://saetechai.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
 
 ## Precios orientativos
 - Landing page: desde 400 €
@@ -23,12 +23,12 @@
 - Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
 
 ## Páginas principales
-- [Inicio](https://autoappsand.com/)
-- [Servicios](https://autoappsand.com/servicios.html)
-- [Portfolio](https://autoappsand.com/portfolio.html)
-- [Blog](https://autoappsand.com/blog.html)
-- [Sobre mí](https://autoappsand.com/sobre-mi.html)
-- [Contacto](https://autoappsand.com/contacto.html)
+- [Inicio](https://saetechai.com/)
+- [Servicios](https://saetechai.com/servicios.html)
+- [Portfolio](https://saetechai.com/portfolio.html)
+- [Blog](https://saetechai.com/blog.html)
+- [Sobre mí](https://saetechai.com/sobre-mi.html)
+- [Contacto](https://saetechai.com/contacto.html)
 
 ## Preguntas frecuentes
 - ¿Cuánto cuesta un proyecto? Una landing desde 400 € y una web profesional o app desde 1.200 €, siempre con presupuesto cerrado por adelantado.

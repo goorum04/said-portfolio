@@ -3,8 +3,8 @@
 // the Vercel project's Environment Variables — never in the frontend code).
 
 const ALLOWED_ORIGINS = [
-    'https://autoappsand.com',
-    'https://www.autoappsand.com',
+    'https://saetechai.com',
+    'https://www.saetechai.com',
     'https://goorum04.github.io',
 ];
 
@@ -12,7 +12,7 @@ const MODEL = 'claude-haiku-4-5-20251001';
 const MAX_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 1500;
 
-const SYSTEM_PROMPT = `Eres el asistente virtual de SaeTech (autoappsand.com), un estudio de desarrollo digital en Andorra especializado en webs, apps, SaaS, automatizaciones, IA segura y posicionamiento SEO/GEO.
+const SYSTEM_PROMPT = `Eres el asistente virtual de SaeTech (saetechai.com), un estudio de desarrollo digital en Andorra especializado en webs, apps, SaaS, automatizaciones, IA segura y posicionamiento SEO/GEO.
 
 Reglas:
 - Responde SIEMPRE en el mismo idioma en el que te escribe el usuario (español, catalán, francés o inglés).
