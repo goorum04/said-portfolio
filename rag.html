@@ -117,9 +117,9 @@
 
     <section class="page-hero">
         <div class="container">
-            <span class="section-tag">// Proyecto</span>
-            <h1 class="page-title">RAG: la IA que responde <span class="text-gradient">con tus datos</span></h1>
-            <p class="page-subtitle">Asistentes que antes de contestar consultan los documentos reales de tu empresa
+            <span class="section-tag" data-i18n="rag.tag">// Proyecto</span>
+            <h1 class="page-title" data-i18n="rag.title">RAG: la IA que responde <span class="text-gradient">con tus datos</span></h1>
+            <p class="page-subtitle" data-i18n="rag.subtitle">Asistentes que antes de contestar consultan los documentos reales de tu empresa
                 — manuales, catálogos, contratos, políticas — y responden con fuentes, sin inventarse nada.</p>
         </div>
     </section>
@@ -127,49 +127,49 @@
     <section class="section">
         <div class="container">
             <article class="article-body">
-                <h2>¿Qué es RAG?</h2>
-                <p><strong>RAG</strong> son las siglas de <em>Retrieval-Augmented Generation</em> (generación aumentada
+                <h2 data-i18n="rag.whatH">¿Qué es RAG?</h2>
+                <p data-i18n="rag.p1"><strong>RAG</strong> son las siglas de <em>Retrieval-Augmented Generation</em> (generación aumentada
                     por recuperación). Es la técnica que convierte un chatbot genérico en un asistente que conoce
                     <strong>tu</strong> negocio.</p>
-                <div class="rag-quote">
+                <div class="rag-quote" data-i18n="rag.quote">
                     La forma más fácil de entenderlo: un chatbot normal hace el examen <em>de memoria</em>;
                     un asistente con RAG lo hace <em>con tu libro abierto delante</em>. Antes de responder,
                     busca en tus documentos y redacta la respuesta a partir de lo que encuentra.
                 </div>
-                <p>ChatGPT o Claude "a pelo" saben mucho del mundo en general, pero no saben nada de tus precios, tus
+                <p data-i18n="rag.p2">ChatGPT o Claude "a pelo" saben mucho del mundo en general, pero no saben nada de tus precios, tus
                     plazos de entrega, tu convenio o tu manual interno. Y cuando no saben algo, tienden a rellenar el
                     hueco con una respuesta que <em>suena</em> bien — lo que se conoce como alucinación. En una empresa
                     eso es inaceptable: un precio inventado o una cláusula mal citada cuestan dinero.</p>
 
-                <h2>Cómo funciona</h2>
+                <h2 data-i18n="rag.howH">Cómo funciona</h2>
                 <div class="rag-steps">
                     <div class="rag-step">
                         <span class="num">1</span>
-                        <h3>Se indexan tus documentos</h3>
-                        <p>Manuales, catálogos, PDFs, webs, hojas de cálculo… se trocean y se convierten en
+                        <h3 data-i18n="rag.s1t">Se indexan tus documentos</h3>
+                        <p data-i18n="rag.s1p">Manuales, catálogos, PDFs, webs, hojas de cálculo… se trocean y se convierten en
                             representaciones matemáticas (embeddings) guardadas en una base de datos vectorial.
                             Tus documentos no se usan para entrenar modelos de terceros.</p>
                     </div>
                     <div class="rag-step">
                         <span class="num">2</span>
-                        <h3>Cada pregunta busca primero</h3>
-                        <p>Cuando alguien pregunta, el sistema recupera los fragmentos de tus documentos más
+                        <h3 data-i18n="rag.s2t">Cada pregunta busca primero</h3>
+                        <p data-i18n="rag.s2p">Cuando alguien pregunta, el sistema recupera los fragmentos de tus documentos más
                             relevantes para esa pregunta concreta — aunque esté formulada con otras palabras.</p>
                     </div>
                     <div class="rag-step">
                         <span class="num">3</span>
-                        <h3>La IA responde con fuentes</h3>
-                        <p>El modelo redacta la respuesta usando solo esos fragmentos y puede citar de qué
+                        <h3 data-i18n="rag.s3t">La IA responde con fuentes</h3>
+                        <p data-i18n="rag.s3p">El modelo redacta la respuesta usando solo esos fragmentos y puede citar de qué
                             documento y página sale cada dato. Si la información no existe, dice que no la tiene
                             en vez de inventarla.</p>
                     </div>
                 </div>
 
-                <h2>Qué aporta frente a un chatbot normal</h2>
+                <h2 data-i18n="rag.vsH">Qué aporta frente a un chatbot normal</h2>
                 <div class="rag-vs">
                     <div class="rag-vs-col">
-                        <h3>❌ Chatbot genérico</h3>
-                        <ul>
+                        <h3 data-i18n="rag.vsBadT">❌ Chatbot genérico</h3>
+                        <ul data-i18n="rag.vsBadList">
                             <li>Responde de memoria: puede inventar precios, plazos o políticas.</li>
                             <li>No conoce tu negocio ni tus documentos internos.</li>
                             <li>Su conocimiento se congeló el día que se entrenó el modelo.</li>
@@ -177,8 +177,8 @@
                         </ul>
                     </div>
                     <div class="rag-vs-col good">
-                        <h3>✅ Asistente con RAG</h3>
-                        <ul>
+                        <h3 data-i18n="rag.vsGoodT">✅ Asistente con RAG</h3>
+                        <ul data-i18n="rag.vsGoodList">
                             <li>Responde a partir de tus documentos reales, con cita de la fuente.</li>
                             <li>Conoce tu catálogo, tus tarifas y tus procedimientos al detalle.</li>
                             <li>¿Cambia una tarifa? Subes el documento nuevo y ya responde con él.</li>
@@ -187,27 +187,27 @@
                     </div>
                 </div>
 
-                <h2>Beneficios para tu empresa</h2>
+                <h2 data-i18n="rag.benH">Beneficios para tu empresa</h2>
                 <div class="rag-benefits">
-                    <div class="rag-benefit"><div class="ico">🎯</div><h3>Respuestas fiables</h3><p>Sin alucinaciones: si no está en tus documentos, el asistente lo dice.</p></div>
-                    <div class="rag-benefit"><div class="ico">🔒</div><h3>Datos protegidos</h3><p>Tu información se consulta, no se usa para entrenar modelos de terceros.</p></div>
-                    <div class="rag-benefit"><div class="ico">🔄</div><h3>Siempre actualizado</h3><p>Actualizar el asistente es subir un documento — sin reentrenar nada.</p></div>
-                    <div class="rag-benefit"><div class="ico">⏱️</div><h3>Ahorro real de tiempo</h3><p>Las preguntas repetitivas de clientes y empleados se responden solas, 24/7.</p></div>
-                    <div class="rag-benefit"><div class="ico">🌍</div><h3>Multi-idioma</h3><p>Tus documentos en español; respuestas en catalán, francés o inglés.</p></div>
-                    <div class="rag-benefit"><div class="ico">📎</div><h3>Con fuentes</h3><p>Cada respuesta indica el documento y apartado del que sale.</p></div>
+                    <div class="rag-benefit"><div class="ico">🎯</div><h3 data-i18n="rag.b1t">Respuestas fiables</h3><p data-i18n="rag.b1p">Sin alucinaciones: si no está en tus documentos, el asistente lo dice.</p></div>
+                    <div class="rag-benefit"><div class="ico">🔒</div><h3 data-i18n="rag.b2t">Datos protegidos</h3><p data-i18n="rag.b2p">Tu información se consulta, no se usa para entrenar modelos de terceros.</p></div>
+                    <div class="rag-benefit"><div class="ico">🔄</div><h3 data-i18n="rag.b3t">Siempre actualizado</h3><p data-i18n="rag.b3p">Actualizar el asistente es subir un documento — sin reentrenar nada.</p></div>
+                    <div class="rag-benefit"><div class="ico">⏱️</div><h3 data-i18n="rag.b4t">Ahorro real de tiempo</h3><p data-i18n="rag.b4p">Las preguntas repetitivas de clientes y empleados se responden solas, 24/7.</p></div>
+                    <div class="rag-benefit"><div class="ico">🌍</div><h3 data-i18n="rag.b5t">Multi-idioma</h3><p data-i18n="rag.b5p">Tus documentos en español; respuestas en catalán, francés o inglés.</p></div>
+                    <div class="rag-benefit"><div class="ico">📎</div><h3 data-i18n="rag.b6t">Con fuentes</h3><p data-i18n="rag.b6p">Cada respuesta indica el documento y apartado del que sale.</p></div>
                 </div>
 
-                <h2>Casos de uso típicos</h2>
+                <h2 data-i18n="rag.casesH">Casos de uso típicos</h2>
                 <div class="rag-cases">
-                    <div class="rag-case"><span class="ico">🛍️</span><div><h3>Atención al cliente</h3><p>Responde dudas de productos, envíos, devoluciones y garantías consultando tu catálogo y tus políticas reales.</p></div></div>
-                    <div class="rag-case"><span class="ico">🏢</span><div><h3>Asistente interno para empleados</h3><p>"¿Cuántos días de vacaciones me quedan según el convenio?" — respuesta al momento consultando RRHH, manuales y procedimientos.</p></div></div>
-                    <div class="rag-case"><span class="ico">⚖️</span><div><h3>Documentación legal y normativa</h3><p>Busca en contratos, normativas y pólizas citando el artículo exacto — en vez de leer 200 páginas.</p></div></div>
-                    <div class="rag-case"><span class="ico">🏠</span><div><h3>Inmobiliarias y catálogos grandes</h3><p>"Piso de 2 habitaciones con terraza por menos de 250.000€" — busca en tu cartera real y responde con las fichas.</p></div></div>
-                    <div class="rag-case"><span class="ico">🎓</span><div><h3>Formación y soporte técnico</h3><p>Convierte manuales técnicos y documentación de producto en un experto disponible 24/7 para tu equipo o tus clientes.</p></div></div>
+                    <div class="rag-case"><span class="ico">🛍️</span><div><h3 data-i18n="rag.c1t">Atención al cliente</h3><p data-i18n="rag.c1p">Responde dudas de productos, envíos, devoluciones y garantías consultando tu catálogo y tus políticas reales.</p></div></div>
+                    <div class="rag-case"><span class="ico">🏢</span><div><h3 data-i18n="rag.c2t">Asistente interno para empleados</h3><p data-i18n="rag.c2p">"¿Cuántos días de vacaciones me quedan según el convenio?" — respuesta al momento consultando RRHH, manuales y procedimientos.</p></div></div>
+                    <div class="rag-case"><span class="ico">⚖️</span><div><h3 data-i18n="rag.c3t">Documentación legal y normativa</h3><p data-i18n="rag.c3p">Busca en contratos, normativas y pólizas citando el artículo exacto — en vez de leer 200 páginas.</p></div></div>
+                    <div class="rag-case"><span class="ico">🏠</span><div><h3 data-i18n="rag.c4t">Inmobiliarias y catálogos grandes</h3><p data-i18n="rag.c4p">"Piso de 2 habitaciones con terraza por menos de 250.000€" — busca en tu cartera real y responde con las fichas.</p></div></div>
+                    <div class="rag-case"><span class="ico">🎓</span><div><h3 data-i18n="rag.c5t">Formación y soporte técnico</h3><p data-i18n="rag.c5p">Convierte manuales técnicos y documentación de producto en un experto disponible 24/7 para tu equipo o tus clientes.</p></div></div>
                 </div>
 
-                <h2>Cómo lo implemento</h2>
-                <p>Cada proyecto RAG incluye la <strong>ingesta de tus documentos</strong> (PDF, Word, webs, bases de
+                <h2 data-i18n="rag.implH">Cómo lo implemento</h2>
+                <p data-i18n="rag.implP">Cada proyecto RAG incluye la <strong>ingesta de tus documentos</strong> (PDF, Word, webs, bases de
                     datos), la <strong>base vectorial</strong> y la búsqueda semántica, la conexión con el modelo de IA
                     adecuado (ChatGPT, Claude u otro según el caso), <strong>pruebas con casos límite</strong> antes de
                     lanzar y el canal que prefieras: chat en tu web, WhatsApp o herramienta interna. La privacidad se
@@ -215,8 +215,8 @@
             </article>
 
             <div class="section-cta reveal" style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-                <a href="contacto.html" class="btn btn-primary">Quiero un asistente que conozca mi negocio</a>
-                <a href="servicio-ia.html" class="btn btn-ghost">Ver el servicio de IA completo</a>
+                <a href="contacto.html" class="btn btn-primary" data-i18n="rag.ctaBtn1">Quiero un asistente que conozca mi negocio</a>
+                <a href="servicio-ia.html" class="btn btn-ghost" data-i18n="rag.ctaBtn2">Ver el servicio de IA completo</a>
             </div>
         </div>
     </section>
