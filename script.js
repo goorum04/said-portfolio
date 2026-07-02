@@ -1173,7 +1173,7 @@ const translations = {
             tag: '// Portfolio',
             title: 'Proyectos <span class="text-gradient">destacados</span>',
             vv: { badge: '3D · IA', desc: 'Sube una foto de tu salón y prueba muebles reales en 3D a escala real antes de comprarlos. Habitación navegable y catálogo fotorrealista.', metric: 'Prueba la demo en vivo' },
-            rags: { badge: 'IA', desc: 'Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.', metric: 'Respuestas fiables con tus datos' },
+            rags: { badge: 'IA', desc: 'Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.', metric: 'Qué es y qué aporta →' },
             cta: 'Ver todos los proyectos'
         },
         testimonialsHome: {
@@ -1900,7 +1900,7 @@ about: {
             tag: '// Portfolio',
             title: 'Projectes <span class="text-gradient">destacats</span>',
             vv: { badge: '3D · IA', desc: 'Puja una foto del teu saló i prova mobles reals en 3D a escala real abans de comprar-los. Habitació navegable i catàleg fotorealista.', metric: 'Prova la demo en viu' },
-            rags: { badge: 'IA', desc: 'Assistents d\'IA que responen consultant els documents reals de la teva empresa (RAG): manuals, catàlegs i polítiques, sense inventar-se res.', metric: 'Respostes fiables amb les teves dades' },
+            rags: { badge: 'IA', desc: 'Assistents d\'IA que responen consultant els documents reals de la teva empresa (RAG): manuals, catàlegs i polítiques, sense inventar-se res.', metric: 'Què és i què aporta →' },
             cta: 'Veure tots els projectes'
         },
         testimonialsHome: {
@@ -2627,7 +2627,7 @@ about: {
             tag: '// Portfolio',
             title: 'Projets <span class="text-gradient">phares</span>',
             vv: { badge: '3D · IA', desc: 'Téléchargez une photo de votre salon et essayez de vrais meubles en 3D à l\'échelle réelle avant de les acheter. Pièce navigable et catalogue photoréaliste.', metric: 'Essayez la démo en direct' },
-            rags: { badge: 'IA', desc: 'Des assistants IA qui répondent en consultant les vrais documents de votre entreprise (RAG) : manuels, catalogues et politiques, sans rien inventer.', metric: 'Des réponses fiables avec vos données' },
+            rags: { badge: 'IA', desc: 'Des assistants IA qui répondent en consultant les vrais documents de votre entreprise (RAG) : manuels, catalogues et politiques, sans rien inventer.', metric: 'Ce que c\'est et ce que ça apporte →' },
             cta: 'Voir tous les projets'
         },
         testimonialsHome: {
@@ -3354,7 +3354,7 @@ about: {
             tag: '// Portfolio',
             title: 'Featured <span class="text-gradient">projects</span>',
             vv: { badge: '3D · AI', desc: 'Upload a photo of your living room and try real furniture in 3D at real scale before buying it. Navigable room and photorealistic catalog.', metric: 'Try the live demo' },
-            rags: { badge: 'AI', desc: 'AI assistants that answer by querying your company\'s real documents (RAG): manuals, catalogs and policies — no made-up answers.', metric: 'Reliable answers from your data' },
+            rags: { badge: 'AI', desc: 'AI assistants that answer by querying your company\'s real documents (RAG): manuals, catalogs and policies — no made-up answers.', metric: 'What it is and what it delivers →' },
             cta: 'View all projects'
         },
         testimonialsHome: {

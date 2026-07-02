@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es RAG? | Asistentes de IA que responden con tus datos | SaeTech</title>
+    <meta name="description"
+        content="RAG (Retrieval-Augmented Generation): asistentes de IA que responden consultando los documentos reales de tu empresa, con fuentes y sin inventar. Qué es, qué aporta y casos de uso.">
+    <meta name="keywords" content="rag, retrieval augmented generation, chatbot con mis datos, ia empresa, asistente ia documentos, andorra">
+    <meta name="author" content="SaeTech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://saetechai.com/rag.html">
+    <meta name="theme-color" content="#00d4ff">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saetechai.com/rag.html">
+    <meta property="og:title" content="¿Qué es RAG? | SaeTech">
+    <meta property="og:description" content="Asistentes de IA que responden con los documentos reales de tu empresa, con fuentes y sin inventar.">
+    <meta property="og:image" content="https://saetechai.com/og-servicios.svg">
+    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="¿Qué es RAG? | SaeTech">
+    <meta name="twitter:description" content="IA que responde con tus datos reales, con fuentes y sin inventar.">
+    <meta name="twitter:image" content="https://saetechai.com/og-servicios.svg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2.13">
+    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.8">
+
+    <style>
+        /* RAG — piezas visuales propias de esta página */
+        .rag-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+        .rag-step{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.18);border-radius:14px;padding:24px 20px;position:relative}
+        .rag-step .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(124,58,237,.2));color:#00d4ff;font-weight:800;margin-bottom:12px}
+        .rag-step h3{margin:0 0 8px;font-size:1.02rem;color:#e2e8f0}
+        .rag-step p{margin:0;font-size:.9rem;color:#94a3b8;line-height:1.55}
+        .rag-vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0}
+        .rag-vs-col{border-radius:14px;padding:22px 20px;border:1px solid rgba(239,68,68,.25);background:rgba(239,68,68,.05)}
+        .rag-vs-col.good{border-color:rgba(0,230,118,.25);background:rgba(0,230,118,.05)}
+        .rag-vs-col h3{margin:0 0 12px;font-size:1rem;color:#e2e8f0}
+        .rag-vs-col ul{margin:0;padding-left:18px}
+        .rag-vs-col li{font-size:.9rem;color:#94a3b8;margin-bottom:8px;line-height:1.5}
+        .rag-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:36px 0}
+        .rag-benefit{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px}
+        .rag-benefit .ico{font-size:1.5rem;margin-bottom:10px}
+        .rag-benefit h3{margin:0 0 6px;font-size:.95rem;color:#e2e8f0}
+        .rag-benefit p{margin:0;font-size:.85rem;color:#94a3b8;line-height:1.5}
+        .rag-cases{display:flex;flex-direction:column;gap:12px;margin:36px 0}
+        .rag-case{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 18px}
+        .rag-case .ico{font-size:1.4rem;flex-shrink:0}
+        .rag-case h3{margin:0 0 4px;font-size:.95rem;color:#e2e8f0}
+        .rag-case p{margin:0;font-size:.87rem;color:#94a3b8;line-height:1.5}
+        .rag-quote{border-left:3px solid #00d4ff;padding:14px 20px;margin:32px 0;background:rgba(0,212,255,.06);border-radius:0 12px 12px 0;color:#cbd5e1;font-size:1.02rem;line-height:1.6}
+        @media(max-width:760px){.rag-steps{grid-template-columns:1fr}.rag-vs{grid-template-columns:1fr}}
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "¿Qué es RAG y qué aporta a tu empresa?",
+        "author": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
+        "description": "RAG (Retrieval-Augmented Generation): asistentes de IA que responden consultando los documentos reales de tu empresa, con fuentes y sin inventar."
+    }
+    </script>
+
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');</script>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
+                        class="logo-bracket">/&gt;</span></a>
+                <ul class="nav-links">
+                    <li><a href="servicios.html" data-number="01" data-i18n="nav.services">Servicios</a></li>
+                    <li><a href="portfolio.html" class="active" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
+                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
+                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
+                    <li><a href="https://wa.me/376601249?text=Hola%2C%20quiero%20un%20asistente%20RAG%20para%20mi%20empresa"
+                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-dropbtn" id="langDropBtn">
+                        <span id="currentLang">ES</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown-content" id="langDropdownContent">
+                        <button data-lang="es">Español</button>
+                        <button data-lang="ca">Català</button>
+                        <button data-lang="fr">Français</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-tag">// Proyecto</span>
+            <h1 class="page-title">RAG: la IA que responde <span class="text-gradient">con tus datos</span></h1>
+            <p class="page-subtitle">Asistentes que antes de contestar consultan los documentos reales de tu empresa
+                — manuales, catálogos, contratos, políticas — y responden con fuentes, sin inventarse nada.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <article class="article-body">
+                <h2>¿Qué es RAG?</h2>
+                <p><strong>RAG</strong> son las siglas de <em>Retrieval-Augmented Generation</em> (generación aumentada
+                    por recuperación). Es la técnica que convierte un chatbot genérico en un asistente que conoce
+                    <strong>tu</strong> negocio.</p>
+                <div class="rag-quote">
+                    La forma más fácil de entenderlo: un chatbot normal hace el examen <em>de memoria</em>;
+                    un asistente con RAG lo hace <em>con tu libro abierto delante</em>. Antes de responder,
+                    busca en tus documentos y redacta la respuesta a partir de lo que encuentra.
+                </div>
+                <p>ChatGPT o Claude "a pelo" saben mucho del mundo en general, pero no saben nada de tus precios, tus
+                    plazos de entrega, tu convenio o tu manual interno. Y cuando no saben algo, tienden a rellenar el
+                    hueco con una respuesta que <em>suena</em> bien — lo que se conoce como alucinación. En una empresa
+                    eso es inaceptable: un precio inventado o una cláusula mal citada cuestan dinero.</p>
+
+                <h2>Cómo funciona</h2>
+                <div class="rag-steps">
+                    <div class="rag-step">
+                        <span class="num">1</span>
+                        <h3>Se indexan tus documentos</h3>
+                        <p>Manuales, catálogos, PDFs, webs, hojas de cálculo… se trocean y se convierten en
+                            representaciones matemáticas (embeddings) guardadas en una base de datos vectorial.
+                            Tus documentos no se usan para entrenar modelos de terceros.</p>
+                    </div>
+                    <div class="rag-step">
+                        <span class="num">2</span>
+                        <h3>Cada pregunta busca primero</h3>
+                        <p>Cuando alguien pregunta, el sistema recupera los fragmentos de tus documentos más
+                            relevantes para esa pregunta concreta — aunque esté formulada con otras palabras.</p>
+                    </div>
+                    <div class="rag-step">
+                        <span class="num">3</span>
+                        <h3>La IA responde con fuentes</h3>
+                        <p>El modelo redacta la respuesta usando solo esos fragmentos y puede citar de qué
+                            documento y página sale cada dato. Si la información no existe, dice que no la tiene
+                            en vez de inventarla.</p>
+                    </div>
+                </div>
+
+                <h2>Qué aporta frente a un chatbot normal</h2>
+                <div class="rag-vs">
+                    <div class="rag-vs-col">
+                        <h3>❌ Chatbot genérico</h3>
+                        <ul>
+                            <li>Responde de memoria: puede inventar precios, plazos o políticas.</li>
+                            <li>No conoce tu negocio ni tus documentos internos.</li>
+                            <li>Su conocimiento se congeló el día que se entrenó el modelo.</li>
+                            <li>Imposible auditar de dónde salió una respuesta.</li>
+                        </ul>
+                    </div>
+                    <div class="rag-vs-col good">
+                        <h3>✅ Asistente con RAG</h3>
+                        <ul>
+                            <li>Responde a partir de tus documentos reales, con cita de la fuente.</li>
+                            <li>Conoce tu catálogo, tus tarifas y tus procedimientos al detalle.</li>
+                            <li>¿Cambia una tarifa? Subes el documento nuevo y ya responde con él.</li>
+                            <li>Cada respuesta es trazable: sabes qué documento la respalda.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Beneficios para tu empresa</h2>
+                <div class="rag-benefits">
+                    <div class="rag-benefit"><div class="ico">🎯</div><h3>Respuestas fiables</h3><p>Sin alucinaciones: si no está en tus documentos, el asistente lo dice.</p></div>
+                    <div class="rag-benefit"><div class="ico">🔒</div><h3>Datos protegidos</h3><p>Tu información se consulta, no se usa para entrenar modelos de terceros.</p></div>
+                    <div class="rag-benefit"><div class="ico">🔄</div><h3>Siempre actualizado</h3><p>Actualizar el asistente es subir un documento — sin reentrenar nada.</p></div>
+                    <div class="rag-benefit"><div class="ico">⏱️</div><h3>Ahorro real de tiempo</h3><p>Las preguntas repetitivas de clientes y empleados se responden solas, 24/7.</p></div>
+                    <div class="rag-benefit"><div class="ico">🌍</div><h3>Multi-idioma</h3><p>Tus documentos en español; respuestas en catalán, francés o inglés.</p></div>
+                    <div class="rag-benefit"><div class="ico">📎</div><h3>Con fuentes</h3><p>Cada respuesta indica el documento y apartado del que sale.</p></div>
+                </div>
+
+                <h2>Casos de uso típicos</h2>
+                <div class="rag-cases">
+                    <div class="rag-case"><span class="ico">🛍️</span><div><h3>Atención al cliente</h3><p>Responde dudas de productos, envíos, devoluciones y garantías consultando tu catálogo y tus políticas reales.</p></div></div>
+                    <div class="rag-case"><span class="ico">🏢</span><div><h3>Asistente interno para empleados</h3><p>"¿Cuántos días de vacaciones me quedan según el convenio?" — respuesta al momento consultando RRHH, manuales y procedimientos.</p></div></div>
+                    <div class="rag-case"><span class="ico">⚖️</span><div><h3>Documentación legal y normativa</h3><p>Busca en contratos, normativas y pólizas citando el artículo exacto — en vez de leer 200 páginas.</p></div></div>
+                    <div class="rag-case"><span class="ico">🏠</span><div><h3>Inmobiliarias y catálogos grandes</h3><p>"Piso de 2 habitaciones con terraza por menos de 250.000€" — busca en tu cartera real y responde con las fichas.</p></div></div>
+                    <div class="rag-case"><span class="ico">🎓</span><div><h3>Formación y soporte técnico</h3><p>Convierte manuales técnicos y documentación de producto en un experto disponible 24/7 para tu equipo o tus clientes.</p></div></div>
+                </div>
+
+                <h2>Cómo lo implemento</h2>
+                <p>Cada proyecto RAG incluye la <strong>ingesta de tus documentos</strong> (PDF, Word, webs, bases de
+                    datos), la <strong>base vectorial</strong> y la búsqueda semántica, la conexión con el modelo de IA
+                    adecuado (ChatGPT, Claude u otro según el caso), <strong>pruebas con casos límite</strong> antes de
+                    lanzar y el canal que prefieras: chat en tu web, WhatsApp o herramienta interna. La privacidad se
+                    diseña desde el principio: tus datos no salen de donde tú decidas.</p>
+            </article>
+
+            <div class="section-cta reveal" style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                <a href="contacto.html" class="btn btn-primary">Quiero un asistente que conozca mi negocio</a>
+                <a href="servicio-ia.html" class="btn btn-ghost">Ver el servicio de IA completo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
+                    <p data-i18n="footer.tagline">Desarrollo digital desde Andorra 🇦🇩</p>
+                </div>
+                <div class="footer-links"><a href="servicios.html" data-i18n="nav.services">Servicios</a><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a><a
+                        href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a><a href="contacto.html" data-i18n="nav.contact">Contacto</a></div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20un%20asistente%20RAG%20para%20mi%20empresa" class="whatsapp-float"
+        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
+        </svg></a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <script src="higgsfield-visuals.js?v=1.8"></script>
+    <script src="script.js?v=3.19"></script>
+</body>
+
+</html>
