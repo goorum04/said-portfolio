@@ -946,7 +946,6 @@ function initChatbot() {
             </button>
         </div>
         <div class="chat-widget-messages"></div>
-        <p class="chat-widget-disclaimer" data-i18n="chatbot.disclaimer">Aria responde con IA (Claude). Las respuestas pueden contener errores.</p>
         <form class="chat-widget-form">
             <input type="text" class="chat-widget-input" data-i18n-placeholder="chatbot.placeholder" placeholder="Escribe tu pregunta..." autocomplete="off">
             <button type="submit" class="chat-widget-send" aria-label="Send">
@@ -1903,8 +1902,7 @@ about: {
             placeholder: 'Escribe tu pregunta...',
             send: 'Enviar',
             error: 'Ups, algo ha fallado. Prueba de nuevo o escríbenos por WhatsApp.',
-            typing: 'Escribiendo…',
-            disclaimer: 'Aria responde con IA (Claude). Las respuestas pueden contener errores.'
+            typing: 'Escribiendo…'
         },
     },
     ca: {
@@ -2679,8 +2677,7 @@ about: {
             placeholder: 'Escriu la teva pregunta...',
             send: 'Enviar',
             error: 'Vaja, alguna cosa ha fallat. Torna-ho a provar o escriu-nos per WhatsApp.',
-            typing: 'Escrivint…',
-            disclaimer: 'L\'Aria respon amb IA (Claude). Les respostes poden contenir errors.'
+            typing: 'Escrivint…'
         },
     },
     fr: {
@@ -3455,8 +3452,7 @@ about: {
             placeholder: 'Écrivez votre question...',
             send: 'Envoyer',
             error: 'Oups, une erreur est survenue. Réessayez ou écrivez-nous sur WhatsApp.',
-            typing: 'En train d\'écrire…',
-            disclaimer: 'Aria répond avec l\'IA (Claude). Les réponses peuvent contenir des erreurs.'
+            typing: 'En train d\'écrire…'
         },
     },
     en: {
@@ -4231,8 +4227,7 @@ about: {
             placeholder: 'Type your question...',
             send: 'Send',
             error: 'Oops, something went wrong. Try again or message us on WhatsApp.',
-            typing: 'Typing…',
-            disclaimer: 'Aria responds with AI (Claude). Responses may contain errors.'
+            typing: 'Typing…'
         },
         }
 };
