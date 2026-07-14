@@ -23,315 +23,6 @@ function initLoader() {
 }
 
 // ===========================
-// NFC Welcome Experience
-// ===========================
-function isNFCVisit() {
-    const p = new URLSearchParams(window.location.search);
-    return p.get('nfc') === '1' || p.get('from') === 'tarjeta';
-}
-
-function initNFCWelcome() {
-    const overlay  = document.getElementById('nfcOverlay');
-    const canvas   = document.getElementById('nfcCanvas');
-    const flash    = document.getElementById('nfcFlash');
-    const ripple   = document.getElementById('nfcRipple');
-    const content  = document.getElementById('nfcContent');
-    const divider  = document.getElementById('nfcDivider');
-    const cta      = document.getElementById('nfcCta');
-    const skip     = document.getElementById('nfcSkip');
-    const letters  = document.querySelectorAll('.nfc-letter');
-
-    if (!overlay) return;
-
-    // If GSAP didn't load (CDN blocked/slow), fall back to CSS and dismiss quickly
-    if (typeof gsap === 'undefined') {
-        overlay.classList.add('nfc-overlay--active');
-        overlay.removeAttribute('aria-hidden');
-        content.style.opacity = '1';
-        letters.forEach((l, i) => {
-            l.style.opacity = '1';
-            l.style.transition = `opacity 0.4s ease ${0.1 + i * 0.08}s, transform 0.4s ease ${0.1 + i * 0.08}s`;
-            l.style.transform = 'translateY(0) scale(1)';
-        });
-        document.getElementById('nfcRole').style.opacity = '1';
-        document.getElementById('nfcMessage').style.opacity = '1';
-        cta.style.opacity = '1';
-        const fbDismiss = () => {
-            overlay.classList.add('nfc-overlay--exit');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                document.body.style.overflow = '';
-                document.querySelectorAll('.animate-in').forEach(el => {
-                    el.style.animationPlayState = 'running';
-                });
-            }, 950);
-        };
-        cta.addEventListener('click', fbDismiss);
-        skip.addEventListener('click', fbDismiss);
-        setTimeout(fbDismiss, 8000);
-        return;
-    }
-
-    const isMobile = window.innerWidth < 768;
-
-    overlay.classList.add('nfc-overlay--active');
-    overlay.removeAttribute('aria-hidden');
-    document.body.style.overflow = 'hidden';
-
-    // Set initial states for GSAP-controlled elements
-    gsap.set(letters, { opacity: 0, y: 50, scale: 1.3 });
-    gsap.set([divider], { width: 0, opacity: 0 });
-    gsap.set(['#nfcRole', '#nfcMessage', '#nfcCta'], { opacity: 0, y: 24 });
-
-    // ── Canvas with devicePixelRatio ─────────────────────
-    const ctx = canvas.getContext('2d');
-    let W, H, CX, CY, dpr;
-
-    function resize() {
-        dpr = window.devicePixelRatio || 1;
-        W   = window.innerWidth;
-        H   = window.innerHeight;
-        canvas.width  = W * dpr;
-        canvas.height = H * dpr;
-        canvas.style.width  = W + 'px';
-        canvas.style.height = H + 'px';
-        ctx.scale(dpr, dpr);
-        CX = W / 2;
-        CY = H / 2;
-        // Re-init star positions on resize
-        stars.forEach(s => {
-            s.x = Math.random() * W;
-            s.y = Math.random() * H;
-        });
-    }
-
-    const C = {
-        cyan:   [0,   212, 255],
-        purple: [124, 58,  237],
-        pink:   [236, 72,  153],
-        white:  [255, 255, 255],
-        gold:   [255, 200,  50]
-    };
-    const PALETTE = Object.values(C);
-
-    // Star field — fewer on mobile for smooth 60fps
-    const STAR_COUNT  = isMobile ? 55 : 140;
-    const BURST_COUNT = isMobile ? 80 : 200;
-    const BURST_BIG   = isMobile ? 110 : 280;
-
-    const stars = Array.from({ length: STAR_COUNT }, () => ({
-        x: 0, y: 0,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r:  Math.random() * 1.6 + 0.3,
-        op: Math.random() * 0.55 + 0.1,
-        rgb: PALETTE[Math.floor(Math.random() * PALETTE.length)],
-        phase: Math.random() * Math.PI * 2
-    }));
-
-    // Burst / spark pool — elongated rectangles instead of circles
-    const sparks = [];
-
-    function spawnBurst(count, speedMult) {
-        speedMult = speedMult || 1;
-        for (let i = 0; i < count; i++) {
-            const angle = Math.random() * Math.PI * 2;
-            const speed = (Math.random() * 6 + 2.5) * speedMult;
-            const rgb   = PALETTE[Math.floor(Math.random() * PALETTE.length)];
-            sparks.push({
-                x: CX, y: CY,
-                vx: Math.cos(angle) * speed,
-                vy: Math.sin(angle) * speed,
-                w:  Math.random() * 14 + 4,   // length of spark
-                h:  Math.random() * 1.8 + 0.8, // thickness
-                life: 1,
-                decay: Math.random() * 0.013 + 0.005,
-                rgb
-            });
-        }
-    }
-
-    // Canvas shockwaves
-    const waves = [];
-    function spawnShockwave() {
-        waves.push({ r: 0, life: 1, rgb: C.cyan, speed: 20 });
-        waves.push({ r: 0, life: 0.8, rgb: C.purple, speed: 14, delay: 6 });
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    let raf;
-
-    function drawFrame() {
-        ctx.clearRect(0, 0, W, H);
-        // Trail layer — screen blend so black=transparent
-        // Mobile: opaque dark fill (no mix-blend-mode). Desktop: transparent trail
-        ctx.fillStyle = isMobile ? 'rgba(5,5,12,0.88)' : 'rgba(0,0,0,0.22)';
-        ctx.fillRect(0, 0, W, H);
-
-        // Stars
-        stars.forEach(s => {
-            s.x = (s.x + s.vx + W) % W;
-            s.y = (s.y + s.vy + H) % H;
-            s.phase += 0.035;
-            const alpha = s.op * (0.55 + 0.45 * Math.sin(s.phase));
-            const [r, g, b] = s.rgb;
-            const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3.5);
-            grd.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
-            grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r * 3.5, 0, Math.PI * 2);
-            ctx.fillStyle = grd;
-            ctx.fill();
-        });
-
-        // Shockwaves
-        for (let i = waves.length - 1; i >= 0; i--) {
-            const w = waves[i];
-            if (w.delay > 0) { w.delay--; continue; }
-            w.r    += w.speed;
-            w.life -= 0.03;
-            if (w.life <= 0) { waves.splice(i, 1); continue; }
-            const [r, g, b] = w.rgb;
-            ctx.beginPath();
-            ctx.arc(CX, CY, w.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(${r},${g},${b},${w.life * 0.75})`;
-            ctx.lineWidth = 2.5 * w.life;
-            ctx.stroke();
-        }
-
-        // Elongated sparks
-        for (let i = sparks.length - 1; i >= 0; i--) {
-            const p = sparks[i];
-            p.x  += p.vx;
-            p.y  += p.vy;
-            p.vx *= 0.982;
-            p.vy *= 0.982;
-            p.vy += 0.07;
-            p.life -= p.decay;
-            if (p.life <= 0) { sparks.splice(i, 1); continue; }
-
-            const [r, g, b] = p.rgb;
-            const angle = Math.atan2(p.vy, p.vx);
-
-            // Glow halo
-            const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.w * 1.8);
-            grd.addColorStop(0, `rgba(${r},${g},${b},${p.life * 0.7})`);
-            grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.w * 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = grd;
-            ctx.fill();
-
-            // Elongated spark body
-            ctx.save();
-            ctx.translate(p.x, p.y);
-            ctx.rotate(angle);
-            ctx.fillStyle = `rgba(${r},${g},${b},${p.life})`;
-            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-            // Bright white core
-            ctx.fillStyle = `rgba(255,255,255,${p.life * 0.8})`;
-            ctx.fillRect(-p.w * 0.3, -p.h * 0.35, p.w * 0.6, p.h * 0.7);
-            ctx.restore();
-        }
-
-        raf = requestAnimationFrame(drawFrame);
-    }
-    drawFrame();
-
-    // ── GSAP timeline ────────────────────────────────────
-    const tl = gsap.timeline();
-
-    // Phase 1: burst during ripple (t=1s)
-    tl.add(() => { spawnBurst(BURST_COUNT); spawnShockwave(); }, 1.0);
-
-    // Phase 2: reveal — flash + burst + letters
-    tl.add(() => {
-        ripple.classList.add('nfc-ripple-wrap--hide');
-        gsap.set(content, { opacity: 1 });
-        if (flash) {
-            flash.classList.add('nfc-flash--go');
-            setTimeout(() => flash.classList.remove('nfc-flash--go'), 600);
-        }
-        spawnBurst(BURST_BIG);
-        spawnShockwave();
-    }, 1.6);
-
-    // Letters stagger in — use .to() since gsap.set() already set initial state
-    tl.to(letters, {
-        opacity: 1, y: 0, scale: 1,
-        stagger: 0.08,
-        ease: 'back.out(1.8)',
-        duration: 0.55
-    }, 1.65);
-
-    // Divider line draws itself
-    tl.to(divider, {
-        width: 'min(300px, 68vw)',
-        opacity: 1,
-        duration: 0.75,
-        ease: 'power3.out'
-    }, 2.15);
-
-    // Role
-    tl.to('#nfcRole', {
-        opacity: 1, y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-    }, 2.45);
-
-    // Message
-    tl.to('#nfcMessage', {
-        opacity: 1, y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-    }, 3.0);
-
-    // CTA
-    tl.to('#nfcCta', {
-        opacity: 1, y: 0, scale: 1,
-        duration: 0.65,
-        ease: 'back.out(2)'
-    }, 3.7);
-
-    // Auto-dismiss at t=9.5s
-    tl.add(dismiss, 9.5);
-
-    // ── Dismiss ───────────────────────────────────────────
-    let dismissed = false;
-    function dismiss() {
-        if (dismissed) return;
-        dismissed = true;
-        tl.kill();
-        spawnBurst(100);
-        gsap.to(overlay, {
-            opacity: 0,
-            duration: 0.95,
-            ease: 'power2.inOut',
-            onComplete() {
-                cancelAnimationFrame(raf);
-                overlay.style.display = 'none';
-                document.body.style.overflow = '';
-                document.querySelectorAll('.animate-in').forEach(el => {
-                    el.style.animationPlayState = 'running';
-                });
-            }
-        });
-        if (typeof dataLayer !== 'undefined') {
-            dataLayer.push({ event: 'nfc_welcome_dismissed' });
-        }
-    }
-
-    cta.addEventListener('click', dismiss);
-    skip.addEventListener('click', dismiss);
-
-    if (typeof dataLayer !== 'undefined') {
-        dataLayer.push({ event: 'nfc_card_scan' });
-    }
-}
-
-// ===========================
 // Custom Cursor
 // ===========================
 function initCursor() {
@@ -1132,12 +823,6 @@ function initCalculator() {
 const translations = {
     es: {
         loader: { tag: 'Desarrollo Digital' },
-        nfc: {
-            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
-            message: 'Gracias por escanear mi tarjeta —<br><span class="nfc-message-highlight">aquí empieza tu proyecto</span>',
-            cta: 'Explorar mi trabajo',
-            skip: 'Saltar'
-        },
         nav: { services: 'Servicios', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mí', contact: 'Contacto' },
         hero: {
             badge: 'Aceptando nuevos proyectos',
@@ -1909,12 +1594,6 @@ about: {
     },
     ca: {
         loader: { tag: 'Desenvolupament Digital' },
-        nfc: {
-            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
-            message: 'Gràcies per escanejar la meva targeta —<br><span class="nfc-message-highlight">aquí comença el teu projecte</span>',
-            cta: 'Explorar la meva feina',
-            skip: 'Saltar'
-        },
         nav: { services: 'Serveis', portfolio: 'Portfolio', blog: 'Blog', about: 'Sobre mi', contact: 'Contacte' },
         hero: {
             badge: 'Acceptant nous projectes',
@@ -2686,12 +2365,6 @@ about: {
     },
     fr: {
         loader: { tag: 'Développement Numérique' },
-        nfc: {
-            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorre',
-            message: 'Merci d\'avoir scanné ma carte —<br><span class="nfc-message-highlight">ici commence votre projet</span>',
-            cta: 'Explorer mon travail',
-            skip: 'Passer'
-        },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'À propos', contact: 'Contact' },
         hero: {
             badge: 'Nouveaux projets acceptés',
@@ -3463,12 +3136,6 @@ about: {
     },
     en: {
         loader: { tag: 'Digital Development' },
-        nfc: {
-            role: 'Freelance Digital Developer&nbsp;·&nbsp;Andorra',
-            message: 'Thanks for scanning my card —<br><span class="nfc-message-highlight">this is where your project begins</span>',
-            cta: 'Explore my work',
-            skip: 'Skip'
-        },
         nav: { services: 'Services', portfolio: 'Portfolio', blog: 'Blog', about: 'About', contact: 'Contact' },
         hero: {
             badge: 'Accepting new projects',
@@ -4312,14 +3979,8 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.animationPlayState = 'paused';
     });
 
-    if (isNFCVisit()) {
-        // Hide regular loader instantly — no flash
-        if (loader) loader.style.display = 'none';
-        initNFCWelcome();
-    } else {
-        if (loader) document.body.style.overflow = 'hidden';
-        initLoader();
-    }
+    if (loader) document.body.style.overflow = 'hidden';
+    initLoader();
 
     // Init cursor
     initCursor();

@@ -45,7 +45,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.13">
+    <link rel="stylesheet" href="styles.css?v=2.14">
     <link rel="stylesheet" href="higgsfield-visuals.css?v=1.8">
 
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');</script>
@@ -129,39 +129,6 @@
                 <circle class="lsvg-core" cx="60" cy="60" r="7"/>
             </svg>
         </div>
-    </div>
-
-    <!-- NFC Welcome Overlay -->
-    <div class="nfc-overlay" id="nfcOverlay" aria-hidden="true">
-        <canvas class="nfc-canvas" id="nfcCanvas"></canvas>
-        <div class="nfc-flash" id="nfcFlash"></div>
-
-        <div class="nfc-ripple-wrap" id="nfcRipple">
-            <div class="nfc-ring nfc-ring--1"></div>
-            <div class="nfc-ring nfc-ring--2"></div>
-            <div class="nfc-ring nfc-ring--3"></div>
-            <div class="nfc-ring nfc-ring--4"></div>
-        </div>
-
-        <div class="nfc-content" id="nfcContent">
-            <div class="nfc-name-wrap" id="nfcNameWrap">
-                <span class="nfc-letter">S</span><span class="nfc-letter">a</span><span class="nfc-letter">e</span><span class="nfc-letter">T</span><span class="nfc-letter">e</span><span class="nfc-letter">c</span><span class="nfc-letter">h</span>
-            </div>
-            <hr class="nfc-divider" id="nfcDivider">
-            <p class="nfc-role" id="nfcRole" data-i18n="nfc.role">Estudio Digital Developer&nbsp;·&nbsp;Andorra</p>
-            <p class="nfc-message" id="nfcMessage" data-i18n="nfc.message">
-                Gracias por escanear mi tarjeta —<br>
-                <span class="nfc-message-highlight">aquí empieza tu proyecto</span>
-            </p>
-            <button class="nfc-cta" id="nfcCta" type="button">
-                <span data-i18n="nfc.cta">Explorar mi trabajo</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M7 17l9.2-9.2M17 17V7H7"/>
-                </svg>
-            </button>
-        </div>
-
-        <button class="nfc-skip" id="nfcSkip" type="button" aria-label="Saltar intro"><span data-i18n="nfc.skip">Saltar</span> ×</button>
     </div>
 
     <div class="cursor" id="cursor"></div>
@@ -816,8 +783,7 @@
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" async></script>
-    <script src="script.js?v=3.19"></script>
+    <script src="script.js?v=3.20"></script>
     <script src="higgsfield-visuals.js?v=1.8"></script>
 </body>
 
