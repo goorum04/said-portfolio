@@ -113,13 +113,17 @@
 
     /* ─── FILM GRAIN + VIGNETTE + SCANLINES ─── */
     function initCinematicOverlays() {
-        const grain = document.createElement('div');
-        grain.className = 'hf-grain';
-        document.body.appendChild(grain);
-
         const vignette = document.createElement('div');
         vignette.className = 'hf-vignette';
         document.body.appendChild(vignette);
+
+        // Grain y scanlines son overlays animados a pantalla completa: demasiado
+        // caros para la GPU de un móvil, así que solo en escritorio.
+        if (window.innerWidth < 768) return;
+
+        const grain = document.createElement('div');
+        grain.className = 'hf-grain';
+        document.body.appendChild(grain);
 
         const scanlines = document.createElement('div');
         scanlines.className = 'hf-scanlines';
@@ -189,6 +193,7 @@
 
     /* ─── AURORA BANDS (CSS-injected, drift across full page) ─── */
     function initAurora() {
+        if (window.innerWidth < 768) return; // blur a pantalla completa: solo escritorio
         const wrap = document.createElement('div');
         wrap.className = 'hf-aurora';
         document.body.insertBefore(wrap, document.body.firstChild);
@@ -234,7 +239,12 @@
             }
         }
 
-        function draw() {
+        // 30fps es indistinguible para un brillo tan lento y reduce el coste a la mitad
+        let last = 0;
+        function draw(now) {
+            requestAnimationFrame(draw);
+            if (now - last < 33) return;
+            last = now;
             ctx.clearRect(0, 0, W, H);
 
             hexes.forEach(h => {
@@ -268,17 +278,20 @@
                     ctx.fill();
                 }
             });
-
-            requestAnimationFrame(draw);
         }
 
-        draw();
+        requestAnimationFrame(draw);
     }
 
     /* ─── PARTICLE CANVAS — enhanced with cyan+purple mix and hub pulses ─── */
     function initParticles() {
         const heroCanvas = document.getElementById('particleCanvas');
         if (heroCanvas) heroCanvas.style.display = 'none';
+
+        // En móvil y con reduced-motion no compensa un canvas animado a pantalla
+        // completa: los orbes y el resto de la ambientación ya dan la atmósfera.
+        if (window.innerWidth < 768) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         const canvas = document.createElement('canvas');
         canvas.className = 'hf-global-canvas';
@@ -315,7 +328,13 @@
         resize();
         particles = Array.from({ length: COUNT }, (_, i) => mkParticle(i));
 
-        function draw() {
+        // Cap a 30fps: a estas velocidades de deriva no se aprecia y el bucle de
+        // conexiones O(n²) es el mayor coste de CPU de toda la página.
+        let last = 0;
+        function draw(now) {
+            requestAnimationFrame(draw);
+            if (now - last < 33) return;
+            last = now;
             ctx.clearRect(0, 0, W, H);
 
             // Connections
@@ -377,11 +396,9 @@
                 ctx.fillStyle = `rgba(${a.c.join(',')},0.7)`;
                 ctx.fill();
             });
-
-            requestAnimationFrame(draw);
         }
 
-        draw();
+        requestAnimationFrame(draw);
         window.addEventListener('resize', resize);
     }
 

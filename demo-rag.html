@@ -240,7 +240,11 @@
 
     <script>
     (function () {
-        const API_URL = '/api/rag';
+        // Same Vercel deployment as the chatbot (the static site is served from
+        // GitHub Pages, where /api does not exist).
+        const API_URL = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+            ? '/api/rag'
+            : 'https://said-portfolio-ashy.vercel.app/api/rag';
         const log = document.getElementById('ragChatLog');
         const form = document.getElementById('ragForm');
         const input = document.getElementById('ragInput');
@@ -359,8 +363,8 @@
     })();
     </script>
 
-    <script src="higgsfield-visuals.js?v=1.8"></script>
-    <script src="script.js?v=3.20"></script>
+    <script src="higgsfield-visuals.js?v=1.9"></script>
+    <script src="script.js?v=3.21"></script>
 </body>
 
 </html>

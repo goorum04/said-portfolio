@@ -11,15 +11,27 @@ function initLoader() {
         return;
     }
 
-    document.body.style.overflow = 'hidden';
+    // Mostrar la intro completa solo una vez por sesión; en visitas repetidas
+    // (y navegación entre páginas) despachar rápido para no frenar al usuario.
+    let seen = false;
+    try { seen = sessionStorage.getItem('loaderSeen') === '1'; } catch (e) { /* modo privado */ }
 
-    setTimeout(() => {
+    const dismiss = () => {
         loader.classList.add('hidden');
         document.body.style.overflow = '';
         document.querySelectorAll('.animate-in').forEach(el => {
             el.style.animationPlayState = 'running';
         });
-    }, 1000);
+    };
+
+    if (seen) {
+        dismiss();
+        return;
+    }
+
+    document.body.style.overflow = 'hidden';
+    try { sessionStorage.setItem('loaderSeen', '1'); } catch (e) { /* modo privado */ }
+    setTimeout(dismiss, 450);
 }
 
 // ===========================
@@ -3986,13 +3998,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initCursor();
 
     // Particles — skip entirely for users who prefer reduced motion.
+    // higgsfield-visuals.js dibuja su propio canvas global de partículas y oculta
+    // este; animar los dos duplicaba el coste de CPU en todas las páginas.
     const canvas = document.getElementById('particleCanvas');
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (canvas && !reduceMotion) {
-        new ParticleSystem(canvas);
-    } else if (canvas) {
-        canvas.style.display = 'none';
-    }
+    if (canvas) canvas.style.display = 'none';
 
     // Init other effects
     initParallax();
