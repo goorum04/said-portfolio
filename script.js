@@ -1214,6 +1214,7 @@ const translations = {
             c5p: "Convierte manuales técnicos y documentación de producto en un experto disponible 24/7 para tu equipo o tus clientes.",
             implH: "Cómo lo implemento",
             implP: "Cada proyecto RAG incluye la <strong>ingesta de tus documentos</strong> (PDF, Word, webs, bases de datos), la <strong>base vectorial</strong> y la búsqueda semántica, la conexión con el modelo de IA adecuado (ChatGPT, Claude u otro según el caso), <strong>pruebas con casos límite</strong> antes de lanzar y el canal que prefieras: chat en tu web, WhatsApp o herramienta interna. La privacidad se diseña desde el principio: tus datos no salen de donde tú decidas.",
+            ctaDemo: "Probar la demo en vivo →",
             ctaBtn1: "Quiero un asistente que conozca mi negocio",
             ctaBtn2: "Ver el servicio de IA completo"
         },
@@ -1221,7 +1222,7 @@ const translations = {
             tag: '// Portfolio',
             title: 'Proyectos <span class="text-gradient">destacados</span>',
             vv: { badge: '3D · IA', desc: 'Sube una foto de tu salón y prueba muebles reales en 3D a escala real antes de comprarlos. Habitación navegable y catálogo fotorrealista.', metric: 'Prueba la demo en vivo' },
-            rags: { badge: 'IA', desc: 'Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.', metric: 'Qué es y qué aporta →' },
+            rags: { badge: 'IA', desc: 'Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.', metric: 'Prueba la demo en vivo →' },
             cta: 'Ver todos los proyectos'
         },
         testimonialsHome: {
@@ -1990,6 +1991,7 @@ about: {
             c5p: "Converteix manuals tècnics i documentació de producte en un expert disponible 24/7 per al teu equip o els teus clients.",
             implH: "Com ho implemento",
             implP: "Cada projecte RAG inclou la <strong>ingesta dels teus documents</strong> (PDF, Word, webs, bases de dades), la <strong>base vectorial</strong> i la cerca semàntica, la connexió amb el model d'IA adequat (ChatGPT, Claude o un altre segons el cas), <strong>proves amb casos límit</strong> abans de llançar i el canal que prefereixis: xat a la teva web, WhatsApp o eina interna. La privacitat es dissenya des del principi: les teves dades no surten d'on tu decideixis.",
+            ctaDemo: "Provar la demo en viu →",
             ctaBtn1: "Vull un assistent que conegui el meu negoci",
             ctaBtn2: "Veure el servei d'IA complet"
         },
@@ -1997,7 +1999,7 @@ about: {
             tag: '// Portfolio',
             title: 'Projectes <span class="text-gradient">destacats</span>',
             vv: { badge: '3D · IA', desc: 'Puja una foto del teu saló i prova mobles reals en 3D a escala real abans de comprar-los. Habitació navegable i catàleg fotorealista.', metric: 'Prova la demo en viu' },
-            rags: { badge: 'IA', desc: 'Assistents d\'IA que responen consultant els documents reals de la teva empresa (RAG): manuals, catàlegs i polítiques, sense inventar-se res.', metric: 'Què és i què aporta →' },
+            rags: { badge: 'IA', desc: 'Assistents d\'IA que responen consultant els documents reals de la teva empresa (RAG): manuals, catàlegs i polítiques, sense inventar-se res.', metric: 'Prova la demo en viu →' },
             cta: 'Veure tots els projectes'
         },
         testimonialsHome: {
@@ -2766,6 +2768,7 @@ about: {
             c5p: "Transforme manuels techniques et documentation produit en un expert disponible 24h/24 pour votre équipe ou vos clients.",
             implH: "Comment je le mets en place",
             implP: "Chaque projet RAG comprend l'<strong>ingestion de vos documents</strong> (PDF, Word, sites, bases de données), la <strong>base vectorielle</strong> et la recherche sémantique, la connexion au bon modèle d'IA (ChatGPT, Claude ou autre selon le cas), des <strong>tests sur les cas limites</strong> avant le lancement et le canal de votre choix : chat sur votre site, WhatsApp ou outil interne. La confidentialité est conçue dès le départ : vos données ne sortent pas de là où vous le décidez.",
+            ctaDemo: "Essayer la démo en direct →",
             ctaBtn1: "Je veux un assistant qui connaît mon entreprise",
             ctaBtn2: "Voir le service IA complet"
         },
@@ -2773,7 +2776,7 @@ about: {
             tag: '// Portfolio',
             title: 'Projets <span class="text-gradient">phares</span>',
             vv: { badge: '3D · IA', desc: 'Téléchargez une photo de votre salon et essayez de vrais meubles en 3D à l\'échelle réelle avant de les acheter. Pièce navigable et catalogue photoréaliste.', metric: 'Essayez la démo en direct' },
-            rags: { badge: 'IA', desc: 'Des assistants IA qui répondent en consultant les vrais documents de votre entreprise (RAG) : manuels, catalogues et politiques, sans rien inventer.', metric: 'Ce que c\'est et ce que ça apporte →' },
+            rags: { badge: 'IA', desc: 'Des assistants IA qui répondent en consultant les vrais documents de votre entreprise (RAG) : manuels, catalogues et politiques, sans rien inventer.', metric: 'Essayez la démo en direct →' },
             cta: 'Voir tous les projets'
         },
         testimonialsHome: {
@@ -3542,6 +3545,7 @@ about: {
             c5p: "Turns technical manuals and product docs into an expert available 24/7 for your team or your customers.",
             implH: "How I implement it",
             implP: "Every RAG project includes <strong>ingesting your documents</strong> (PDF, Word, websites, databases), the <strong>vector database</strong> and semantic search, the right AI model for the job (ChatGPT, Claude or another), <strong>edge-case testing</strong> before launch and your preferred channel: web chat, WhatsApp or an internal tool. Privacy is designed in from day one: your data doesn't leave wherever you decide.",
+            ctaDemo: "Try the live demo →",
             ctaBtn1: "I want an assistant that knows my business",
             ctaBtn2: "See the full AI service"
         },
@@ -3549,7 +3553,7 @@ about: {
             tag: '// Portfolio',
             title: 'Featured <span class="text-gradient">projects</span>',
             vv: { badge: '3D · AI', desc: 'Upload a photo of your living room and try real furniture in 3D at real scale before buying it. Navigable room and photorealistic catalog.', metric: 'Try the live demo' },
-            rags: { badge: 'AI', desc: 'AI assistants that answer by querying your company\'s real documents (RAG): manuals, catalogs and policies — no made-up answers.', metric: 'What it is and what it delivers →' },
+            rags: { badge: 'AI', desc: 'AI assistants that answer by querying your company\'s real documents (RAG): manuals, catalogs and policies — no made-up answers.', metric: 'Try the live demo →' },
             cta: 'View all projects'
         },
         testimonialsHome: {

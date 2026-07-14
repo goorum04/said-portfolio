@@ -10,7 +10,7 @@
 - Web: https://saetechai.com
 
 ## Servicios
-- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Más info: https://saetechai.com/rag.html
+- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Más info: https://saetechai.com/rag.html · Demo interactiva en vivo: https://saetechai.com/demo-rag.html (un asistente RAG sobre los documentos de un hotel ficticio, con fuentes comprobables)
 - [Desarrollo Web](https://saetechai.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
 - [Apps Móviles](https://saetechai.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
 - [Plataformas SaaS](https://saetechai.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
