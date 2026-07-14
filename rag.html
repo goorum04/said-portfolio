@@ -51,6 +51,7 @@
         .rag-vs-col h3{margin:0 0 12px;font-size:1rem;color:#e2e8f0}
         .rag-vs-col ul{margin:0;padding-left:18px}
         .rag-vs-col li{font-size:.9rem;color:#94a3b8;margin-bottom:8px;line-height:1.5}
+        .rag-vs-col p{font-size:.9rem;color:#94a3b8;margin:0;line-height:1.55}
         .rag-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:36px 0}
         .rag-benefit{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px}
         .rag-benefit .ico{font-size:1.5rem;margin-bottom:10px}
@@ -211,6 +212,33 @@
                     <div class="rag-case"><span class="ico">🎓</span><div><h3 data-i18n="rag.c5t">Formación y soporte técnico</h3><p data-i18n="rag.c5p">Convierte manuales técnicos y documentación de producto en un experto disponible 24/7 para tu equipo o tus clientes.</p></div></div>
                 </div>
 
+                <h2 data-i18n="rag.rolesH">Permisos por rol: cada empleado ve solo lo suyo</h2>
+                <p data-i18n="rag.rolesP1">Al cargar toda la documentación de una empresa surge la pregunta obligada:
+                    ¿puede cualquier empleado consultar cualquier documento? No. Cada documento se etiqueta con los
+                    roles que pueden verlo — todos, un departamento, solo dirección — y el asistente responde a cada
+                    usuario únicamente con los documentos de su nivel de acceso.</p>
+                <div class="rag-quote" data-i18n="rag.rolesQ">Misma pregunta — «¿Cuál es la banda salarial de
+                    recepción?» — dos respuestas distintas según quién pregunta:</div>
+                <div class="rag-vs">
+                    <div class="rag-vs-col">
+                        <h3 data-i18n="rag.rolesA1t">🛎️ Preguntando como Recepción</h3>
+                        <p data-i18n="rag.rolesA1">«Esa información no está en los documentos disponibles para tu
+                            rol.» El informe de dirección ni siquiera llega al modelo, así que no hay nada que
+                            pueda filtrarse.</p>
+                    </div>
+                    <div class="rag-vs-col good">
+                        <h3 data-i18n="rag.rolesA2t">🔑 Preguntando como Dirección</h3>
+                        <p data-i18n="rag.rolesA2">«La banda salarial del personal de recepción va de 22.000 a
+                            27.000 € brutos anuales…» — con cita del informe interno que la respalda.</p>
+                    </div>
+                </div>
+                <p data-i18n="rag.rolesP2">La clave es dónde se aplica el filtro: antes de la IA, en la propia
+                    búsqueda. Lo que un rol no puede ver nunca entra en el contexto del modelo, así que no se le
+                    puede «convencer» para que lo revele — no es una instrucción que se pueda saltar, es que no lo
+                    tiene. Los permisos pueden heredarse de los que ya usas en Google Drive, SharePoint o tu
+                    intranet, y cada consulta queda registrada para auditoría.
+                    <a href="demo-rag.html">Compruébalo tú mismo en la demo cambiando de rol</a>.</p>
+
                 <h2 data-i18n="rag.implH">Cómo lo implemento</h2>
                 <p data-i18n="rag.implP">Cada proyecto RAG incluye la <strong>ingesta de tus documentos</strong> (PDF, Word, webs, bases de
                     datos), la <strong>base vectorial</strong> y la búsqueda semántica, la conexión con el modelo de IA
@@ -256,7 +284,7 @@
     </button>
 
     <script src="higgsfield-visuals.js?v=1.9"></script>
-    <script src="script.js?v=3.21"></script>
+    <script src="script.js?v=3.22"></script>
 </body>
 
 </html>

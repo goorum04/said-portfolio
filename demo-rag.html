@@ -58,6 +58,15 @@
         .ragdemo-chip{padding:7px 12px;border-radius:999px;border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);color:#8ed8ea;font-size:.8rem;cursor:pointer;transition:background .2s;font-family:inherit}
         .ragdemo-chip:hover{background:rgba(0,212,255,.14)}
         .ragdemo-chip.trap{border-color:rgba(255,171,64,.4);background:rgba(255,171,64,.06);color:#ffc97a}
+        .ragdemo-chip.lock{border-color:rgba(124,58,237,.45);background:rgba(124,58,237,.08);color:#c4a8f5}
+        .ragdemo-roles{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+        .ragdemo-roles-label{font-size:.78rem;color:#64748b}
+        .ragdemo-role{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#94a3b8;font-size:.82rem;cursor:pointer;transition:all .2s;font-family:inherit}
+        .ragdemo-role:hover{border-color:rgba(0,212,255,.4)}
+        .ragdemo-role.active{border-color:rgba(0,212,255,.6);background:rgba(0,212,255,.12);color:#e2e8f0;font-weight:600}
+        .ragdemo-doc.locked{opacity:.55}
+        .ragdemo-doc.locked summary{cursor:default;color:#64748b}
+        .ragdemo-locked-note{padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem;color:#64748b;font-style:italic}
         .ragdemo-form{display:flex;gap:10px;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08)}
         .ragdemo-input{flex:1;min-width:0;padding:11px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#e2e8f0;font-size:.9rem;font-family:inherit;outline:none}
         .ragdemo-input:focus{border-color:rgba(0,212,255,.5)}
@@ -74,7 +83,7 @@
         .ragdemo-sec h4 .sec-id{color:#475569;font-weight:600;margin-right:6px}
         .ragdemo-sec p{margin:0;font-size:.83rem;color:#94a3b8;line-height:1.55}
         .ragdemo-sec.flash{background:rgba(0,230,118,.12)}
-        .ragdemo-how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+        .ragdemo-how{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:32px 0}
         .ragdemo-how-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px}
         .ragdemo-how-card .ico{font-size:1.5rem;margin-bottom:10px}
         .ragdemo-how-card h3{margin:0 0 6px;font-size:.95rem;color:#e2e8f0}
@@ -146,9 +155,10 @@
                 y puedes comprobarla en los documentos, que tienes a la vista.</p>
             <div class="ragdemo-note">
                 <span>🧪</span>
-                <span><strong>Todo a la vista:</strong> los tres documentos del hotel están publicados aquí al lado.
-                    Compara cualquier respuesta con su fuente — y prueba a preguntar algo que <em>no</em> esté en los
-                    documentos para ver cómo el asistente lo admite en vez de inventárselo.</span>
+                <span><strong>Todo a la vista:</strong> los documentos del hotel están publicados aquí al lado.
+                    Compara cualquier respuesta con su fuente, pregunta algo que <em>no</em> esté en los documentos
+                    para ver cómo el asistente lo admite en vez de inventárselo — y <strong>cambia de rol</strong> para
+                    comprobar que cada usuario solo puede consultar los documentos de su nivel de acceso.</span>
             </div>
         </div>
     </section>
@@ -161,8 +171,11 @@
                         <span class="dot"></span>
                         <div>
                             <h2>Asistente del Hotel Vall Neu</h2>
-                            <p>Demo RAG · responde solo con los documentos del hotel</p>
+                            <p>Demo RAG · responde solo con los documentos de tu rol</p>
                         </div>
+                    </div>
+                    <div class="ragdemo-roles" id="ragRoles">
+                        <span class="ragdemo-roles-label">Preguntar como:</span>
                     </div>
                     <div class="ragdemo-chat-log" id="ragChatLog">
                         <div class="ragdemo-msg bot">Hola 👋 Soy el asistente de demostración del Hotel Vall Neu (un hotel ficticio). Pregúntame sobre reservas, tarifas, spa, mascotas… y te responderé citando el documento exacto. Si algo no está en los documentos, te lo diré.</div>
@@ -172,6 +185,7 @@
                         <button class="ragdemo-chip" type="button">¿Cuánto cuesta la suite con desayuno para 2 adultos?</button>
                         <button class="ragdemo-chip" type="button">¿Aceptáis perros?</button>
                         <button class="ragdemo-chip" type="button">¿Cuántos días de vacaciones tiene un empleado?</button>
+                        <button class="ragdemo-chip lock" type="button">¿Cuál es la banda salarial de recepción? 🔐</button>
                         <button class="ragdemo-chip trap" type="button">¿El hotel tiene pista de esquí propia? 😏</button>
                     </div>
                     <form class="ragdemo-form" id="ragForm">
@@ -199,14 +213,18 @@
                 <div class="ragdemo-how-card reveal"><div class="ico">📚</div><h3>Responde solo con los documentos</h3><p>El asistente no usa conocimiento general: cada dato de la respuesta sale de los documentos del hotel que ves al lado.</p></div>
                 <div class="ragdemo-how-card reveal" data-delay="100"><div class="ico">📎</div><h3>Cada respuesta, con su fuente</h3><p>Debajo de cada respuesta aparecen los fragmentos usados. Haz clic en uno y verás el texto original resaltado.</p></div>
                 <div class="ragdemo-how-card reveal" data-delay="200"><div class="ico">🙅</div><h3>Si no lo sabe, lo dice</h3><p>Pregunta algo que no esté en los documentos: en vez de inventar una respuesta convincente, el asistente admite que no tiene esa información.</p></div>
+                <div class="ragdemo-how-card reveal" data-delay="300"><div class="ico">🔑</div><h3>Respeta los permisos de cada rol</h3><p>Los documentos que tu rol no puede ver no se "ocultan" con instrucciones: ni siquiera llegan al modelo. Cambia de rol y pregunta por los salarios para comprobarlo.</p></div>
             </div>
 
             <div class="ragdemo-honest reveal">
                 <strong>Transparencia técnica:</strong> esta demo usa un corpus pequeño que el modelo consulta directamente
                 en cada pregunta. En un proyecto real, tus documentos (cientos o miles de páginas) se indexan con
                 <em>embeddings</em> en una base de datos vectorial y el sistema recupera solo los fragmentos relevantes
-                antes de responder. El comportamiento que ves aquí — respuestas con fuente, trazables y sin inventar —
-                es exactamente el mismo.
+                antes de responder. Los permisos funcionan igual que aquí: el filtro por rol se aplica en la búsqueda,
+                antes de que nada llegue a la IA — y en producción se conecta con el login de tu empresa (Google
+                Workspace, Microsoft 365…) para heredar los permisos que ya tienes. El comportamiento que ves —
+                respuestas con fuente, trazables, sin inventar y solo con lo que cada usuario puede ver — es
+                exactamente el mismo.
             </div>
 
             <div class="section-cta reveal" style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
@@ -251,30 +269,69 @@
         const send = document.getElementById('ragSend');
         const chips = document.getElementById('ragChips');
         const docsEl = document.getElementById('ragDocs');
-        const history = [];
+        const rolesEl = document.getElementById('ragRoles');
+        let history = [];
         let busy = false;
+        let currentRole = 'staff';
 
-        // Render the corpus from the API so the page and the assistant can never drift apart.
-        fetch(API_URL)
-            .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
-            .then((data) => {
-                docsEl.innerHTML = '';
-                data.docs.forEach((doc, i) => {
-                    const d = document.createElement('details');
-                    d.className = 'ragdemo-doc';
-                    if (i === 0) d.open = true;
-                    d.innerHTML = '<summary><span>' + doc.icon + '</span><span>' + esc(doc.title) + '</span>' +
-                        '<span class="chev">▾</span></summary>' +
-                        doc.sections.map((s) =>
-                            '<div class="ragdemo-sec" id="sec-' + esc(s.id) + '"><h4><span class="sec-id">[' + esc(s.id) + ']</span>' +
-                            esc(s.heading) + '</h4><p>' + esc(s.text) + '</p></div>'
-                        ).join('');
-                    docsEl.appendChild(d);
+        // Render the corpus from the API so the page and the assistant can never
+        // drift apart. Locked documents arrive as title-only stubs: their content
+        // never leaves the server for this role.
+        function loadDocs(role) {
+            docsEl.innerHTML = '<p style="color:#64748b;font-size:.85rem;padding:14px;">Cargando documentos…</p>';
+            fetch(API_URL + '?role=' + encodeURIComponent(role))
+                .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
+                .then((data) => {
+                    renderRoles(data.roles);
+                    docsEl.innerHTML = '';
+                    data.docs.forEach((doc, i) => {
+                        const d = document.createElement('details');
+                        d.className = 'ragdemo-doc';
+                        if (i === 0) d.open = true;
+                        d.innerHTML = '<summary><span>' + doc.icon + '</span><span>' + esc(doc.title) + '</span>' +
+                            '<span class="chev">▾</span></summary>' +
+                            doc.sections.map((s) =>
+                                '<div class="ragdemo-sec" id="sec-' + esc(s.id) + '"><h4><span class="sec-id">[' + esc(s.id) + ']</span>' +
+                                esc(s.heading) + '</h4><p>' + esc(s.text) + '</p></div>'
+                            ).join('');
+                        docsEl.appendChild(d);
+                    });
+                    (data.locked || []).forEach((doc) => {
+                        const d = document.createElement('details');
+                        d.className = 'ragdemo-doc locked';
+                        d.innerHTML = '<summary><span>🔒</span><span>' + esc(doc.title) + '</span></summary>' +
+                            '<div class="ragdemo-locked-note">Este documento no está disponible para tu rol actual: ' +
+                            'el asistente ni siquiera lo recibe, así que no puede filtrar su contenido.</div>';
+                        docsEl.appendChild(d);
+                    });
+                })
+                .catch(() => {
+                    docsEl.innerHTML = '<p style="color:#64748b;font-size:.85rem;padding:14px;">No se han podido cargar los documentos. Recarga la página o inténtalo más tarde.</p>';
                 });
-            })
-            .catch(() => {
-                docsEl.innerHTML = '<p style="color:#64748b;font-size:.85rem;padding:14px;">No se han podido cargar los documentos. Recarga la página o inténtalo más tarde.</p>';
+        }
+
+        function renderRoles(roles) {
+            [...rolesEl.querySelectorAll('.ragdemo-role')].forEach((b) => b.remove());
+            roles.forEach((r) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'ragdemo-role' + (r.id === currentRole ? ' active' : '');
+                b.textContent = r.icon + ' ' + r.label;
+                b.addEventListener('click', () => switchRole(r.id, r.label));
+                rolesEl.appendChild(b);
             });
+        }
+
+        function switchRole(role, label) {
+            if (busy || role === currentRole) return;
+            currentRole = role;
+            history = [];
+            log.innerHTML = '';
+            addMsg('bot', 'Ahora preguntas como «' + label + '». El asistente solo recibe los documentos de este rol — mira el panel de al lado: lo que aparece con candado ni siquiera le llega. Prueba a preguntar por la banda salarial 😉');
+            loadDocs(role);
+        }
+
+        loadDocs(currentRole);
 
         function esc(s) {
             return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -293,7 +350,7 @@
             if (!sources || !sources.length) {
                 const el = document.createElement('div');
                 el.className = 'ragdemo-nosrc';
-                el.textContent = 'Sin fuentes: la información no está en los documentos';
+                el.textContent = 'Sin fuentes: la información no está en los documentos de tu rol';
                 log.appendChild(el);
                 log.scrollTop = log.scrollHeight;
                 return;
@@ -333,7 +390,7 @@
                 const res = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: history }),
+                    body: JSON.stringify({ messages: history, role: currentRole }),
                 });
                 if (!res.ok) throw new Error();
                 const data = await res.json();
@@ -358,13 +415,13 @@
 
         chips.addEventListener('click', (e) => {
             const chip = e.target.closest('.ragdemo-chip');
-            if (chip) ask(chip.textContent.replace(' 😏', '').trim());
+            if (chip) ask(chip.textContent.replace(/ [😏🔐]/gu, '').trim());
         });
     })();
     </script>
 
     <script src="higgsfield-visuals.js?v=1.9"></script>
-    <script src="script.js?v=3.21"></script>
+    <script src="script.js?v=3.22"></script>
 </body>
 
 </html>

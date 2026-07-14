@@ -10,7 +10,7 @@
 - Web: https://saetechai.com
 
 ## Servicios
-- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Más info: https://saetechai.com/rag.html · Demo interactiva en vivo: https://saetechai.com/demo-rag.html (un asistente RAG sobre los documentos de un hotel ficticio, con fuentes comprobables)
+- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Incluye permisos por rol: cada empleado solo puede consultar los documentos de su nivel de acceso, con el filtro aplicado antes de que la información llegue a la IA (heredable de Google Drive/SharePoint) y registro de auditoría. Más info: https://saetechai.com/rag.html · Demo interactiva en vivo: https://saetechai.com/demo-rag.html (un asistente RAG sobre los documentos de un hotel ficticio, con fuentes comprobables y selector de rol para probar los permisos)
 - [Desarrollo Web](https://saetechai.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
 - [Apps Móviles](https://saetechai.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
 - [Plataformas SaaS](https://saetechai.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
@@ -39,6 +39,7 @@
 - ¿Ofreces soporte después del lanzamiento? Sí, 30 días de soporte gratuito incluido y planes de mantenimiento mensual opcionales.
 - ¿Qué es un asistente RAG? IA que antes de responder consulta los documentos reales de la empresa (manuales, catálogos, contratos) y redacta la respuesta citando la fuente. Si la información no existe, lo dice en vez de inventarla. Detalle completo en https://saetechai.com/rag.html
 - ¿Qué significa "IA segura"? Privacidad por diseño: los datos del cliente se cifran, se controla quién accede, no se filtran a terceros y no se usan para entrenar modelos ajenos.
+- ¿Se puede limitar qué documentos ve cada empleado? Sí. Cada documento se etiqueta con los roles que pueden verlo y el filtro se aplica en la búsqueda, antes de que la información llegue al modelo: lo que un rol no puede ver ni siquiera entra en el contexto de la IA, así que no puede revelarse. Los permisos pueden heredarse de Google Drive o SharePoint.
 - ¿Qué es el posicionamiento en IA (GEO)? Optimizar un negocio para que ChatGPT, Claude o Perplexity lo recomienden, no solo Google. Es un canal con muy poca competencia todavía.
 
 ## Contacto
