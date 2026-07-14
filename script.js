@@ -1142,9 +1142,9 @@ const translations = {
         hero: {
             badge: 'Aceptando nuevos proyectos',
             greeting: 'Hola, soy',
-            headline: 'Webs, apps y SaaS que <span class="text-gradient">impulsan tu negocio</span>',
-            subtitle: 'Somos un estudio digital en Andorra. Diseñamos y desarrollamos productos a medida que hacen crecer tu negocio.',
-            description: 'Implementación de IA · Apps · Páginas Web · Automatizaciones · SaaS',
+            headline: 'IA segura que responde <span class="text-gradient">con tus datos, sin inventar</span>',
+            subtitle: 'Somos un estudio digital en Andorra especializado en asistentes RAG: IA que consulta los documentos reales de tu empresa y responde con fuentes. También diseñamos webs, apps y SaaS a medida.',
+            description: 'IA Segura & RAG · Automatizaciones · Páginas Web · Apps · SaaS',
             cta1: 'Pedir Presupuesto',
             cta2: 'Ver Proyectos'
         },
@@ -1163,7 +1163,7 @@ const translations = {
             apps: { title: 'Apps Móviles', desc: 'Aplicaciones iOS y Android nativas.' },
             saas: { title: 'SaaS', desc: 'Plataformas escalables con suscripciones.' },
             auto: { title: 'Automatizaciones', desc: 'Bots, workflows y conexiones.' },
-            ai: { title: 'IA Segura', desc: 'Chatbots, automatización e integración de IA protegiendo tus datos.' },
+            ai: { title: 'IA Segura & RAG', desc: 'Asistentes que responden con tus documentos reales, con fuentes y sin inventar. Tus datos, protegidos.' },
             seo: { title: 'SEO y GEO', desc: 'Aparece en Google y en las búsquedas con IA como ChatGPT, Claude y Perplexity.' },
             link: 'Ver más →',
             cta: 'Ver todos los servicios'
@@ -1301,12 +1301,13 @@ const translations = {
         ai: {
             tag: '// Inteligencia Artificial',
             title: 'Implementación de IA <span class="text-gradient">segura</span> para tu negocio',
-            subtitle: 'Integramos IA donde aporta valor real — y protegiendo siempre tus datos.',
-            f1: '<strong>Chatbots y asistentes</strong> que atienden 24/7, entrenados con tu propia información.',
-            f2: '<strong>Automatización inteligente</strong> de tareas repetitivas para ahorrar horas de trabajo.',
-            f3: '<strong>Integración</strong> con ChatGPT, Claude y las herramientas que ya usas.',
-            f4: '<strong>Seguridad y privacidad</strong>: tus datos cifrados, con control de accesos y sin filtrarse a terceros.',
-            cta: 'Hablemos de tu proyecto de IA'
+            subtitle: 'Nuestra especialidad: IA que aporta valor real, protege tus datos y no se inventa nada.',
+            f1: '<strong>Asistentes RAG</strong> que responden consultando tus documentos reales, con fuentes y sin alucinaciones.',
+            f2: '<strong>Chatbots 24/7</strong> entrenados con tu propia información, en tu web o WhatsApp.',
+            f3: '<strong>Automatización inteligente</strong> e integración con ChatGPT, Claude y las herramientas que ya usas.',
+            f4: '<strong>Seguridad y privacidad</strong>: tus datos cifrados, con control de accesos, sin filtrarse a terceros ni entrenar modelos ajenos.',
+            cta: 'Hablemos de tu proyecto de IA',
+            cta2: '¿Qué es RAG? →'
         }
     ,
 about: {
@@ -1917,9 +1918,9 @@ about: {
         hero: {
             badge: 'Acceptant nous projectes',
             greeting: 'Hola, sóc',
-            headline: 'Webs, apps i SaaS que <span class="text-gradient">impulsen el teu negoci</span>',
-            subtitle: 'Som un estudi digital a Andorra. Dissenyem i desenvolupem productes a mida que fan créixer el teu negoci.',
-            description: 'Implementació d\'IA · Apps · Pàgines Web · Automatitzacions · SaaS',
+            headline: 'IA segura que respon <span class="text-gradient">amb les teves dades, sense inventar</span>',
+            subtitle: 'Som un estudi digital a Andorra especialitzat en assistents RAG: IA que consulta els documents reals de la teva empresa i respon amb fonts. També dissenyem webs, apps i SaaS a mida.',
+            description: 'IA Segura & RAG · Automatitzacions · Pàgines Web · Apps · SaaS',
             cta1: 'Demanar Pressupost',
             cta2: 'Veure Projectes'
         },
@@ -1938,7 +1939,7 @@ about: {
             apps: { title: 'Apps Mòbils', desc: 'Aplicacions iOS i Android natives.' },
             saas: { title: 'SaaS', desc: 'Plataformes escalables amb subscripcions.' },
             auto: { title: 'Automatitzacions', desc: 'Bots, workflows i connexions.' },
-            ai: { title: 'IA Segura', desc: 'Chatbots, automatització i integració d\'IA protegint les teves dades.' },
+            ai: { title: 'IA Segura & RAG', desc: 'Assistents que responen amb els teus documents reals, amb fonts i sense inventar. Les teves dades, protegides.' },
             seo: { title: 'SEO i GEO', desc: 'Apareix a Google i a les cerques amb IA com ChatGPT, Claude i Perplexity.' },
             link: 'Veure més →',
             cta: 'Veure tots els serveis'
@@ -2076,12 +2077,13 @@ about: {
         ai: {
             tag: '// Intel·ligència Artificial',
             title: 'Implementació d\'IA <span class="text-gradient">segura</span> per al teu negoci',
-            subtitle: 'Integrem IA on aporta valor real — i protegint sempre les teves dades.',
-            f1: '<strong>Chatbots i assistents</strong> que atenen 24/7, entrenats amb la teva pròpia informació.',
-            f2: '<strong>Automatització intel·ligent</strong> de tasques repetitives per estalviar hores de feina.',
-            f3: '<strong>Integració</strong> amb ChatGPT, Claude i les eines que ja fas servir.',
-            f4: '<strong>Seguretat i privadesa</strong>: les teves dades xifrades, amb control d\'accessos i sense filtrar-se a tercers.',
-            cta: 'Parlem del teu projecte d\'IA'
+            subtitle: 'La nostra especialitat: IA que aporta valor real, protegeix les teves dades i no s\'inventa res.',
+            f1: '<strong>Assistents RAG</strong> que responen consultant els teus documents reals, amb fonts i sense al·lucinacions.',
+            f2: '<strong>Chatbots 24/7</strong> entrenats amb la teva pròpia informació, al teu web o WhatsApp.',
+            f3: '<strong>Automatització intel·ligent</strong> i integració amb ChatGPT, Claude i les eines que ja fas servir.',
+            f4: '<strong>Seguretat i privadesa</strong>: les teves dades xifrades, amb control d\'accessos, sense filtrar-se a tercers ni entrenar models aliens.',
+            cta: 'Parlem del teu projecte d\'IA',
+            cta2: 'Què és RAG? →'
         }
     ,
 about: {
@@ -2692,9 +2694,9 @@ about: {
         hero: {
             badge: 'Nouveaux projets acceptés',
             greeting: 'Salut, je suis',
-            headline: 'Sites web, apps et SaaS qui <span class="text-gradient">boostent votre entreprise</span>',
-            subtitle: 'Nous sommes un studio digital en Andorre. Nous concevons et développons des produits sur mesure qui font grandir votre entreprise.',
-            description: 'Implémentation d\'IA · Apps · Sites Web · Automatisations · SaaS',
+            headline: 'Une IA sécurisée qui répond <span class="text-gradient">avec vos données, sans inventer</span>',
+            subtitle: 'Nous sommes un studio digital en Andorre spécialisé dans les assistants RAG : une IA qui consulte les documents réels de votre entreprise et répond avec les sources. Nous concevons aussi des sites web, apps et SaaS sur mesure.',
+            description: 'IA Sécurisée & RAG · Automatisations · Sites Web · Apps · SaaS',
             cta1: 'Demander un devis',
             cta2: 'Voir les projets'
         },
@@ -2713,7 +2715,7 @@ about: {
             apps: { title: 'Applications Mobiles', desc: 'Applications iOS et Android natives.' },
             saas: { title: 'SaaS', desc: 'Plateformes évolutives avec abonnements.' },
             auto: { title: 'Automatisations', desc: 'Bots, workflows et connexions.' },
-            ai: { title: 'IA Sécurisée', desc: 'Chatbots, automatisation et intégration d\'IA en protégeant vos données.' },
+            ai: { title: 'IA Sécurisée & RAG', desc: 'Des assistants qui répondent avec vos documents réels, avec les sources et sans inventer. Vos données, protégées.' },
             seo: { title: 'SEO et GEO', desc: 'Apparaissez sur Google et sur les recherches par IA comme ChatGPT, Claude et Perplexity.' },
             link: 'Voir plus →',
             cta: 'Voir tous les services'
@@ -2851,12 +2853,13 @@ about: {
         ai: {
             tag: '// Intelligence Artificielle',
             title: 'Implémentation d\'IA <span class="text-gradient">sécurisée</span> pour votre entreprise',
-            subtitle: 'Nous intégrons l\'IA là où elle apporte une vraie valeur — en protégeant toujours vos données.',
-            f1: '<strong>Chatbots et assistants</strong> disponibles 24/7, entraînés avec vos propres informations.',
-            f2: '<strong>Automatisation intelligente</strong> des tâches répétitives pour gagner des heures de travail.',
-            f3: '<strong>Intégration</strong> avec ChatGPT, Claude et les outils que vous utilisez déjà.',
-            f4: '<strong>Sécurité et confidentialité</strong> : vos données chiffrées, avec contrôle d\'accès et sans fuite vers des tiers.',
-            cta: 'Parlons de votre projet d\'IA'
+            subtitle: 'Notre spécialité : une IA qui apporte une vraie valeur, protège vos données et n\'invente rien.',
+            f1: '<strong>Assistants RAG</strong> qui répondent en consultant vos documents réels, avec les sources et sans hallucinations.',
+            f2: '<strong>Chatbots 24/7</strong> entraînés avec vos propres informations, sur votre site ou WhatsApp.',
+            f3: '<strong>Automatisation intelligente</strong> et intégration avec ChatGPT, Claude et les outils que vous utilisez déjà.',
+            f4: '<strong>Sécurité et confidentialité</strong> : vos données chiffrées, avec contrôle d\'accès, sans fuite vers des tiers ni entraînement de modèles externes.',
+            cta: 'Parlons de votre projet d\'IA',
+            cta2: 'Qu\'est-ce que le RAG ? →'
         }
     ,
 about: {
@@ -3467,9 +3470,9 @@ about: {
         hero: {
             badge: 'Accepting new projects',
             greeting: 'Hi, I\'m',
-            headline: 'Websites, apps & SaaS that <span class="text-gradient">grow your business</span>',
-            subtitle: 'We\'re a digital studio in Andorra. We design and build custom products that grow your business.',
-            description: 'AI Implementation · Apps · Websites · Automations · SaaS',
+            headline: 'Secure AI that answers <span class="text-gradient">from your data, without making things up</span>',
+            subtitle: 'We\'re a digital studio in Andorra specialized in RAG assistants: AI that consults your company\'s real documents and answers with sources. We also build custom websites, apps and SaaS.',
+            description: 'Secure AI & RAG · Automations · Websites · Apps · SaaS',
             cta1: 'Get a Quote',
             cta2: 'View Projects'
         },
@@ -3488,7 +3491,7 @@ about: {
             apps: { title: 'Mobile Apps', desc: 'Native iOS and Android applications.' },
             saas: { title: 'SaaS', desc: 'Scalable platforms with subscriptions.' },
             auto: { title: 'Automations', desc: 'Bots, workflows and integrations.' },
-            ai: { title: 'Secure AI', desc: 'Chatbots, automation and AI integration while protecting your data.' },
+            ai: { title: 'Secure AI & RAG', desc: 'Assistants that answer from your real documents, with sources and no made-up facts. Your data, protected.' },
             seo: { title: 'SEO & GEO', desc: 'Show up on Google and on AI searches like ChatGPT, Claude and Perplexity.' },
             link: 'See more →',
             cta: 'View all services'
@@ -3626,12 +3629,13 @@ about: {
         ai: {
             tag: '// Artificial Intelligence',
             title: '<span class="text-gradient">Secure</span> AI implementation for your business',
-            subtitle: 'We integrate AI where it adds real value — always protecting your data.',
-            f1: '<strong>Chatbots and assistants</strong> available 24/7, trained on your own information.',
-            f2: '<strong>Smart automation</strong> of repetitive tasks to save hours of work.',
-            f3: '<strong>Integration</strong> with ChatGPT, Claude and the tools you already use.',
-            f4: '<strong>Security and privacy</strong>: your data encrypted, with access control and no leaks to third parties.',
-            cta: 'Let\'s talk about your AI project'
+            subtitle: 'Our specialty: AI that adds real value, protects your data and never makes things up.',
+            f1: '<strong>RAG assistants</strong> that answer by consulting your real documents, with sources and no hallucinations.',
+            f2: '<strong>24/7 chatbots</strong> trained on your own information, on your website or WhatsApp.',
+            f3: '<strong>Smart automation</strong> and integration with ChatGPT, Claude and the tools you already use.',
+            f4: '<strong>Security and privacy</strong>: your data encrypted, with access control, no third-party leaks and no training of external models.',
+            cta: 'Let\'s talk about your AI project',
+            cta2: 'What is RAG? →'
         }
     ,
 about: {

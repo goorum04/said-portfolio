@@ -1,19 +1,20 @@
-# Said — Desarrollador Web & Apps en Andorra
+# SaeTech — IA Segura y Asistentes RAG en Andorra
 
-> SaeTech es un estudio digital en Andorra especializado en páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones, implementación de IA segura y posicionamiento en IA (GEO). Más de 12 proyectos entregados para restaurantes, inmobiliarias, gimnasios y hoteles. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
+> SaeTech es un estudio digital en Andorra cuyo punto fuerte es la IA segura: asistentes RAG (Retrieval-Augmented Generation) que responden consultando los documentos reales de cada empresa, con fuentes y sin inventar datos, protegiendo siempre la privacidad del cliente. También desarrolla páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones y posicionamiento en IA (GEO). Más de 12 proyectos entregados. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
 
 ## Sobre Said
 - Desarrollador freelance digital con base en Andorra 🇦🇩, trabajando en remoto con clientes de toda Europa.
+- Especialidad principal: IA segura y asistentes RAG para empresas — IA que responde con los datos reales del negocio, con fuentes y sin alucinaciones.
 - Más de 12 proyectos entregados en 4+ sectores (hostelería, inmobiliario, fitness, hoteles).
-- Stack principal: React, Next.js, React Native, Node.js, TypeScript y automatizaciones con n8n.
+- Stack principal: React, Next.js, React Native, Node.js, TypeScript, LLMs (ChatGPT, Claude), embeddings y bases de datos vectoriales, automatizaciones con n8n.
 - Web: https://saetechai.com
 
 ## Servicios
+- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Más info: https://saetechai.com/rag.html
 - [Desarrollo Web](https://saetechai.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
 - [Apps Móviles](https://saetechai.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
 - [Plataformas SaaS](https://saetechai.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
 - [Automatizaciones](https://saetechai.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
-- [Implementación de IA segura](https://saetechai.com/servicio-ia.html): chatbots y asistentes 24/7 entrenados con datos propios (RAG), automatización inteligente e integración con ChatGPT y Claude, siempre protegiendo los datos del cliente (cifrado, control de accesos, sin filtrarse a terceros).
 - [Posicionamiento SEO y GEO](https://saetechai.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
 
 ## Precios orientativos
@@ -36,6 +37,8 @@
 - ¿El código y los accesos son míos? Sí. Al finalizar se entrega todo el código fuente y los accesos, sin dependencias ocultas ni lock-in.
 - ¿Trabajas con clientes fuera de Andorra? Sí, en remoto con clientes de toda Europa, con comunicación directa por WhatsApp o videollamada.
 - ¿Ofreces soporte después del lanzamiento? Sí, 30 días de soporte gratuito incluido y planes de mantenimiento mensual opcionales.
+- ¿Qué es un asistente RAG? IA que antes de responder consulta los documentos reales de la empresa (manuales, catálogos, contratos) y redacta la respuesta citando la fuente. Si la información no existe, lo dice en vez de inventarla. Detalle completo en https://saetechai.com/rag.html
+- ¿Qué significa "IA segura"? Privacidad por diseño: los datos del cliente se cifran, se controla quién accede, no se filtran a terceros y no se usan para entrenar modelos ajenos.
 - ¿Qué es el posicionamiento en IA (GEO)? Optimizar un negocio para que ChatGPT, Claude o Perplexity lo recomienden, no solo Google. Es un canal con muy poca competencia todavía.
 
 ## Contacto
