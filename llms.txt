@@ -24,6 +24,7 @@
 - Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
 
 ## Páginas principales
+- [Por qué tu empresa necesita un RAG — artículo](https://saetechai.com/blog-rag-empresas.html)
 - [Inicio](https://saetechai.com/)
 - [Servicios](https://saetechai.com/servicios.html)
 - [Portfolio](https://saetechai.com/portfolio.html)
