@@ -136,7 +136,11 @@
                 if (scrollY < heroH) {
                     const p = scrollY / heroH;
                     heroContent.style.transform = `translateY(${scrollY * 0.28}px)`;
-                    heroContent.style.opacity   = Math.max(0, 1 - p * 1.6);
+                    // Antes se desvanecía del todo a solo el 63% del scroll del hero
+                    // (factor 1.6) — el banner de auditoría, al ser lo último del
+                    // bloque, apenas se veía antes de desaparecer. Ahora se apaga
+                    // justo cuando el hero sale de la pantalla, no antes.
+                    heroContent.style.opacity   = Math.max(0, 1 - p);
                     if (heroAmbient) {
                         heroAmbient.style.transform = `translateY(${scrollY * 0.12}px)`;
                     }
