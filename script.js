@@ -35,249 +35,33 @@ function initLoader() {
 }
 
 // ===========================
-// Custom Cursor
+// Cookie Consent Banner
 // ===========================
-function initCursor() {
-    const cursor = document.getElementById('cursor');
-    const follower = document.getElementById('cursorFollower');
+function initCookieBanner() {
+    let consent = null;
+    try { consent = localStorage.getItem('cookieConsent'); } catch (e) { return; }
+    if (consent) return; // ya decidió; GTM se carga (o no) desde el <head>
 
-    if (!cursor || !follower) return;
+    const bar = document.createElement('div');
+    bar.className = 'cookie-banner';
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', 'Cookies');
+    bar.innerHTML =
+        '<p><span data-i18n="cookies.msg">Usamos cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.</span> ' +
+        '<a href="privacidad.html" data-i18n="cookies.more">Más información</a></p>' +
+        '<div class="cookie-actions">' +
+        '<button type="button" class="cookie-reject" data-i18n="cookies.reject">Solo esenciales</button>' +
+        '<button type="button" class="cookie-accept" data-i18n="cookies.accept">Aceptar</button>' +
+        '</div>';
 
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
-
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Hover effects
-    const hoverElements = document.querySelectorAll('a, button, .service-card, .portfolio-card, .skill-pill');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-            follower.classList.add('hover');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-            follower.classList.remove('hover');
-        });
-    });
-}
-
-// ===========================
-// Enhanced Particle System
-// ===========================
-const HEX_RGB = {
-    '#00d4ff': [0, 212, 255],
-    '#7c3aed': [124, 58, 237],
-    '#ec4899': [236, 72, 153],
-    '#22c55e': [34, 197, 94]
-};
-
-class ParticleSystem {
-    constructor(canvas) {
-        this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
-        this.particles = [];
-        this.trails = [];
-        this.mouse = { x: null, y: null, radius: 200 };
-        this.connectionDistance = 130;
-        this.colors = ['#00d4ff', '#7c3aed', '#ec4899', '#22c55e'];
-        this.running = true;
-
-        this.resize();
-        this.init();
-        this.bindEvents();
-        this.animate();
-    }
-
-    // Fewer particles on smaller screens — O(n²) connections make this the
-    // single biggest CPU cost, so it must scale with the viewport.
-    targetCount() {
-        const w = window.innerWidth;
-        if (w <= 768) return 30;
-        if (w <= 1280) return 50;
-        return 70;
-    }
-
-    resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-    }
-
-    init() {
-        this.particles = [];
-        const count = this.targetCount();
-        for (let i = 0; i < count; i++) {
-            const color = this.colors[Math.floor(Math.random() * this.colors.length)];
-            const rgb = HEX_RGB[color];
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * 0.8,
-                vy: (Math.random() - 0.5) * 0.8,
-                radius: Math.random() * 2.5 + 0.5,
-                opacity: Math.random() * 0.6 + 0.2,
-                color,
-                r: rgb[0], g: rgb[1], b: rgb[2],
-                pulse: Math.random() * Math.PI * 2,
-                pulseSpeed: Math.random() * 0.02 + 0.01
-            });
-        }
-    }
-
-    bindEvents() {
-        window.addEventListener('resize', () => {
-            this.resize();
-            this.init();
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-
-            // Add trail on mouse move
-            if (Math.random() > 0.7) {
-                const color = this.colors[Math.floor(Math.random() * this.colors.length)];
-                const rgb = HEX_RGB[color];
-                this.trails.push({ x: e.clientX, y: e.clientY, life: 1, r: rgb[0], g: rgb[1], b: rgb[2] });
-            }
-        });
-
-        window.addEventListener('mouseout', () => {
-            this.mouse.x = null;
-            this.mouse.y = null;
-        });
-
-        // Pause when the tab is hidden — no point burning CPU off-screen.
-        document.addEventListener('visibilitychange', () => {
-            this.running = !document.hidden;
-            if (this.running) this.animate();
-        });
-
-        // Pause when the hero canvas scrolls out of view.
-        if ('IntersectionObserver' in window) {
-            const io = new IntersectionObserver((entries) => {
-                const visible = entries[0].isIntersecting;
-                if (visible && !this.running) {
-                    this.running = true;
-                    this.animate();
-                } else if (!visible) {
-                    this.running = false;
-                }
-            }, { threshold: 0 });
-            io.observe(this.canvas);
-        }
-    }
-
-    animate() {
-        if (!this.running) return;
-
-        const ctx = this.ctx;
-        ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
-        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Draw and update trails
-        this.trails = this.trails.filter(t => {
-            t.life -= 0.02;
-            if (t.life <= 0) return false;
-            ctx.beginPath();
-            ctx.arc(t.x, t.y, 3 * t.life, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${t.r}, ${t.g}, ${t.b}, ${t.life * 0.5})`;
-            ctx.fill();
-            return true;
-        });
-
-        const particles = this.particles;
-        const connDist = this.connectionDistance;
-
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-
-            // Pulse animation
-            p.pulse += p.pulseSpeed;
-            const pulseScale = 1 + Math.sin(p.pulse) * 0.3;
-
-            // Move
-            p.x += p.vx;
-            p.y += p.vy;
-
-            // Bounce with energy
-            if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1.1;
-            if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1.1;
-
-            // Keep in bounds
-            p.x = Math.max(0, Math.min(this.canvas.width, p.x));
-            p.y = Math.max(0, Math.min(this.canvas.height, p.y));
-
-            // Mouse interaction with attraction
-            if (this.mouse.x !== null) {
-                const dx = p.x - this.mouse.x;
-                const dy = p.y - this.mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < this.mouse.radius) {
-                    const force = (this.mouse.radius - dist) / this.mouse.radius;
-                    const angle = Math.atan2(dy, dx);
-                    p.vx += Math.cos(angle + Math.PI / 2) * force * 0.02;
-                    p.vy += Math.sin(angle + Math.PI / 2) * force * 0.02;
-                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-                    if (speed > 3) {
-                        p.vx = (p.vx / speed) * 3;
-                        p.vy = (p.vy / speed) * 3;
-                    }
-                }
-            }
-
-            // Soft glow halo (single translucent circle — cheaper than a
-            // per-frame radial gradient).
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius * pulseScale * 3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.opacity * 0.12})`;
-            ctx.fill();
-
-            // Core
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius * pulseScale, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.opacity})`;
-            ctx.fill();
-
-            // Connect with solid lines (no per-pair gradient allocation)
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p.x - p2.x;
-                const dy = p.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < connDist) {
-                    const opacity = (1 - dist / connDist) * 0.25;
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${opacity})`;
-                    ctx.lineWidth = opacity * 2;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(() => this.animate());
-    }
+    const decide = (value) => {
+        try { localStorage.setItem('cookieConsent', value); } catch (e) { /* modo privado */ }
+        if (value === 'accepted' && typeof window.__loadGTM === 'function') window.__loadGTM();
+        bar.remove();
+    };
+    bar.querySelector('.cookie-accept').addEventListener('click', () => decide('accepted'));
+    bar.querySelector('.cookie-reject').addEventListener('click', () => decide('rejected'));
+    document.body.appendChild(bar);
 }
 
 // ===========================
@@ -848,10 +632,10 @@ const translations = {
         stats: { projects: 'Proyectos', satisfaction: 'Satisfacción', sectors: 'Sectores' },
         sectors: {
             title: 'Hemos trabajado con negocios de',
-            restaurants: '🍽️ Restaurantes',
-            realestate: '🏠 Inmobiliarias',
-            gyms: '💪 Gimnasios',
-            hotels: '🏨 Hoteles'
+            restaurants: 'Restaurantes',
+            realestate: 'Inmobiliarias',
+            gyms: 'Gimnasios',
+            hotels: 'Hoteles'
         },
         servicesHome: {
             tag: '// Servicios',
@@ -979,7 +763,8 @@ const translations = {
             }
         },
         cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' },
-        footer: { tagline: 'Desarrollo digital desde Andorra 🇦🇩', copyright: '&copy; 2026 Said. Todos los derechos reservados.' },
+        footer: { tagline: 'Desarrollo digital desde Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. Todos los derechos reservados.' },
+        cookies: { msg: 'Usamos cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.', more: 'Más información', accept: 'Aceptar', reject: 'Solo esenciales' },
         emailPopup: { title: '🎁 Recibe consejos gratis', desc: 'Trucos de desarrollo web y ofertas exclusivas. Sin spam.', placeholder: 'Tu email', submit: 'Suscribirme' },
         geo: {
             tag: '// Posicionamiento IA',
@@ -1627,10 +1412,10 @@ about: {
         stats: { projects: 'Projectes', satisfaction: 'Satisfacció', sectors: 'Sectors' },
         sectors: {
             title: 'Hem treballat amb negocis de',
-            restaurants: '🍽️ Restaurants',
-            realestate: '🏠 Immobiliàries',
-            gyms: '💪 Gimnasos',
-            hotels: '🏨 Hotels'
+            restaurants: 'Restaurants',
+            realestate: 'Immobiliàries',
+            gyms: 'Gimnasos',
+            hotels: 'Hotels'
         },
         servicesHome: {
             tag: '// Serveis',
@@ -1758,7 +1543,8 @@ about: {
             }
         },
         cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' },
-        footer: { tagline: 'Desenvolupament digital des d\'Andorra 🇦🇩', copyright: '&copy; 2026 Said. Tots els drets reservats.' },
+        footer: { tagline: 'Desenvolupament digital des d\'Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. Tots els drets reservats.' },
+        cookies: { msg: 'Fem servir cookies d\'anàlisi (Google) per entendre com s\'utilitza el web. Només s\'activen si acceptes.', more: 'Més informació', accept: 'Acceptar', reject: 'Només essencials' },
         emailPopup: { title: '🎁 Rep consells gratis', desc: 'Trucs de desenvolupament web i ofertes exclusives. Sense spam.', placeholder: 'El teu email', submit: 'Subscriure\'m' },
         geo: {
             tag: '// Posicionament IA',
@@ -2406,10 +2192,10 @@ about: {
         stats: { projects: 'Projets', satisfaction: 'Satisfaction', sectors: 'Secteurs' },
         sectors: {
             title: 'Nous avons travaillé avec des entreprises de',
-            restaurants: '🍽️ Restaurants',
-            realestate: '🏠 Agences immobilières',
-            gyms: '💪 Salles de sport',
-            hotels: '🏨 Hôtels'
+            restaurants: 'Restaurants',
+            realestate: 'Agences immobilières',
+            gyms: 'Salles de sport',
+            hotels: 'Hôtels'
         },
         servicesHome: {
             tag: '// Services',
@@ -2537,7 +2323,8 @@ about: {
             }
         },
         cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' },
-        footer: { tagline: 'Développement numérique depuis l\'Andorre 🇦🇩', copyright: '&copy; 2026 Said. Tous droits réservés.' },
+        footer: { tagline: 'Développement numérique depuis l\'Andorre 🇦🇩', copyright: '&copy; 2026 SaeTech. Tous droits réservés.' },
+        cookies: { msg: 'Nous utilisons des cookies d\'analyse (Google) pour comprendre l\'usage du site. Ils ne s\'activent que si vous acceptez.', more: 'En savoir plus', accept: 'Accepter', reject: 'Essentiels uniquement' },
         emailPopup: { title: '🎁 Recevez des conseils gratuits', desc: 'Astuces de développement web et offres exclusives. Sans spam.', placeholder: 'Votre email', submit: 'M\'abonner' },
         geo: {
             tag: '// Référencement IA',
@@ -3185,10 +2972,10 @@ about: {
         stats: { projects: 'Projects', satisfaction: 'Satisfaction', sectors: 'Sectors' },
         sectors: {
             title: 'We\'ve worked with businesses in',
-            restaurants: '🍽️ Restaurants',
-            realestate: '🏠 Real Estate',
-            gyms: '💪 Gyms',
-            hotels: '🏨 Hotels'
+            restaurants: 'Restaurants',
+            realestate: 'Real Estate',
+            gyms: 'Gyms',
+            hotels: 'Hotels'
         },
         servicesHome: {
             tag: '// Services',
@@ -3316,7 +3103,8 @@ about: {
             }
         },
         cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' },
-        footer: { tagline: 'Digital development from Andorra 🇦🇩', copyright: '&copy; 2026 Said. All rights reserved.' },
+        footer: { tagline: 'Digital development from Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. All rights reserved.' },
+        cookies: { msg: 'We use analytics cookies (Google) to understand how the site is used. They are only enabled if you accept.', more: 'Learn more', accept: 'Accept', reject: 'Essentials only' },
         emailPopup: { title: '🎁 Get free tips', desc: 'Web development tricks and exclusive offers. No spam.', placeholder: 'Your email', submit: 'Subscribe' },
         geo: {
             tag: '// AI Positioning',
@@ -4025,9 +3813,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loader) document.body.style.overflow = 'hidden';
     initLoader();
-
-    // Init cursor
-    initCursor();
+    initCookieBanner();
 
     // Particles — skip entirely for users who prefer reduced motion.
     // higgsfield-visuals.js dibuja su propio canvas global de partículas y oculta

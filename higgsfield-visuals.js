@@ -111,23 +111,11 @@
         });
     }
 
-    /* ─── FILM GRAIN + VIGNETTE + SCANLINES ─── */
+    /* ─── VIGNETTE (grain y scanlines retirados: restaban sobriedad y GPU) ─── */
     function initCinematicOverlays() {
         const vignette = document.createElement('div');
         vignette.className = 'hf-vignette';
         document.body.appendChild(vignette);
-
-        // Grain y scanlines son overlays animados a pantalla completa: demasiado
-        // caros para la GPU de un móvil, así que solo en escritorio.
-        if (window.innerWidth < 768) return;
-
-        const grain = document.createElement('div');
-        grain.className = 'hf-grain';
-        document.body.appendChild(grain);
-
-        const scanlines = document.createElement('div');
-        scanlines.className = 'hf-scanlines';
-        document.body.appendChild(scanlines);
     }
 
     /* ─── HERO PARALLAX ON SCROLL ─── */
@@ -183,13 +171,8 @@
     /* ─── DATA STREAM LINES — REMOVED (replaced by aurora + hex grid) ─── */
     function initDataStream() { /* no-op */ }
 
-    /* ─── GLITCH EFFECT ON HERO TITLE ─── */
-    function initGlitch() {
-        const title = document.querySelector('.hero-title');
-        if (!title) return;
-        title.classList.add('hf-glitch');
-        title.setAttribute('data-text', title.textContent);
-    }
+    /* ─── GLITCH EFFECT — retirado (restaba sobriedad al titular) ─── */
+    function initGlitch() { /* no-op */ }
 
     /* ─── AURORA BANDS (CSS-injected, drift across full page) ─── */
     function initAurora() {
