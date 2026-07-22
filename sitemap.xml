@@ -78,15 +78,15 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url><loc>https://saetechai.com/rag.html</loc></url>
-    <url><loc>https://saetechai.com/demo-rag.html</loc></url>
-    <url><loc>https://saetechai.com/blog-rag-empresas.html</loc></url>
-    <url><loc>https://saetechai.com/aviso-legal.html</loc></url>
-    <url><loc>https://saetechai.com/privacidad.html</loc></url>
-    <url><loc>https://saetechai.com/blog-cuanto-cuesta-app.html</loc></url>
-    <url><loc>https://saetechai.com/blog-automatizaciones.html</loc></url>
-    <url><loc>https://saetechai.com/blog-web-restaurante.html</loc></url>
-    <url><loc>https://saetechai.com/blog-web-o-app.html</loc></url>
-    <url><loc>https://saetechai.com/blog-web-hotel.html</loc></url>
-    <url><loc>https://saetechai.com/blog-inmobiliaria-digital.html</loc></url>
+    <url><loc>https://saetechai.com/rag.html</loc><lastmod>2026-07-17</lastmod></url>
+    <url><loc>https://saetechai.com/demo-rag.html</loc><lastmod>2026-07-17</lastmod></url>
+    <url><loc>https://saetechai.com/blog-rag-empresas.html</loc><lastmod>2026-07-15</lastmod></url>
+    <url><loc>https://saetechai.com/aviso-legal.html</loc><lastmod>2026-07-20</lastmod></url>
+    <url><loc>https://saetechai.com/privacidad.html</loc><lastmod>2026-07-20</lastmod></url>
+    <url><loc>https://saetechai.com/blog-cuanto-cuesta-app.html</loc><lastmod>2026-06-24</lastmod></url>
+    <url><loc>https://saetechai.com/blog-automatizaciones.html</loc><lastmod>2026-06-17</lastmod></url>
+    <url><loc>https://saetechai.com/blog-web-restaurante.html</loc><lastmod>2026-06-10</lastmod></url>
+    <url><loc>https://saetechai.com/blog-web-o-app.html</loc><lastmod>2026-06-03</lastmod></url>
+    <url><loc>https://saetechai.com/blog-web-hotel.html</loc><lastmod>2026-05-27</lastmod></url>
+    <url><loc>https://saetechai.com/blog-inmobiliaria-digital.html</loc><lastmod>2026-05-20</lastmod></url>
 </urlset>

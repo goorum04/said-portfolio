@@ -206,6 +206,7 @@ function initNavbar() {
     function openMenu() {
         menuOpen = true;
         toggle.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
         navLinks.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -213,6 +214,7 @@ function initNavbar() {
     function closeMenu() {
         menuOpen = false;
         toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
         navLinks.classList.remove('active');
         document.body.style.overflow = '';
     }
@@ -961,7 +963,7 @@ about: {
                 availability: "Disponible para nuevos proyectos",
                 description: "La forma más rápida de contactar es por WhatsApp. También puedes escribirme directamente.",
                 emailLabel: "Email",
-                emailValue: "s91564774@gmail.com",
+                emailValue: "said@saetech.com",
                 locationLabel: "Ubicación",
                 locationValue: "Andorra 🇦🇩",
                 title: "Información de contacto",
@@ -1741,7 +1743,7 @@ about: {
                 availability: "Disponible per a nous projectes",
                 description: "La forma més ràpida de contactar és per WhatsApp. También puedes escribirme directamente.",
                 emailLabel: "Email",
-                emailValue: "s91564774@gmail.com",
+                emailValue: "said@saetech.com",
                 locationLabel: "Ubicació",
                 locationValue: "Andorra 🇦🇩",
                 title: "Informació de contacte",
@@ -2521,7 +2523,7 @@ about: {
                 availability: "Disponible pour de nouveaux projets",
                 description: "Le moyen le plus rapide de me contacter est WhatsApp. Vous pouvez aussi m\'écrire directement.",
                 emailLabel: "Email",
-                emailValue: "s91564774@gmail.com",
+                emailValue: "said@saetech.com",
                 locationLabel: "Localisation",
                 locationValue: "Andorra 🇦🇩",
                 title: "Coordonnées",
@@ -3301,7 +3303,7 @@ about: {
                 availability: "Available for new projects",
                 description: "The fastest way to contact me is WhatsApp. You can also write me directly.",
                 emailLabel: "Email",
-                emailValue: "s91564774@gmail.com",
+                emailValue: "said@saetech.com",
                 locationLabel: "Location",
                 locationValue: "Andorra 🇦🇩",
                 title: "Contact information",
@@ -3780,13 +3782,27 @@ function initLanguage() {
     const dropBtn = document.getElementById('langDropBtn');
 
     if (dropBtn && dropdown) {
+        dropBtn.setAttribute('aria-haspopup', 'true');
+        dropBtn.setAttribute('aria-expanded', 'false');
+
+        const closeDropdown = () => {
+            dropdown.classList.remove('active');
+            dropBtn.setAttribute('aria-expanded', 'false');
+        };
+
         dropBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropdown.classList.toggle('active');
+            const willOpen = !dropdown.classList.contains('active');
+            dropdown.classList.toggle('active', willOpen);
+            dropBtn.setAttribute('aria-expanded', String(willOpen));
         });
 
-        document.addEventListener('click', () => {
-            dropdown.classList.remove('active');
+        document.addEventListener('click', closeDropdown);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                closeDropdown();
+                dropBtn.focus();
+            }
         });
     }
 
