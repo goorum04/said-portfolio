@@ -643,7 +643,8 @@ const translations = {
             hotels: 'Hoteles'
         },
         servicesHome: {
-            tag: '// Servicios',
+            featured: 'Especialidad',
+            tag: 'Servicios',
             title: 'Soluciones <span class="text-gradient">digitales</span>',
             web: { title: 'Desarrollo Web', desc: 'Páginas web modernas, rápidas y responsive.' },
             apps: { title: 'Apps Móviles', desc: 'Aplicaciones iOS y Android nativas.' },
@@ -655,7 +656,7 @@ const translations = {
             cta: 'Ver todos los servicios'
         },
         rag: {
-            tag: "// Proyecto",
+            tag: "Proyecto",
             title: "RAG: la IA que responde <span class=\"text-gradient\">con tus datos</span>",
             subtitle: "Asistentes que antes de contestar consultan los documentos reales de tu empresa — manuales, catálogos, contratos, políticas — y responden con fuentes, sin inventarse nada.",
             whatH: "¿Qué es RAG?",
@@ -713,14 +714,14 @@ const translations = {
             ctaBtn2: "Ver el servicio de IA completo"
         },
         portfolioHome: {
-            tag: '// Portfolio',
+            tag: 'Portfolio',
             title: 'Proyectos <span class="text-gradient">destacados</span>',
             vv: { badge: '3D · IA', desc: 'Sube una foto de tu salón y prueba muebles reales en 3D a escala real antes de comprarlos. Habitación navegable y catálogo fotorrealista.', metric: 'Prueba la demo en vivo' },
             rags: { badge: 'IA', desc: 'Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.', metric: 'Prueba la demo en vivo →' },
             cta: 'Ver todos los proyectos'
         },
         testimonialsHome: {
-            tag: '// Testimonios',
+            tag: 'Testimonios',
             title: 'Lo que dicen <span class="text-gradient">mis clientes</span>',
             t1: '"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."',
             t2: '"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."',
@@ -730,7 +731,7 @@ const translations = {
             t6: '"El SaaS que creó para nuestra tienda superó todas las expectativas."'
         },
         process: {
-            tag: '// Proceso',
+            tag: 'Proceso',
             title: 'Cómo <span class="text-gradient">trabajo</span>',
             subtitle: 'Un proceso claro de principio a fin.',
             step1: { title: 'Consulta', desc: 'Analizamos tu idea y objetivos.', time: '1-2 días' },
@@ -768,11 +769,13 @@ const translations = {
             }
         },
         cta: { title: '¿Tienes un proyecto en mente?', desc: 'Cuéntame tu idea y te ayudo a hacerla realidad.', btn: 'Hablemos' },
-        footer: { tagline: 'Desarrollo digital desde Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. Todos los derechos reservados.' },
+        footer: { tagline: 'Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.', copyright: '&copy; 2026 SaeTech. Todos los derechos reservados.', colServices: 'Servicios', colCompany: 'Estudio', colContact: 'Contacto', whatIsRag: '¿Qué es RAG?', demo: 'Demo RAG en vivo', location: 'Andorra · Trabajo remoto en toda Europa' },
+        heroProof: { projects: 'Proyectos entregados', sectors: 'Sectores', reply: 'Tiempo de respuesta', code: 'Código tuyo, sin lock-in' },
+        heroMock: { title: 'Asistente RAG · Documentos internos', live: 'En vivo', q: '¿Qué plazo de devolución aplicamos a clientes B2B y quién lo aprueba?', a1: 'Para clientes B2B el plazo es de <mark>30 días naturales</mark> desde la entrega. Las devoluciones superiores a 2.000&nbsp;€ las aprueba el responsable de cuenta.', sources: 'Fuentes', placeholder: 'Pregunta sobre tus documentos…', chip1: 'Datos cifrados, nunca entrenan modelos ajenos', chip2: 'Permisos por rol', chip3: 'Siempre con fuente' },
         cookies: { msg: 'Usamos cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.', more: 'Más información', accept: 'Aceptar', reject: 'Solo esenciales' },
         emailPopup: { title: '🎁 Recibe consejos gratis', desc: 'Trucos de desarrollo web y ofertas exclusivas. Sin spam.', placeholder: 'Tu email', submit: 'Suscribirme' },
         geo: {
-            tag: '// Posicionamiento IA',
+            tag: 'Posicionamiento IA',
             title: 'Que la <span class="text-gradient">IA recomiende</span> tu negocio',
             subtitle: 'El 40% de las personas ya pregunta a ChatGPT, Claude o Perplexity antes que a Google. Te posiciono para aparecer en sus respuestas.',
             th: { feature: '&nbsp;', seo: 'SEO tradicional', geo: 'Posicionamiento IA (GEO)' },
@@ -783,7 +786,7 @@ const translations = {
             cta: 'Auditoría GEO gratis'
         },
         faq: {
-            tag: '// FAQ',
+            tag: 'FAQ',
             title: 'Preguntas <span class="text-gradient">frecuentes</span>',
             subtitle: 'Lo que más me preguntan antes de empezar un proyecto.',
             q1: { q: '¿Cuánto cuesta un proyecto?', a: 'Una landing desde 500€ y una web profesional o app desde 1.500€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos.' },
@@ -795,7 +798,8 @@ const translations = {
         },
         audit: { hero: 'Auditoría gratis', banner: 'Auditoría de posicionamiento en IA <strong>gratis</strong> · sin compromiso' },
         ai: {
-            tag: '// Inteligencia Artificial',
+            caption1: 'Datos cifrados', caption2: 'Respuestas con fuente',
+            tag: 'Inteligencia Artificial',
             title: 'Implementación de IA <span class="text-gradient">segura</span> para tu negocio',
             subtitle: 'Nuestra especialidad: IA que aporta valor real, protege tus datos y no se inventa nada.',
             f1: '<strong>Asistentes RAG</strong> que responden consultando tus documentos reales, con fuentes y sin alucinaciones.',
@@ -819,14 +823,14 @@ about: {
             },
             pageHero: {
                 subtitle: "Desarrollador digital apasionado por crear productos que marcan la diferencia.",
-                tag: "// Sobre mí",
+                tag: "Sobre mí",
                 title: 'Hola, soy <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Otros",
-                tag: "// Skills",
+                tag: "Skills",
                 title: 'Tecnologías que <span class="text-gradient">domino</span>',
             },
             story: {
@@ -848,12 +852,12 @@ about: {
                 speedDesc: "Plazos realistas que cumplo. Sin sorpresas.",
                 support: "Soporte",
                 supportDesc: "No desaparezco después del lanzamiento. Siempre disponible.",
-                tag: "// Valores",
+                tag: "Valores",
                 title: 'Cómo <span class="text-gradient">trabajo</span>',
             },
         },
         services: {
-            tag: "// Servicios",
+            tag: "Servicios",
             title: 'Soluciones digitales <span class="text-gradient">a medida</span>',
             subtitle: "Desarrollo productos digitales que impulsan tu negocio. Cada proyecto se adapta a tus necesidades específicas.",
             tech: "Tecnologías:",
@@ -921,7 +925,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Tutoriales, consejos y tendencias sobre desarrollo web, apps y SaaS.",
-                tag: "// Blog",
+                tag: "Blog",
                 title: 'Consejos de <span class="text-gradient">desarrollo</span>',
             },
             post1: {
@@ -982,7 +986,7 @@ about: {
                 q2: "¿Cuánto tardas en responder?",
                 q3: "¿Trabajas con clientes fuera de Andorra?",
                 q4: "¿Pides pago por adelantado?",
-                tag: "// FAQ",
+                tag: "FAQ",
                 title: 'Preguntas <span class="text-gradient">frecuentes</span>',
             },
             form: {
@@ -1009,7 +1013,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Cuéntame tu idea y te responderé en menos de 24 horas.",
-                tag: "// Contacto",
+                tag: "Contacto",
                 title: 'Hablemos de tu <span class="text-gradient">proyecto</span>',
             },
             successModal: {
@@ -1020,7 +1024,7 @@ about: {
         },
         portfolio: {
             pageHero: {
-                tag: "// Portfolio",
+                tag: "Portfolio",
                 title: 'Mis <span class="text-gradient">proyectos</span>',
                 subtitle: "Una selección de productos digitales que he desarrollado y lanzado.",
             },
@@ -1057,7 +1061,7 @@ about: {
                 metricTime: "-90%",
                 metricTimeLabel: "Tiempo en presupuestos",
                 solutionDesc: "Bot que intercepta los mensajes entrantes, guía al cliente paso a paso con preguntas clave para entender sus necesidades, calcula el coste en función de las respuestas y envía un presupuesto detallado y personalizado en cuestión de segundos, a cualquier hora del día.",
-                tag: "// Case Study",
+                tag: "Case Study",
                 testimonial: "\"Antes perdíamos clientes porque tardábamos en responder. Ahora el bot responde en segundos a cualquier hora y nosotros nos centramos en cerrar ventas, no en hacer presupuestos.\"",
                 testimonialAuthor: "— Cliente, sector servicios",
                 title: 'Bot Presupuestos: <span class="text-gradient">De horas a segundos</span>',
@@ -1138,7 +1142,7 @@ about: {
             },
         },
         svc: {
-            tag: '// Servicio',
+            tag: 'Servicio',
             pricingTag: '// Precios',
             faqTag: '// FAQ',
             faqTitle: 'Preguntas <span class="text-gradient">frecuentes</span>',
@@ -1423,7 +1427,8 @@ about: {
             hotels: 'Hotels'
         },
         servicesHome: {
-            tag: '// Serveis',
+            featured: 'Especialitat',
+            tag: 'Serveis',
             title: 'Solucions <span class="text-gradient">digitals</span>',
             web: { title: 'Desenvolupament Web', desc: 'Pàgines web modernes, ràpides i responsive.' },
             apps: { title: 'Apps Mòbils', desc: 'Aplicacions iOS i Android natives.' },
@@ -1435,7 +1440,7 @@ about: {
             cta: 'Veure tots els serveis'
         },
         rag: {
-            tag: "// Projecte",
+            tag: "Projecte",
             title: "RAG: la IA que respon <span class=\"text-gradient\">amb les teves dades</span>",
             subtitle: "Assistents que abans de contestar consulten els documents reals de la teva empresa — manuals, catàlegs, contractes, polítiques — i responen amb fonts, sense inventar-se res.",
             whatH: "Què és RAG?",
@@ -1493,14 +1498,14 @@ about: {
             ctaBtn2: "Veure el servei d'IA complet"
         },
         portfolioHome: {
-            tag: '// Portfolio',
+            tag: 'Portfolio',
             title: 'Projectes <span class="text-gradient">destacats</span>',
             vv: { badge: '3D · IA', desc: 'Puja una foto del teu saló i prova mobles reals en 3D a escala real abans de comprar-los. Habitació navegable i catàleg fotorealista.', metric: 'Prova la demo en viu' },
             rags: { badge: 'IA', desc: 'Assistents d\'IA que responen consultant els documents reals de la teva empresa (RAG): manuals, catàlegs i polítiques, sense inventar-se res.', metric: 'Prova la demo en viu →' },
             cta: 'Veure tots els projectes'
         },
         testimonialsHome: {
-            tag: '// Testimonis',
+            tag: 'Testimonis',
             title: 'Què diuen <span class="text-gradient">els meus clients</span>',
             t1: '"SaeTech va desenvolupar la nostra web de reserves en temps rècord. Les reserves van augmentar un 40%."',
             t2: '"Professional i ràpid. La nostra app immobiliària funciona perfectament."',
@@ -1510,7 +1515,7 @@ about: {
             t6: '"El SaaS que va crear per a la nostra botiga va superar totes les expectatives."'
         },
         process: {
-            tag: '// Procés',
+            tag: 'Procés',
             title: 'Com <span class="text-gradient">treballo</span>',
             subtitle: 'Un procés clar de principi a fi.',
             step1: { title: 'Consulta', desc: 'Analitzem la teva idea i objectius.', time: '1-2 dies' },
@@ -1548,11 +1553,13 @@ about: {
             }
         },
         cta: { title: 'Tens un projecte en ment?', desc: 'Explica\'m la teva idea i t\'ajudo a fer-la realitat.', btn: 'Parlem' },
-        footer: { tagline: 'Desenvolupament digital des d\'Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. Tots els drets reservats.' },
+        footer: { tagline: 'Estudi digital a Andorra. IA segura amb RAG, webs, apps i SaaS a mida per a negocis que volen créixer.', copyright: '&copy; 2026 SaeTech. Tots els drets reservats.', colServices: 'Serveis', colCompany: 'Estudi', colContact: 'Contacte', whatIsRag: 'Què és RAG?', demo: 'Demo RAG en viu', location: 'Andorra · Treball remot a tota Europa' },
+        heroProof: { projects: 'Projectes lliurats', sectors: 'Sectors', reply: 'Temps de resposta', code: 'Codi teu, sense lock-in' },
+        heroMock: { title: 'Assistent RAG · Documents interns', live: 'En viu', q: 'Quin termini de devolució apliquem a clients B2B i qui l\'aprova?', a1: 'Per a clients B2B el termini és de <mark>30 dies naturals</mark> des del lliurament. Les devolucions superiors a 2.000&nbsp;€ les aprova el responsable de compte.', sources: 'Fonts', placeholder: 'Pregunta sobre els teus documents…', chip1: 'Dades xifrades, mai entrenen models aliens', chip2: 'Permisos per rol', chip3: 'Sempre amb font' },
         cookies: { msg: 'Fem servir cookies d\'anàlisi (Google) per entendre com s\'utilitza el web. Només s\'activen si acceptes.', more: 'Més informació', accept: 'Acceptar', reject: 'Només essencials' },
         emailPopup: { title: '🎁 Rep consells gratis', desc: 'Trucs de desenvolupament web i ofertes exclusives. Sense spam.', placeholder: 'El teu email', submit: 'Subscriure\'m' },
         geo: {
-            tag: '// Posicionament IA',
+            tag: 'Posicionament IA',
             title: 'Que la <span class="text-gradient">IA recomani</span> el teu negoci',
             subtitle: 'El 40% de les persones ja pregunta a ChatGPT, Claude o Perplexity abans que a Google. Et posiciono per aparèixer a les seves respostes.',
             th: { feature: '&nbsp;', seo: 'SEO tradicional', geo: 'Posicionament IA (GEO)' },
@@ -1563,7 +1570,7 @@ about: {
             cta: 'Auditoria GEO gratis'
         },
         faq: {
-            tag: '// FAQ',
+            tag: 'FAQ',
             title: 'Preguntes <span class="text-gradient">freqüents</span>',
             subtitle: 'El que més em pregunten abans de començar un projecte.',
             q1: { q: 'Quant costa un projecte?', a: 'Una landing des de 500€ i una web professional o app des de 1.500€. Sempre et dono un pressupost tancat per endavant, sense sorpreses ni costos ocults.' },
@@ -1575,7 +1582,8 @@ about: {
         },
         audit: { hero: 'Auditoria gratis', banner: 'Auditoria de posicionament en IA <strong>gratis</strong> · sense compromís' },
         ai: {
-            tag: '// Intel·ligència Artificial',
+            caption1: 'Dades xifrades', caption2: 'Respostes amb font',
+            tag: 'Intel·ligència Artificial',
             title: 'Implementació d\'IA <span class="text-gradient">segura</span> per al teu negoci',
             subtitle: 'La nostra especialitat: IA que aporta valor real, protegeix les teves dades i no s\'inventa res.',
             f1: '<strong>Assistents RAG</strong> que responen consultant els teus documents reals, amb fonts i sense al·lucinacions.',
@@ -1599,14 +1607,14 @@ about: {
             },
             pageHero: {
                 subtitle: "Desenvolupador digital apasionat per crear productes que marquen la diferència.",
-                tag: "// Sobre mi",
+                tag: "Sobre mi",
                 title: 'Hola, soc <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Altres",
-                tag: "// Skills",
+                tag: "Skills",
                 title: 'Tecnologies que <span class="text-gradient">domino</span>',
             },
             story: {
@@ -1628,12 +1636,12 @@ about: {
                 speedDesc: "Terminis realistes que compleixo. Sense sorpreses.",
                 support: "Suport",
                 supportDesc: "No desapareixo després del llançament. Sempre disponible.",
-                tag: "// Valors",
+                tag: "Valors",
                 title: 'Com <span class="text-gradient">treballo</span>',
             },
         },
         services: {
-            tag: "// Serveis",
+            tag: "Serveis",
             title: 'Solucions digitals <span class="text-gradient">a mida</span>',
             subtitle: "Desenvolupo productes digitals que impulsen el teu negoci. Cada projecte s'adapta a les teves necessitats específiques.",
             tech: "Tecnologies:",
@@ -1701,7 +1709,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Tutorials, consells i tendències sobre desenvolupament web, apps i SaaS.",
-                tag: "// Blog",
+                tag: "Blog",
                 title: 'Consells de <span class="text-gradient">desenvolupament</span>',
             },
             post1: {
@@ -1762,7 +1770,7 @@ about: {
                 q2: "Quant tardas a respondre?",
                 q3: "Treballes amb clients fora d\'Andorra?",
                 q4: "Demanames pagament per endavant?",
-                tag: "// FAQ",
+                tag: "FAQ",
                 title: 'Preguntes <span class="text-gradient">freqüents</span>',
             },
             form: {
@@ -1789,7 +1797,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Conta\'m la teva idea i et respondere en menys de 24 hores.",
-                tag: "// Contacte",
+                tag: "Contacte",
                 title: 'Parlem del teu <span class="text-gradient">projecte</span>',
             },
             successModal: {
@@ -1832,7 +1840,7 @@ about: {
                 metricTime: "-90%",
                 metricTimeLabel: "Temps en pressupostos",
                 solutionDesc: "Bot que intercepta els missatges entrants, guia al client pas a pas amb preguntes clau per entendre les seves necessitats, calcula el cost en funció de les respostes i envia un pressupost detallat i personalitzat en qüestió de segons, a qualsevol hora del dia.",
-                tag: "// Cas d\'ús",
+                tag: "Cas d\'ús",
                 testimonial: "\"Abans perdíem clients perquè tardàvem a respondre. Ara el bot respon en segons a qualsevol hora i nosaltres ens centrem en tancar vendes, no en fer pressupostos.\"",
                 testimonialAuthor: "— Client, sector servicis",
                 title: 'Bot Pressupostos: <span class="text-gradient">De hores a segons</span>',
@@ -1884,7 +1892,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Una selecció de productes digitals que he desenvolupat i llançat.",
-                tag: "// Portafolis",
+                tag: "Portafolis",
                 title: 'Els meus <span class="text-gradient">projectes</span>',
             },
             proteinShop: {
@@ -1918,7 +1926,7 @@ about: {
             },
         },
         svc: {
-            tag: '// Servei',
+            tag: 'Servei',
             pricingTag: '// Preus',
             faqTag: '// FAQ',
             faqTitle: 'Preguntes <span class="text-gradient">freqüents</span>',
@@ -2203,7 +2211,8 @@ about: {
             hotels: 'Hôtels'
         },
         servicesHome: {
-            tag: '// Services',
+            featured: 'Spécialité',
+            tag: 'Services',
             title: 'Solutions <span class="text-gradient">numériques</span>',
             web: { title: 'Développement Web', desc: 'Sites web modernes, rapides et responsive.' },
             apps: { title: 'Applications Mobiles', desc: 'Applications iOS et Android natives.' },
@@ -2215,7 +2224,7 @@ about: {
             cta: 'Voir tous les services'
         },
         rag: {
-            tag: "// Projet",
+            tag: "Projet",
             title: "RAG : l'IA qui répond <span class=\"text-gradient\">avec vos données</span>",
             subtitle: "Des assistants qui, avant de répondre, consultent les vrais documents de votre entreprise — manuels, catalogues, contrats, politiques — et répondent avec leurs sources, sans rien inventer.",
             whatH: "Qu'est-ce que le RAG ?",
@@ -2273,14 +2282,14 @@ about: {
             ctaBtn2: "Voir le service IA complet"
         },
         portfolioHome: {
-            tag: '// Portfolio',
+            tag: 'Portfolio',
             title: 'Projets <span class="text-gradient">phares</span>',
             vv: { badge: '3D · IA', desc: 'Téléchargez une photo de votre salon et essayez de vrais meubles en 3D à l\'échelle réelle avant de les acheter. Pièce navigable et catalogue photoréaliste.', metric: 'Essayez la démo en direct' },
             rags: { badge: 'IA', desc: 'Des assistants IA qui répondent en consultant les vrais documents de votre entreprise (RAG) : manuels, catalogues et politiques, sans rien inventer.', metric: 'Essayez la démo en direct →' },
             cta: 'Voir tous les projets'
         },
         testimonialsHome: {
-            tag: '// Témoignages',
+            tag: 'Témoignages',
             title: 'Ce que disent <span class="text-gradient">mes clients</span>',
             t1: '"SaeTech a développé notre site de réservations en un temps record. Les réservations ont augmenté de 40%."',
             t2: '"Professionnel et rapide. Notre application immobilière fonctionne parfaitement."',
@@ -2290,7 +2299,7 @@ about: {
             t6: '"Le SaaS qu\'il a créé pour notre boutique a dépassé toutes nos attentes."'
         },
         process: {
-            tag: '// Processus',
+            tag: 'Processus',
             title: 'Comment je <span class="text-gradient">travaille</span>',
             subtitle: 'Un processus clair du début à la fin.',
             step1: { title: 'Consultation', desc: 'Nous analysons votre idée et vos objectifs.', time: '1-2 jours' },
@@ -2328,11 +2337,13 @@ about: {
             }
         },
         cta: { title: 'Vous avez un projet en tête?', desc: 'Racontez-moi votre idée et je vous aide à la concrétiser.', btn: 'Parlons' },
-        footer: { tagline: 'Développement numérique depuis l\'Andorre 🇦🇩', copyright: '&copy; 2026 SaeTech. Tous droits réservés.' },
+        footer: { tagline: 'Studio digital en Andorre. IA sécurisée avec RAG, sites web, apps et SaaS sur mesure pour les entreprises qui veulent grandir.', copyright: '&copy; 2026 SaeTech. Tous droits réservés.', colServices: 'Services', colCompany: 'Studio', colContact: 'Contact', whatIsRag: 'Qu\'est-ce que le RAG ?', demo: 'Démo RAG en direct', location: 'Andorre · Travail à distance dans toute l\'Europe' },
+        heroProof: { projects: 'Projets livrés', sectors: 'Secteurs', reply: 'Délai de réponse', code: 'Code à vous, sans lock-in' },
+        heroMock: { title: 'Assistant RAG · Documents internes', live: 'En direct', q: 'Quel délai de retour appliquons-nous aux clients B2B et qui l\'approuve ?', a1: 'Pour les clients B2B, le délai est de <mark>30 jours calendaires</mark> à compter de la livraison. Les retours supérieurs à 2 000&nbsp;€ sont approuvés par le responsable de compte.', sources: 'Sources', placeholder: 'Posez une question sur vos documents…', chip1: 'Données chiffrées, jamais utilisées pour entraîner des modèles tiers', chip2: 'Permissions par rôle', chip3: 'Toujours avec la source' },
         cookies: { msg: 'Nous utilisons des cookies d\'analyse (Google) pour comprendre l\'usage du site. Ils ne s\'activent que si vous acceptez.', more: 'En savoir plus', accept: 'Accepter', reject: 'Essentiels uniquement' },
         emailPopup: { title: '🎁 Recevez des conseils gratuits', desc: 'Astuces de développement web et offres exclusives. Sans spam.', placeholder: 'Votre email', submit: 'M\'abonner' },
         geo: {
-            tag: '// Référencement IA',
+            tag: 'Référencement IA',
             title: 'Que l\'<span class="text-gradient">IA recommande</span> votre entreprise',
             subtitle: '40% des personnes interrogent déjà ChatGPT, Claude ou Perplexity avant Google. Je vous positionne pour apparaître dans leurs réponses.',
             th: { feature: '&nbsp;', seo: 'SEO traditionnel', geo: 'Référencement IA (GEO)' },
@@ -2343,7 +2354,7 @@ about: {
             cta: 'Audit GEO gratuit'
         },
         faq: {
-            tag: '// FAQ',
+            tag: 'FAQ',
             title: 'Questions <span class="text-gradient">fréquentes</span>',
             subtitle: 'Ce qu\'on me demande le plus avant de démarrer un projet.',
             q1: { q: 'Combien coûte un projet ?', a: 'Une landing à partir de 500€ et un site professionnel ou une app à partir de 1.500€. Je vous donne toujours un devis fixe à l\'avance, sans surprises ni frais cachés.' },
@@ -2355,7 +2366,8 @@ about: {
         },
         audit: { hero: 'Audit gratuit', banner: 'Audit de référencement IA <strong>gratuit</strong> · sans engagement' },
         ai: {
-            tag: '// Intelligence Artificielle',
+            caption1: 'Données chiffrées', caption2: 'Réponses sourcées',
+            tag: 'Intelligence Artificielle',
             title: 'Implémentation d\'IA <span class="text-gradient">sécurisée</span> pour votre entreprise',
             subtitle: 'Notre spécialité : une IA qui apporte une vraie valeur, protège vos données et n\'invente rien.',
             f1: '<strong>Assistants RAG</strong> qui répondent en consultant vos documents réels, avec les sources et sans hallucinations.',
@@ -2379,14 +2391,14 @@ about: {
             },
             pageHero: {
                 subtitle: "Développeur numérique passionné par créer des produits qui font la différence.",
-                tag: "// À propos",
+                tag: "À propos",
                 title: 'Bonjour, je m\'appelle <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Autres",
-                tag: "// Compétences",
+                tag: "Compétences",
                 title: 'Technologies que je <span class="text-gradient">maîtrise</span>',
             },
             story: {
@@ -2408,12 +2420,12 @@ about: {
                 speedDesc: "Délais réalistes que je respecte. Pas de surprises.",
                 support: "Support",
                 supportDesc: "Je ne disparais pas après le lancement. Toujours disponible.",
-                tag: "// Valeurs",
+                tag: "Valeurs",
                 title: 'Comment je <span class="text-gradient">travaille</span>',
             },
         },
         services: {
-            tag: "// Services",
+            tag: "Services",
             title: 'Solutions numériques <span class="text-gradient">sur mesure</span>',
             subtitle: "Je développe des produits numériques qui boostent votre entreprise. Chaque projet s'adapte à vos besoins spécifiques.",
             tech: "Technologies :",
@@ -2481,7 +2493,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Tutoriels, conseils et tendances sur le développement web, les applications et les SaaS.",
-                tag: "// Blog",
+                tag: "Blog",
                 title: 'Conseils de <span class="text-gradient">développement</span>',
             },
             post1: {
@@ -2542,7 +2554,7 @@ about: {
                 q2: "Combien de temps faut-il pour répondre?",
                 q3: "Travaillez-vous avec des clients en dehors d\'Andorre?",
                 q4: "Demandez-vous un paiement à l\'avance?",
-                tag: "// FAQ",
+                tag: "FAQ",
                 title: 'Questions <span class="text-gradient">fréquemment posées</span>',
             },
             form: {
@@ -2569,7 +2581,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Dites-moi votre idée et je vous répondrai en moins de 24 heures.",
-                tag: "// Contact",
+                tag: "Contact",
                 title: 'Parlons de votre <span class="text-gradient">projet</span>',
             },
             successModal: {
@@ -2612,7 +2624,7 @@ about: {
                 metricTime: "-90%",
                 metricTimeLabel: "Temps sur les devis",
                 solutionDesc: "Bot qui intercepte les messages entrants, guide le client étape par étape avec des questions clés pour comprendre ses besoins, calcule le coût en fonction des réponses et envoie un devis détaillé et personnalisé en quelques secondes, à tout moment.",
-                tag: "// Étude de cas",
+                tag: "Étude de cas",
                 testimonial: "\"Avant, nous perdions des clients parce que nous tardions à répondre. Maintenant, le bot répond en quelques secondes à tout moment et nous pouvons nous concentrer sur la fermeture de ventes, pas sur la rédaction de devis.\"",
                 testimonialAuthor: "— Client, secteur services",
                 title: 'Bot Devis: <span class="text-gradient">Des heures aux secondes</span>',
@@ -2664,7 +2676,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Une sélection de produits numériques que j\'ai développés et lancés.",
-                tag: "// Portfolio",
+                tag: "Portfolio",
                 title: 'Mes <span class="text-gradient">projets</span>',
             },
             proteinShop: {
@@ -2698,7 +2710,7 @@ about: {
             },
         },
         svc: {
-            tag: '// Service',
+            tag: 'Service',
             pricingTag: '// Tarifs',
             faqTag: '// FAQ',
             faqTitle: 'Questions <span class="text-gradient">fréquentes</span>',
@@ -2983,7 +2995,8 @@ about: {
             hotels: 'Hotels'
         },
         servicesHome: {
-            tag: '// Services',
+            featured: 'Specialty',
+            tag: 'Services',
             title: 'Digital <span class="text-gradient">solutions</span>',
             web: { title: 'Web Development', desc: 'Modern, fast and responsive websites.' },
             apps: { title: 'Mobile Apps', desc: 'Native iOS and Android applications.' },
@@ -2995,7 +3008,7 @@ about: {
             cta: 'View all services'
         },
         rag: {
-            tag: "// Project",
+            tag: "Project",
             title: "RAG: AI that answers <span class=\"text-gradient\">with your data</span>",
             subtitle: "Assistants that check your company's real documents before answering — manuals, catalogs, contracts, policies — and reply with sources, without making anything up.",
             whatH: "What is RAG?",
@@ -3053,14 +3066,14 @@ about: {
             ctaBtn2: "See the full AI service"
         },
         portfolioHome: {
-            tag: '// Portfolio',
+            tag: 'Portfolio',
             title: 'Featured <span class="text-gradient">projects</span>',
             vv: { badge: '3D · AI', desc: 'Upload a photo of your living room and try real furniture in 3D at real scale before buying it. Navigable room and photorealistic catalog.', metric: 'Try the live demo' },
             rags: { badge: 'AI', desc: 'AI assistants that answer by querying your company\'s real documents (RAG): manuals, catalogs and policies — no made-up answers.', metric: 'Try the live demo →' },
             cta: 'View all projects'
         },
         testimonialsHome: {
-            tag: '// Testimonials',
+            tag: 'Testimonials',
             title: 'What <span class="text-gradient">my clients say</span>',
             t1: '"SaeTech built our booking site in record time. Bookings increased by 40%."',
             t2: '"Professional and fast. Our real estate app works perfectly."',
@@ -3070,7 +3083,7 @@ about: {
             t6: '"The SaaS he built for our shop exceeded all expectations."'
         },
         process: {
-            tag: '// Process',
+            tag: 'Process',
             title: 'How I <span class="text-gradient">work</span>',
             subtitle: 'A clear process from start to finish.',
             step1: { title: 'Consultation', desc: 'We analyze your idea and goals.', time: '1-2 days' },
@@ -3108,11 +3121,13 @@ about: {
             }
         },
         cta: { title: 'Have a project in mind?', desc: 'Tell me your idea and I\'ll help you make it happen.', btn: 'Let\'s talk' },
-        footer: { tagline: 'Digital development from Andorra 🇦🇩', copyright: '&copy; 2026 SaeTech. All rights reserved.' },
+        footer: { tagline: 'Digital studio in Andorra. Secure AI with RAG, websites, apps and custom SaaS for businesses that want to grow.', copyright: '&copy; 2026 SaeTech. All rights reserved.', colServices: 'Services', colCompany: 'Studio', colContact: 'Contact', whatIsRag: 'What is RAG?', demo: 'Live RAG demo', location: 'Andorra · Remote work across Europe' },
+        heroProof: { projects: 'Projects delivered', sectors: 'Sectors', reply: 'Response time', code: 'Your code, no lock-in' },
+        heroMock: { title: 'RAG assistant · Internal documents', live: 'Live', q: 'What return window applies to B2B customers and who approves it?', a1: 'For B2B customers the window is <mark>30 calendar days</mark> from delivery. Returns above €2,000 are approved by the account manager.', sources: 'Sources', placeholder: 'Ask about your documents…', chip1: 'Encrypted data, never used to train third-party models', chip2: 'Role-based permissions', chip3: 'Always with a source' },
         cookies: { msg: 'We use analytics cookies (Google) to understand how the site is used. They are only enabled if you accept.', more: 'Learn more', accept: 'Accept', reject: 'Essentials only' },
         emailPopup: { title: '🎁 Get free tips', desc: 'Web development tricks and exclusive offers. No spam.', placeholder: 'Your email', submit: 'Subscribe' },
         geo: {
-            tag: '// AI Positioning',
+            tag: 'AI Positioning',
             title: 'Get <span class="text-gradient">AI to recommend</span> your business',
             subtitle: '40% of people already ask ChatGPT, Claude or Perplexity before Google. I position you to show up in their answers.',
             th: { feature: '&nbsp;', seo: 'Traditional SEO', geo: 'AI Positioning (GEO)' },
@@ -3123,7 +3138,7 @@ about: {
             cta: 'Free GEO audit'
         },
         faq: {
-            tag: '// FAQ',
+            tag: 'FAQ',
             title: 'Frequently asked <span class="text-gradient">questions</span>',
             subtitle: 'What people ask me most before starting a project.',
             q1: { q: 'How much does a project cost?', a: 'A landing page from €500 and a professional website or app from €1,500. I always give you a fixed quote upfront, with no surprises or hidden costs.' },
@@ -3135,7 +3150,8 @@ about: {
         },
         audit: { hero: 'Free audit', banner: 'Free <strong>AI positioning</strong> audit · no commitment' },
         ai: {
-            tag: '// Artificial Intelligence',
+            caption1: 'Encrypted data', caption2: 'Sourced answers',
+            tag: 'Artificial Intelligence',
             title: '<span class="text-gradient">Secure</span> AI implementation for your business',
             subtitle: 'Our specialty: AI that adds real value, protects your data and never makes things up.',
             f1: '<strong>RAG assistants</strong> that answer by consulting your real documents, with sources and no hallucinations.',
@@ -3159,14 +3175,14 @@ about: {
             },
             pageHero: {
                 subtitle: "Digital developer passionate about creating products that make a difference.",
-                tag: "// About me",
+                tag: "About me",
                 title: 'Hello, I\'m <span class="text-gradient">Said</span>',
             },
             skills: {
                 backend: "Backend",
                 frontend: "Frontend",
                 other: "Others",
-                tag: "// Skills",
+                tag: "Skills",
                 title: 'Technologies I <span class="text-gradient">master</span>',
             },
             story: {
@@ -3188,12 +3204,12 @@ about: {
                 speedDesc: "Realistic timelines I deliver. No surprises.",
                 support: "Support",
                 supportDesc: "I don\'t disappear after launch. Always available.",
-                tag: "// Values",
+                tag: "Values",
                 title: 'How I <span class="text-gradient">work</span>',
             },
         },
         services: {
-            tag: "// Services",
+            tag: "Services",
             title: 'Digital solutions <span class="text-gradient">made to measure</span>',
             subtitle: "I build digital products that drive your business forward. Every project is tailored to your specific needs.",
             tech: "Technologies:",
@@ -3261,7 +3277,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Tutorials, tips, and trends on web development, apps, and SaaS.",
-                tag: "// Blog",
+                tag: "Blog",
                 title: 'Development <span class="text-gradient">tips</span>',
             },
             post1: {
@@ -3322,7 +3338,7 @@ about: {
                 q2: "How long do you take to respond?",
                 q3: "Do you work with clients outside Andorra?",
                 q4: "Do you ask for payment upfront?",
-                tag: "// FAQ",
+                tag: "FAQ",
                 title: 'Frequently <span class="text-gradient">asked questions</span>',
             },
             form: {
@@ -3349,7 +3365,7 @@ about: {
             },
             pageHero: {
                 subtitle: "Tell me your idea and I\'ll reply in less than 24 hours.",
-                tag: "// Contact",
+                tag: "Contact",
                 title: 'Let\'s talk about your <span class="text-gradient">project</span>',
             },
             successModal: {
@@ -3392,7 +3408,7 @@ about: {
                 metricTime: "-90%",
                 metricTimeLabel: "Time on quotes",
                 solutionDesc: "Bot that intercepts incoming messages, guides customers step-by-step with key questions to understand their needs, calculates cost based on responses, and sends a detailed personalized quote in seconds, any time of day.",
-                tag: "// Case Study",
+                tag: "Case Study",
                 testimonial: "\"Before we lost customers because we took too long to respond. Now the bot responds in seconds anytime and we focus on closing sales, not writing quotes.\"",
                 testimonialAuthor: "— Client, service sector",
                 title: 'Quote Bot: <span class="text-gradient">From hours to seconds</span>',
@@ -3444,7 +3460,7 @@ about: {
             },
             pageHero: {
                 subtitle: "A selection of digital products I have developed and launched.",
-                tag: "// Portfolio",
+                tag: "Portfolio",
                 title: 'My <span class="text-gradient">projects</span>',
             },
             proteinShop: {
@@ -3478,7 +3494,7 @@ about: {
             },
         },
         svc: {
-            tag: '// Service',
+            tag: 'Service',
             pricingTag: '// Pricing',
             faqTag: '// FAQ',
             faqTitle: 'Frequently asked <span class="text-gradient">questions</span>',

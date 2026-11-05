@@ -416,19 +416,19 @@
 
     /* ─── INIT ON DOM READY ─── */
     function init() {
-        initTilt();
-        initOrbParallax();
+        // initTilt(); // desactivado en el rediseño v3 (ruido visual)
+        // initOrbParallax(); // desactivado en el rediseño v3 (ruido visual)
         initBadgePulse();
         initRevealEnhancement();
         initCtaSpotlight();
         initNavHighlight();
-        initCinematicOverlays();
-        initAurora();
-        initHexGrid();
+        // initCinematicOverlays(); // desactivado en el rediseño v3 (ruido visual)
+        // initAurora(); // desactivado en el rediseño v3 (ruido visual)
+        // initHexGrid(); // desactivado en el rediseño v3 (ruido visual)
         initHeroParallax();
-        initHeroSpotlight();
+        // initHeroSpotlight(); // desactivado en el rediseño v3 (ruido visual)
         initGlitch();
-        initParticles();
+        // initParticles(); // desactivado en el rediseño v3 (ruido visual)
         initCinematicReveals();
     }
 
