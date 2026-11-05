@@ -1599,6 +1599,65 @@ body {
     font-size: 1.08rem;
 }
 
+/* ─── ARTICLE EXTRAS ─── */
+
+.article-body .article-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 24px;
+    font-size: 0.92rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .article-body .article-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.article-body .article-table thead th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+}
+
+.article-body .article-table td {
+    padding: 14px;
+    vertical-align: top;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    line-height: 1.55;
+    min-width: 140px;
+}
+
+.article-body .article-table td:nth-child(2) {
+    white-space: nowrap;
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+.article-body .article-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.article-body .article-table strong {
+    color: var(--text-primary);
+}
+
+.article-body h3 {
+    margin-top: 28px;
+}
+
 /* ─── SERVICE DETAIL (servicios.html) ─── */
 
 .service-detail {
@@ -1807,5 +1866,84 @@ body {
 @media (max-width: 640px) {
     .ai-media-caption {
         display: none;
+    }
+}
+
+/* ─── ARTICLE LINKS / BADGE / MOBILE TABLE ─── */
+
+.article-body p a,
+.article-body li a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+    text-decoration-color: rgba(34, 211, 238, 0.4);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.article-body p a:hover,
+.article-body li a:hover {
+    text-decoration-color: var(--accent-cyan);
+}
+
+.blog-badge {
+    top: 14px;
+    right: 14px;
+    padding: 5px 11px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    z-index: 3;
+    opacity: 1;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .article-body .article-table {
+        display: block;
+        overflow: visible;
+        border: none;
+    }
+
+    .article-body .article-table thead {
+        display: none;
+    }
+
+    .article-body .article-table tbody,
+    .article-body .article-table tr,
+    .article-body .article-table td {
+        display: block;
+        min-width: 0;
+        white-space: normal;
+    }
+
+    .article-body .article-table tr {
+        padding: 14px 16px 6px;
+        margin-bottom: 12px;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        background: var(--bg-card);
+    }
+
+    .article-body .article-table td {
+        padding: 0 0 12px;
+        border: none;
+    }
+
+    .article-body .article-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+    }
+
+    .article-body .article-table td:first-child::before {
+        display: none;
+    }
+
+    .article-body .article-table td:first-child strong {
+        font-size: 1.05rem;
     }
 }
