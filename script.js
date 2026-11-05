@@ -56,7 +56,10 @@ function initCookieBanner() {
 
     const decide = (value) => {
         try { localStorage.setItem('cookieConsent', value); } catch (e) { /* modo privado */ }
-        if (value === 'accepted' && typeof window.__loadGTM === 'function') window.__loadGTM();
+        if (value === 'accepted') {
+            if (typeof window.__loadGTM === 'function') window.__loadGTM();
+            if (typeof window.__loadMetricool === 'function') window.__loadMetricool();
+        }
         bar.remove();
     };
     bar.querySelector('.cookie-accept').addEventListener('click', () => decide('accepted'));
