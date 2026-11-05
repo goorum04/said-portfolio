@@ -1,4 +1,4 @@
-const CACHE_NAME = 'said-portfolio-v2';
+const CACHE_NAME = 'said-portfolio-v3';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -6,6 +6,7 @@ const urlsToCache = [
     '/script.js',
     '/higgsfield-visuals.css',
     '/higgsfield-visuals.js',
+    '/theme.css',
     '/manifest.json'
 ];
 

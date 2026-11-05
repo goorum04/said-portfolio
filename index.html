@@ -44,8 +44,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.18">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.8">
+    <link rel="stylesheet" href="styles.css?v=2.19">
+    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
+    <link rel="stylesheet" href="theme.css?v=3.0">
 
     <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
@@ -165,33 +166,26 @@
     </header>
 
     <section class="hero" id="hero">
-        <!-- Higgsfield ambient layer -->
         <div class="hf-hero-ambient">
             <div class="hf-orb hf-orb--cyan"></div>
             <div class="hf-orb hf-orb--purple"></div>
-            <div class="hf-orb hf-orb--pink"></div>
         </div>
         <div class="hf-hero-grid"></div>
-        <canvas id="particleCanvas"></canvas>
         <div class="hf-hero-fade"></div>
         <div class="hero-content">
-            <div class="hero-badge animate-in"><span class="badge-dot"></span><span data-i18n="hero.badge">Disponible
-                    para proyectos</span></div>
-            <h1 class="hero-title animate-in">
-                <span class="hero-headline" data-i18n="hero.headline">IA segura que responde <span
-                        class="text-gradient">con tus datos, sin inventar</span></span>
-            </h1>
-            <p class="hero-subtitle animate-in" data-i18n="hero.subtitle">Somos un estudio digital en Andorra
-                especializado en asistentes RAG: IA que consulta los documentos reales de tu empresa y responde con
-                fuentes. También diseñamos webs, apps y SaaS a medida.</p>
-            <p class="hero-description animate-in" data-i18n="hero.description">IA Segura & RAG · Automatizaciones ·
-                Páginas Web · Apps · SaaS</p>
-            <div class="hero-buttons animate-in">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-badge animate-in"><span class="badge-dot"></span><span data-i18n="hero.badge">Aceptando nuevos proyectos</span></div>
+                    <h1 class="hero-title animate-in">
+                        <span class="hero-headline" data-i18n="hero.headline">IA segura que responde <span class="text-gradient">con tus datos, sin inventar</span></span>
+                    </h1>
+                    <p class="hero-subtitle animate-in" data-i18n="hero.subtitle">Somos un estudio digital en Andorra especializado en asistentes RAG: IA que consulta los documentos reales de tu empresa y responde con fuentes. También diseñamos webs, apps y SaaS a medida.</p>
+                    <div class="hero-buttons animate-in">
                 <a href="https://wa.me/376601249?text=Hola%2C%20me%20interesa%20un%20presupuesto"
                     class="btn btn-primary magnetic" target="_blank" rel="noopener">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
                     </svg>
                     <span data-i18n="hero.cta1">Pedir Presupuesto</span>
                 </a>
@@ -201,7 +195,7 @@
                         <path d="M7 17l9.2-9.2M17 17V7H7" />
                     </svg></a>
             </div>
-            <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20de%20posicionamiento%20en%20IA%20gratis"
+                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20de%20posicionamiento%20en%20IA%20gratis"
                 class="hero-audit-banner animate-in" target="_blank" rel="noopener">
                 <svg class="hero-audit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -212,6 +206,48 @@
                     compromiso</span>
                 <span class="hero-audit-arrow" aria-hidden="true">→</span>
             </a>
+                    <div class="hero-proof animate-in">
+                        <div class="hero-proof-item"><strong>12+</strong><span data-i18n="heroProof.projects">Proyectos entregados</span></div>
+                        <div class="hero-proof-item"><strong>4</strong><span data-i18n="heroProof.sectors">Sectores</span></div>
+                        <div class="hero-proof-item"><strong>&lt; 24h</strong><span data-i18n="heroProof.reply">Tiempo de respuesta</span></div>
+                        <div class="hero-proof-item"><strong>100%</strong><span data-i18n="heroProof.code">Código tuyo, sin lock-in</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual animate-in" aria-hidden="true">
+                    <div class="rag-mock">
+                        <div class="rag-mock-bar">
+                            <div class="rag-mock-dots"><i></i><i></i><i></i></div>
+                            <div class="rag-mock-title"><span data-i18n="heroMock.title">Asistente RAG · Documentos internos</span><span class="live" data-i18n="heroMock.live">En vivo</span></div>
+                        </div>
+                        <div class="rag-mock-body">
+                            <div class="rag-msg rag-msg--user">
+                                <div class="rag-msg-avatar">TÚ</div>
+                                <div class="rag-bubble"><p data-i18n="heroMock.q">¿Qué plazo de devolución aplicamos a clientes B2B y quién lo aprueba?</p></div>
+                            </div>
+                            <div class="rag-msg rag-msg--ai">
+                                <div class="rag-msg-avatar">IA</div>
+                                <div class="rag-bubble">
+                                    <p data-i18n="heroMock.a1">Para clientes B2B el plazo es de <mark>30 días naturales</mark> desde la entrega. Las devoluciones superiores a 2.000&nbsp;€ las aprueba el responsable de cuenta.</p>
+                                    <div class="rag-sources">
+                                        <span class="rag-sources-label" data-i18n="heroMock.sources">Fuentes</span>
+                                        <span class="rag-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>politica-devoluciones-2025.pdf · p.4</span>
+                                        <span class="rag-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>manual-ventas.docx · §3.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rag-mock-footer">
+                            <div class="rag-input" data-i18n="heroMock.placeholder">Pregunta sobre tus documentos…</div>
+                            <div class="rag-send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                        </div>
+                    </div>
+                    <div class="rag-mock-chips">
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg><span data-i18n="heroMock.chip1">Datos cifrados, nunca entrenan modelos ajenos</span></span>
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="heroMock.chip2">Permisos por rol</span></span>
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="heroMock.chip3">Siempre con fuente</span></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -232,11 +268,12 @@
     <section class="section" id="servicios-home">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="servicesHome.tag">// Servicios</span>
+                <span class="section-tag" data-i18n="servicesHome.tag">Servicios</span>
                 <h2 class="section-title" data-i18n="servicesHome.title">Soluciones <span class="text-gradient">digitales</span></h2>
             </div>
             <div class="services-grid">
-                <article class="service-card reveal">
+                <article class="service-card service-card--featured reveal">
+                    <span class="service-eyebrow" data-i18n="servicesHome.featured">Especialidad</span>
                     <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" />
@@ -312,11 +349,15 @@
         <div class="container">
             <div class="ai-grid">
                 <div class="ai-media reveal">
-                    <img src="ai-secure.svg?v=1" alt="Implementación de IA segura: red neuronal protegida por un escudo"
-                        loading="lazy" width="1216" height="896">
+                    <img src="ai-secure.webp?v=1" alt="Implementación de IA segura: red neuronal protegida por un escudo de cristal junto a documentos y un candado"
+                        loading="lazy" width="1168" height="880">
+                    <div class="ai-media-caption">
+                        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-i18n="ai.caption1">Datos cifrados</span></span>
+                        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="ai.caption2">Respuestas con fuente</span></span>
+                    </div>
                 </div>
                 <div class="ai-content reveal">
-                    <span class="section-tag" data-i18n="ai.tag">// Inteligencia Artificial</span>
+                    <span class="section-tag" data-i18n="ai.tag">Inteligencia Artificial</span>
                     <h2 class="section-title" data-i18n="ai.title">Implementación de IA <span class="text-gradient">segura</span> para tu negocio</h2>
                     <p class="section-subtitle" data-i18n="ai.subtitle">Nuestra especialidad: IA que aporta valor real, protege tus datos y no se inventa nada.</p>
                     <ul class="ai-features">
@@ -340,7 +381,7 @@
     <section class="section geo-section" id="posicionamiento-ia">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="geo.tag">// Posicionamiento IA</span>
+                <span class="section-tag" data-i18n="geo.tag">Posicionamiento IA</span>
                 <h2 class="section-title" data-i18n="geo.title">Que la <span class="text-gradient">IA recomiende</span> tu negocio</h2>
                 <p class="section-subtitle" data-i18n="geo.subtitle">El 40% de las personas ya pregunta a ChatGPT, Claude o Perplexity antes que a Google. Te posiciono para aparecer en sus respuestas.</p>
             </div>
@@ -387,7 +428,7 @@
     <section class="section section-dark" id="portfolio-home">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="portfolioHome.tag">// Portfolio</span>
+                <span class="section-tag" data-i18n="portfolioHome.tag">Portfolio</span>
                 <h2 class="section-title" data-i18n="portfolioHome.title">Proyectos <span class="text-gradient">destacados</span></h2>
             </div>
             <div class="portfolio-grid">
@@ -424,7 +465,7 @@
     <section class="section" id="testimonios-home">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="testimonialsHome.tag">// Testimonios</span>
+                <span class="section-tag" data-i18n="testimonialsHome.tag">Testimonios</span>
                 <h2 class="section-title" data-i18n="testimonialsHome.title">Lo que dicen <span class="text-gradient">mis clientes</span></h2>
             </div>
             <!-- Infinite scrolling testimonials marquee -->
@@ -432,7 +473,7 @@
                 <div class="hf-marquee-track">
                     <!-- Set 1 -->
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t1">"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">MR</div>
@@ -440,7 +481,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t2">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">CP</div>
@@ -448,7 +489,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t3">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">JL</div>
@@ -456,7 +497,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t4">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">AM</div>
@@ -464,7 +505,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t5">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">RS</div>
@@ -472,7 +513,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t6">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">LG</div>
@@ -481,7 +522,7 @@
                     </div>
                     <!-- Set 2 (duplicate for seamless loop) -->
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t1">"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">MR</div>
@@ -489,7 +530,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t2">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">CP</div>
@@ -497,7 +538,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t3">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">JL</div>
@@ -505,7 +546,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t4">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">AM</div>
@@ -513,7 +554,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t5">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">RS</div>
@@ -521,7 +562,7 @@
                         </div>
                     </div>
                     <div class="hf-t-card">
-                        <div class="hf-t-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
                         <p class="hf-t-text" data-i18n="testimonialsHome.t6">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
                         <div class="hf-t-author">
                             <div class="hf-t-avatar">LG</div>
@@ -537,7 +578,7 @@
     <section class="section section-dark" id="proceso">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="process.tag">// Proceso</span>
+                <span class="section-tag" data-i18n="process.tag">Proceso</span>
                 <h2 class="section-title" data-i18n="process.title">Cómo <span class="text-gradient">trabajo</span></h2>
                 <p class="section-subtitle" data-i18n="process.subtitle">Un proceso claro de principio a fin.</p>
             </div>
@@ -590,34 +631,34 @@
     <section class="trust-section" id="garantias">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="trust.tag">// Garantías</span>
+                <span class="section-tag" data-i18n="trust.tag">Garantías</span>
                 <h2 class="section-title" data-i18n="trust.title">Por qué <span class="text-gradient">confiar en
                         nosotros</span></h2>
             </div>
             <div class="trust-grid reveal">
                 <div class="trust-card">
-                    <div class="trust-icon">✅</div>
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
                     <div class="trust-card-content">
                         <h3 data-i18n="trust.card1.title">Satisfacción garantizada</h3>
                         <p data-i18n="trust.card1.desc">No pagas hasta que estés 100% satisfecho con el resultado.</p>
                     </div>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">⚡</div>
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                     <div class="trust-card-content">
                         <h3 data-i18n="trust.card2.title">Entrega rápida</h3>
                         <p data-i18n="trust.card2.desc">Plazos realistas que cumplo. Sin sorpresas ni retrasos.</p>
                     </div>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">🛠️</div>
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                     <div class="trust-card-content">
                         <h3 data-i18n="trust.card3.title">Soporte incluido</h3>
                         <p data-i18n="trust.card3.desc">30 días de soporte gratuito después del lanzamiento.</p>
                     </div>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">📱</div>
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                     <div class="trust-card-content">
                         <h3 data-i18n="trust.card4.title">Comunicación directa</h3>
                         <p data-i18n="trust.card4.desc">Hablas directamente con el equipo. Sin intermediarios.</p>
@@ -631,7 +672,7 @@
     <section class="pricing-section" id="precios">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="pricing.tag">// Precios</span>
+                <span class="section-tag" data-i18n="pricing.tag">Precios</span>
                 <h2 class="section-title" data-i18n="pricing.title">Inversión <span class="text-gradient">transparente</span></h2>
                 <p class="section-subtitle" data-i18n="pricing.subtitle">Precios orientativos. Cada proyecto es único.</p>
             </div>
@@ -688,7 +729,7 @@
     <section class="section faq-section" id="faq">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag" data-i18n="faq.tag">// FAQ</span>
+                <span class="section-tag" data-i18n="faq.tag">FAQ</span>
                 <h2 class="section-title" data-i18n="faq.title">Preguntas <span class="text-gradient">frecuentes</span></h2>
                 <p class="section-subtitle" data-i18n="faq.subtitle">Lo que más me preguntan antes de empezar un proyecto.</p>
             </div>
@@ -733,22 +774,52 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Desarrollo digital desde Andorra 🇦🇩</p>
+            <div class="footer-grid">
+                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
+                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+                        </a>
+                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-links"><a href="servicios.html" data-i18n="nav.services">Servicios</a><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a><a
-                        href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a><a href="contacto.html" data-i18n="nav.contact">Contacto</a></div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                    </a>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colServices">Servicios</h4>
+                    <ul>
+                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
+                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
+                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
+                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
+                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
+                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colCompany">Estudio</h4>
+                    <ul>
+                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
+                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
+                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colContact">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
                 <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
+                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
             </div>
         </div>
     </footer>
@@ -783,8 +854,8 @@
         </form>
     </div>
 
-    <script src="script.js?v=3.25"></script>
-    <script src="higgsfield-visuals.js?v=2.1"></script>
+    <script src="script.js?v=3.26"></script>
+    <script src="higgsfield-visuals.js?v=2.2"></script>
 </body>
 
 </html>
