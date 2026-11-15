@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.svg">
 <meta name="description" content="Tu propia app de entrenamiento con tu logo, tus colores y un asistente IA entrenado con tu método. Para entrenadores personales online.">
 <meta property="og:title" content="CoachApp — Tu propia app de entrenamiento, con tu marca">
-<meta property="og:description" content="Rutinas, nutrición, progreso 3D y asistente IA. Con tu logo. Sin programar.">
+<meta property="og:description" content="Rutinas, nutrición, lista de la compra, retos y asistente IA. Con tu logo.">
 <meta name="theme-color" content="#07080a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +127,9 @@ h2{font-size:clamp(34px,5vw,62px);font-weight:700;max-width:820px;margin-bottom:
 .vis{margin-top:24px}
 @media(max-width:900px){.s3,.s2,.s4{grid-column:span 6}}
 .av3d{position:absolute;right:6px;bottom:-24px;width:120px;opacity:.95}
-.bc.s2:has(.av3d) p{max-width:55%}
+.ph2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ph2 div{position:relative;height:72px;border-radius:10px;background:linear-gradient(160deg,#232930,#14181d);overflow:hidden}.ph2 i{position:absolute;left:50%;bottom:-6px;translate:-50% 0;width:34px;height:58px;border-radius:17px 17px 6px 6px;background:#3a414b}.ph2 .aft i{width:28px;background:color-mix(in srgb,var(--b) 55%,#3a414b);transition:background .4s}.ph2 span{position:absolute;top:5px;left:7px;font-size:9px;font-weight:600;color:var(--mut)}
+.chal{display:flex;flex-direction:column;gap:8px;font-size:13px}.chal>div:not(.bar){display:flex;justify-content:space-between}.chal b{color:var(--acc)}.chal .bar{margin:0 0 6px;height:6px;border-radius:9px;background:#232930;overflow:hidden}.chal .bar i{display:block;height:100%;background:var(--acc);border-radius:9px}
+.notif{display:flex;flex-direction:column;gap:8px}.notif div{display:flex;gap:10px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:12px}.notif span{color:var(--mut)}.notif b{display:block;color:var(--txt);font-size:13px}.notif div:nth-child(2){opacity:.6;transform:scale(.96)}
 .av3d path,.av3d ellipse{fill:none;stroke:var(--acc);stroke-width:1.1;opacity:.7}
 .av3d .h{stroke:var(--acc2);opacity:.45}
 .scan{animation:scan 3.5s ease-in-out infinite}
@@ -225,8 +227,8 @@ footer a{color:var(--txt);border-bottom:1px solid var(--line)}
 <svg class="chart" viewBox="0 0 100 60" width="100%" height="62"><path class="f" d="M0 50 L15 44 L30 46 L45 34 L60 30 L75 20 L100 8 L100 60 L0 60Z"/><path class="l" d="M0 50 L15 44 L30 46 L45 34 L60 30 L75 20 L100 8" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </div>
 <div class="ac"><div class="ac-t"><span data-i="pAi"></span><span style="color:var(--acc2)">●</span></div>
-<div class="chat"><p class="u" data-i="pQ"></p><p class="b" data-i="pA"></p></div></div>
-<div class="tabs"><span>🏠</span><span>📅</span><span>🥗</span><span>📈</span><span>💬</span></div>
+<div class="ph2"><div><i></i><span data-i="pQ"></span></div><div class="aft"><i></i><span data-i="pA"></span></div></div></div>
+<div class="tabs"><span>🏠</span><span>🛒</span><span>🥗</span><span>📈</span><span>💬</span></div>
 </div></div>
 <div class="float f1"><div class="dot"></div><div><b data-i="f1b"></b><span data-i="f1s"></span></div></div>
 <div class="float f2">⚡<div><b data-i="f2b"></b><span data-i="f2s"></span></div></div>
@@ -248,11 +250,11 @@ footer a{color:var(--txt);border-bottom:1px solid var(--line)}
 <div class="bc s4 rv" style="min-height:300px"><h3 data-i="b1T"></h3><p data-i="b1P"></p>
 <div class="vis chat" style="max-width:340px;font-size:13px"><p class="u" style="background:#232930" data-i="b1Q"></p><p class="b" style="background:rgba(198,255,61,.13)" data-i="b1A"></p></div></div>
 <div class="bc s2 rv"><h3 data-i="b2T"></h3><p data-i="b2P"></p>
-<svg class="av3d" viewBox="0 0 120 240"><ellipse cx="60" cy="24" rx="15" ry="18"/><path d="M45 44 Q60 52 75 44 L92 62 Q98 92 90 120 L80 118 L78 150 Q76 190 72 232 L63 232 L60 160 L57 232 L48 232 Q44 190 42 150 L40 118 L30 120 Q22 92 28 62Z"/><path class="h" d="M30 80 H90 M28 100 H92 M40 130 H80 M44 170 H76 M46 200 H74"/><path class="h" d="M60 50 V150"/><rect class="scan" x="20" y="10" width="80" height="2" fill="var(--acc)" opacity=".8"/></svg></div>
+<div class="vis chal"><div><span>🔥 Reto 30 días</span><b>18/30</b></div><div class="bar"><i style="width:60%"></i></div><div><span>💧 2L agua/día</span><b>5/7</b></div><div class="bar"><i style="width:71%"></i></div></div></div>
 <div class="bc s2 rv"><h3 data-i="b3T"></h3><p data-i="b3P"></p><div class="vis cards3" data-i="b3C"></div></div>
 <div class="bc s2 rv"><h3 data-i="b4T"></h3><p data-i="b4P"></p>
 <svg class="vis" viewBox="0 0 200 70" width="100%"><path d="M0 60 L30 52 L60 55 L90 38 L120 34 L150 20 L200 6 L200 70 L0 70Z" fill="var(--acc)" opacity=".12"/><path d="M0 60 L30 52 L60 55 L90 38 L120 34 L150 20 L200 6" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-<div class="bc s2 rv"><div class="big">0</div><h3 style="margin-top:14px" data-i="b5T"></h3><p data-i="b5P"></p></div>
+<div class="bc s2 rv"><h3 data-i="b5T"></h3><p data-i="b5P"></p><div class="vis notif"><div>🏋️ <span><b>Entreno de hoy</b>Pierna + glúteo · 45'</span></div><div>🔥 <span><b>Reto activo</b>Te quedan 12 días</span></div></div></div>
 <div class="bc s3 rv"><h3 data-i="b6T"></h3><p data-i="b6P"></p></div>
 <div class="bc s3 rv"><h3 data-i="b7T"></h3><p data-i="b7P"></p></div>
 </div></div></section>
@@ -295,23 +297,23 @@ const T={
 es:{
 ctaShort:"Pedir demo",pillB:"Nuevo",pill:"Para entrenadores personales online",
 h1:'Tu app.<br>Tu marca.<br><span class="stroke">Tu método.</span>',
-lead:"Rutinas, nutrición, progreso en 3D y un asistente con IA que responde a tus clientes como lo harías tú. Con tu logo y tus colores en su móvil. Sin programar una línea.",
+lead:"Rutinas, dieta con lista de la compra, retos, notificaciones y comparación de fotos y una IA que te ayuda a crear y ajustar rutinas y dietas en segundos. Todo con tu logo y tus colores, en su móvil.",
 cta:"Pedir una demo",cta2:"Ver funciones",
 tryL:"Pruébalo: escribe tu marca",
-pHi:"Hola, Marta 👋",pDay:"Día de pierna",pToday:"Hoy",pWk:"Pierna + glúteo",pWkS:"6 ejercicios · 4 series",pMac:"Macros",pProg:"Progreso",pAi:"Tu coach IA",
-pQ:"¿Puedo cambiar la sentadilla?",pA:"Claro, hoy haz prensa 4×10. Tu rodilla lo agradecerá 💪",
-f1b:"Asistente activo",f1s:"Responde 24/7",f2b:"+12 % fuerza",f2s:"este mes",
-mq:["Rutinas","Nutrición y macros","Asistente con IA","Avatar corporal 3D","Gráficas de progreso","Tu logo","Tus colores","iPhone y Android","Sin programar"],
+pHi:"Hola, Marta 👋",pDay:"Día de pierna",pToday:"Hoy",pWk:"Pierna + glúteo",pWkS:"6 ejercicios · 4 series",pMac:"Macros",pProg:"Progreso",pAi:"Fotos de progreso",
+pQ:"Semana 1",pA:"Semana 12",
+f1b:"Rutina generada con IA",f1s:"Lista para revisar",f2b:"+12 % fuerza",f2s:"este mes",
+mq:["Rutinas","Dieta y macros","Lista de la compra","Retos","Notificaciones","IA para crear rutinas y dietas","Comparación de fotos","Gráficas de progreso","Tu logo","Tus colores","iPhone y Android"],
 baK:"El problema",baT:"Tu negocio no cabe en un chat de WhatsApp.",
 baA:"Ahora",baAl:["PDFs de rutinas que nadie abre","Mensajes a las 23:00 con la misma duda","Progreso perdido entre notas y Excel","Tu marca, invisible","Techo de clientes: tus horas"],
-baB:"Con CoachApp",baBl:["Todo en una app con tu nombre","La IA resuelve dudas por ti, con tu criterio","Progreso visual que engancha al cliente","Imagen premium que justifica subir precios","Más clientes sin más horas"],
+baB:"Con CoachApp",baBl:["Todo en una app con tu nombre","Rutinas y dietas creadas con IA en segundos","Progreso visual que engancha al cliente","Imagen premium que justifica subir precios","Más clientes sin más horas"],
 fK:"Funciones",fT:"Todo lo que necesitas. Nada que no.",fS:"Una plataforma completa que se siente hecha a medida, porque lo está.",
-b1T:"Un asistente con IA entrenado con tu método",b1P:"Le damos tu forma de trabajar, tu tono y tus reglas. Responde a tus clientes 24/7 y tú solo intervienes cuando hace falta.",
-b1Q:"Hoy no me da tiempo a entrenar 1 h, ¿qué hago?",b1A:"Hazte el circuito exprés de 25' que tienes en la app. Mañana retomamos el plan 🔥",
-b2T:"Avatar 3D",b2P:"Tus clientes ven su cuerpo cambiar. Y quien ve progreso, no se va.",
-b3T:"Rutinas y nutrición",b3P:"Planes por cliente en minutos.",b3C:"<span>🏋️ Fuerza</span><span>🥗 Macros</span><span>📅 Calendario</span><span>📸 Fotos</span>",
-b4T:"Progreso visual",b4P:"Medidas, pesos y gráficas automáticas.",
-b5T:"Líneas de código",b5P:"Tú no programas nada. Nos encargamos de todo.",
+b1T:"Tu asistente con IA para crear y ajustar planes",b1P:"Pídele una rutina o una dieta para un cliente, modifícala con una frase y asígnala. Lo que antes te llevaba una tarde, ahora son minutos. Tú siempre tienes la última palabra.",
+b1Q:"Rutina de 4 días para Marta, foco glúteo, sin sentadilla por la rodilla",b1A:"✓ Rutina creada: 4 días · 22 ejercicios. Revísala y asígnala cuando quieras.",
+b2T:"Retos",b2P:"Lanza retos a tus clientes y mantenlos enganchados semana tras semana.",
+b3T:"Rutinas, dieta y lista de la compra",b3P:"Del entrenamiento al súper: cada cliente tiene su plan y sabe qué comprar.",b3C:"<span>🏋️ Rutinas</span><span>🥗 Dieta</span><span>🛒 Lista de la compra</span><span>📅 Calendario</span>",
+b4T:"Progreso y comparación de fotos",b4P:"Medidas, peso y fotos de antes y después, lado a lado.",
+b5T:"Notificaciones",b5P:"Recordatorios de entreno, comidas y retos directamente en el móvil de tus clientes.",
 b6T:"100 % tu marca",b6P:"Tu nombre, tu logo, tus colores, tu dominio. Tus clientes no verán ninguna otra marca. Nunca.",
 b7T:"Se instala como una app",b7P:"En iPhone y Android, directamente desde el navegador. Sin esperar aprobaciones de tiendas.",
 cK:"Calculadora",cT:"¿Cuánto tiempo te devuelve?",
@@ -319,32 +321,32 @@ cC:"Clientes activos",cM:"Minutos por cliente y semana en WhatsApp, PDFs y Excel
 cR:"Tiempo para entrenar a más gente, crear contenido o, simplemente, vivir.",
 cN:"Estimación: suponemos que la app y la IA asumen el 60 % de ese trabajo.",
 sK:"Cómo funciona",sT:"Lista en días, no en meses.",
-steps:[["Nos cuentas tu método","Nombre, logo, colores y cómo trabajas. Una videollamada y listo."],["Montamos tu app","La personalizamos y entrenamos tu asistente con tu forma de hablar."],["Invitas a tus clientes","Se la instalan en el móvil y empiezas a escalar."]],
+steps:[["Nos cuentas tu método","Nombre, logo, colores y cómo trabajas. Una videollamada y listo."],["Montamos tu app","La personalizamos con tu marca y la dejamos lista para tus clientes."],["Invitas a tus clientes","Se la instalan en el móvil y empiezas a escalar."]],
 qT:"Preguntas frecuentes",
-faq:[["¿Necesito saber programar?","No. Nosotros nos encargamos de la configuración, la marca, la IA y el mantenimiento."],["¿Mis clientes verán otra marca?","No. La app lleva solo tu nombre, tu logo y tus colores."],["¿Cuánto cuesta?","Depende del número de clientes y de las funciones que necesites. En la demo te damos un precio cerrado, sin sorpresas."],["¿De quién son los datos?","Tuyos. Cada entrenador tiene su propio espacio separado y sus datos le pertenecen."],["¿Cuánto tarda en estar lista?","Normalmente unos días desde que nos pasas tu marca y tu método."]],
+faq:[["¿Mis clientes verán otra marca?","No. La app lleva solo tu nombre, tu logo y tus colores."],["¿Cuánto cuesta?","Depende del número de clientes y de las funciones que necesites. En la demo te damos un precio cerrado, sin sorpresas."],["¿De quién son los datos?","Tuyos. Cada entrenador tiene su propio espacio separado y sus datos le pertenecen."],["¿Cuánto tarda en estar lista?","Normalmente unos días desde que nos pasas tu marca y tu método."]],
 endT:'¿Listo para tener<br><span class="acc">tu propia app</span>?',endS:"Cuéntanos cómo trabajas y te enseñamos cómo quedaría con tu marca. 15 minutos, sin compromiso.",
 foot:'Desarrollado por <a href="/">SaeTechAI</a>'
 },
 fr:{
 ctaShort:"Démo",pillB:"Nouveau",pill:"Pour les coachs sportifs en ligne",
 h1:'Votre app.<br>Votre marque.<br><span class="stroke">Votre méthode.</span>',
-lead:"Programmes, nutrition, progrès en 3D et un assistant IA qui répond à vos clients comme vous le feriez. Avec votre logo et vos couleurs sur leur téléphone. Sans écrire une ligne de code.",
+lead:"Programmes, nutrition avec liste de courses, défis, notifications comparaison de photos et une IA qui vous aide à créer et ajuster programmes et plans alimentaires en quelques secondes. Le tout avec votre logo et vos couleurs, sur leur téléphone.",
 cta:"Demander une démo",cta2:"Voir les fonctions",
 tryL:"Essayez : tapez votre marque",
-pHi:"Salut Marta 👋",pDay:"Jour jambes",pToday:"Aujourd'hui",pWk:"Jambes + fessiers",pWkS:"6 exercices · 4 séries",pMac:"Macros",pProg:"Progrès",pAi:"Votre coach IA",
-pQ:"Je peux remplacer le squat ?",pA:"Bien sûr, fais la presse 4×10 aujourd'hui. Ton genou te dira merci 💪",
-f1b:"Assistant actif",f1s:"Répond 24h/24",f2b:"+12 % de force",f2s:"ce mois-ci",
-mq:["Programmes","Nutrition et macros","Assistant IA","Avatar corporel 3D","Graphiques de progrès","Votre logo","Vos couleurs","iPhone et Android","Sans coder"],
+pHi:"Salut Marta 👋",pDay:"Jour jambes",pToday:"Aujourd'hui",pWk:"Jambes + fessiers",pWkS:"6 exercices · 4 séries",pMac:"Macros",pProg:"Progrès",pAi:"Photos de progrès",
+pQ:"Semaine 1",pA:"Semaine 12",
+f1b:"Programme généré par IA",f1s:"Prêt à valider",f2b:"+12 % de force",f2s:"ce mois-ci",
+mq:["Programmes","Nutrition et macros","Liste de courses","Défis","Notifications","IA pour programmes et nutrition","Comparaison de photos","Graphiques de progrès","Votre logo","Vos couleurs","iPhone et Android"],
 baK:"Le problème",baT:"Votre business ne tient pas dans une conversation WhatsApp.",
 baA:"Aujourd'hui",baAl:["Des PDF que personne n'ouvre","Des messages à 23 h avec la même question","Des progrès perdus entre notes et Excel","Votre marque, invisible","Plafond de clients : vos heures"],
-baB:"Avec CoachApp",baBl:["Tout dans une app à votre nom","L'IA répond pour vous, avec vos critères","Des progrès visuels qui fidélisent","Une image premium qui justifie vos tarifs","Plus de clients sans plus d'heures"],
+baB:"Avec CoachApp",baBl:["Tout dans une app à votre nom","Programmes et plans alimentaires créés par IA en quelques secondes","Des progrès visuels qui fidélisent","Une image premium qui justifie vos tarifs","Plus de clients sans plus d'heures"],
 fK:"Fonctions",fT:"Tout ce qu'il faut. Rien de trop.",fS:"Une plateforme complète qui semble faite sur mesure, parce qu'elle l'est.",
-b1T:"Un assistant IA entraîné avec votre méthode",b1P:"Nous lui donnons votre façon de travailler, votre ton et vos règles. Il répond à vos clients 24h/24 et vous n'intervenez que si nécessaire.",
-b1Q:"Je n'ai pas le temps de m'entraîner 1 h aujourd'hui, je fais quoi ?",b1A:"Fais le circuit express de 25' dans l'app. On reprend le plan demain 🔥",
-b2T:"Avatar 3D",b2P:"Vos clients voient leur corps changer. Et qui voit ses progrès, reste.",
-b3T:"Programmes et nutrition",b3P:"Des plans par client en quelques minutes.",b3C:"<span>🏋️ Force</span><span>🥗 Macros</span><span>📅 Calendrier</span><span>📸 Photos</span>",
-b4T:"Progrès visuels",b4P:"Mensurations, poids et graphiques automatiques.",
-b5T:"Ligne de code",b5P:"Vous ne codez rien. Nous nous occupons de tout.",
+b1T:"Votre assistant IA pour créer et ajuster les plans",b1P:"Demandez-lui un programme ou un plan alimentaire pour un client, modifiez-le en une phrase et assignez-le. Ce qui vous prenait un après-midi prend maintenant quelques minutes. Vous gardez toujours le dernier mot.",
+b1Q:"Programme de 4 jours pour Marta, focus fessiers, sans squat à cause du genou",b1A:"✓ Programme créé : 4 jours · 22 exercices. Vérifiez-le et assignez-le quand vous voulez.",
+b2T:"Défis",b2P:"Lancez des défis à vos clients et gardez-les motivés semaine après semaine.",
+b3T:"Programmes, nutrition et liste de courses",b3P:"De l'entraînement au supermarché : chaque client a son plan et sait quoi acheter.",b3C:"<span>🏋️ Programmes</span><span>🥗 Nutrition</span><span>🛒 Liste de courses</span><span>📅 Calendrier</span>",
+b4T:"Progrès et comparaison de photos",b4P:"Mensurations, poids et photos avant/après, côte à côte.",
+b5T:"Notifications",b5P:"Rappels d'entraînement, de repas et de défis directement sur le téléphone de vos clients.",
 b6T:"100 % votre marque",b6P:"Votre nom, votre logo, vos couleurs, votre domaine. Vos clients ne verront jamais une autre marque.",
 b7T:"S'installe comme une app",b7P:"Sur iPhone et Android, directement depuis le navigateur. Sans attendre la validation des stores.",
 cK:"Calculateur",cT:"Combien de temps récupérez-vous ?",
@@ -352,9 +354,9 @@ cC:"Clients actifs",cM:"Minutes par client et par semaine sur WhatsApp, PDF et E
 cR:"Du temps pour coacher plus de monde, créer du contenu ou, tout simplement, vivre.",
 cN:"Estimation : nous supposons que l'app et l'IA prennent en charge 60 % de ce travail.",
 sK:"Comment ça marche",sT:"Prête en quelques jours, pas en quelques mois.",
-steps:[["Présentez-nous votre méthode","Nom, logo, couleurs et façon de travailler. Un appel vidéo et c'est tout."],["Nous créons votre app","Nous la personnalisons et entraînons votre assistant avec votre façon de parler."],["Invitez vos clients","Ils l'installent sur leur téléphone et vous passez à l'échelle."]],
+steps:[["Présentez-nous votre méthode","Nom, logo, couleurs et façon de travailler. Un appel vidéo et c'est tout."],["Nous créons votre app","Nous la personnalisons à votre marque et la préparons pour vos clients."],["Invitez vos clients","Ils l'installent sur leur téléphone et vous passez à l'échelle."]],
 qT:"Questions fréquentes",
-faq:[["Dois-je savoir coder ?","Non. Nous nous occupons de la configuration, de la marque, de l'IA et de la maintenance."],["Mes clients verront-ils une autre marque ?","Non. L'app porte uniquement votre nom, votre logo et vos couleurs."],["Combien ça coûte ?","Cela dépend du nombre de clients et des fonctions. Nous vous donnons un prix fixe lors de la démo, sans surprise."],["À qui appartiennent les données ?","À vous. Chaque coach a son propre espace séparé et ses données lui appartiennent."],["En combien de temps est-elle prête ?","En général quelques jours après réception de votre marque et de votre méthode."]],
+faq:[["Mes clients verront-ils une autre marque ?","Non. L'app porte uniquement votre nom, votre logo et vos couleurs."],["Combien ça coûte ?","Cela dépend du nombre de clients et des fonctions. Nous vous donnons un prix fixe lors de la démo, sans surprise."],["À qui appartiennent les données ?","À vous. Chaque coach a son propre espace séparé et ses données lui appartiennent."],["En combien de temps est-elle prête ?","En général quelques jours après réception de votre marque et de votre méthode."]],
 endT:'Prêt à avoir<br><span class="acc">votre propre app</span> ?',endS:"Expliquez-nous comment vous travaillez et nous vous montrons le rendu à votre marque. 15 minutes, sans engagement.",
 foot:'Développé par <a href="/">SaeTechAI</a>'
 }};
