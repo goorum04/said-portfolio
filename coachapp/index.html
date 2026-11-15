@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CoachApp — Tu propia app de entrenamiento con tu marca</title>
+<link rel="canonical" href="https://saetechai.com/coachapp/">
+<link rel="icon" href="/favicon.svg">
+<meta name="description" content="App de entrenamiento con tu logo, tus colores y un asistente IA entrenado con tu método. Para entrenadores personales online.">
+<style>
+:root{--bg:#0b0d0c;--card:#141816;--line:#232a26;--txt:#eef2ef;--mut:#9aa59f;--acc:#c6ff3d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.5px}.logo span{color:var(--acc)}
+.lang button{background:none;border:1px solid var(--line);color:var(--mut);padding:6px 11px;border-radius:999px;cursor:pointer;font-weight:600;margin-left:4px}
+.lang button.on{border-color:var(--acc);color:var(--acc)}
+.hero{padding:70px 0 60px;text-align:center}
+.tag{display:inline-block;border:1px solid var(--line);color:var(--acc);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:22px}
+h1{font-size:clamp(34px,6vw,62px);line-height:1.05;letter-spacing:-1.5px;max-width:820px;margin:0 auto 20px}
+h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--mut);font-size:clamp(16px,2vw,19px);max-width:620px;margin:0 auto 32px}
+.btn{display:inline-block;background:var(--acc);color:#0b0d0c;font-weight:800;padding:15px 28px;border-radius:12px;text-decoration:none;font-size:16px}
+.btn:hover{filter:brightness(1.08)}
+.small{color:var(--mut);font-size:13px;margin-top:12px}
+section{padding:60px 0}
+h2{font-size:clamp(26px,4vw,38px);letter-spacing:-1px;margin-bottom:14px;text-align:center}
+.sub{color:var(--mut);text-align:center;max-width:600px;margin:0 auto 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card .ic{font-size:26px;margin-bottom:12px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{color:var(--mut);font-size:15px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vs .card ul{list-style:none}.vs li{padding:7px 0;color:var(--mut);font-size:15px}
+.vs .good{border-color:var(--acc)}.vs .good li{color:var(--txt)}
+.steps{counter-reset:s}.steps .card{position:relative;padding-top:56px}
+.steps .card:before{counter-increment:s;content:counter(s);position:absolute;top:20px;left:24px;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#0b0d0c;font-weight:800;display:grid;place-items:center;font-size:14px}
+.faq .card{margin-bottom:12px}
+.cta{text-align:center;background:linear-gradient(180deg,var(--card),var(--bg));border:1px solid var(--line);border-radius:24px;padding:56px 22px;margin:20px 0 60px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13px;text-align:center}
+@media(max-width:640px){.vs{grid-template-columns:1fr}.hero{padding:40px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="logo">Coach<span>App</span></div>
+<div class="lang"><button data-l="es" class="on">ES</button><button data-l="fr">FR</button></div></nav>
+
+<header class="hero">
+<div class="tag" data-i="tag"></div>
+<h1 data-i="h1"></h1>
+<p class="lead" data-i="lead"></p>
+<a class="btn cta-link" href="#" data-i="cta"></a>
+<p class="small" data-i="ctaSmall"></p>
+</header>
+
+<section>
+<h2 data-i="vsT"></h2>
+<div class="vs">
+<div class="card"><h3 data-i="vsA"></h3><ul data-i="vsAl"></ul></div>
+<div class="card good"><h3 data-i="vsB"></h3><ul data-i="vsBl"></ul></div>
+</div>
+</section>
+
+<section>
+<h2 data-i="fT"></h2><p class="sub" data-i="fS"></p>
+<div class="grid" id="feat"></div>
+</section>
+
+<section>
+<h2 data-i="sT"></h2>
+<div class="grid steps" id="steps"></div>
+</section>
+
+<section class="faq">
+<h2 data-i="qT"></h2>
+<div id="faq"></div>
+</section>
+
+<div class="cta">
+<h2 data-i="endT"></h2><p class="sub" data-i="endS"></p>
+<a class="btn cta-link" href="#" data-i="cta"></a>
+</div>
+</div>
+<footer data-i="foot"></footer>
+
+<script>
+// Enlace del botón "Pedir demo": cámbialo por tu WhatsApp (https://wa.me/376XXXXXX) si prefieres
+const CTA_URL = "https://ig.me/m/saetechai";
+
+const T = {
+es:{
+tag:"Para entrenadores personales online",
+h1:"Tu propia app de entrenamiento. <em>Con tu marca.</em>",
+lead:"Rutinas, dietas, seguimiento del progreso y un asistente con IA entrenado con tu método. Tus clientes la instalan en su móvil con tu logo y tus colores. Tú no programas nada.",
+cta:"Pedir una demo",
+ctaSmall:"Demo de 15 minutos · Sin compromiso",
+vsT:"Deja de gestionar clientes por WhatsApp",
+vsA:"Ahora",vsAl:["PDFs de rutinas que nadie abre","Mil chats de WhatsApp a todas horas","Progreso en notas sueltas y Excel","Tu marca no aparece por ningún lado"],
+vsB:"Con CoachApp",vsBl:["Rutinas y dietas dentro de la app","Asistente IA que responde dudas 24/7","Gráficas de progreso y avatar corporal 3D","Tu logo en el móvil de cada cliente"],
+fT:"Todo lo que necesitas para escalar",fS:"Una plataforma completa, personalizada con tu identidad.",
+feat:[["🏋️","Rutinas y planes","Crea y asigna entrenamientos por cliente en minutos."],["🥗","Nutrición","Planes de dieta y macros en la misma app."],["🤖","Asistente con IA","Entrenado con tu forma de trabajar. Responde por ti cuando no estás."],["📈","Progreso visual","Medidas, fotos, gráficas y avatar 3D del cuerpo."],["🎨","100% tu marca","Tu nombre, logo, colores y dominio. Nadie ve otra marca."],["📱","Se instala en el móvil","Funciona en iPhone y Android, sin pasar por tiendas."]],
+sT:"Lista en días, no en meses",
+steps:[["Nos cuentas tu método","Nombre, logo, colores y cómo trabajas con tus clientes."],["Configuramos tu app","La personalizamos y entrenamos tu asistente con IA."],["Invitas a tus clientes","Se la instalan en el móvil y empiezas a trabajar."]],
+qT:"Preguntas frecuentes",
+faq:[["¿Necesito saber programar?","No. Nos encargamos de todo: configuración, marca, IA y mantenimiento."],["¿Mis clientes verán otra marca?","No. La app lleva solo tu nombre, tu logo y tus colores."],["¿Cuánto cuesta?","Depende del número de clientes y funciones. En la demo te damos un precio cerrado."],["¿Mis datos y los de mis clientes son míos?","Sí. Cada entrenador tiene su propio espacio y sus datos son suyos."]],
+endT:"¿Listo para tener tu propia app?",endS:"Cuéntanos cómo trabajas y te enseñamos cómo quedaría con tu marca.",
+foot:'© CoachApp · Desarrollado por <a href="/">SaeTechAI</a>'
+},
+fr:{
+tag:"Pour les coachs sportifs en ligne",
+h1:"Votre propre app de coaching. <em>À votre marque.</em>",
+lead:"Programmes, nutrition, suivi des progrès et un assistant IA entraîné avec votre méthode. Vos clients l'installent sur leur téléphone avec votre logo et vos couleurs. Vous ne codez rien.",
+cta:"Demander une démo",
+ctaSmall:"Démo de 15 minutes · Sans engagement",
+vsT:"Arrêtez de gérer vos clients sur WhatsApp",
+vsA:"Aujourd'hui",vsAl:["Des PDF de programmes que personne n'ouvre","Des dizaines de conversations à toute heure","Les progrès éparpillés dans des notes et Excel","Votre marque n'apparaît nulle part"],
+vsB:"Avec CoachApp",vsBl:["Programmes et nutrition dans l'app","Assistant IA qui répond 24h/24","Graphiques de progrès et avatar corporel 3D","Votre logo sur le téléphone de chaque client"],
+fT:"Tout pour développer votre activité",fS:"Une plateforme complète, personnalisée à votre image.",
+feat:[["🏋️","Programmes","Créez et attribuez des séances par client en quelques minutes."],["🥗","Nutrition","Plans alimentaires et macros dans la même app."],["🤖","Assistant IA","Entraîné avec votre façon de travailler. Il répond quand vous n'êtes pas là."],["📈","Progrès visuels","Mensurations, photos, graphiques et avatar 3D du corps."],["🎨","100 % votre marque","Votre nom, logo, couleurs et domaine. Aucune autre marque visible."],["📱","S'installe sur le mobile","Fonctionne sur iPhone et Android, sans passer par les stores."]],
+sT:"Prête en quelques jours",
+steps:[["Vous nous présentez votre méthode","Nom, logo, couleurs et façon de travailler avec vos clients."],["Nous configurons votre app","Nous la personnalisons et entraînons votre assistant IA."],["Vous invitez vos clients","Ils l'installent sur leur téléphone et c'est parti."]],
+qT:"Questions fréquentes",
+faq:[["Dois-je savoir coder ?","Non. Nous nous occupons de tout : configuration, marque, IA et maintenance."],["Mes clients verront-ils une autre marque ?","Non. L'app porte uniquement votre nom, votre logo et vos couleurs."],["Combien ça coûte ?","Cela dépend du nombre de clients et des fonctions. Nous vous donnons un prix fixe lors de la démo."],["Mes données et celles de mes clients m'appartiennent-elles ?","Oui. Chaque coach a son propre espace et ses données lui appartiennent."]],
+endT:"Prêt à avoir votre propre app ?",endS:"Expliquez-nous comment vous travaillez et nous vous montrons le rendu avec votre marque.",
+foot:'© CoachApp · Développé par <a href="/">SaeTechAI</a>'
+}};
+
+function card(a,b,c){return `<div class="card">${a?`<div class="ic">${a}</div>`:""}<h3>${b}</h3><p>${c}</p></div>`}
+function set(l){
+ const t=T[l];document.documentElement.lang=l;
+ document.querySelectorAll("[data-i]").forEach(e=>{const v=t[e.dataset.i];e.innerHTML=Array.isArray(v)?v.map(x=>`<li>${x}</li>`).join(""):v});
+ feat.innerHTML=t.feat.map(f=>card(...f)).join("");
+ steps.innerHTML=t.steps.map(s=>card("",...s)).join("");
+ faq.innerHTML=t.faq.map(q=>card("",...q)).join("");
+ document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
+ try{localStorage.setItem("lang",l)}catch(e){}
+}
+document.querySelectorAll(".cta-link").forEach(a=>{a.href=CTA_URL;a.target="_blank";a.rel="noopener"});
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>set(b.dataset.l));
+let l="es";try{l=localStorage.getItem("lang")||((navigator.language||"").startsWith("fr")?"fr":"es")}catch(e){}
+set(l);
+</script>
+</body>
+</html>
