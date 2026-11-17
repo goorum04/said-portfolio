@@ -24,6 +24,7 @@
 - Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
 
 ## Páginas principales
+- [Ciberataque a la CASS: 477.238 NIA expuestos — artículo](https://saetechai.com/blog-ciberataque-cass.html)
 - [Cuánto cuesta un asistente RAG para tu empresa en 2026 — artículo](https://saetechai.com/blog-cuanto-cuesta-rag.html)
 - [Por qué tu empresa necesita un RAG — artículo](https://saetechai.com/blog-rag-empresas.html)
 - [Inicio](https://saetechai.com/)
