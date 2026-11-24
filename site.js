@@ -62,3 +62,31 @@
 
 var CK={ca:['Faig servir cookies d’anàlisi (Google) per entendre com s’usa la web. Només s’activen si acceptes.','Més informació','Només essencials','Accepta'],es:['Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.','Más información','Solo esenciales','Aceptar'],fr:['J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.','En savoir plus','Essentiels seulement','Accepter'],en:['I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.','More info','Essential only','Accept']};
 document.addEventListener('DOMContentLoaded',function(){var c=null;try{c=localStorage.getItem('cookieConsent')}catch(e){return}if(c)return;var L=CK[window.LANG||'ca']||CK.ca;var b=document.createElement('div');b.className='cookie';b.setAttribute('role','dialog');b.innerHTML='<p><span>'+L[0]+'</span> <a href="/privacidad.html">'+L[1]+'</a></p><div><button type="button" class="btn btn-ghost" data-v="rejected">'+L[2]+'</button><button type="button" class="btn btn-primary" data-v="accepted">'+L[3]+'</button></div>';b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var v=x.dataset.v;try{localStorage.setItem('cookieConsent',v)}catch(e){}if(v==='accepted'){window.__loadGTM&&window.__loadGTM();window.__loadMetricool&&window.__loadMetricool();}b.remove();});});document.body.appendChild(b);});
+/* forms → /api/contact (Vercel) */
+(function(){
+  var API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1') ? '/api/contact' : 'https://said-portfolio-ashy.vercel.app/api/contact';
+  function wire(form, kind){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var ok = form.querySelector('.form-msg.ok'), err = form.querySelector('.form-msg.err');
+      ok.hidden = true; err.hidden = true;
+      var data = { kind: kind, lang: window.LANG || 'ca', page: location.pathname };
+      form.querySelectorAll('input,textarea').forEach(function(i){ if (i.name) data[i.name] = i.value; });
+      var req = form.querySelectorAll('[required]'), bad = false;
+      req.forEach(function(i){ if (!i.value.trim() || (i.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value))) { bad = true; i.focus(); } });
+      if (bad) return;
+      form.classList.add('sending');
+      fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function(j){ if (!j.ok) throw 0; ok.hidden = false; form.querySelectorAll('input:not([type=hidden]),textarea').forEach(function(i){ if (i.name !== 'website') i.value = ''; }); try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: kind === 'checklist' ? 'lead_checklist' : 'lead_form' }); } catch (e) {} })
+        .catch(function(){ err.hidden = false; })
+        .then(function(){ form.classList.remove('sending'); });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var c = document.getElementById('contactForm'); if (c) wire(c, 'contact');
+    document.querySelectorAll('form.leadform').forEach(function(f){ wire(f, 'checklist'); });
+    /* WhatsApp clicks as conversions */
+    document.addEventListener('click', function(ev){ var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]'); if (a) { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'click_whatsapp', page: location.pathname }); } catch (e) {} } });
+  });
+})();

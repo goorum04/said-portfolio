@@ -1,3 +1,15 @@
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-tight-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-tight-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/inter-tight-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/inter-tight-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* SaeTech v3 — dark, premium, one accent */
 :root{
   --bg:#07090D;--bg-2:#0B0F15;--surface:#0F141B;--surface-2:#151B24;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
@@ -294,3 +306,16 @@ a.card:hover{transform:translateY(-3px);border-color:var(--line-2)}
 @media (max-width:600px){.cookie div{width:100%}.cookie .btn{flex:1}}
 .prose a.btn{text-decoration:none}.prose a.btn-primary{color:var(--accent-ink)}.prose a.btn-ghost{color:var(--text)}
 .prose.wide{max-width:none}
+/* forms: messages + lead box */
+.form-msg{margin-top:14px;font-size:14.5px;padding:12px 14px;border-radius:10px}.form-msg.ok{background:rgba(94,234,212,.1);color:var(--accent);border:1px solid rgba(94,234,212,.3)}.form-msg.err{background:rgba(255,99,99,.08);color:#ff9a9a;border:1px solid rgba(255,99,99,.3)}
+.form-msg a{color:inherit;text-decoration:underline}.form.sending button,.leadform.sending button{opacity:.6;pointer-events:none}
+.leadbox{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;margin:44px 0;padding:28px 32px;border:1px solid rgba(94,234,212,.35);border-radius:var(--radius);background:linear-gradient(135deg,rgba(94,234,212,.08),rgba(255,255,255,.02))}
+.leadbox h3{margin:0 0 8px;font-size:22px}.leadbox p{color:var(--muted);margin:0;font-size:15px}
+.leadform{display:flex;flex-direction:column;gap:10px;position:relative}.leadform input{width:100%;background:var(--surface-2);border:1px solid var(--line-2);color:var(--text);border-radius:10px;padding:12px 14px;font:inherit;font-size:15px}.leadform input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.leadform .form-msg{margin-top:4px}
+@media (max-width:760px){.leadbox{grid-template-columns:1fr;padding:22px}}
+.sectors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.sectors a{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02);transition:border-color .2s,transform .2s}
+.sectors a:hover{border-color:var(--accent);transform:translateY(-2px)}.sectors b{color:var(--text);font-size:16px}.sectors b::after{content:" →";color:var(--accent)}.sectors span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.sectors{grid-template-columns:1fr}}
+[hidden]{display:none!important}
