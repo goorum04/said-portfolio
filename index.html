@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://saetechai.com/">
     <meta property="og:type" content="website"><meta property="og:url" content="https://saetechai.com/"><meta property="og:title" content="SaeTech — Programari i IA per a negocis d'Andorra"><meta property="og:description" content="Fets per un jurista que programa. CRMs, agents d'IA i reels per a gestories, despatxos i pimes d'Andorra."><meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    <link rel="stylesheet" href="nou.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -49,10 +50,16 @@
         .nav .wa { color: var(--ink); border: 2px solid var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
         .nav .wa:hover { background: var(--ink); color: var(--white); }
         .nav .lang { color: var(--slate); font-size: 15px; }
-        @media (max-width: 760px) { .nav ul li:not(.keep) { display: none; } }
+        @media (max-width: 760px) {
+            .nav { height: auto; padding: 14px 0 10px; flex-wrap: wrap; row-gap: 10px; }
+            .nav ul { width: 100%; gap: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+            .nav ul li { flex: 0 0 auto; }
+            .nav ul a { font-size: 16px; }
+            .nav .wa { padding: 6px 12px; font-size: 15px; }
+        }
 
         /* Hero */
-        .hero { padding: clamp(40px, 7vw, 96px) 0 0; position: relative; overflow: hidden; }
+        .hero { padding-top: clamp(40px, 7vw, 96px); position: relative; overflow: hidden; }
         .hero h1 {
             font-size: clamp(44px, 7.2vw, 104px);
             line-height: 0.98;
@@ -139,9 +146,7 @@
         .cta .actions { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
         .cta .tel { color: var(--slate); margin-top: 16px; font-size: 16px; }
 
-        footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--slate); font-size: 15px; }
-        footer .cols { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-        footer a:hover { color: var(--ink); }
+        
     </style>
 </head>
 <body>
@@ -149,13 +154,13 @@
         <nav class="nav" aria-label="Principal">
             <a class="brand" href="/">SaeTech</a>
             <ul>
-                <li><a href="#faig">Què faig</a></li>
-                <li><a href="#casos">Projectes</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="#qui">Qui sóc</a></li>
-                <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
-                
-            </ul>
+            <li><a href="servicios.html">Serveis</a></li>
+            <li><a href="portfolio.html">Projectes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre-mi.html">Qui sóc</a></li>
+            <li><a href="contacto.html">Contacte</a></li>
+            <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
         </nav>
     </header>
 
@@ -178,21 +183,21 @@
             <p class="intro">No sóc una agència. Sóc una persona que programa i que entén com funciona un despatx a Andorra per dins. Això limita el que puc agafar, i millora el que entrego.</p>
             <div class="faig">
                 <div class="row">
-                    <h3>Programari a mida per a gestories i despatxos</h3>
+                    <h3><a href="servicios.html#seguridad" style="text-decoration:none">Programari a mida per a gestories i despatxos</a></h3>
                     <div>
                         <p>CRM d'expedients, portal perquè el client pugi documents, KYC, venciments, alertes. Substitueix l'Excel i les carpetes compartides per una eina que sap què falta a cada expedient.</p>
                         <p class="for">Per a gestories, assessories, despatxos d'advocats, administradors de finques.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <h3>Agents d'IA i automatització</h3>
+                    <h3><a href="servicio-ia.html" style="text-decoration:none">Agents d'IA i automatització</a></h3>
                     <div>
                         <p>Assistents que responen amb els teus documents (RAG), agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al teu CRM, no en un xat a part.</p>
                         <p class="for">Per a qualsevol pime amb processos repetitius i documents.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <h3>Un reel a la setmana, fet amb IA</h3>
+                    <h3><a href="servicio-reels.html" style="text-decoration:none">Un reel a la setmana, fet amb IA</a></h3>
                     <div>
                         <p>M'envies una idea per WhatsApp i reps el vídeo en català amb veu i rètols, llest per publicar. Sense gravar res. És la manera més barata de començar a treballar junts.</p>
                         <p class="for">Per a restaurants, botigues, clíniques, gimnasos… i també despatxos. <a href="servicio-reels.html">Com funciona</a>.</p>
@@ -293,11 +298,36 @@
         </div>
     </section>
 
-    <footer>
-        <div class="wrap cols">
-            <span>© 2026 SaeTech · Said El Boudouhi</span>
-            <span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></span>
+    <footer class="footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <b>SaeTech</b>
+                <p>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p>
+                <p>+376 601 249 · <a href="mailto:hola@saetechai.com">hola@saetechai.com</a></p>
+            </div>
+            <div>
+                <b>Serveis</b>
+                <a href="servicios.html#seguridad">Programari a mida</a>
+                <a href="servicio-ia.html">Agents d'IA i RAG</a>
+                <a href="servicio-reels.html">Reels amb IA</a>
+                <a href="servicio-seguridad.html">Revisió LQPD</a>
+                <a href="servicio-web.html">Webs</a>
+                <a href="servicio-apps.html">Apps</a>
+                <a href="servicio-seo.html">SEO i GEO</a>
+            </div>
+            <div>
+                <b>SaeTech</b>
+                <a href="portfolio.html">Projectes</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobre-mi.html">Qui sóc</a>
+                <a href="contacto.html">Contacte</a>
+                <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
         </div>
-    </footer>
+        <div class="cols"><span>© 2026 SaeTech · Said El Boudouhi · Andorra</span><span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a></span></div>
+    </div>
+</footer>
 </body>
 </html>
