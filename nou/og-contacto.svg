@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#12121a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="315" r="280" fill="rgba(0,212,255,0.08)"/>
+  
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="28" fill="#8a8a9a" letter-spacing="4">CONTACTO</text>
+  
+  <text x="100" y="300" font-family="system-ui, sans-serif" font-size="80" font-weight="800" fill="url(#accent)">¿Tienes un proyecto?</text>
+  
+  <rect x="100" y="340" width="200" height="4" rx="2" fill="url(#accent)"/>
+  
+  <text x="100" y="430" font-family="system-ui, sans-serif" font-size="36" fill="#f0f0f5">Respuesta en 24h</text>
+  <text x="100" y="490" font-family="system-ui, sans-serif" font-size="28" fill="#8a8a9a">Presupuesto sin compromiso</text>
+  
+  <text x="100" y="580" font-family="system-ui, sans-serif" font-size="24" fill="#00d4ff">said.dev/contacto | WhatsApp: +376 601 249</text>
+</svg>

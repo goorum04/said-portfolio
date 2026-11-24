@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer | Blog SaeTech</title>
+<meta content="La CASS confirma que un ataque expuso nombre, apellidos, sexo y fecha de nacimiento de 477.238 NIA: casi toda Andorra. Cómo entraron, qué dice la Llei 29/2021, checklist para afectados y lecciones para cualquier empresa con un portal de datos." name="description"/>
+<meta content="cass andorra, ciberataque cass, nia robados, llei 29/2021, lqpd, apda, protección de datos andorra, brecha de seguridad, phishing andorra" name="keywords"/>
+<meta content="SaeTech" name="author"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://saetechai.com/blog-ciberataque-cass.html" rel="canonical"/>
+<meta content="#00d4ff" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="https://saetechai.com/blog-ciberataque-cass.html" property="og:url"/>
+<meta content="Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer" property="og:title"/>
+<meta content="Cómo entraron, qué se han llevado, qué dice la Llei 29/2021 y qué hacer desde hoy. Checklist para afectados y lecciones para empresas con portales de datos." property="og:description"/>
+<meta content="https://saetechai.com/blog-cass-cover.webp" property="og:image"/>
+<meta content="SaeTech - Desarrollo Digital" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Ciberataque a la CASS: 477.238 NIA expuestos | SaeTech" name="twitter:title"/>
+<meta content="Qué ha pasado, qué dice la Llei 29/2021 y qué debes hacer desde hoy." name="twitter:description"/>
+<meta content="https://saetechai.com/blog-cass-cover.webp" name="twitter:image"/>
+<link href="favicon.svg?v=1" rel="icon" type="image/svg+xml"/>
+
+
+
+
+
+
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer",
+        "datePublished": "2026-11-17",
+        "author": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
+        "image": "https://saetechai.com/blog-cass-cover.webp",
+        "description": "La CASS confirma que un ataque expuso nombre, apellidos, sexo y fecha de nacimiento de 477.238 NIA: casi toda Andorra. Cómo entraron, qué dice la Llei 29/2021, checklist para afectados y lecciones para cualquier empresa con un portal de datos."
+    }
+    </script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/><link href="nou.css?v=2" rel="stylesheet"/></head>
+<body><header class="wrap">
+<nav aria-label="Principal" class="nav">
+<a class="brand" href="/nou/">SaeTech</a>
+<ul>
+            <li><a href="servicios.html">Serveis</a></li>
+            <li><a href="portfolio.html">Projectes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre-mi.html">Qui sóc</a></li>
+            <li><a href="contacto.html">Contacte</a></li>
+            <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+</nav>
+</header>
+
+
+
+<section class="page-hero">
+<div class="container">
+<span class="section-tag">Blog · Seguridad y datos</span>
+<h1 class="page-title">Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer</h1>
+<p class="page-subtitle">La CASS confirmó el lunes 17 de noviembre que un ataque informático permitió a terceros obtener el nombre, apellidos, sexo, fecha y lugar de nacimiento asociados a 477.238 números de identificación administrativa (NIA): prácticamente toda la población de Andorra. No se accedió a datos sanitarios ni de prestaciones, pero el "diccionario" que se han llevado es justo lo que necesita un estafador para hacerse pasar por ti.</p>
+<p class="article-meta">Por Said · 17 nov 2026 · 7 min de lectura</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="article-cover reveal">
+<img alt="477.238 NIA robados a la CASS: qué ha pasado y qué hacer" height="768" src="blog-cass-cover.webp?v=1" width="1376"/>
+</div>
+<article class="article-body">
+<p>Te explico qué ha pasado, qué dice la ley y qué puedes hacer desde hoy. Todo lo que sigue está contrastado con la prensa andorrana (Diari d'Andorra, Altaveu, La Valira, La Veu Lliure) y con la comparecencia de la CASS del 17 de noviembre; las fuentes están al final.</p>
+<h2>Qué ha pasado, en orden</h2>
+<ol>
+<li><strong>Madrugada del 11 de noviembre.</strong> Un servidor de la CASS se detuvo al llenarse el registro de auditoría. Al revisar por qué, descubrieron el ataque.</li>
+<li><strong>La puerta de entrada:</strong> cuatro certificados digitales de patronos domésticos (particulares que tienen contratada a una persona en casa) sustraídos y usados desde IPs extranjeras para entrar en el portal de empresas.</li>
+<li><strong>El fallo de diseño:</strong> el portal tenía una función para que una empresa comprobara los datos de un nuevo trabajador. Metías un NIA y el sistema devolvía automáticamente nombre, apellidos y fecha de nacimiento. El NIA tiene un formato de seis cifras y una letra, así que los atacantes lo hicieron en masa: alrededor de 1,2 millones de consultas.</li>
+<li><strong>El resultado:</strong> 477.238 NIA válidos con sus datos personales. Unos 17.000 corresponden a personas fallecidas. Para los cuatro patronos cuyos certificados se usaron, también datos bancarios y de cotizaciones.</li>
+<li><strong>Lo que no ha pasado (según la CASS):</strong> no hubo acceso a las bases de datos centrales con información médica, económica ni de prestaciones, y no consta por ahora un uso fraudulento posterior.</li>
+<li><strong>Reacción:</strong> la función ya no devuelve datos al introducir un NIA, se ha limitado el número de intentos de PIN, y se ha informado a la Policía, a la Agència Nacional de Ciberseguretat y a la APDA. El director general, Josep Escoriza, pidió disculpas y reconoció que hay que revisar los criterios de seguridad. Hubo un intento parecido seis u ocho semanas antes que sí se frenó.</li>
+<li><strong>Denuncias:</strong> Piratas d'Andorra presentó el 14 de noviembre escritos ante la Fiscalía y la APDA pidiendo que se investigue quién sustrajo los certificados, qué controles existían y si se cumplió el plazo de notificación de la Llei 29/2021.</li>
+</ol>
+<h2>Por qué importa aunque "solo" sean nombre, NIA y fecha de nacimiento</h2>
+<p>El NIA es la llave administrativa de Andorra: aparece en la CASS, en trámites con el Govern, en bancos, en contratos de alquiler y de trabajo. Combinado con el nombre completo y la fecha de nacimiento, da a un estafador lo que necesita para sonar creíble.</p>
+<ul>
+<li><strong>Phishing a medida.</strong> Un correo o SMS que empieza por "Sr. X, con NIA Y, su expediente de la CASS…" tiene una tasa de éxito mucho mayor que un phishing genérico. Es el riesgo número uno y el que la propia CASS ha advertido.</li>
+<li><strong>Llamadas de suplantación.</strong> "Le llamo de la CASS / del banco; para verificar su identidad, dígame…" La víctima baja la guardia porque quien llama ya sabe sus datos.</li>
+<li><strong>Suplantación en trámites.</strong> Intentos de alta de servicios, solicitudes o reclamaciones usando datos reales. Más difícil, porque la mayoría de gestiones exigen certificado o firma, pero no imposible en procesos poco protegidos.</li>
+<li><strong>Sin fecha de caducidad.</strong> Una contraseña se cambia; el NIA y la fecha de nacimiento, no. Este riesgo durará años.</li>
+</ul>
+<p>Y un dato que explica por qué muchos no recibirán aviso: la CASS solo tiene correo o dirección de unas 94.000 personas. <strong>Unos 330.000 afectados no serán contactados directamente.</strong></p>
+<h2>Qué hacer ahora</h2>
+<ul>
+<li>Desconfía de cualquier comunicación que te cite tu NIA o tu fecha de nacimiento como "prueba" de que es legítima. Precisamente eso es lo que se han llevado.</li>
+<li>La CASS, el Govern y tu banco no te pedirán contraseñas, PIN, códigos SMS ni datos de tarjeta por teléfono, correo o WhatsApp. Si te los piden, cuelga y llama tú al número oficial.</li>
+<li>No hagas clic en enlaces de correos o SMS "de la CASS". Entra escribiendo tú la dirección en el navegador.</li>
+<li>Activa la verificación en dos pasos en tu banca online y en tu correo si aún no la tienes.</li>
+<li>Revisa en las próximas semanas los movimientos bancarios y cualquier correo de "alta" o "cambio de datos" que no hayas pedido.</li>
+<li>Si tienes una empresa o eres patrón doméstico: cambia la contraseña del certificado digital, guárdalo en un soporte protegido y no lo compartas por correo. Los cuatro certificados robados fueron la puerta de entrada.</li>
+<li>Si detectas un intento de fraude, denúncialo a la Policia d'Andorra y comunícalo a la APDA. Como afectado, tienes derecho a que la CASS te informe de qué datos tuyos se vieron comprometidos.</li>
+</ul>
+<h2>Qué dice la ley (Llei 29/2021, LQPD)</h2>
+<p>La Llei qualificada 29/2021 de protecció de dades personals es la norma andorrana equivalente al RGPD europeo, y aquí se aplican tres piezas:</p>
+<ul>
+<li><strong>Deber de seguridad.</strong> El responsable del tratamiento debe aplicar medidas técnicas y organizativas adecuadas al riesgo. Una función pública que devuelve datos personales a partir de un identificador de siete caracteres, sin límite de consultas, es difícil de defender como "adecuada". Es el punto central de cualquier expediente posterior.</li>
+<li><strong>Notificación de la brecha a la APDA (art. 36).</strong> Sin dilación indebida y, si es posible, en un máximo de 72 horas desde que se tiene constancia. La CASS detectó el incidente el 11 y la APDA ha sido informada; el detalle de los plazos es una de las cosas que Piratas d'Andorra ha pedido que se compruebe.</li>
+<li><strong>Comunicación a los afectados.</strong> Cuando la brecha suponga un alto riesgo para los derechos de las personas, hay que comunicarla a los interesados. Con prácticamente toda la población afectada y datos que no se pueden cambiar, el aviso público del 11 de noviembre y los correos a quienes tienen contacto son la vía razonable, pero deja a 330.000 personas sin aviso directo.</li>
+</ul>
+<p><strong>¿Habrá sanción?</strong> La LQPD prevé multas de hasta 100.000 € para las infracciones muy graves, pero el procedimiento sancionador contra una entidad pública tiene sus particularidades y, de momento, no hay resolución de la APDA ni de la Fiscalía. Lo relevante para un afectado es otra cosa: la responsabilidad patrimonial. Si alguien sufre un perjuicio económico por un fraude construido con estos datos, el camino es reclamar a la CASS como responsable del tratamiento, documentando el daño y su relación con la brecha.</p>
+<h2>Lecciones para cualquier empresa que tenga un portal con datos</h2>
+<p>Esto no le pasa solo a la Administración. Cualquier portal de clientes, intranet o app con una pantalla que "busca por DNI/NIA y rellena los datos" tiene exactamente el mismo problema. Cinco reglas que se pueden aplicar mañana:</p>
+<ol>
+<li><strong>Minimización.</strong> Si una empresa necesita comprobar que un NIA corresponde a una persona, la respuesta debe ser "sí/no", no "aquí tienes su nombre y fecha de nacimiento".</li>
+<li><strong>Límite de consultas y alertas.</strong> Nadie legítimo necesita hacer 1,2 millones de verificaciones. Un límite por usuario y una alerta a partir de cien consultas habrían parado esto en minutos, no en días.</li>
+<li><strong>Credenciales = llaves.</strong> Un certificado digital en el PC de un patrón doméstico es un punto débil previsible. Doble factor para accesos a datos de terceros, y revocación inmediata si hay sospecha.</li>
+<li><strong>Registro de accesos que alguien mire.</strong> Aquí el ataque se descubrió porque el disco de auditoría se llenó. La auditoría existía; lo que no existía era quien la leyera.</li>
+<li><strong>Un plan de respuesta escrito.</strong> Quién avisa a la APDA, en cuánto tiempo, qué se comunica a los clientes y quién habla con la prensa. Las 72 horas pasan muy rápido sin un guion.</li>
+</ol>
+<div class="article-cta">
+<h3>¿Tu portal haría lo mismo que la CASS?</h3>
+<p>Revisamos tu área de clientes, intranet o app en una semana: los cinco puntos técnicos de arriba más el cumplimiento de la Llei 29/2021 (registro de tratamientos, plan de respuesta en 72 h, modelos de aviso). Informe con semáforo y correcciones por orden de riesgo. Jurista y desarrollador en el mismo encargo. Desde 450 €, primer vistazo de 15 minutos gratis.</p>
+<a class="btn btn-primary btn-lg" href="servicio-seguridad.html">Ver la revisión de seguridad y LQPD</a>
+</div>
+<h2>Cierre</h2>
+<p>La CASS ha reaccionado tarde pero ha hecho lo correcto después: cerrar la función, avisar a las autoridades y reconocer el error en público. Lo que no se puede deshacer es que el nombre, el NIA y la fecha de nacimiento de casi todo el país circulan ya fuera de Andorra. A partir de ahora, la defensa es individual: desconfianza ante cualquier mensaje que use esos datos, y empresas que diseñen sus portales asumiendo que un día alguien intentará vaciarlos.</p>
+<p><em>Said El Boudouhi es jurista, asesor en una gestoría de Andorra y fundador de SaeTechAI, donde desarrolla software a medida (CRM, portales y automatizaciones) con la normativa andorrana integrada.</em></p>
+<h2>Fuentes</h2>
+<ul>
+<li><a href="https://www.altaveu.com/actualitat/societat/boti-robatori-dades-cass-mes-12-milions-consultes-400000-nias-valids_81247_102.html" rel="noopener" target="_blank">Altaveu, 13/11 — El 'botí' del robatori de dades a la CASS</a></li>
+<li><a href="https://lavalira.eu/2026/11/17/la-cass-confirma-477-238-identificadors-afectats-pel-ciberatac-i-revisara-els-seus-sistemes-de-seguretat/" rel="noopener" target="_blank">La Valira, 17/11 — La CASS confirma 477.238 identificadors afectats</a></li>
+<li><a href="https://laveulliure.ad/es/articulo/piratas-andorra-denuncia-ciberataque-cass-fiscalia-apda" rel="noopener" target="_blank">La Veu Lliure, 15/11 — Piratas de Andorra lleva el ciberataque a la CASS ante la Fiscalía y la APDA</a></li>
+<li><a href="https://www.diariandorra.ad/nacional/261112/atac-informatic-cass-permet-accedir-dades-personals-nombrosos-afiliats_208628.html" rel="noopener" target="_blank">Diari d'Andorra, 12/11 — Un atac informàtic a la CASS permet accedir a dades personals</a></li>
+<li><a href="https://www.diariandorra.ad/nacional/261117/robatori-amb-afectacio-total_208910.html" rel="noopener" target="_blank">Diari d'Andorra, 17/11 — El ciberatac a la CASS afecta pràcticament tota la població</a></li>
+</ul>
+<p class="article-back"><a href="blog.html">← Volver al blog</a></p>
+</article>
+</div>
+</section>
+
+
+
+
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <b>SaeTech</b>
+                <p>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p>
+                <p>+376 601 249 · <a href="mailto:hola@saetechai.com">hola@saetechai.com</a></p>
+            </div>
+            <div>
+                <b>Serveis</b>
+                <a href="servicios.html#seguridad">Programari a mida</a>
+                <a href="servicio-ia.html">Agents d'IA i RAG</a>
+                <a href="servicio-reels.html">Reels amb IA</a>
+                <a href="servicio-seguridad.html">Revisió LQPD</a>
+                <a href="servicio-web.html">Webs</a>
+                <a href="servicio-apps.html">Apps</a>
+                <a href="servicio-seo.html">SEO i GEO</a>
+            </div>
+            <div>
+                <b>SaeTech</b>
+                <a href="portfolio.html">Projectes</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobre-mi.html">Qui sóc</a>
+                <a href="contacto.html">Contacte</a>
+                <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+        <div class="cols"><span>© 2026 SaeTech · Said El Boudouhi · Andorra</span><span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a></span></div>
+    </div>
+</footer>
+</body>
+</html>

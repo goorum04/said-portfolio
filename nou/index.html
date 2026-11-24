@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaeTech — Programari i IA per a negocis d'Andorra, fets per un jurista que programa</title>
+    <meta name="description" content="Sóc Said El Boudouhi, jurista i desenvolupador a Andorra. Faig CRMs, portals, agents d'IA i reels per a gestories, despatxos i pimes del país. Amb la LQPD integrada.">
+    <link rel="canonical" href="https://saetechai.com/">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://saetechai.com/"><meta property="og:title" content="SaeTech — Programari i IA per a negocis d'Andorra"><meta property="og:description" content="Fets per un jurista que programa. CRMs, agents d'IA i reels per a gestories, despatxos i pimes d'Andorra."><meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    <link rel="stylesheet" href="nou.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #15171A;
+            --slate: #5B6470;
+            --paper: #F3F4F2;
+            --line: #D9DCD6;
+            --stamp: #C8321E;
+            --white: #FFFFFF;
+            --max: 1180px;
+            --gutter: clamp(20px, 5vw, 72px);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        body {
+            font-family: "Schibsted Grotesk", system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            font-size: 18px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        p a, li a { text-decoration: underline; text-decoration-color: var(--stamp); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+        p a:hover, li a:hover { color: var(--stamp); }
+        :focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+        /* Nav */
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+        .nav .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+        .nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
+        .nav ul a { font-weight: 500; color: var(--slate); }
+        .nav ul a:hover { color: var(--ink); }
+        .nav li a { text-decoration: none; }
+        .nav .wa { color: var(--ink); border: 2px solid var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
+        .nav .wa:hover { background: var(--ink); color: var(--white); }
+        .nav .lang { color: var(--slate); font-size: 15px; }
+        @media (max-width: 760px) {
+            .nav { height: auto; padding: 14px 0 10px; flex-wrap: wrap; row-gap: 10px; }
+            .nav ul { width: 100%; gap: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+            .nav ul li { flex: 0 0 auto; }
+            .nav ul a { font-size: 16px; }
+            .nav .wa { padding: 6px 12px; font-size: 15px; }
+        }
+
+        /* Hero */
+        .hero { padding-top: clamp(40px, 7vw, 96px); position: relative; overflow: hidden; }
+        .hero h1 {
+            font-size: clamp(44px, 7.2vw, 104px);
+            line-height: 0.98;
+            letter-spacing: -0.035em;
+            font-weight: 800;
+            max-width: 12ch;
+        }
+        .hero .lead {
+            margin-top: 28px;
+            max-width: 52ch;
+            font-size: clamp(18px, 1.5vw, 22px);
+            color: var(--slate);
+        }
+        .hero .lead strong { color: var(--ink); font-weight: 600; }
+        .hero .actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 17px; border: 2px solid var(--ink); }
+        .btn-solid { background: var(--ink); color: var(--white); }
+        .btn-solid:hover { background: var(--stamp); border-color: var(--stamp); }
+        .btn-ghost:hover { background: var(--paper); }
+        .hero .shot {
+            margin-top: clamp(40px, 6vw, 80px);
+            margin-right: calc(-1 * var(--gutter));
+            border: 1px solid var(--line);
+            border-right: 0;
+            border-radius: 14px 0 0 0;
+            overflow: hidden;
+            box-shadow: 0 30px 80px -40px rgba(21,23,26,.35);
+            background: var(--white);
+        }
+        .hero .shot img { display: block; width: 100%; height: auto; }
+        .hero .caption { color: var(--slate); font-size: 15px; margin-top: 12px; }
+
+        /* Sections */
+        section { padding: clamp(56px, 8vw, 120px) 0; }
+        section.paper { background: var(--paper); }
+        h2 { font-size: clamp(30px, 3.6vw, 48px); letter-spacing: -0.025em; line-height: 1.05; font-weight: 700; max-width: 18ch; }
+        .intro { margin-top: 18px; max-width: 56ch; color: var(--slate); font-size: 19px; }
+
+        /* Què faig: definition list */
+        .faig { margin-top: 48px; border-top: 2px solid var(--ink); }
+        .faig .row { display: grid; grid-template-columns: 1.1fr 2fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+        .faig .row h3 { font-size: 26px; letter-spacing: -0.02em; font-weight: 700; line-height: 1.1; }
+        .faig .row p { color: var(--slate); max-width: 58ch; }
+        .faig .row p + p { margin-top: 8px; }
+        .faig .row .for { color: var(--ink); font-weight: 500; }
+        @media (max-width: 720px) { .faig .row { grid-template-columns: 1fr; gap: 10px; } }
+        .also { margin-top: 20px; color: var(--slate); max-width: 70ch; }
+
+        /* Casos */
+        .cas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; margin-top: 56px; }
+        .cas + .cas { margin-top: clamp(56px, 7vw, 96px); }
+        .cas.flip .media { order: 2; }
+        .cas .media { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--white); }
+        .cas .media img { display: block; width: 100%; height: auto; }
+        .cas h3 { font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.02em; line-height: 1.1; font-weight: 700; }
+        .cas .what { margin-top: 14px; color: var(--slate); }
+        .cas ul { margin-top: 16px; padding-left: 18px; color: var(--ink); }
+        .cas li { margin: 6px 0; }
+        .cas .note { margin-top: 16px; font-size: 15px; color: var(--slate); }
+        @media (max-width: 820px) { .cas { grid-template-columns: 1fr; } .cas.flip .media { order: 0; } }
+
+        /* Qui */
+        .qui { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 80px); }
+        .qui .text p { margin-top: 16px; max-width: 52ch; }
+        .qui .text p:first-child { margin-top: 24px; }
+        .qui .facts { border-top: 2px solid var(--ink); margin-top: 24px; }
+        .qui .facts div { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+        .qui .facts b { font-weight: 600; }
+        .qui .facts span { color: var(--slate); }
+        @media (max-width: 820px) { .qui { grid-template-columns: 1fr; } }
+
+        /* Blog list */
+        .posts { margin-top: 36px; border-top: 2px solid var(--ink); }
+        .posts a { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+        .posts a:hover h3 { color: var(--stamp); }
+        .posts time { color: var(--slate); font-size: 15px; }
+        .posts h3 { font-size: 22px; letter-spacing: -0.015em; font-weight: 600; line-height: 1.2; }
+        .posts p { color: var(--slate); margin-top: 4px; font-size: 16px; max-width: 70ch; }
+        @media (max-width: 600px) { .posts a { grid-template-columns: 1fr; gap: 4px; } }
+
+        /* CTA */
+        .cta h2 { max-width: 20ch; }
+        .cta p { margin-top: 16px; color: var(--slate); max-width: 56ch; }
+        .cta .actions { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+        .cta .tel { color: var(--slate); margin-top: 16px; font-size: 16px; }
+
+        
+    </style>
+</head>
+<body>
+    <header class="wrap">
+        <nav class="nav" aria-label="Principal">
+            <a class="brand" href="/nou/">SaeTech</a>
+            <ul>
+            <li><a href="servicios.html">Serveis</a></li>
+            <li><a href="portfolio.html">Projectes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre-mi.html">Qui sóc</a></li>
+            <li><a href="contacto.html">Contacte</a></li>
+            <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <section class="hero wrap">
+        <h1>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</h1>
+        <p class="lead">Sóc <strong>Said El Boudouhi</strong>. Treballo en una gestoria i construeixo el programari que a mi m'hauria agradat tenir: CRMs d'expedients, portals de clients, agents d'IA i els reels perquè et coneguin. Amb la <strong>Llei 29/2021</strong> integrada des del primer dia, no afegida al final.</p>
+        <div class="actions">
+            <a class="btn btn-solid" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" target="_blank" rel="noopener">Escriu-me per WhatsApp</a>
+            <a class="btn btn-ghost" href="#casos">Veure què he fet</a>
+        </div>
+        <figure class="shot">
+            <img src="img/crm-dashboard.webp" alt="Panell de control del CRM per a gestories: avisos, venciments i tasques de l'equip" width="1600" height="1000">
+        </figure>
+        <p class="caption">CRM d'expedients per a una gestoria d'Andorra. Dades de prova, clients anonimitzats.</p>
+    </section>
+
+    <section id="faig" class="paper">
+        <div class="wrap">
+            <h2>Tres coses que faig, i per a qui.</h2>
+            <p class="intro">No sóc una agència. Sóc una persona que programa i que entén com funciona un despatx a Andorra per dins. Això limita el que puc agafar, i millora el que entrego.</p>
+            <div class="faig">
+                <div class="row">
+                    <h3><a href="servicios.html#seguridad" style="text-decoration:none">Programari a mida per a gestories i despatxos</a></h3>
+                    <div>
+                        <p>CRM d'expedients, portal perquè el client pugi documents, KYC, venciments, alertes. Substitueix l'Excel i les carpetes compartides per una eina que sap què falta a cada expedient.</p>
+                        <p class="for">Per a gestories, assessories, despatxos d'advocats, administradors de finques.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3><a href="servicio-ia.html" style="text-decoration:none">Agents d'IA i automatització</a></h3>
+                    <div>
+                        <p>Assistents que responen amb els teus documents (RAG), agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al teu CRM, no en un xat a part.</p>
+                        <p class="for">Per a qualsevol pime amb processos repetitius i documents.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3><a href="servicio-reels.html" style="text-decoration:none">Un reel a la setmana, fet amb IA</a></h3>
+                    <div>
+                        <p>M'envies una idea per WhatsApp i reps el vídeo en català amb veu i rètols, llest per publicar. Sense gravar res. És la manera més barata de començar a treballar junts.</p>
+                        <p class="for">Per a restaurants, botigues, clíniques, gimnasos… i també despatxos. <a href="servicio-reels.html">Com funciona</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="also">També faig webs, apps mòbils, posicionament (SEO i aparèixer a ChatGPT) i la <a href="servicio-seguridad.html">revisió de seguretat i LQPD</a> del teu portal. Però si has arribat fins aquí, segurament vols una de les tres de dalt.</p>
+        </div>
+    </section>
+
+    <section id="casos">
+        <div class="wrap">
+            <h2>Fet de veritat, en ús cada dia.</h2>
+            <p class="intro">Dos projectes que faig servir jo mateix a la feina. Les captures són amb dades de prova.</p>
+
+            <article class="cas">
+                <div class="media"><img src="img/crm-tauler.webp" alt="Tauler de tràmits per estat del CRM" width="1600" height="1000" loading="lazy"></div>
+                <div>
+                    <h3>CRM d'expedients per a una gestoria</h3>
+                    <p class="what">Cada client amb el seu KYC, cada tràmit amb els seus passos, i una agenda que avisa abans que caduqui res. Ctrl+K i qualsevol expedient en un segon.</p>
+                    <ul>
+                        <li>Portal perquè el client pugi els documents que falten</li>
+                        <li>Tauler de tràmits per estat, arrossegant</li>
+                        <li>Alertes de venciments, KYC i passaports</li>
+                        <li>Integrat amb HubSpot i amb els agents d'IA</li>
+                    </ul>
+                    <p class="note">Expedients d'inversió estrangera, constitucions, residències. Fet per a la gestoria on treballo.</p>
+                </div>
+            </article>
+
+            <article class="cas flip">
+                <div class="media"><img src="img/oficina-3d.webp" alt="Oficina virtual 3D amb vuit agents d'IA treballant" width="1600" height="1000" loading="lazy"></div>
+                <div>
+                    <h3>Una oficina 3D amb vuit empleats d'IA</h3>
+                    <p class="what">Cada agent té la seva taula, les seves tasques i les seves eines. Treballen sols sobre el CRM i, si vols saber com va la setmana, li ho preguntes a la Nova, la portaveu.</p>
+                    <ul>
+                        <li>Classifiquen el correu i preparen checklists</li>
+                        <li>Avisen del que caduca i redacten esborranys</li>
+                        <li>Tot el que fan queda registrat i és revisable</li>
+                    </ul>
+                    <p class="note">Hi ha un vídeo de 30 segons a <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">@saetechai</a>.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="qui" class="paper">
+        <div class="wrap qui">
+            <div class="text">
+                <h2>Qui hi ha darrere.</h2>
+                <p>Em dic Said El Boudouhi. Sóc andorrà, jurista de formació i desenvolupador per compte propi: vaig començar fent webs per a amics i vaig acabar construint una aplicació de gestió de gimnasos amb més de 8.000 commits.</p>
+                <p>Ara treballo d'assessor jurídic i fiscal en una gestoria d'Andorra la Vella. Això vol dir que quan et faig un CRM, sé què és un expedient d'inversió estrangera, què demana la LQPD i per què el teu equip encara busca les coses en carpetes.</p>
+                <p>No tinc comercials ni equip de vendes. Si m'escrius, parles amb mi, i qui programa sóc jo.</p>
+            </div>
+            <div>
+                <div class="facts">
+                    <div><b>Formació</b><span>Grau en Dret, màster en Dret i màster en Intel·ligència Artificial</span></div>
+                    <div><b>Feina</b><span>Assessor jurídic i fiscal en una gestoria d'Andorra</span></div>
+                    <div><b>Llengües</b><span>Català, castellà, francès, anglès</span></div>
+                    <div><b>Normativa</b><span>LQPD (Llei 29/2021), RGPD, inversió estrangera</span></div>
+                    <div><b>On</b><span>Andorra. Reunions presencials o per videotrucada</span></div>
+                    <div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">said-el-boudouhi</a></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="wrap">
+            <h2>Coses que escric.</h2>
+            <div class="posts">
+                <a href="blog-ciberataque-cass.html">
+                    <time datetime="2026-11-17">17 nov 2026</time>
+                    <div><h3>Ciberatac a la CASS: 477.238 NIA exposats. Què ha passat i què has de fer</h3><p>Com van entrar, què diu la Llei 29/2021 i cinc lliçons per a qualsevol empresa amb un portal de dades.</p></div>
+                </a>
+                <a href="blog-cuanto-cuesta-rag.html">
+                    <time datetime="2026-11-05">5 nov 2026</time>
+                    <div><h3>Quant costa un assistent RAG per a la teva empresa el 2026</h3><p>Preus reals, què inclouen i quan no val la pena.</p></div>
+                </a>
+                <a href="blog-rag-empresas.html">
+                    <time datetime="2026-07-15">15 jul 2026</time>
+                    <div><h3>Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses)</h3><p>La diferència entre un assistent que respon amb els teus documents i un que improvisa.</p></div>
+                </a>
+            </div>
+            <p class="also"><a href="blog.html">Tots els articles</a></p>
+        </div>
+    </section>
+
+    <section class="cta paper">
+        <div class="wrap">
+            <h2>Explica'm què et fa perdre temps al despatx.</h2>
+            <p>Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+            <div class="actions">
+                <a class="btn btn-solid" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" target="_blank" rel="noopener">Escriu-me per WhatsApp</a>
+                <a class="btn btn-ghost" href="mailto:hola@saetechai.com">Envia'm un correu</a>
+            </div>
+            <p class="tel">+376 601 249 · Andorra</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <b>SaeTech</b>
+                <p>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p>
+                <p>+376 601 249 · <a href="mailto:hola@saetechai.com">hola@saetechai.com</a></p>
+            </div>
+            <div>
+                <b>Serveis</b>
+                <a href="servicios.html#seguridad">Programari a mida</a>
+                <a href="servicio-ia.html">Agents d'IA i RAG</a>
+                <a href="servicio-reels.html">Reels amb IA</a>
+                <a href="servicio-seguridad.html">Revisió LQPD</a>
+                <a href="servicio-web.html">Webs</a>
+                <a href="servicio-apps.html">Apps</a>
+                <a href="servicio-seo.html">SEO i GEO</a>
+            </div>
+            <div>
+                <b>SaeTech</b>
+                <a href="portfolio.html">Projectes</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobre-mi.html">Qui sóc</a>
+                <a href="contacto.html">Contacte</a>
+                <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+        <div class="cols"><span>© 2026 SaeTech · Said El Boudouhi · Andorra</span><span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a></span></div>
+    </div>
+</footer>
+</body>
+</html>

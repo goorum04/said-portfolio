@@ -1,333 +1,863 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaeTech — Programari i IA per a negocis d'Andorra, fets per un jurista que programa</title>
-    <meta name="description" content="Sóc Said El Boudouhi, jurista i desenvolupador a Andorra. Faig CRMs, portals, agents d'IA i reels per a gestories, despatxos i pimes del país. Amb la LQPD integrada.">
-    <link rel="canonical" href="https://saetechai.com/">
-    <meta property="og:type" content="website"><meta property="og:url" content="https://saetechai.com/"><meta property="og:title" content="SaeTech — Programari i IA per a negocis d'Andorra"><meta property="og:description" content="Fets per un jurista que programa. CRMs, agents d'IA i reels per a gestories, despatxos i pimes d'Andorra."><meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="stylesheet" href="nou.css?v=2">
+    <title>SaeTech — IA Segura y Asistentes RAG en Andorra | Estudio Digital</title>
+    <meta name="description"
+        content="Estudio en Andorra especializado en IA segura: asistentes RAG que responden con los documentos reales de tu empresa, con fuentes y sin inventar. También webs, apps y SaaS a medida. Presupuesto sin compromiso.">
+    <meta name="keywords"
+        content="ia segura, rag, retrieval augmented generation, asistente ia empresa, chatbot con mis datos, inteligencia artificial andorra, desarrollador web andorra, apps móviles, SaaS, automatizaciones n8n">
+    <meta name="author" content="SaeTech">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://saetechai.com">
+    <meta name="google-site-verification" content="rMekWgEES7frJnChiz_xtnQtFQXnlDTbVlhqtHj5EGA">
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="msapplication-TileColor" content="#0a0a0f">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saetechai.com">
+    <meta property="og:title" content="SaeTech — IA Segura y Asistentes RAG en Andorra">
+    <meta property="og:description"
+        content="IA segura para empresas: asistentes RAG que responden con tus documentos reales, con fuentes y sin inventar. También webs, apps y SaaS a medida.">
+    <meta property="og:image" content="https://saetechai.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
+    <meta property="og:locale" content="es_ES">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://saetechai.com">
+    <meta name="twitter:title" content="SaeTech — IA Segura y Asistentes RAG">
+    <meta name="twitter:description"
+        content="IA segura para empresas: asistentes RAG que responden con tus datos reales, con fuentes y sin inventar.">
+    <meta name="twitter:image" content="https://saetechai.com/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml"
+        href="favicon.svg?v=1">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ink: #15171A;
-            --slate: #5B6470;
-            --paper: #F3F4F2;
-            --line: #D9DCD6;
-            --stamp: #C8321E;
-            --white: #FFFFFF;
-            --max: 1180px;
-            --gutter: clamp(20px, 5vw, 72px);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-        body {
-            font-family: "Schibsted Grotesk", system-ui, sans-serif;
-            color: var(--ink);
-            background: var(--white);
-            font-size: 18px;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-        a { color: inherit; text-decoration: none; }
-        p a, li a { text-decoration: underline; text-decoration-color: var(--stamp); text-underline-offset: 3px; text-decoration-thickness: 2px; }
-        p a:hover, li a:hover { color: var(--stamp); }
-        :focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; }
-        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2.19">
+    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
+    <link rel="stylesheet" href="theme.css?v=3.2">
 
-        /* Nav */
-        .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-        .nav .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
-        .nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
-        .nav ul a { font-weight: 500; color: var(--slate); }
-        .nav ul a:hover { color: var(--ink); }
-        .nav li a { text-decoration: none; }
-        .nav .wa { color: var(--ink); border: 2px solid var(--ink); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
-        .nav .wa:hover { background: var(--ink); color: var(--white); }
-        .nav .lang { color: var(--slate); font-size: 15px; }
-        @media (max-width: 760px) {
-            .nav { height: auto; padding: 14px 0 10px; flex-wrap: wrap; row-gap: 10px; }
-            .nav ul { width: 100%; gap: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
-            .nav ul li { flex: 0 0 auto; }
-            .nav ul a { font-size: 16px; }
-            .nav .wa { padding: 6px 12px; font-size: 15px; }
-        }
+    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-        /* Hero */
-        .hero { padding-top: clamp(40px, 7vw, 96px); position: relative; overflow: hidden; }
-        .hero h1 {
-            font-size: clamp(44px, 7.2vw, 104px);
-            line-height: 0.98;
-            letter-spacing: -0.035em;
-            font-weight: 800;
-            max-width: 12ch;
-        }
-        .hero .lead {
-            margin-top: 28px;
-            max-width: 52ch;
-            font-size: clamp(18px, 1.5vw, 22px);
-            color: var(--slate);
-        }
-        .hero .lead strong { color: var(--ink); font-weight: 600; }
-        .hero .actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-        .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 17px; border: 2px solid var(--ink); }
-        .btn-solid { background: var(--ink); color: var(--white); }
-        .btn-solid:hover { background: var(--stamp); border-color: var(--stamp); }
-        .btn-ghost:hover { background: var(--paper); }
-        .hero .shot {
-            margin-top: clamp(40px, 6vw, 80px);
-            margin-right: calc(-1 * var(--gutter));
-            border: 1px solid var(--line);
-            border-right: 0;
-            border-radius: 14px 0 0 0;
-            overflow: hidden;
-            box-shadow: 0 30px 80px -40px rgba(21,23,26,.35);
-            background: var(--white);
-        }
-        .hero .shot img { display: block; width: 100%; height: auto; }
-        .hero .caption { color: var(--slate); font-size: 15px; margin-top: 12px; }
-
-        /* Sections */
-        section { padding: clamp(56px, 8vw, 120px) 0; }
-        section.paper { background: var(--paper); }
-        h2 { font-size: clamp(30px, 3.6vw, 48px); letter-spacing: -0.025em; line-height: 1.05; font-weight: 700; max-width: 18ch; }
-        .intro { margin-top: 18px; max-width: 56ch; color: var(--slate); font-size: 19px; }
-
-        /* Què faig: definition list */
-        .faig { margin-top: 48px; border-top: 2px solid var(--ink); }
-        .faig .row { display: grid; grid-template-columns: 1.1fr 2fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-        .faig .row h3 { font-size: 26px; letter-spacing: -0.02em; font-weight: 700; line-height: 1.1; }
-        .faig .row p { color: var(--slate); max-width: 58ch; }
-        .faig .row p + p { margin-top: 8px; }
-        .faig .row .for { color: var(--ink); font-weight: 500; }
-        @media (max-width: 720px) { .faig .row { grid-template-columns: 1fr; gap: 10px; } }
-        .also { margin-top: 20px; color: var(--slate); max-width: 70ch; }
-
-        /* Casos */
-        .cas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; margin-top: 56px; }
-        .cas + .cas { margin-top: clamp(56px, 7vw, 96px); }
-        .cas.flip .media { order: 2; }
-        .cas .media { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--white); }
-        .cas .media img { display: block; width: 100%; height: auto; }
-        .cas h3 { font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.02em; line-height: 1.1; font-weight: 700; }
-        .cas .what { margin-top: 14px; color: var(--slate); }
-        .cas ul { margin-top: 16px; padding-left: 18px; color: var(--ink); }
-        .cas li { margin: 6px 0; }
-        .cas .note { margin-top: 16px; font-size: 15px; color: var(--slate); }
-        @media (max-width: 820px) { .cas { grid-template-columns: 1fr; } .cas.flip .media { order: 0; } }
-
-        /* Qui */
-        .qui { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 80px); }
-        .qui .text p { margin-top: 16px; max-width: 52ch; }
-        .qui .text p:first-child { margin-top: 24px; }
-        .qui .facts { border-top: 2px solid var(--ink); margin-top: 24px; }
-        .qui .facts div { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
-        .qui .facts b { font-weight: 600; }
-        .qui .facts span { color: var(--slate); }
-        @media (max-width: 820px) { .qui { grid-template-columns: 1fr; } }
-
-        /* Blog list */
-        .posts { margin-top: 36px; border-top: 2px solid var(--ink); }
-        .posts a { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-        .posts a:hover h3 { color: var(--stamp); }
-        .posts time { color: var(--slate); font-size: 15px; }
-        .posts h3 { font-size: 22px; letter-spacing: -0.015em; font-weight: 600; line-height: 1.2; }
-        .posts p { color: var(--slate); margin-top: 4px; font-size: 16px; max-width: 70ch; }
-        @media (max-width: 600px) { .posts a { grid-template-columns: 1fr; gap: 4px; } }
-
-        /* CTA */
-        .cta h2 { max-width: 20ch; }
-        .cta p { margin-top: 16px; color: var(--slate); max-width: 56ch; }
-        .cta .actions { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
-        .cta .tel { color: var(--slate); margin-top: 16px; font-size: 16px; }
-
-        
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Said El Boudouhi",
+        "jobTitle": "Consultor de Estrategia de IA",
+        "description": "Estudio especializado en IA segura y asistentes RAG (Retrieval-Augmented Generation) para empresas, además de desarrollo web, apps móviles y SaaS",
+        "url": "https://saetechai.com",
+        "telephone": "+376601249",
+        "email": "said@saetech.com",
+        "address": {"@type": "PostalAddress", "addressCountry": "AD", "addressLocality": "Andorra"},
+        "sameAs": ["https://wa.me/376601249", "https://www.linkedin.com/in/said-el-boudouhi-b28489301"],
+        "knowsAbout": ["IA Segura", "RAG (Retrieval-Augmented Generation)", "Asistentes de IA para empresas", "Desarrollo Web", "Apps Móviles", "SaaS", "React", "Next.js", "Node.js"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SaeTech - Desarrollo Digital",
+        "url": "https://saetechai.com",
+        "potentialAction": {"@type": "SearchAction", "target": "https://saetechai.com/?s={search_term_string}", "query-input": "required name=search_term_string"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SaeTech - Desarrollo Digital",
+        "description": "IA segura y asistentes RAG para empresas, desarrollo web, apps móviles y SaaS en Andorra",
+        "url": "https://saetechai.com",
+        "telephone": "+376601249",
+        "address": {"@type": "PostalAddress", "addressLocality": "Andorra", "addressCountry": "AD"},
+        "priceRange": "€€",
+        "openingHours": "Mo-Fr 09:00-18:00"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "¿Cuánto cuesta un proyecto?", "acceptedAnswer": {"@type": "Answer", "text": "Una landing desde 400€ y una web profesional o app desde 1.200€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos."}},
+            {"@type": "Question", "name": "¿Cuánto tardas en entregar?", "acceptedAnswer": {"@type": "Answer", "text": "Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento."}},
+            {"@type": "Question", "name": "¿El código y los accesos son míos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo."}},
+            {"@type": "Question", "name": "¿Trabajas con clientes fuera de Andorra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios."}},
+            {"@type": "Question", "name": "¿Ofreces soporte después del lanzamiento?", "acceptedAnswer": {"@type": "Answer", "text": "Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas."}},
+            {"@type": "Question", "name": "¿Qué es un asistente RAG y por qué es IA segura?", "acceptedAnswer": {"@type": "Answer", "text": "RAG (Retrieval-Augmented Generation) es la técnica que hace que la IA responda consultando los documentos reales de tu empresa, citando la fuente y sin inventar datos. Tus documentos no se usan para entrenar modelos de terceros y la privacidad se diseña desde el principio."}},
+            {"@type": "Question", "name": "¿Qué es el posicionamiento en IA (GEO)?", "acceptedAnswer": {"@type": "Answer", "text": "Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis."}}
+        ]
+    }
+    </script>
 </head>
+
 <body>
-    <header class="wrap">
-        <nav class="nav" aria-label="Principal">
-            <a class="brand" href="/">SaeTech</a>
-            <ul>
-            <li><a href="servicios.html">Serveis</a></li>
-            <li><a href="portfolio.html">Projectes</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="sobre-mi.html">Qui sóc</a></li>
-            <li><a href="contacto.html">Contacte</a></li>
-            <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
-        </ul>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="loader" id="loader">
+        <div class="loader-glow loader-glow--1"></div>
+        <div class="loader-glow loader-glow--2"></div>
+        <div class="loader-glow loader-glow--3"></div>
+        <div class="loader-mark">
+            <svg class="loader-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lpg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00d4ff"/>
+                        <stop offset="100%" stop-color="#7c3aed"/>
+                    </linearGradient>
+                </defs>
+                <circle class="lsvg-track" cx="60" cy="60" r="54"/>
+                <circle class="lsvg-ring" cx="60" cy="60" r="54"/>
+                <polygon class="lsvg-diamond" points="60,22 98,60 60,98 22,60"/>
+                <circle class="lsvg-core" cx="60" cy="60" r="7"/>
+            </svg>
+        </div>
+    </div>
+
+
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
+                        class="logo-bracket">/&gt;</span></a>
+                <ul class="nav-links">
+                    <li><a href="servicios.html" data-number="01" data-i18n="nav.services">Servicios</a></li>
+                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
+                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
+                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
+                    <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto"
+                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-dropbtn" id="langDropBtn">
+                        <span id="currentLang">ES</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown-content" id="langDropdownContent">
+                        <button data-lang="es">Español</button>
+                        <button data-lang="ca">Català</button>
+                        <button data-lang="fr">Français</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
+                <button class="nav-toggle" id="navToggle"
+                    aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
         </nav>
     </header>
 
-    <section class="hero wrap">
-        <h1>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</h1>
-        <p class="lead">Sóc <strong>Said El Boudouhi</strong>. Treballo en una gestoria i construeixo el programari que a mi m'hauria agradat tenir: CRMs d'expedients, portals de clients, agents d'IA i els reels perquè et coneguin. Amb la <strong>Llei 29/2021</strong> integrada des del primer dia, no afegida al final.</p>
-        <div class="actions">
-            <a class="btn btn-solid" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" target="_blank" rel="noopener">Escriu-me per WhatsApp</a>
-            <a class="btn btn-ghost" href="#casos">Veure què he fet</a>
+    <section class="hero" id="hero">
+        <div class="hf-hero-ambient">
+            <div class="hf-orb hf-orb--cyan"></div>
+            <div class="hf-orb hf-orb--purple"></div>
         </div>
-        <figure class="shot">
-            <img src="img/crm-dashboard.webp" alt="Panell de control del CRM per a gestories: avisos, venciments i tasques de l'equip" width="1600" height="1000">
-        </figure>
-        <p class="caption">CRM d'expedients per a una gestoria d'Andorra. Dades de prova, clients anonimitzats.</p>
-    </section>
-
-    <section id="faig" class="paper">
-        <div class="wrap">
-            <h2>Tres coses que faig, i per a qui.</h2>
-            <p class="intro">No sóc una agència. Sóc una persona que programa i que entén com funciona un despatx a Andorra per dins. Això limita el que puc agafar, i millora el que entrego.</p>
-            <div class="faig">
-                <div class="row">
-                    <h3><a href="servicios.html#seguridad" style="text-decoration:none">Programari a mida per a gestories i despatxos</a></h3>
-                    <div>
-                        <p>CRM d'expedients, portal perquè el client pugi documents, KYC, venciments, alertes. Substitueix l'Excel i les carpetes compartides per una eina que sap què falta a cada expedient.</p>
-                        <p class="for">Per a gestories, assessories, despatxos d'advocats, administradors de finques.</p>
+        <div class="hf-hero-grid"></div>
+        <div class="hf-hero-fade"></div>
+        <div class="hero-content">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-badge animate-in"><span class="badge-dot"></span><span data-i18n="hero.badge">Aceptando nuevos proyectos</span></div>
+                    <h1 class="hero-title animate-in">
+                        <span class="hero-headline" data-i18n="hero.headline">IA segura que responde <span class="text-gradient">con tus datos, sin inventar</span></span>
+                    </h1>
+                    <p class="hero-subtitle animate-in" data-i18n="hero.subtitle">Somos un estudio digital en Andorra especializado en asistentes RAG: IA que consulta los documentos reales de tu empresa y responde con fuentes. También diseñamos webs, apps y SaaS a medida.</p>
+                    <div class="hero-buttons animate-in">
+                <a href="https://wa.me/376601249?text=Hola%2C%20me%20interesa%20un%20presupuesto"
+                    class="btn btn-primary magnetic" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
+                    </svg>
+                    <span data-i18n="hero.cta1">Pedir Presupuesto</span>
+                </a>
+                <a href="portfolio.html" class="btn btn-ghost magnetic"><span data-i18n="hero.cta2">Ver
+                        Proyectos</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                    </svg></a>
+            </div>
+                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20de%20posicionamiento%20en%20IA%20gratis"
+                class="hero-audit-banner animate-in" target="_blank" rel="noopener">
+                <svg class="hero-audit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l1.9 4.8L18.7 9l-4.8 1.9L12 16l-1.9-5.1L5.3 9l4.8-1.2L12 3z" />
+                    <path d="M19 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z" />
+                </svg>
+                <span data-i18n="audit.banner">Auditoría de posicionamiento en IA <strong>gratis</strong> · sin
+                    compromiso</span>
+                <span class="hero-audit-arrow" aria-hidden="true">→</span>
+            </a>
+                    <div class="hero-proof animate-in">
+                        <div class="hero-proof-item"><strong>12+</strong><span data-i18n="heroProof.projects">Proyectos entregados</span></div>
+                        <div class="hero-proof-item"><strong>4</strong><span data-i18n="heroProof.sectors">Sectores</span></div>
+                        <div class="hero-proof-item"><strong>&lt; 24h</strong><span data-i18n="heroProof.reply">Tiempo de respuesta</span></div>
+                        <div class="hero-proof-item"><strong>100%</strong><span data-i18n="heroProof.code">Código tuyo, sin lock-in</span></div>
                     </div>
                 </div>
-                <div class="row">
-                    <h3><a href="servicio-ia.html" style="text-decoration:none">Agents d'IA i automatització</a></h3>
-                    <div>
-                        <p>Assistents que responen amb els teus documents (RAG), agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al teu CRM, no en un xat a part.</p>
-                        <p class="for">Per a qualsevol pime amb processos repetitius i documents.</p>
+                <div class="hero-visual animate-in" aria-hidden="true">
+                    <div class="rag-mock">
+                        <div class="rag-mock-bar">
+                            <div class="rag-mock-dots"><i></i><i></i><i></i></div>
+                            <div class="rag-mock-title"><span data-i18n="heroMock.title">Asistente RAG · Documentos internos</span><span class="live" data-i18n="heroMock.live">En vivo</span></div>
+                        </div>
+                        <div class="rag-mock-body">
+                            <div class="rag-msg rag-msg--user">
+                                <div class="rag-msg-avatar">TÚ</div>
+                                <div class="rag-bubble"><p data-i18n="heroMock.q">¿Qué plazo de devolución aplicamos a clientes B2B y quién lo aprueba?</p></div>
+                            </div>
+                            <div class="rag-msg rag-msg--ai">
+                                <div class="rag-msg-avatar">IA</div>
+                                <div class="rag-bubble">
+                                    <p data-i18n="heroMock.a1">Para clientes B2B el plazo es de <mark>30 días naturales</mark> desde la entrega. Las devoluciones superiores a 2.000&nbsp;€ las aprueba el responsable de cuenta.</p>
+                                    <div class="rag-sources">
+                                        <span class="rag-sources-label" data-i18n="heroMock.sources">Fuentes</span>
+                                        <span class="rag-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>politica-devoluciones-2025.pdf · p.4</span>
+                                        <span class="rag-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>manual-ventas.docx · §3.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rag-mock-footer">
+                            <div class="rag-input" data-i18n="heroMock.placeholder">Pregunta sobre tus documentos…</div>
+                            <div class="rag-send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <h3><a href="servicio-reels.html" style="text-decoration:none">Un reel a la setmana, fet amb IA</a></h3>
-                    <div>
-                        <p>M'envies una idea per WhatsApp i reps el vídeo en català amb veu i rètols, llest per publicar. Sense gravar res. És la manera més barata de començar a treballar junts.</p>
-                        <p class="for">Per a restaurants, botigues, clíniques, gimnasos… i també despatxos. <a href="servicio-reels.html">Com funciona</a>.</p>
+                    <div class="rag-mock-chips">
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg><span data-i18n="heroMock.chip1">Datos cifrados, nunca entrenan modelos ajenos</span></span>
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="heroMock.chip2">Permisos por rol</span></span>
+                        <span class="rag-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="heroMock.chip3">Siempre con fuente</span></span>
                     </div>
                 </div>
             </div>
-            <p class="also">També faig webs, apps mòbils, posicionament (SEO i aparèixer a ChatGPT) i la <a href="servicio-seguridad.html">revisió de seguretat i LQPD</a> del teu portal. Però si has arribat fins aquí, segurament vols una de les tres de dalt.</p>
         </div>
     </section>
 
-    <section id="casos">
-        <div class="wrap">
-            <h2>Fet de veritat, en ús cada dia.</h2>
-            <p class="intro">Dos projectes que faig servir jo mateix a la feina. Les captures són amb dades de prova.</p>
+    <hr class="hf-separator">
+    <section class="sectors-section">
+        <div class="container">
+            <p class="sectors-title reveal" data-i18n="sectors.title">Hemos trabajado con negocios de</p>
+            <div class="sectors-grid reveal">
+                <div class="sector-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" /></svg><span data-i18n="sectors.restaurants">Restaurantes</span></div>
+                <div class="sector-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><span data-i18n="sectors.realestate">Inmobiliarias</span></div>
+                <div class="sector-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9v6M6 6v12M18 6v12M22 9v6M6 12h12" /></svg><span data-i18n="sectors.gyms">Gimnasios</span></div>
+                <div class="sector-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14" /><path d="M2 20h20" /><path d="M6 8h4v4H6zM14 8h4v4h-4zM6 14h4v3M14 14h4v3" /></svg><span data-i18n="sectors.hotels">Hoteles</span></div>
+            </div>
+        </div>
+    </section>
 
-            <article class="cas">
-                <div class="media"><img src="img/crm-tauler.webp" alt="Tauler de tràmits per estat del CRM" width="1600" height="1000" loading="lazy"></div>
-                <div>
-                    <h3>CRM d'expedients per a una gestoria</h3>
-                    <p class="what">Cada client amb el seu KYC, cada tràmit amb els seus passos, i una agenda que avisa abans que caduqui res. Ctrl+K i qualsevol expedient en un segon.</p>
-                    <ul>
-                        <li>Portal perquè el client pugi els documents que falten</li>
-                        <li>Tauler de tràmits per estat, arrossegant</li>
-                        <li>Alertes de venciments, KYC i passaports</li>
-                        <li>Integrat amb HubSpot i amb els agents d'IA</li>
+    <hr class="hf-separator">
+    <section class="section" id="servicios-home">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="servicesHome.tag">Servicios</span>
+                <h2 class="section-title" data-i18n="servicesHome.title">Soluciones <span class="text-gradient">digitales</span></h2>
+            </div>
+            <div class="services-grid">
+                <article class="service-card service-card--featured reveal">
+                    <span class="service-eyebrow" data-i18n="servicesHome.featured">Especialidad</span>
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" />
+                            <circle cx="12" cy="11" r="2.4" />
+                            <path d="M12 8.6V6.2M12 15.4v-2M9.6 11H7.2M16.8 11h-2.4" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.ai.title">IA Segura & RAG</h3>
+                    <p data-i18n="servicesHome.ai.desc">Asistentes que responden con tus documentos reales, con fuentes y sin inventar. Tus datos, protegidos.</p><a
+                        href="#ia" class="service-link" data-i18n="servicesHome.link">Ver más →</a>
+                </article>
+                <article class="service-card reveal" data-delay="100">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.web.title">Desarrollo Web</h3>
+                    <p data-i18n="servicesHome.web.desc">Páginas web modernas, rápidas y responsive.</p><a href="servicios.html#web"
+                        class="service-link" data-i18n="servicesHome.link">Ver más →</a>
+                </article>
+                <article class="service-card reveal" data-delay="200">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <rect x="5" y="2" width="14" height="20" rx="2" />
+                            <path d="M12 18h.01" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.apps.title">Apps Móviles</h3>
+                    <p data-i18n="servicesHome.apps.desc">Aplicaciones iOS y Android nativas.</p><a href="servicios.html#apps" class="service-link" data-i18n="servicesHome.link">Ver más
+                        →</a>
+                </article>
+                <article class="service-card reveal" data-delay="300">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.saas.title">SaaS</h3>
+                    <p data-i18n="servicesHome.saas.desc">Plataformas escalables con suscripciones.</p><a href="servicios.html#saas"
+                        class="service-link" data-i18n="servicesHome.link">Ver más →</a>
+                </article>
+                <article class="service-card reveal" data-delay="400">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.auto.title">Automatizaciones</h3>
+                    <p data-i18n="servicesHome.auto.desc">Bots, workflows y conexiones.</p><a href="servicios.html#automatizaciones"
+                        class="service-link" data-i18n="servicesHome.link">Ver más →</a>
+                </article>
+                <article class="service-card reveal" data-delay="500">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="M21 21l-4.3-4.3" />
+                            <path d="M11 8.2l.9 1.9 1.9.9-1.9.9-.9 1.9-.9-1.9-1.9-.9 1.9-.9.9-1.9z" />
+                        </svg></div>
+                    <h3 data-i18n="servicesHome.seo.title">SEO y GEO</h3>
+                    <p data-i18n="servicesHome.seo.desc">Aparece en Google y en las búsquedas con IA como ChatGPT, Claude y Perplexity.</p><a
+                        href="servicios.html#seo" class="service-link" data-i18n="servicesHome.link">Ver más →</a>
+                </article>
+            </div>
+            <div class="section-cta reveal"><a href="servicios.html" class="btn btn-ghost" data-i18n="servicesHome.cta">Ver todos los servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="hf-separator">
+    <!-- Secure AI Implementation Section -->
+    <section class="section ai-section" id="ia">
+        <div class="container">
+            <div class="ai-grid">
+                <div class="ai-media reveal">
+                    <img src="ai-secure.webp?v=1" alt="Implementación de IA segura: red neuronal protegida por un escudo de cristal junto a documentos y un candado"
+                        loading="lazy" width="1168" height="880">
+                    <div class="ai-media-caption">
+                        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-i18n="ai.caption1">Datos cifrados</span></span>
+                        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="ai.caption2">Respuestas con fuente</span></span>
+                    </div>
+                </div>
+                <div class="ai-content reveal">
+                    <span class="section-tag" data-i18n="ai.tag">Inteligencia Artificial</span>
+                    <h2 class="section-title" data-i18n="ai.title">Implementación de IA <span class="text-gradient">segura</span> para tu negocio</h2>
+                    <p class="section-subtitle" data-i18n="ai.subtitle">Nuestra especialidad: IA que aporta valor real, protege tus datos y no se inventa nada.</p>
+                    <ul class="ai-features">
+                        <li><span class="ai-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg></span><span data-i18n="ai.f1"><strong>Asistentes RAG</strong> que responden consultando tus documentos reales, con fuentes y sin alucinaciones.</span></li>
+                        <li><span class="ai-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z" /></svg></span><span data-i18n="ai.f2"><strong>Chatbots 24/7</strong> entrenados con tu propia información, en tu web o WhatsApp.</span></li>
+                        <li><span class="ai-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8" /></svg></span><span data-i18n="ai.f3"><strong>Automatización inteligente</strong> e integración con ChatGPT, Claude y las herramientas que ya usas.</span></li>
+                        <li><span class="ai-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></span><span data-i18n="ai.f4"><strong>Seguridad y privacidad</strong>: tus datos cifrados, con control de accesos, sin filtrarse a terceros ni entrenar modelos ajenos.</span></li>
                     </ul>
-                    <p class="note">Expedients d'inversió estrangera, constitucions, residències. Fet per a la gestoria on treballo.</p>
+                    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                        <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20implementar%20IA%20en%20mi%20negocio"
+                            class="btn btn-primary" target="_blank" rel="noopener" data-i18n="ai.cta">Hablemos de tu proyecto de IA</a>
+                        <a href="rag.html" class="btn btn-ghost" data-i18n="ai.cta2">¿Qué es RAG? →</a>
+                    </div>
                 </div>
-            </article>
+            </div>
+        </div>
+    </section>
 
-            <article class="cas flip">
-                <div class="media"><img src="img/oficina-3d.webp" alt="Oficina virtual 3D amb vuit agents d'IA treballant" width="1600" height="1000" loading="lazy"></div>
-                <div>
-                    <h3>Una oficina 3D amb vuit empleats d'IA</h3>
-                    <p class="what">Cada agent té la seva taula, les seves tasques i les seves eines. Treballen sols sobre el CRM i, si vols saber com va la setmana, li ho preguntes a la Nova, la portaveu.</p>
-                    <ul>
-                        <li>Classifiquen el correu i preparen checklists</li>
-                        <li>Avisen del que caduca i redacten esborranys</li>
-                        <li>Tot el que fan queda registrat i és revisable</li>
+    <hr class="hf-separator">
+    <!-- GEO / AI Positioning Section -->
+    <section class="section geo-section" id="posicionamiento-ia">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="geo.tag">Posicionamiento IA</span>
+                <h2 class="section-title" data-i18n="geo.title">Que la <span class="text-gradient">IA recomiende</span> tu negocio</h2>
+                <p class="section-subtitle" data-i18n="geo.subtitle">El 40% de las personas ya pregunta a ChatGPT, Claude o Perplexity antes que a Google. Te posiciono para aparecer en sus respuestas.</p>
+            </div>
+            <div class="geo-compare reveal">
+                <table class="geo-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="geo.th.feature">&nbsp;</th>
+                            <th data-i18n="geo.th.seo">SEO tradicional</th>
+                            <th class="geo-col-highlight" data-i18n="geo.th.geo">Posicionamiento IA (GEO)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r1.label">Dónde apareces</td>
+                            <td data-i18n="geo.r1.seo">Resultados de Google</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r1.geo">Respuestas de ChatGPT, Claude, Perplexity y Gemini</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r2.label">Competencia</td>
+                            <td data-i18n="geo.r2.seo">Muy alta, miles de webs</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r2.geo">Baja: solo el 1% de empresas en Andorra lo trabaja</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r3.label">Intención de compra</td>
+                            <td data-i18n="geo.r3.seo">Media, el usuario aún compara</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r3.geo">Alta: la IA ya recomienda una opción concreta</td>
+                        </tr>
+                        <tr>
+                            <td class="geo-row-label" data-i18n="geo.r4.label">Cómo se consigue</td>
+                            <td data-i18n="geo.r4.seo">Keywords y enlaces</td>
+                            <td class="geo-col-highlight" data-i18n="geo.r4.geo">Contenido optimizado, datos estructurados y llms.txt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section-cta reveal"><a
+                    href="https://wa.me/376601249?text=Hola%20Said%2C%20quiero%20una%20auditor%C3%ADa%20de%20posicionamiento%20en%20IA%20gratis"
+                    class="btn btn-primary" target="_blank" rel="noopener" data-i18n="geo.cta">Auditoría GEO gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="portfolio-home">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="portfolioHome.tag">Portfolio</span>
+                <h2 class="section-title" data-i18n="portfolioHome.title">Proyectos <span class="text-gradient">destacados</span></h2>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-card reveal" onclick="location.href='rag.html'" style="cursor:pointer">
+                    <div class="portfolio-image">
+                        <img class="portfolio-img" src="pf-rag.webp?v=1" alt="Asistente de IA con RAG sobre tus documentos" loading="lazy" width="1376" height="768">
+                        <div class="portfolio-overlay"><span class="portfolio-badge" data-i18n="portfolioHome.rags.badge">IA</span></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>RAGs</h3>
+                        <p data-i18n="portfolioHome.rags.desc">Asistentes de IA que responden consultando los documentos reales de tu empresa (RAG): manuales, catálogos y políticas, sin inventarse nada.</p>
+                        <div class="portfolio-metric"><span class="metric-arrow">↗</span><a href="demo-rag.html" data-i18n="portfolioHome.rags.metric" style="color:inherit;text-decoration:underline">Prueba la demo en vivo</a></div>
+                        <div class="portfolio-tech"><span>LLM</span><span>Embeddings</span><span>Vector DB</span></div>
+                    </div>
+                </article>
+                <article class="portfolio-card reveal" data-delay="100">
+                    <div class="portfolio-image">
+                        <img class="portfolio-img" src="vv-card.webp?v=1" alt="Visitas Virtuales: salón 3D con muebles" loading="lazy" width="1376" height="768">
+                        <div class="portfolio-overlay"><span class="portfolio-badge" data-i18n="portfolioHome.vv.badge">3D · IA</span></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Visitas Virtuales</h3>
+                        <p data-i18n="portfolioHome.vv.desc">Sube una foto de tu salón y prueba muebles reales en 3D a escala real antes de comprarlos. Habitación navegable y catálogo fotorrealista.</p>
+                        <div class="portfolio-metric"><span class="metric-arrow">↗</span><a href="https://visitas-virtuales-dgwi.vercel.app/demo" target="_blank" rel="noopener" data-i18n="portfolioHome.vv.metric" style="color:inherit;text-decoration:underline">Prueba la demo en vivo</a></div>
+                        <div class="portfolio-tech"><span>TypeScript</span><span>Three.js</span><span>WebGL</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="section-cta reveal"><a href="portfolio.html" class="btn btn-ghost" data-i18n="portfolioHome.cta">Ver todos los proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="testimonios-home">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="testimonialsHome.tag">Testimonios</span>
+                <h2 class="section-title" data-i18n="testimonialsHome.title">Lo que dicen <span class="text-gradient">mis clientes</span></h2>
+            </div>
+            <!-- Infinite scrolling testimonials marquee -->
+            <div class="hf-testimonials-marquee">
+                <div class="hf-marquee-track">
+                    <!-- Set 1 -->
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t1">"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">MR</div>
+                            <div class="hf-t-info"><span class="hf-t-name">María Rodríguez</span><span class="hf-t-role">Restaurante La Parrilla</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t2">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">CP</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Carlos Pérez</span><span class="hf-t-role">Inmobiliaria Premium</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t3">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">JL</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Jordi López</span><span class="hf-t-role">FitCenter Gym</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t4">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">AM</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Ana Martínez</span><span class="hf-t-role">Hotel Andorra Center</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t5">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">RS</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Roberto Sánchez</span><span class="hf-t-role">Consultoría BCN</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t6">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">LG</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Laura García</span><span class="hf-t-role">Delishop Gourmet</span></div>
+                        </div>
+                    </div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t1">"SaeTech desarrolló nuestra web de reservas en tiempo récord. Las reservas aumentaron un 40%."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">MR</div>
+                            <div class="hf-t-info"><span class="hf-t-name">María Rodríguez</span><span class="hf-t-role">Restaurante La Parrilla</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t2">"Profesional y rápido. Nuestra app inmobiliaria funciona perfectamente."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">CP</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Carlos Pérez</span><span class="hf-t-role">Inmobiliaria Premium</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t3">"La app del gimnasio nos permitió digitalizar todo. ¡Excelente trabajo!"</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">JL</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Jordi López</span><span class="hf-t-role">FitCenter Gym</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t4">"Nuestra web de hotel quedó espectacular. Reservas online funcionando perfecto."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">AM</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Ana Martínez</span><span class="hf-t-role">Hotel Andorra Center</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t5">"Automatizó todos nuestros procesos. Ahorramos 10 horas semanales."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">RS</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Roberto Sánchez</span><span class="hf-t-role">Consultoría BCN</span></div>
+                        </div>
+                    </div>
+                    <div class="hf-t-card">
+                        <div class="hf-t-stars" aria-label="5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 5.9 21l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+                        <p class="hf-t-text" data-i18n="testimonialsHome.t6">"El SaaS que creó para nuestra tienda superó todas las expectativas."</p>
+                        <div class="hf-t-author">
+                            <div class="hf-t-avatar">LG</div>
+                            <div class="hf-t-info"><span class="hf-t-name">Laura García</span><span class="hf-t-role">Delishop Gourmet</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-dark" id="proceso">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="process.tag">Proceso</span>
+                <h2 class="section-title" data-i18n="process.title">Cómo <span class="text-gradient">trabajo</span></h2>
+                <p class="section-subtitle" data-i18n="process.subtitle">Un proceso claro de principio a fin.</p>
+            </div>
+            <div class="process-timeline reveal">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3 data-i18n="process.step1.title">Consulta</h3>
+                        <p data-i18n="process.step1.desc">Analizamos tu idea y objetivos.</p>
+                        <span class="process-time" data-i18n="process.step1.time">1-2 días</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3 data-i18n="process.step2.title">Propuesta</h3>
+                        <p data-i18n="process.step2.desc">Presupuesto detallado con plazos.</p>
+                        <span class="process-time" data-i18n="process.step2.time">2-3 días</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3 data-i18n="process.step3.title">Diseño</h3>
+                        <p data-i18n="process.step3.desc">Creo el diseño visual de tu proyecto.</p>
+                        <span class="process-time" data-i18n="process.step3.time">1-2 semanas</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3 data-i18n="process.step4.title">Desarrollo</h3>
+                        <p data-i18n="process.step4.desc">Programamos con actualizaciones semanales.</p>
+                        <span class="process-time" data-i18n="process.step4.time">2-6 semanas</span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <div class="process-content">
+                        <h3 data-i18n="process.step5.title">Lanzamiento</h3>
+                        <p data-i18n="process.step5.desc">Ajustes finales y publicación.</p>
+                        <span class="process-time" data-i18n="process.step5.time">1-2 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust/Guarantees Section -->
+    <section class="trust-section" id="garantias">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="trust.tag">Garantías</span>
+                <h2 class="section-title" data-i18n="trust.title">Por qué <span class="text-gradient">confiar en
+                        nosotros</span></h2>
+            </div>
+            <div class="trust-grid reveal">
+                <div class="trust-card">
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+                    <div class="trust-card-content">
+                        <h3 data-i18n="trust.card1.title">Satisfacción garantizada</h3>
+                        <p data-i18n="trust.card1.desc">No pagas hasta que estés 100% satisfecho con el resultado.</p>
+                    </div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                    <div class="trust-card-content">
+                        <h3 data-i18n="trust.card2.title">Entrega rápida</h3>
+                        <p data-i18n="trust.card2.desc">Plazos realistas que cumplo. Sin sorpresas ni retrasos.</p>
+                    </div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                    <div class="trust-card-content">
+                        <h3 data-i18n="trust.card3.title">Soporte incluido</h3>
+                        <p data-i18n="trust.card3.desc">30 días de soporte gratuito después del lanzamiento.</p>
+                    </div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                    <div class="trust-card-content">
+                        <h3 data-i18n="trust.card4.title">Comunicación directa</h3>
+                        <p data-i18n="trust.card4.desc">Hablas directamente con el equipo. Sin intermediarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="precios">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="pricing.tag">Precios</span>
+                <h2 class="section-title" data-i18n="pricing.title">Inversión <span class="text-gradient">transparente</span></h2>
+                <p class="section-subtitle" data-i18n="pricing.subtitle">Precios orientativos. Cada proyecto es único.</p>
+            </div>
+            <div class="pricing-grid reveal">
+                <div class="pricing-card">
+                    <div class="pricing-name" data-i18n="pricing.basic.name">Básico</div>
+                    <div class="pricing-title" data-i18n="pricing.basic.title">Landing Page</div>
+                    <div class="pricing-price">400€<span> / proyecto</span></div>
+                    <p class="pricing-desc" data-i18n="pricing.basic.desc">Perfecto para empezar tu presencia digital.</p>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.basic.f1">Diseño responsive</li>
+                        <li data-i18n="pricing.basic.f2">SEO básico</li>
+                        <li data-i18n="pricing.basic.f3">Formulario de contacto</li>
+                        <li data-i18n="pricing.basic.f4">1 revisión incluida</li>
+                        <li data-i18n="pricing.basic.f5">Entrega en 1-2 semanas</li>
                     </ul>
-                    <p class="note">Hi ha un vídeo de 30 segons a <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">@saetechai</a>.</p>
+                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.basic.action">Empezar</a>
                 </div>
-            </article>
-        </div>
-    </section>
-
-    <section id="qui" class="paper">
-        <div class="wrap qui">
-            <div class="text">
-                <h2>Qui hi ha darrere.</h2>
-                <p>Em dic Said El Boudouhi. Sóc andorrà, jurista de formació i desenvolupador per compte propi: vaig començar fent webs per a amics i vaig acabar construint una aplicació de gestió de gimnasos amb més de 8.000 commits.</p>
-                <p>Ara treballo d'assessor jurídic i fiscal en una gestoria d'Andorra la Vella. Això vol dir que quan et faig un CRM, sé què és un expedient d'inversió estrangera, què demana la LQPD i per què el teu equip encara busca les coses en carpetes.</p>
-                <p>No tinc comercials ni equip de vendes. Si m'escrius, parles amb mi, i qui programa sóc jo.</p>
-            </div>
-            <div>
-                <div class="facts">
-                    <div><b>Formació</b><span>Grau en Dret, màster en Dret i màster en Intel·ligència Artificial</span></div>
-                    <div><b>Feina</b><span>Assessor jurídic i fiscal en una gestoria d'Andorra</span></div>
-                    <div><b>Llengües</b><span>Català, castellà, francès, anglès</span></div>
-                    <div><b>Normativa</b><span>LQPD (Llei 29/2021), RGPD, inversió estrangera</span></div>
-                    <div><b>On</b><span>Andorra. Reunions presencials o per videotrucada</span></div>
-                    <div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">said-el-boudouhi</a></span></div>
+                <div class="pricing-card featured">
+                    <div class="pricing-name" data-i18n="pricing.pro.name">Recomendado</div>
+                    <div class="pricing-title" data-i18n="pricing.pro.title">Web Profesional</div>
+                    <div class="pricing-price">1.200€<span> / proyecto</span></div>
+                    <p class="pricing-desc" data-i18n="pricing.pro.desc">Ideal para negocios que quieren crecer.</p>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.pro.f1">Hasta 5 páginas</li>
+                        <li data-i18n="pricing.pro.f2">SEO avanzado</li>
+                        <li data-i18n="pricing.pro.f3">Panel de administración</li>
+                        <li data-i18n="pricing.pro.f4">Integración redes sociales</li>
+                        <li data-i18n="pricing.pro.f5">3 revisiones incluidas</li>
+                        <li data-i18n="pricing.pro.f6">Entrega en 2-4 semanas</li>
+                    </ul>
+                    <a href="contacto.html" class="btn btn-primary" style="width:100%" data-i18n="pricing.pro.action">Empezar</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-name" data-i18n="pricing.premium.name">Premium</div>
+                    <div class="pricing-title" data-i18n="pricing.premium.title">App / SaaS</div>
+                    <div class="pricing-price">1.200€<span>+</span></div>
+                    <p class="pricing-desc" data-i18n="pricing.premium.desc">Soluciones complejas a medida.</p>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.premium.f1">App móvil o plataforma SaaS</li>
+                        <li data-i18n="pricing.premium.f2">Backend completo</li>
+                        <li data-i18n="pricing.premium.f3">Base de datos</li>
+                        <li data-i18n="pricing.premium.f4">APIs y integraciones</li>
+                        <li data-i18n="pricing.premium.f5">Revisiones ilimitadas</li>
+                        <li data-i18n="pricing.premium.f6">Soporte 3 meses</li>
+                    </ul>
+                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.premium.action">Consultar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="blog">
-        <div class="wrap">
-            <h2>Coses que escric.</h2>
-            <div class="posts">
-                <a href="blog-ciberataque-cass.html">
-                    <time datetime="2026-11-17">17 nov 2026</time>
-                    <div><h3>Ciberatac a la CASS: 477.238 NIA exposats. Què ha passat i què has de fer</h3><p>Com van entrar, què diu la Llei 29/2021 i cinc lliçons per a qualsevol empresa amb un portal de dades.</p></div>
-                </a>
-                <a href="blog-cuanto-cuesta-rag.html">
-                    <time datetime="2026-11-05">5 nov 2026</time>
-                    <div><h3>Quant costa un assistent RAG per a la teva empresa el 2026</h3><p>Preus reals, què inclouen i quan no val la pena.</p></div>
-                </a>
-                <a href="blog-rag-empresas.html">
-                    <time datetime="2026-07-15">15 jul 2026</time>
-                    <div><h3>Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses)</h3><p>La diferència entre un assistent que respon amb els teus documents i un que improvisa.</p></div>
-                </a>
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="faq.tag">FAQ</span>
+                <h2 class="section-title" data-i18n="faq.title">Preguntas <span class="text-gradient">frecuentes</span></h2>
+                <p class="section-subtitle" data-i18n="faq.subtitle">Lo que más me preguntan antes de empezar un proyecto.</p>
             </div>
-            <p class="also"><a href="blog.html">Tots els articles</a></p>
+            <div class="faq-list reveal">
+                <details class="faq-item">
+                    <summary data-i18n="faq.q1.q">¿Cuánto cuesta un proyecto?</summary>
+                    <p data-i18n="faq.q1.a">Una landing desde 400€ y una web profesional o app desde 1.200€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q2.q">¿Cuánto tardas en entregar?</summary>
+                    <p data-i18n="faq.q2.a">Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q3.q">¿El código y los accesos son míos?</summary>
+                    <p data-i18n="faq.q3.a">Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q4.q">¿Trabajas con clientes fuera de Andorra?</summary>
+                    <p data-i18n="faq.q4.a">Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q5.q">¿Ofreces soporte después del lanzamiento?</summary>
+                    <p data-i18n="faq.q5.a">Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q6.q">¿Qué es el posicionamiento en IA (GEO)?</summary>
+                    <p data-i18n="faq.q6.a">Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.</p>
+                </details>
+            </div>
         </div>
     </section>
 
-    <section class="cta paper">
-        <div class="wrap">
-            <h2>Explica'm què et fa perdre temps al despatx.</h2>
-            <p>Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
-            <div class="actions">
-                <a class="btn btn-solid" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" target="_blank" rel="noopener">Escriu-me per WhatsApp</a>
-                <a class="btn btn-ghost" href="mailto:hola@saetechai.com">Envia'm un correu</a>
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title" data-i18n="cta.title">¿Tienes un proyecto en mente?</h2>
+                <p class="cta-text" data-i18n="cta.desc">Cuéntame tu idea y te ayudo a hacerla realidad.</p>
+                <a href="contacto.html" class="btn btn-primary btn-lg" data-i18n="cta.btn">Hablemos</a>
             </div>
-            <p class="tel">+376 601 249 · Andorra</p>
         </div>
     </section>
 
     <footer class="footer">
-    <div class="wrap">
-        <div class="fgrid">
-            <div>
-                <b>SaeTech</b>
-                <p>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p>
-                <p>+376 601 249 · <a href="mailto:hola@saetechai.com">hola@saetechai.com</a></p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
+                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+                        </a>
+                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colServices">Servicios</h4>
+                    <ul>
+                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
+                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
+                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
+                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
+                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
+                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
+                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
+                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colCompany">Estudio</h4>
+                    <ul>
+                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
+                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
+                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.colContact">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
+                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <b>Serveis</b>
-                <a href="servicios.html#seguridad">Programari a mida</a>
-                <a href="servicio-ia.html">Agents d'IA i RAG</a>
-                <a href="servicio-reels.html">Reels amb IA</a>
-                <a href="servicio-seguridad.html">Revisió LQPD</a>
-                <a href="servicio-web.html">Webs</a>
-                <a href="servicio-apps.html">Apps</a>
-                <a href="servicio-seo.html">SEO i GEO</a>
-            </div>
-            <div>
-                <b>SaeTech</b>
-                <a href="portfolio.html">Projectes</a>
-                <a href="blog.html">Blog</a>
-                <a href="sobre-mi.html">Qui sóc</a>
-                <a href="contacto.html">Contacte</a>
-                <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
+                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
             </div>
         </div>
-        <div class="cols"><span>© 2026 SaeTech · Said El Boudouhi · Andorra</span><span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a></span></div>
+    </footer>
+
+    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float"
+        target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
+        </svg>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <!-- Email Capture Popup -->
+    <div class="email-popup" id="emailPopup">
+        <button class="email-popup-close" id="emailPopupClose">&times;</button>
+        <h4 data-i18n="emailPopup.title">🎁 Recibe consejos gratis</h4>
+        <p data-i18n="emailPopup.desc">Trucos de desarrollo web y ofertas exclusivas. Sin spam.</p>
+        <form class="email-popup-form" action="https://formsubmit.co/s91564774@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo suscriptor desde saetechai.com">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="Tu email" data-i18n-placeholder="emailPopup.placeholder" required>
+            <button type="submit" class="btn btn-primary" data-i18n="emailPopup.submit">Suscribirme</button>
+        </form>
     </div>
-</footer>
+
+    <script src="script.js?v=3.26"></script>
+    <script src="higgsfield-visuals.js?v=2.2"></script>
 </body>
+
 </html>
