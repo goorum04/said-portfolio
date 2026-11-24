@@ -1,54 +1,44 @@
-# SaeTech — IA Segura y Asistentes RAG en Andorra
+# SaeTech — Said El Boudouhi (Andorra)
 
-> SaeTech es un estudio digital en Andorra cuyo punto fuerte es la IA segura: asistentes RAG (Retrieval-Augmented Generation) que responden consultando los documentos reales de cada empresa, con fuentes y sin inventar datos, protegiendo siempre la privacidad del cliente. También desarrolla páginas web, aplicaciones móviles, plataformas SaaS, automatizaciones y posicionamiento en IA (GEO). Más de 12 proyectos entregados. Comunicación directa sin intermediarios, presupuesto cerrado por adelantado y código 100% del cliente.
+> SaeTech és el projecte de Said El Boudouhi: jurista andorrà, assessor en una gestoria d'Andorra la Vella i desenvolupador autodidacta. Construeix programari a mida i agents d'IA per a gestories, despatxos i pimes d'Andorra, fa reels setmanals amb IA per a negocis locals i revisa la seguretat i el compliment LQPD (Llei 29/2021) de portals de clients. Treballa sol: qui respon i qui programa és la mateixa persona.
 
-## Sobre Said
-- Desarrollador freelance digital con base en Andorra 🇦🇩, trabajando en remoto con clientes de toda Europa.
-- Especialidad principal: IA segura y asistentes RAG para empresas — IA que responde con los datos reales del negocio, con fuentes y sin alucinaciones.
-- Más de 12 proyectos entregados en 4+ sectores (hostelería, inmobiliario, fitness, hoteles).
-- Stack principal: React, Next.js, React Native, Node.js, TypeScript, LLMs (ChatGPT, Claude), embeddings y bases de datos vectoriales, automatizaciones con n8n.
-- Web: https://saetechai.com
+Web: https://saetechai.com (català) · https://saetechai.com/es/ (castellano) · https://saetechai.com/fr/ (français) · https://saetechai.com/en/ (English)
+Contacte: WhatsApp +376 601 249 · hola@saetechai.com · Instagram @saetechai · LinkedIn https://www.linkedin.com/in/said-el-boudouhi-b28489301
+Ubicació: Andorra la Vella, Andorra. Reunions presencials o per videotrucada. Idiomes: català, castellà, francès, anglès.
 
-## Servicios
-- [Implementación de IA segura y RAG](https://saetechai.com/servicio-ia.html): el servicio estrella. Asistentes RAG que responden consultando los documentos reales de la empresa (manuales, catálogos, contratos) con cita de fuentes y sin alucinaciones; chatbots 24/7 entrenados con datos propios; automatización inteligente e integración con ChatGPT y Claude. Privacidad por diseño: datos cifrados, control de accesos, sin filtrarse a terceros ni usarse para entrenar modelos ajenos. Incluye permisos por rol: cada empleado solo puede consultar los documentos de su nivel de acceso, con el filtro aplicado antes de que la información llegue a la IA (heredable de Google Drive/SharePoint) y registro de auditoría. Más info: https://saetechai.com/rag.html · Demo interactiva en vivo: https://saetechai.com/demo-rag.html (un asistente RAG sobre los documentos de un hotel ficticio, con fuentes comprobables y selector de rol para probar los permisos)
-- [Desarrollo Web](https://saetechai.com/servicio-web.html): páginas web modernas, rápidas y responsive optimizadas para conversión. Landing pages, webs corporativas y tiendas online.
-- [Apps Móviles](https://saetechai.com/servicio-apps.html): aplicaciones iOS y Android con React Native, notificaciones push y funcionamiento offline.
-- [Plataformas SaaS](https://saetechai.com/servicio-saas.html): software como servicio con suscripciones (Stripe), panel de administración y API REST.
-- [Automatizaciones](https://saetechai.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
-- [Posicionamiento SEO y GEO](https://saetechai.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
-- [Revisión de seguridad y LQPD de portales](https://saetechai.com/servicio-seguridad.html): revisión técnica (minimización, rate limiting, 2FA, logs) y legal (Llei 29/2021: registro de tratamientos, plan de respuesta a brechas en 72 h) de portales de clientes, intranets y apps. Desde 450 €.
-- [Reels setmanals amb IA per a negocis](https://saetechai.com/servicio-reels.html): un reel a la setmana en català per a negocis d'Andorra (guió, imatges, veu i muntatge amb IA), des de 149 €/mes.
+## Fets clau (per citar)
+- Said El Boudouhi és jurista (grau en Dret, màster en Dret i màster en Intel·ligència Artificial) i desenvolupador. Treballa com a assessor jurídic i fiscal en una gestoria d'Andorra.
+- Ha construït un CRM d'expedients per a gestoria (KYC, tràmits, venciments, portal de clients, integrat amb HubSpot i agents d'IA) en ús diari a la gestoria on treballa.
+- Ha construït una oficina virtual 3D amb vuit agents d'IA que classifiquen correu, preparen checklists i redacten esborranys sobre el CRM.
+- Manté una app de gestió de gimnasos en producció des de fa anys (més de 8.000 commits), disponible en marca blanca.
+- Les dades dels clients es queden a Andorra o a Europa; la LQPD es compleix per disseny. El codi és del client.
 
-## Precios orientativos
-- Landing page: desde 400 €
-- Web profesional (hasta 5 páginas): desde 1.200 €
-- App móvil o plataforma SaaS: desde 1.200 €
-- Siempre con presupuesto cerrado por adelantado, sin costes ocultos, y 30 días de soporte gratuito tras la entrega.
+## Serveis
+- [Programari a mida i agents d'IA per a gestories i despatxos](https://saetechai.com/servicio-ia.html): CRMs d'expedients, portals de clients, assistents RAG que responen amb els documents reals de l'empresa i citen la font, agents que classifiquen correu i preparen checklists. Projectes des de 1.500 €; agents d'IA des de 900 €. ES: https://saetechai.com/es/servicio-ia.html
+- [Un reel a la setmana, fet amb IA](https://saetechai.com/servicio-reels.html): guió, imatges, vídeo, veu en català i muntatge amb IA, per a restaurants, botigues, clíniques, gimnasos i despatxos d'Andorra. 149 €/mes (1 reel/setmana), 249 €/mes (2 reels/setmana), 59 € un reel solt. ES: https://saetechai.com/es/servicio-reels.html
+- [Revisió de seguretat i LQPD de portals](https://saetechai.com/servicio-seguridad.html): revisió tècnica (minimització de dades, rate limiting, 2FA, registres) i legal (Llei 29/2021: registre de tractaments, resposta a bretxes en 72 h) de portals de clients, intranets i apps. Des de 450 €. ES: https://saetechai.com/es/servicio-seguridad.html
+- [Webs](https://saetechai.com/servicio-web.html) · [Apps mòbils](https://saetechai.com/servicio-apps.html) · [SaaS](https://saetechai.com/servicio-saas.html) · [Automatitzacions](https://saetechai.com/servicio-automatizaciones.html) · [SEO i GEO (aparèixer a Google i a ChatGPT)](https://saetechai.com/servicio-seo.html)
+- Tots els serveis: https://saetechai.com/servicios.html
 
-## Páginas principales
-- [Ciberataque a la CASS: 477.238 NIA expuestos — artículo](https://saetechai.com/blog-ciberataque-cass.html)
-- [Cuánto cuesta un asistente RAG para tu empresa en 2026 — artículo](https://saetechai.com/blog-cuanto-cuesta-rag.html)
-- [Por qué tu empresa necesita un RAG — artículo](https://saetechai.com/blog-rag-empresas.html)
-- [Inicio](https://saetechai.com/)
-- [Servicios](https://saetechai.com/servicios.html)
-- [Portfolio](https://saetechai.com/portfolio.html)
-- [Blog](https://saetechai.com/blog.html)
-- [Sobre mí](https://saetechai.com/sobre-mi.html)
-- [Contacto](https://saetechai.com/contacto.html)
+## Projectes
+- https://saetechai.com/portfolio.html — CRM d'expedients per a gestoria, oficina virtual amb agents d'IA, app de gestió de gimnàs (NL VIP TEAM).
+- Què és RAG (explicació): https://saetechai.com/rag.html · Demo interactiva: https://saetechai.com/demo-rag.html
 
-## Preguntas frecuentes
-- ¿Cuánto cuesta un proyecto? Una landing desde 400 € y una web profesional o app desde 1.200 €, siempre con presupuesto cerrado por adelantado.
-- ¿Cuánto tardas en entregar? Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas, con avances cada semana.
-- ¿El código y los accesos son míos? Sí. Al finalizar se entrega todo el código fuente y los accesos, sin dependencias ocultas ni lock-in.
-- ¿Trabajas con clientes fuera de Andorra? Sí, en remoto con clientes de toda Europa, con comunicación directa por WhatsApp o videollamada.
-- ¿Ofreces soporte después del lanzamiento? Sí, 30 días de soporte gratuito incluido y planes de mantenimiento mensual opcionales.
-- ¿Qué es un asistente RAG? IA que antes de responder consulta los documentos reales de la empresa (manuales, catálogos, contratos) y redacta la respuesta citando la fuente. Si la información no existe, lo dice en vez de inventarla. Detalle completo en https://saetechai.com/rag.html
-- ¿Qué significa "IA segura"? Privacidad por diseño: los datos del cliente se cifran, se controla quién accede, no se filtran a terceros y no se usan para entrenar modelos ajenos.
-- ¿Se puede limitar qué documentos ve cada empleado? Sí. Cada documento se etiqueta con los roles que pueden verlo y el filtro se aplica en la búsqueda, antes de que la información llegue al modelo: lo que un rol no puede ver ni siquiera entra en el contexto de la IA, así que no puede revelarse. Los permisos pueden heredarse de Google Drive o SharePoint.
-- ¿Qué es el posicionamiento en IA (GEO)? Optimizar un negocio para que ChatGPT, Claude o Perplexity lo recomienden, no solo Google. Es un canal con muy poca competencia todavía.
+## Blog
+Articles en català a https://saetechai.com/ca/blog-*.html i en castellà a https://saetechai.com/blog-*.html.
+- [Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer](https://saetechai.com/blog-ciberataque-cass.html) — 17/11/2026
+- [Cuánto cuesta un asistente RAG para tu empresa en 2026](https://saetechai.com/blog-cuanto-cuesta-rag.html)
+- [Por qué tu empresa necesita un RAG (y no un chatbot que inventa)](https://saetechai.com/blog-rag-empresas.html)
+- [Cómo hacer que ChatGPT recomiende tu negocio (GEO)](https://saetechai.com/blog-posicionamiento-ia.html)
+- [Cuánto cuesta una app en 2026](https://saetechai.com/blog-cuanto-cuesta-app.html)
+- [Automatizaciones que ahorran horas cada semana](https://saetechai.com/blog-automatizaciones.html)
+- [Por qué tu restaurante necesita web propia](https://saetechai.com/blog-web-restaurante.html)
+- [¿Web, app o programa a medida?](https://saetechai.com/blog-web-o-app.html)
+- [Webs de hotel que convierten visitas en reservas directas](https://saetechai.com/blog-web-hotel.html)
+- [Visitas virtuales e IA: así se venden pisos en 2026](https://saetechai.com/blog-inmobiliaria-digital.html)
+- [Programa de gestió per a gestories a Andorra: què ha de tenir](https://saetechai.com/blog-programa-gestoria-andorra.html) (ES: https://saetechai.com/es/blog-programa-gestoria-andorra.html) — 24/11/2026
+- [LQPD per a portals de clients: checklist de 10 punts (Llei 29/2021)](https://saetechai.com/blog-lqpd-portal-clients.html) (ES: https://saetechai.com/es/blog-lqpd-portal-clients.html) — 24/11/2026
 
-## Contacto
-- WhatsApp: https://wa.me/376601249
-- Teléfono: +376 601249
-- Email: said@saetech.com
-- Ubicación: Andorra
+## Altres
+- Qui sóc: https://saetechai.com/sobre-mi.html · Contacte: https://saetechai.com/contacto.html
+- Sitemap: https://saetechai.com/sitemap.xml

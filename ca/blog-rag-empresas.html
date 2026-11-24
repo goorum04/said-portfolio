@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses) | Blog SaeTech</title>
+<meta content="Els xatbots genèrics s'inventen preus, polítiques i terminis, i això costa diners. Què és un RAG, per què respon amb els teus documents reals i amb fonts, i com protegeix el que cada empleat pot veure." name="description"/>
+<link href="https://saetechai.com/ca/blog-rag-empresas.html" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="article" property="og:type"/>
+<meta content="https://saetechai.com/ca/blog-rag-empresas.html" property="og:url"/>
+<meta content="Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses) | Blog SaeTech" property="og:title"/>
+<meta content="Els xatbots genèrics s'inventen preus, polítiques i terminis, i això costa diners. Què és un RAG, per què respon amb els teus documents reals i amb fonts, i com protegeix el que cada empleat pot veure." property="og:description"/>
+<meta content="https://saetechai.com/rag-cover.webp" property="og:image"/>
+<meta content="SaeTech" property="og:site_name"/>
+<meta content="ca_ES" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="#07090D" name="theme-color"/>
+<link href="/favicon.svg?v=2" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css?v=3.0" rel="stylesheet"/>
+
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
+<meta content="Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses) | Blog SaeTech" name="twitter:title"/><meta content="Els xatbots genèrics s'inventen preus, polítiques i terminis, i això costa diners. Què és un RAG, per què respon amb els teus documents reals i amb fonts, i com protegeix el que cada empleat pot veure." name="twitter:description"/><meta content="https://saetechai.com/rag-cover.webp" name="twitter:image"/><meta content="Said El Boudouhi" name="author"/><meta content="AD" name="geo.region"/><meta content="Andorra la Vella" name="geo.placename"/><link href="https://saetechai.com/ca/blog-rag-empresas.html" hreflang="ca" rel="alternate"/><link href="https://saetechai.com/blog-rag-empresas.html" hreflang="es" rel="alternate"/><link href="https://saetechai.com/blog-rag-empresas.html" hreflang="x-default" rel="alternate"/><meta content="es_ES" property="og:locale:alternate"/><script>window.LANG="ca";window.LANG_URLS={"ca": "/ca/blog-rag-empresas.html", "es": "/blog-rag-empresas.html", "fr": "/blog-rag-empresas.html", "en": "/blog-rag-empresas.html"};</script><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "ProfessionalService"], "@id": "https://saetechai.com/#org", "name": "SaeTech", "url": "https://saetechai.com/", "logo": "https://saetechai.com/favicon.svg", "image": "https://saetechai.com/img/og-saetech.jpg", "founder": {"@id": "https://saetechai.com/#said"}, "email": "hola@saetechai.com", "telephone": "+376601249", "address": {"@type": "PostalAddress", "addressLocality": "Andorra la Vella", "addressCountry": "AD"}, "areaServed": {"@type": "Country", "name": "Andorra"}, "sameAs": ["https://www.linkedin.com/in/said-el-boudouhi-b28489301", "https://www.instagram.com/saetechai"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Programari a mida i agents d'IA per a gestories", "url": "https://saetechai.com/servicio-ia.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reels setmanals amb IA", "url": "https://saetechai.com/servicio-reels.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Revisió de seguretat i LQPD de portals", "url": "https://saetechai.com/servicio-seguridad.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Desenvolupament web", "url": "https://saetechai.com/servicio-web.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apps mòbils", "url": "https://saetechai.com/servicio-apps.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO i GEO", "url": "https://saetechai.com/servicio-seo.html"}}]}, {"@type": "Person", "@id": "https://saetechai.com/#said", "name": "Said El Boudouhi", "url": "https://saetechai.com/sobre-mi.html", "jobTitle": "Jurista i desenvolupador", "worksFor": {"@id": "https://saetechai.com/#org"}, "knowsLanguage": ["ca", "es", "fr", "en"], "sameAs": ["https://www.linkedin.com/in/said-el-boudouhi-b28489301", "https://www.instagram.com/saetechai"], "knowsAbout": ["Intel·ligència artificial", "RAG", "Desenvolupament web", "Llei 29/2021 LQPD", "Dret andorrà", "Next.js", "Supabase"]}, {"@type": "WebSite", "@id": "https://saetechai.com/#website", "url": "https://saetechai.com/", "name": "SaeTech", "publisher": {"@id": "https://saetechai.com/#org"}, "inLanguage": ["ca", "es", "fr", "en"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inici", "item": "https://saetechai.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saetechai.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses)", "item": "https://saetechai.com/ca/blog-rag-empresas.html"}]}, {"@type": "Article", "headline": "Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses) | Blog SaeTech", "datePublished": "2026-07-15", "author": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"}, "image": "https://saetechai.com/rag-cover.webp", "description": "Els xatbots genèrics s'inventen preus, polítiques i terminis, i això costa diners. Què és un RAG, per què respon amb els teus documents reals i amb fonts, i com protegeix el que cada empleat pot veure.", "publisher": {"@id": "https://saetechai.com/#org"}, "inLanguage": "ca", "mainEntityOfPage": "https://saetechai.com/ca/blog-rag-empresas.html", "url": "https://saetechai.com/ca/blog-rag-empresas.html"}]}</script></head>
+<body>
+<div aria-hidden="true" class="bgfx"></div>
+<header class="nav">
+<div class="wrap">
+<a class="brand" href="/"><i></i>SaeTech</a>
+<ul class="menu" id="menu">
+<li><a href="/servicios.html">Serveis</a></li><li><a href="/portfolio.html">Projectes</a></li><li><a href="/blog.html">Blog</a></li><li><a href="/sobre-mi.html">Qui sóc</a></li><li><a href="/contacto.html">Contacte</a></li>
+<li class="cta"><a href="https://wa.me/376601249" rel="noopener" target="_blank">WhatsApp</a></li>
+</ul>
+<div style="display:flex;gap:8px;align-items:center">
+<div class="lang"><button aria-haspopup="true" id="langBtn" type="button"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+<button aria-controls="menu" aria-expanded="false" aria-label="Menú" class="burger" id="burger"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+</div>
+</div>
+</header>
+<section class="article-hero"><div class="wrap"><span class="eyebrow">Blog · IA segura</span><h1 class="h1" style="margin-top:14px">Per què la teva empresa necessita un RAG (i no un xatbot que s'inventa coses)</h1><p class="lead" style="margin-top:16px">La meitat de les empreses vol «un ChatGPT amb les nostres dades». L'altra meitat ja s'ha endut un ensurt amb un. La diferència entre totes dues és una tecnologia amb nom lleig i conseqüències enormes: RAG.</p><p class="article-meta">Per Said · 15 juliol 2026 · 8 min de lectura</p></div></section>
+<section class="section" style="padding-top:0"><div class="wrap article-wrap"><div class="article-cover"><img alt="El problema té nom: al·lucinacions" loading="eager" src="/rag-cover.webp"/></div><div class="prose"><p>El 2024, un tribunal va obligar <strong>Air Canada</strong> a pagar una indemnització perquè el seu xatbot es va inventar una política de reemborsaments que la companyia no tenia. El client va comprar el bitllet confiant en el que el bot li va dir, la companyia va al·legar que «el xatbot és responsable de les seves pròpies accions», i el tribunal, amb bon criteri, va respondre que no: si la teva empresa posa una IA a atendre clients, <strong>el que la IA promet, ho promets tu</strong>.</p>
+<p>Aquest cas resumeix el problema de mitja indústria: tothom vol posar IA a respondre preguntes de clients i empleats, però un xatbot genèric connectat «a pèl» a ChatGPT o a qualsevol altre model té un defecte de fàbrica: <strong>quan no sap una cosa, no calla: se la inventa</strong>. I ho fa amb una seguretat esfereïdora.</p>
+<h2>El problema té nom: al·lucinacions</h2>
+<p>Els models de llenguatge no «consulten» informació: generen el text més probable segons el que van aprendre durant l'entrenament. Saben moltíssim del món en general i <strong>res del teu negoci en particular</strong>: ni els teus preus, ni els teus terminis d'entrega, ni la teva política de devolucions, ni el conveni dels teus empleats. Quan algú els ho pregunta, omplen el buit amb una resposta que <em>sona</em> perfectament raonable.</p>
+<p>En una conversa casual és una anècdota. A la teva empresa és un preu inventat que un client reclama, un termini impossible que algú promet per tu, o una clàusula mal citada en un contracte. Les al·lucinacions no són una fallada rara que passa de tant en tant: són el comportament per defecte d'un model al qual es pregunta per informació que no té.</p>
+<h2>Què és un RAG (i per què ho canvia tot)</h2>
+<p><strong>RAG</strong> són les sigles de <em>Retrieval-Augmented Generation</em>: generació augmentada per recuperació. La idea és senzilla d'explicar: abans de respondre, el sistema <strong>busca als documents reals de la teva empresa</strong> (manuals, catàlegs, tarifes, contractes, polítiques), recupera els fragments rellevants per a aquella pregunta concreta, i el model redacta la resposta <strong>fent servir només això</strong>, citant de quin document surt cada dada.</p>
+<p>La manera més fàcil d'entendre-ho: un xatbot normal fa l'examen <em>de memòria</em>; un assistent amb RAG el fa <em>amb el teu llibre obert al davant</em>. Si la informació no és al llibre, no respon de memòria: diu que no la té. Ho expliquem a fons, amb esquemes i casos d'ús, a la pàgina <a href="/rag.html">Què és RAG?</a></p>
+<h2>Les quatre garanties que un xatbot normal no et dona</h2>
+<ul>
+<li><strong>Respostes amb font.</strong> Cada resposta indica el document i l'apartat d'on surt. Si un client o un auditor pregunta «d'on ha sortit això?», hi ha resposta.</li>
+<li><strong>Si no ho sap, ho diu.</strong> Un RAG ben construït prefereix un «no tinc aquesta informació» a una invenció convincent. És exactament el que li va faltar al xatbot d'Air Canada.</li>
+<li><strong>Sempre actualitzat sense reentrenar.</strong> Canvia una tarifa? Puges el document nou i l'assistent respon amb ell des d'aquell moment. El coneixement no es congela el dia del llançament.</li>
+<li><strong>Les teves dades, protegides.</strong> Els teus documents es consulten, no es fan servir per entrenar models de tercers. La privacitat es dissenya des del principi: xifratge, control d'accessos i les dades sense sortir d'on tu decideixis.</li>
+</ul>
+<h2>I dins de l'empresa: cada empleat veu només el que li toca</h2>
+<p>Aquí hi ha la pregunta que gairebé ningú fa abans de contractar un assistent d'IA i que hauria de ser la primera: si li carreguem <em>tota</em> la documentació de l'empresa, pot qualsevol empleat preguntar per <em>tot</em>? Amb un RAG seriós, no. Cada document s'etiqueta amb els rols que el poden veure, i el filtre s'aplica <strong>abans que la informació arribi a la IA</strong>: el que un rol no pot veure ni tan sols entra al context del model, així que no hi ha manera d'«enganyar» l'assistent perquè ho reveli.</p>
+<p>El de recepció pregunta per les bandes salarials i obté un «no és als documents del teu rol»; direcció fa la mateixa pregunta i obté la xifra amb la seva cita. Els permisos es poden heretar dels que ja fas servir a Google Drive o SharePoint, i cada consulta queda registrada per a auditoria.</p>
+<h2>Casos en què un RAG paga el seu cost ràpid</h2>
+<ul>
+<li><strong>Atenció al client:</strong> dubtes de productes, enviaments, devolucions i garanties respostos 24/7 consultant el teu catàleg i les teves polítiques reals, no una versió imaginada.</li>
+<li><strong>Assistent intern de RH:</strong> «quants dies de vacances em queden segons el conveni?» deixa d'interrompre ningú: la resposta surt del conveni, citada.</li>
+<li><strong>Documentació legal i normativa:</strong> buscar en contractes i pòlisses citant l'article exacte, en lloc de llegir 200 pàgines.</li>
+<li><strong>Catàlegs grans:</strong> «pis de 2 habitacions amb terrassa per menys de 250.000 €» busca a la teva cartera real i respon amb les fitxes.</li>
+</ul>
+<div class="article-cta">
+<h3>No t'ho explico: prova-ho</h3>
+<p>Hem publicat una <strong>demo en viu</strong> amb els documents d'un hotel fictici: pregunta el que vulguis, comprova cada resposta contra la seva font, intenta que s'inventi alguna cosa… i canvia de rol per veure com els permisos deixen les bandes salarials fora de l'abast de qui no les ha de veure.</p>
+<a class="btn btn-primary" href="/demo-rag.html">Provar la demo RAG en viu →</a>
+</div>
+<h2>Per on començar</h2>
+<p>Un projecte RAG no és «instal·lar un plugin»: inclou la ingesta dels teus documents (PDF, Word, webs, bases de dades), la base vectorial amb cerca semàntica, la connexió amb el model adequat, les <strong>proves amb casos límit abans de llançar</strong> (incloses les preguntes trampa) i el canal on viurà: el xat de la teva web, WhatsApp o una eina interna. Tens el detall del servei complet a <a href="/servicio-ia.html">Programari a mida i agents d'IA</a>.</p>
+<p>El raonable és començar per un cas acotat (el que més preguntes repetitives genera), mesurar, i créixer des d'allà. En unes setmanes es nota on anava el temps de l'equip.</p>
+<div class="article-cta">
+<h3>Té sentit un RAG per a la teva empresa?</h3>
+<p>Explica'm quina documentació tens i quines preguntes us treuen més temps, i et dic amb franquesa si un RAG t'ho resol, i un pressupost tancat si vols continuar.</p>
+<a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%2C%20he%20llegit%20l%27article%20sobre%20RAG%20i%20vull%20saber%20si%20encaixa%20a%20la%20meva%20empresa" rel="noopener" target="_blank">Parlem del teu cas</a>
+</div></div>
+<p class="article-back"><a href="/blog.html">← Tornar al blog</a></p></div></section>
+<section class="wrap"><div class="cta-band reveal">
+<h2 class="h2">Explica'm què et fa perdre temps al despatx.</h2><p class="lead">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+<div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." rel="noopener" target="_blank"><span>Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span>Envia'm un correu</span></a></div>
+<p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+<div class="wrap">
+<div class="fgrid">
+<div><b>SaeTech</b><p>Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+<div><b>Serveis</b><a href="/servicio-ia.html">Programari i agents d'IA</a><a href="/servicio-reels.html">Reels amb IA</a><a href="/servicio-seguridad.html">Revisió LQPD</a><a href="/servicio-web.html">Webs</a><a href="/servicio-apps.html">Apps mòbils</a><a href="/servicio-seo.html">SEO i GEO</a></div>
+<div><b>SaeTech</b><a href="/portfolio.html">Projectes</a><a href="/blog.html">Blog</a><a href="/sobre-mi.html">Qui sóc</a><a href="/contacto.html">Contacte</a><a href="/rag.html">Què és RAG?</a></div>
+<div><b>Contacte</b><a href="https://wa.me/376601249" rel="noopener" target="_blank">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" rel="noopener" target="_blank">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" rel="noopener" target="_blank">LinkedIn</a></div>
+</div>
+<div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="/aviso-legal.html">Avís legal</a> · <a href="/privacidad.html">Privacitat i cookies</a></span></div>
+</div>
+</footer>
+<a aria-label="WhatsApp" class="wa-float" href="https://wa.me/376601249" rel="noopener" target="_blank"><svg fill="currentColor" height="26" viewbox="0 0 24 24" width="26"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"></path></svg></a>
+
+<script src="/site.js?v=3.0"></script>
+</body>
+</html>
