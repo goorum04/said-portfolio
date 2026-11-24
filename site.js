@@ -62,35 +62,25 @@
 
 var CK={ca:['Faig servir cookies d’anàlisi (Google) per entendre com s’usa la web. Només s’activen si acceptes.','Més informació','Només essencials','Accepta'],es:['Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.','Más información','Solo esenciales','Aceptar'],fr:['J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.','En savoir plus','Essentiels seulement','Accepter'],en:['I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.','More info','Essential only','Accept']};
 document.addEventListener('DOMContentLoaded',function(){var c=null;try{c=localStorage.getItem('cookieConsent')}catch(e){return}if(c)return;var L=CK[window.LANG||'ca']||CK.ca;var b=document.createElement('div');b.className='cookie';b.setAttribute('role','dialog');b.innerHTML='<p><span>'+L[0]+'</span> <a href="/privacidad.html">'+L[1]+'</a></p><div><button type="button" class="btn btn-ghost" data-v="rejected">'+L[2]+'</button><button type="button" class="btn btn-primary" data-v="accepted">'+L[3]+'</button></div>';b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var v=x.dataset.v;try{localStorage.setItem('cookieConsent',v)}catch(e){}if(v==='accepted'){window.__loadGTM&&window.__loadGTM();window.__loadMetricool&&window.__loadMetricool();}b.remove();});});document.body.appendChild(b);});
-/* forms → formsubmit.co (from the browser; the server-side relay is blocked by Cloudflare) */
+/* forms → formsubmit.co (classic POST; returns to the same page with ?enviat=1) */
 (function(){
-  var TARGET = window.FORM_TARGET || 's91564774@gmail.com';
-  var API = 'https://formsubmit.co/ajax/' + TARGET;
-  function wire(form, kind){
-    form.addEventListener('submit', function(ev){
-      ev.preventDefault();
-      var ok = form.querySelector('.form-msg.ok'), err = form.querySelector('.form-msg.err');
-      ok.hidden = true; err.hidden = true;
-      var data = {};
-      form.querySelectorAll('input,textarea').forEach(function(i){ if (i.name && i.name !== 'website') data[i.name] = i.value; });
-      var req = form.querySelectorAll('[required]'), bad = false;
-      req.forEach(function(i){ if (!i.value.trim() || (i.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value))) { bad = true; i.focus(); } });
-      if (bad) return;
-      var hp = form.querySelector('input[name=website]'); if (hp && hp.value) { ok.hidden = false; return; }
-      data._subject = kind === 'checklist' ? 'Checklist LQPD descarregada: ' + (data.contacte || '') : 'Contacte web: ' + (data.nom || '') + (data.negoci ? ' · ' + data.negoci : '');
-      data._template = 'table'; data._captcha = 'false'; data.idioma = window.LANG || 'ca'; data.pagina = location.href;
-      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contacte || '')) data._replyto = data.contacte;
-      form.classList.add('sending');
-      fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
-        .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function(j){ if (!j || String(j.success) !== 'true') throw 0; ok.hidden = false; form.querySelectorAll('input:not([type=hidden]),textarea').forEach(function(i){ i.value = ''; }); try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: kind === 'checklist' ? 'lead_checklist' : 'lead_form' }); } catch (e) {} })
-        .catch(function(){ err.hidden = false; })
-        .then(function(){ form.classList.remove('sending'); });
-    });
-  }
   document.addEventListener('DOMContentLoaded', function(){
-    var c = document.getElementById('contactForm'); if (c) wire(c, 'contact');
-    document.querySelectorAll('form.leadform').forEach(function(f){ wire(f, 'checklist'); });
+    var sent = /[?&]enviat=(contact|checklist)/.exec(location.search);
+    document.querySelectorAll('form#contactForm, form.leadform').forEach(function(form){
+      var kind = form.id === 'contactForm' ? 'contact' : 'checklist';
+      var next = form.querySelector('input[name=_next]');
+      if (next) next.value = location.origin + location.pathname + '?enviat=' + kind + '#' + (form.id || 'checklist');
+      if (!form.id) form.id = 'checklist';
+      var lang = document.createElement('input'); lang.type = 'hidden'; lang.name = 'idioma'; lang.value = window.LANG || 'ca'; form.appendChild(lang);
+      var pg = document.createElement('input'); pg.type = 'hidden'; pg.name = 'pagina'; pg.value = location.href.split('?')[0]; form.appendChild(pg);
+      form.addEventListener('submit', function(){
+        var c = form.querySelector('[name=contacte]');
+        if (c && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value)) { var r = document.createElement('input'); r.type = 'hidden'; r.name = '_replyto'; r.value = c.value; form.appendChild(r); }
+        form.classList.add('sending');
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: kind === 'checklist' ? 'lead_checklist' : 'lead_form' }); } catch (e) {}
+      });
+      if (sent && sent[1] === kind) { var ok = form.querySelector('.form-msg.ok'); if (ok) ok.hidden = false; if (kind === 'checklist') { try { window.open('/checklist-lqpd.pdf', '_blank'); } catch (e) {} } }
+    });
     document.addEventListener('click', function(ev){ var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]'); if (a) { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'click_whatsapp', page: location.pathname }); } catch (e) {} } });
   });
 })();
