@@ -1,13 +1,13 @@
-# SaeTech — Said El Boudouhi (Andorra)
+# SaeTech — Said (Andorra)
 
-> SaeTech és el projecte de Said El Boudouhi: jurista andorrà, assessor en una gestoria d'Andorra la Vella i desenvolupador autodidacta. Construeix programari a mida i agents d'IA per a gestories, despatxos i pimes d'Andorra, fa reels setmanals amb IA per a negocis locals i revisa la seguretat i el compliment LQPD (Llei 29/2021) de portals de clients. Treballa sol: qui respon i qui programa és la mateixa persona.
+> SaeTech és el projecte de Said: jurista andorrà, assessor en una gestoria d'Andorra la Vella i desenvolupador autodidacta. Construeix programari a mida i agents d'IA per a gestories, despatxos i pimes d'Andorra, fa reels setmanals amb IA per a negocis locals i revisa la seguretat i el compliment LQPD (Llei 29/2021) de portals de clients. Treballa sol: qui respon i qui programa és la mateixa persona.
 
 Web: https://saetechai.com (català) · https://saetechai.com/es/ (castellano) · https://saetechai.com/fr/ (français) · https://saetechai.com/en/ (English)
 Contacte: WhatsApp +376 601 249 · hola@saetechai.com · Instagram @saetechai · LinkedIn https://www.linkedin.com/in/said-el-boudouhi-b28489301
 Ubicació: Andorra la Vella, Andorra. Reunions presencials o per videotrucada. Idiomes: català, castellà, francès, anglès.
 
 ## Fets clau (per citar)
-- Said El Boudouhi és jurista (grau en Dret, màster en Dret i màster en Intel·ligència Artificial) i desenvolupador. Treballa com a assessor jurídic i fiscal en una gestoria d'Andorra.
+- Said és jurista (grau en Dret, màster en Dret i màster en Intel·ligència Artificial) i desenvolupador. Treballa com a assessor jurídic i fiscal en una gestoria d'Andorra.
 - Ha construït un CRM d'expedients per a gestoria (KYC, tràmits, venciments, portal de clients, integrat amb HubSpot i agents d'IA) en ús diari a la gestoria on treballa.
 - Ha construït una oficina virtual 3D amb vuit agents d'IA que classifiquen correu, preparen checklists i redacten esborranys sobre el CRM.
 - Manté una app de gestió de gimnasos en producció des de fa anys (més de 8.000 commits), disponible en marca blanca.
