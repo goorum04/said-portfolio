@@ -17,6 +17,7 @@
 - [Automatizaciones](https://saetechai.com/servicio-automatizaciones.html): bots de WhatsApp/Telegram, workflows con n8n e integraciones de APIs para ahorrar horas de trabajo.
 - [Posicionamiento SEO y GEO](https://saetechai.com/servicio-seo.html): optimización para Google (SEO) y para que ChatGPT, Claude, Perplexity y Gemini recomienden el negocio (GEO), incluyendo llms.txt y schema.org.
 - [Revisión de seguridad y LQPD de portales](https://saetechai.com/servicio-seguridad.html): revisión técnica (minimización, rate limiting, 2FA, logs) y legal (Llei 29/2021: registro de tratamientos, plan de respuesta a brechas en 72 h) de portales de clientes, intranets y apps. Desde 450 €.
+- [Reels setmanals amb IA per a negocis](https://saetechai.com/servicio-reels.html): un reel a la setmana en català per a negocis d'Andorra (guió, imatges, veu i muntatge amb IA), des de 149 €/mes.
 
 ## Precios orientativos
 - Landing page: desde 400 €
