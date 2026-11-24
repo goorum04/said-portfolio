@@ -232,12 +232,6 @@ a.card:hover{transform:translateY(-3px);border-color:var(--line-2)}
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
 @media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
-.form{display:grid;gap:14px}
-.form label{font-size:14px;font-weight:600;color:var(--muted)}
-.form input,.form textarea{width:100%;font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px}
-.form input:focus,.form textarea:focus{outline:none;border-color:var(--accent)}
-.form textarea{min-height:140px;resize:vertical}
-.form .fine{font-size:13px;color:var(--dim)}
 
 /* Footer */
 .footer{border-top:1px solid var(--line);padding:48px 0 40px;color:var(--muted);font-size:14.5px}
@@ -319,3 +313,4 @@ a.card:hover{transform:translateY(-3px);border-color:var(--line-2)}
 .sectors a:hover{border-color:var(--accent);transform:translateY(-2px)}.sectors b{color:var(--text);font-size:16px}.sectors b::after{content:" →";color:var(--accent)}.sectors span{color:var(--muted);font-size:14px}
 @media (max-width:760px){.sectors{grid-template-columns:1fr}}
 [hidden]{display:none!important}
+.form .form-msg,.leadform .form-msg{flex:0 0 auto;height:auto;line-height:1.5}
