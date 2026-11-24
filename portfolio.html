@@ -1,524 +1,88 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Proyectos Web, Apps y SaaS | SaeTech · Andorra</title>
-    <meta name="description"
-        content="Portfolio con más de 12 proyectos: FitGym Pro (app gimnasio), TimeFlow (control horario), FreshMarket (SaaS alimentación), webs para restaurantes e inmobiliarias.">
-    <meta name="keywords"
-        content="portfolio desarrollador, proyectos web, apps gimnasio, app control horario, SaaS alimentación, web restaurante, web inmobiliaria">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://saetechai.com/portfolio">
-    <meta name="google-site-verification" content="rMekWgEES7frJnChiz_xtnQtFQXnlDTbVlhqtHj5EGA">
-    <meta name="theme-color" content="#00d4ff">
-
+    <title>Projectes — programari real, en ús cada dia | SaeTech Andorra</title>
+    <meta name="description" content="CRM d'expedients per a una gestoria, oficina virtual amb agents d'IA i una app de gestió de gimnasos amb milers d'usuaris. Tot construït per Said El Boudouhi.">
+    <link rel="canonical" href="https://saetechai.com/portfolio.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saetechai.com/portfolio">
-    <meta property="og:title" content="Portfolio de Proyectos | SaeTech">
-    <meta property="og:description"
-        content="Más de 12 proyectos de desarrollo web, apps móviles y SaaS. FitGym Pro, TimeFlow, FreshMarket.">
-    <meta property="og:image" content="https://saetechai.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://saetechai.com/portfolio">
-    <meta name="twitter:title" content="Portfolio | SaeTech">
-    <meta name="twitter:description" content="Proyectos de desarrollo web, apps y SaaS.">
-    <meta name="twitter:image" content="https://saetechai.com/og-image.jpg">
-
+    <meta property="og:url" content="https://saetechai.com/portfolio.html">
+    <meta property="og:title" content="Projectes — programari real, en ús cada dia | SaeTech Andorra">
+    <meta property="og:description" content="CRM d'expedients per a una gestoria, oficina virtual amb agents d'IA i una app de gestió de gimnasos amb milers d'usuaris. Tot construït per Said El Boudouhi.">
+    <meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
+    <meta property="og:locale" content="ca_ES">
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-
-    <style>
-        /* Visitas Virtuales — Demo Modal */
-        .project-modal{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;padding:16px}
-        .project-modal.active{display:flex}
-        .project-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer}
-        .project-modal-wrap{position:relative;z-index:1;width:min(1100px,96vw);height:min(88vh,840px);display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 100px rgba(0,0,0,.8),0 0 0 1px rgba(0,212,255,.06);animation:pmIn .32s cubic-bezier(.34,1.56,.64,1)}
-        @keyframes pmIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
-        .project-modal-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0d0d16;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
-        .project-modal-dots{display:flex;gap:6px}
-        .project-modal-dots span{width:12px;height:12px;border-radius:50%;display:block}
-        .project-modal-dots span:nth-child(1){background:#ff5f57}
-        .project-modal-dots span:nth-child(2){background:#febc2e}
-        .project-modal-dots span:nth-child(3){background:#28c840}
-        .project-modal-url{flex:1;color:#64748b;font-size:.8rem;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .project-modal-actions{display:flex;gap:4px}
-        .project-modal-btn{background:none;border:none;color:#64748b;cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:color .18s,background .18s;flex-shrink:0;text-decoration:none}
-        .project-modal-btn:hover{color:#00d4ff;background:rgba(0,212,255,.12)}
-        .project-modal-btn.close:hover{color:#ef4444;background:rgba(239,68,68,.12)}
-        .project-modal-iframe{flex:1;width:100%;border:none;background:#0a0a0f}
-        #visitasCard .portfolio-image{cursor:pointer}
-        .btn-demo-project{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 18px;background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(124,58,237,.1));border:1px solid rgba(0,212,255,.25);border-radius:8px;color:#00d4ff;font-family:inherit;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s ease;width:fit-content}
-        .btn-demo-project:hover{background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(124,58,237,.2));border-color:rgba(0,212,255,.55);transform:translateX(4px)}
-        @media(max-width:640px){.project-modal{padding:0}.project-modal-wrap{width:100vw;height:100dvh;border-radius:0}}
-    </style>
-
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="nou.css?v=1">
 </head>
-
 <body>
+<header class="wrap">
+    <nav class="nav" aria-label="Principal">
+        <a class="brand" href="/">SaeTech</a>
+        <ul>
+            <li><a href="/#faig">Què faig</a></li>
+            <li><a href="portfolio.html">Projectes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre-mi.html">Qui sóc</a></li>
+            <li class="keep"><a class="wa" href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+    </nav>
+</header>
 
-
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" class="active" data-number="02" data-i18n="nav.portfolio">Portfolio</a>
-                    </li>
-                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle"
-                    aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+<section class="page-hero wrap">
+    <span class="section-tag">Projectes</span>
+    <h1 class="page-title">Coses que he construït i que algú fa servir avui.</h1>
+    <p class="page-subtitle">Només hi ha projectes reals. Les captures són amb dades de prova i clients anonimitzats.</p>
+</section>
+<section class="section">
+    <div class="wrap">
+        <article class="cas" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center">
+            <div style="border:1px solid #D9DCD6;border-radius:12px;overflow:hidden"><img src="img/crm-dashboard.webp" alt="Panell del CRM per a gestories" width="1600" height="1000"></div>
+            <div class="prose">
+                <h2 style="margin-top:0">CRM d'expedients per a una gestoria</h2>
+                <p>Clients amb KYC, tràmits amb passos, agenda de venciments, alertes de passaports i pòlisses, portal perquè el client pugi documents, transcripció de reunions i plantilles. Integrat amb HubSpot. Ctrl+K i qualsevol expedient en un segon.</p>
+                <p style="color:#5B6470;font-size:16px">Next.js, Postgres, Prisma. En ús a la gestoria on treballo. 2026.</p>
             </div>
-        </nav>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag" data-i18n="portfolio.pageHero.tag">Portfolio</span>
-            <h1 class="page-title" data-i18n="portfolio.pageHero.title">Mis <span class="text-gradient">proyectos</span></h1>
-            <p class="page-subtitle" data-i18n="portfolio.pageHero.subtitle">Una selección de productos digitales que he desarrollado y lanzado.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="portfolio-grid portfolio-grid-full">
-                <article class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-shop.webp?v=1" alt="Tienda online Protein Shop" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge" data-i18n="portfolio.proteinShop.badge">E-commerce</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Protein Shop</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.proteinShop.problem">Tenía su catálogo en Shopify, lo que le obligaba a pagar cada vez que quería cambiar el diseño o el template — sin poder salirse del molde de Shopify.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.proteinShop.solution">Le construimos una web propia con diseño 100% a medida y la conectamos a su cuenta de Shopify vía API, para que siga gestionando sus productos desde allí — pero ahora con control total del diseño y sin pagar por cada cambio.</span></p>
-                        <div class="portfolio-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Shopify API</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.proteinShop.feature1">✓ Catálogo interactivo</span>
-                            <span data-i18n="portfolio.proteinShop.feature2">✓ Carrito dinámico</span>
-                            <span data-i18n="portfolio.proteinShop.feature3">✓ Diseño responsivo</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="100">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-bot.webp?v=1" alt="Bot de presupuestos por WhatsApp" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">Bot</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Bot Presupuestos</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.botPresupuestos.problem">Negocios perdiendo horas respondiendo las mismas preguntas de precio por WhatsApp. Los clientes esperaban horas por un presupuesto que tardaba un día en llegar.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.botPresupuestos.solution">Bot que guía al cliente con preguntas clave y genera un presupuesto personalizado de forma instantánea, sin intervención humana, disponible 24/7.</span></p>
-                        <div class="portfolio-tech"><span>TypeScript</span><span>Node.js</span><span>WhatsApp API</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.botPresupuestos.feature1">✓ Presupuestos al instante</span>
-                            <span data-i18n="portfolio.botPresupuestos.feature2">✓ Disponible 24/7</span>
-                            <span data-i18n="portfolio.botPresupuestos.feature3">✓ Sin intervención manual</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="200">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-nlvip.webp?v=1" alt="App NLVip para entrenador personal" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">App</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>NLVip</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.nlVip.problem">Entrenador personal con una reputación excepcional y una forma de trabajar muy cercana y personalizada. La demanda creció tanto que no podía atender a todos sin perder la calidad que le hacía diferente — cada cliente nuevo era un cliente al que no podía darle lo que merecía.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.nlVip.solution">App de membresías VIP que le permite gestionar quién accede a sus servicios, publicar contenido exclusivo para sus miembros y mantener esa atención personal que le define, sin colapsar su agenda.</span></p>
-                        <div class="portfolio-tech"><span>React Native</span><span>Node.js</span><span>Stripe</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.nlVip.feature1">✓ Acceso por membresía</span>
-                            <span data-i18n="portfolio.nlVip.feature2">✓ Contenido exclusivo</span>
-                            <span data-i18n="portfolio.nlVip.feature3">✓ Pagos recurrentes</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="300">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-nomina.webp?v=1" alt="SaaS de nóminas Nómina Pro" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">App</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Nómina Pro</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.nominaPro.problem">PYMEs con departamentos de RRHH invirtiendo días enteros cada mes en calcular nóminas manualmente en Excel, con riesgo de errores y disputas con empleados.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.nominaPro.solution">Sistema de gestión de nóminas que calcula salarios, deducciones y retenciones automáticamente, generando los documentos listos para firmar en segundos.</span></p>
-                        <div class="portfolio-tech"><span>JavaScript</span><span>Node.js</span><span>PDF.js</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.nominaPro.feature1">✓ Cálculo automático</span>
-                            <span data-i18n="portfolio.nominaPro.feature2">✓ Exportar PDF</span>
-                            <span data-i18n="portfolio.nominaPro.feature3">✓ Historial de empleados</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="400" id="visitasCard">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="vv-card.webp?v=1" alt="Visitas Virtuales: salón 3D con muebles" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">Web</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Visitas Virtuales</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.visitasVirtuales.problem">Inmobiliarias, arquitectos y estudios de interiorismo necesitan mostrar espacios a clientes que no pueden desplazarse — pero contratar fotógrafos especializados en 360° es caro, lento y depende de terceros para cada actualización.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.visitasVirtuales.solution">Plataforma que convierte fotos normales de una habitación, tomadas desde distintos ángulos con cualquier móvil, en un tour virtual navegable. Subes las capturas de cada punto del espacio y el sistema las ensambla en una experiencia inmersiva lista para compartir. Los diseñadores de interiores pueden además subir su catálogo de muebles y objetos, colocarlos dentro del espacio en 3D y mostrarle al cliente exactamente cómo quedaría ese sofá, esa lámpara o esa estantería en la habitación real — antes de comprar nada.</span></p>
-                        <div class="portfolio-tech"><span>TypeScript</span><span>WebGL</span><span>Three.js</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.visitasVirtuales.feature1">✓ Tour desde fotos con el móvil</span>
-                            <span data-i18n="portfolio.visitasVirtuales.feature2">✓ Catálogo de muebles en 3D colocable</span>
-                            <span data-i18n="portfolio.visitasVirtuales.feature3">✓ Inmobiliarias, arquitectos e interiorismo</span>
-                        </div>
-                        <button class="btn-demo-project" id="visitasDemoBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                            <span data-i18n="portfolio.visitasVirtuales.demoButton">Ver demo en vivo</span>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="500">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-trading.webp?v=1" alt="Trading Bot multi-mercado" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">Bot</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Trading Bot</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.tradingBot.problem">Operar en múltiples mercados — cripto, forex, metales y índices — requiere monitorizar gráficos 24/7, ejecutar con precisión milimétrica y mantener la cabeza fría. Ningún trader lo consigue a largo plazo: la fatiga y las emociones destruyen la estrategia.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.tradingBot.solution">Bot de trading algorítmico multi-mercado que opera en cripto, forex (EUR/USD, GBP/USD…), metales (oro, plata) e índices bursátiles. Analiza indicadores técnicos en tiempo real, ejecuta órdenes automáticamente y gestiona el riesgo por posición — sin intervención humana y sin emociones.</span></p>
-                        <div class="portfolio-tech"><span>Python</span><span>MetaTrader 5</span><span>CCXT</span><span>Pandas</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.tradingBot.feature1">✓ Cripto, forex, metales e índices</span>
-                            <span data-i18n="portfolio.tradingBot.feature2">✓ Gestión de riesgo automática</span>
-                            <span data-i18n="portfolio.tradingBot.feature3">✓ Estrategias configurables</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="100">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-jarvis.webp?v=1" alt="Jarvis, asistente de voz personal" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">IA</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Jarvis</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.jarvis.problem">Los asistentes de voz del mercado son genéricos, viven en el ecosistema de una gran corporación y no saben nada sobre ti. Pedirle algo a Alexa o Siri es útil para encender la luz, no para gestionar tu vida.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.jarvis.solution">Un asistente de IA personal que vive en tu propio ordenador — como el Jarvis de Iron Man. Le hablas desde el teléfono, él te escucha, piensa, y te responde con voz natural. Te conoce, recuerda tus conversaciones anteriores y trabaja solo para ti.</span></p>
-                        <div class="portfolio-tech"><span>JavaScript</span><span>OpenAI API</span><span>Text-to-Speech</span><span>Node.js</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.jarvis.feature1">✓ Voz de entrada y salida natural</span>
-                            <span data-i18n="portfolio.jarvis.feature2">✓ Corre en tu propio hardware</span>
-                            <span data-i18n="portfolio.jarvis.feature3">✓ Memoria persistente</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal" data-delay="200">
-                    <div class="portfolio-image">
-                        <img class="portfolio-img" src="pf-finflow.webp?v=1" alt="FinFlow, gestión financiera para PYMEs" loading="lazy" width="1376" height="768">
-                        <div class="portfolio-overlay"><span class="portfolio-badge">SaaS</span></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>FinFlow</h3>
-                        <p><strong>El problema:</strong> <span data-i18n="portfolio.finFlow.problem">Sage domina el mercado de gestión financiera para PYMEs pero acumula los mismos fallos desde hace años: interfaz anticuada y lenta, soporte inaccesible, integraciones rotas con Stripe y bancos, y suscripciones abusivas que suben de precio sin previo aviso.</span></p>
-                        <p><strong>La solución:</strong> <span data-i18n="portfolio.finFlow.solution">Alternativa moderna que hace lo mismo que Sage pero sin sus lacras — UX limpia pensada para equipos no técnicos, integraciones nativas con los servicios que ya usas, soporte real en menos de 24h, y precio transparente desde el primer día.</span></p>
-                        <div class="portfolio-tech"><span>TypeScript</span><span>React</span><span>OpenAI API</span></div>
-                        <div class="portfolio-features">
-                            <span data-i18n="portfolio.finFlow.feature1">✓ UX moderna sin curva</span>
-                            <span data-i18n="portfolio.finFlow.feature2">✓ Integraciones nativas</span>
-                            <span data-i18n="portfolio.finFlow.feature3">✓ Precio sin sorpresas</span>
-                        </div>
-                    </div>
-                </article>
+        </article>
+        <article class="cas" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(56px,7vw,96px)">
+            <div class="prose">
+                <h2 style="margin-top:0">Oficina virtual amb vuit agents d'IA</h2>
+                <p>Una oficina 3D on cada agent té taula, tasques i eines: classifiquen el correu, preparen checklists, avisen del que caduca i redacten esborranys sobre el CRM. La Nova, la portaveu, et resumeix la setmana si li ho preguntes.</p>
+                <p style="color:#5B6470;font-size:16px">Three.js, agents amb Claude i OpenAI, Socket.io. 2026.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="section section-dark" id="case-study">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="portfolio.caseStudy.tag">Case Study</span>
-                <h2 class="section-title" data-i18n="portfolio.caseStudy.title">Bot Presupuestos: <span class="text-gradient">De horas a segundos</span></h2>
+            <div style="border:1px solid #D9DCD6;border-radius:12px;overflow:hidden"><img src="img/oficina-3d.webp" alt="Oficina virtual 3D amb agents d'IA" width="1600" height="1000" loading="lazy"></div>
+        </article>
+        <article class="cas" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(56px,7vw,96px)">
+            <div style="border:1px solid #D9DCD6;border-radius:12px;overflow:hidden"><img src="pf-nlvip.webp" alt="App de gestió de gimnasos NL VIP TEAM" loading="lazy"></div>
+            <div class="prose">
+                <h2 style="margin-top:0">App de gestió per a un gimnàs</h2>
+                <p>Reserves, rutines, pagaments, xat entre entrenador i client, tot en una app instal·lable al mòbil. Més de 8.000 commits i en producció des de fa anys. Ara es pot tenir en marca blanca per a altres entrenadors.</p>
+                <p style="color:#5B6470;font-size:16px">PWA, Supabase, Vercel. NL VIP TEAM.</p>
             </div>
-
-            <div class="case-study reveal">
-                <div class="case-study-intro">
-                    <div class="case-study-hero">
-                        <div class="case-icon">🤖</div>
-                        <h3>Bot Presupuestos</h3>
-                        <p data-i18n="portfolio.caseStudy.heroDesc">Bot automatizado que genera presupuestos personalizados al instante, sin intervención humana</p>
-                        <div class="case-tech">
-                            <span>TypeScript</span>
-                            <span>Node.js</span>
-                            <span>WhatsApp API</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-study-grid">
-                    <div class="case-block">
-                        <h4 data-i18n="portfolio.caseStudy.blockChallenge">📋 El Reto</h4>
-                        <p data-i18n="portfolio.caseStudy.challengeDesc">Un negocio de servicios recibía decenas de consultas diarias por WhatsApp preguntando precios. El equipo pasaba horas respondiendo siempre lo mismo: recogiendo datos del cliente, calculando el coste y redactando el presupuesto. A última hora, los clientes ya habían contratado a la competencia.</p>
-                    </div>
-
-                    <div class="case-block">
-                        <h4 data-i18n="portfolio.caseStudy.blockSolution">💡 La Solución</h4>
-                        <p data-i18n="portfolio.caseStudy.solutionDesc">Bot que intercepta los mensajes entrantes, guía al cliente paso a paso con preguntas clave para entender sus necesidades, calcula el coste en función de las respuestas y envía un presupuesto detallado y personalizado en cuestión de segundos, a cualquier hora del día.</p>
-                    </div>
-
-                    <div class="case-block">
-                        <h4 data-i18n="portfolio.caseStudy.blockProcess">🛠️ Proceso</h4>
-                        <ul class="case-process">
-                            <li data-i18n="portfolio.caseStudy.week1"><strong>Semana 1:</strong> Mapeo de flujos de conversación y lógica de precios</li>
-                            <li data-i18n="portfolio.caseStudy.week23"><strong>Semana 2-3:</strong> Desarrollo del bot en TypeScript + integración API</li>
-                            <li data-i18n="portfolio.caseStudy.week4"><strong>Semana 4:</strong> Testing con casos reales y afinado de respuestas</li>
-                            <li data-i18n="portfolio.caseStudy.week5"><strong>Semana 5:</strong> Despliegue en producción y monitorización</li>
-                        </ul>
-                    </div>
-
-                    <div class="case-block">
-                        <h4 data-i18n="portfolio.caseStudy.blockResults">📊 Resultados</h4>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value" data-i18n="portfolio.caseStudy.metricTime">-90%</span>
-                                <span class="metric-label" data-i18n="portfolio.caseStudy.metricTimeLabel">Tiempo en presupuestos</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">24/7</span>
-                                <span class="metric-label" data-i18n="portfolio.caseStudy.metricAvailabilityLabel">Disponibilidad</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">&lt;30s</span>
-                                <span class="metric-label" data-i18n="portfolio.caseStudy.metricSpeedLabel">Por presupuesto</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-study-features">
-                    <h4 data-i18n="portfolio.caseStudy.keyFeaturesTitle">Funcionalidades clave</h4>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <span class="feature-icon">💬</span>
-                            <div>
-                                <strong data-i18n="portfolio.caseStudy.featurConversation">Conversación guiada</strong>
-                                <p data-i18n="portfolio.caseStudy.featureConversationDesc">Flujo de preguntas inteligente que extrae la información necesaria</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">⚡</span>
-                            <div>
-                                <strong data-i18n="portfolio.caseStudy.featureCalculation">Cálculo instantáneo</strong>
-                                <p data-i18n="portfolio.caseStudy.featureCalculationDesc">Motor de precios configurable que genera el coste al momento</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">📄</span>
-                            <div>
-                                <strong data-i18n="portfolio.caseStudy.featureQuote">Presupuesto detallado</strong>
-                                <p data-i18n="portfolio.caseStudy.featureQuoteDesc">Documento personalizado con desglose de servicios y precios</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🔄</span>
-                            <div>
-                                <strong data-i18n="portfolio.caseStudy.featureAutonomous">Totalmente autónomo</strong>
-                                <p data-i18n="portfolio.caseStudy.featureAutonomousDesc">Funciona sin supervisión humana, liberando al equipo para lo importante</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-testimonial">
-                    <blockquote data-i18n="portfolio.caseStudy.testimonial">
-                        "Antes perdíamos clientes porque tardábamos en responder. Ahora el bot responde en segundos a cualquier hora y nosotros nos centramos en cerrar ventas, no en hacer presupuestos."
-                    </blockquote>
-                    <cite data-i18n="portfolio.caseStudy.testimonialAuthor">— Cliente, sector servicios</cite>
-                </div>
+        </article>
+        <article class="cas" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(56px,7vw,96px)">
+            <div class="prose">
+                <h2 style="margin-top:0">Assistent de pisos per a una immobiliària</h2>
+                <p>Un xatbot que respon amb els immobles reals de l'agència (preu, zona, característiques) i deriva al comercial quan el client vol visitar. Sense inventar-se res: si no ho sap, ho diu.</p>
+                <p style="color:#5B6470;font-size:16px">Claude amb eines, base de dades de l'agència. NouAire Immobiliària.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title" data-i18n="portfolio.cta.title">¿Quieres que tu proyecto sea el siguiente?</h2>
-                <p class="cta-text" data-i18n="portfolio.cta.subtitle">Hablemos sobre tu idea.</p>
-                <a href="contacto.html" class="btn btn-primary btn-lg" data-i18n="portfolio.cta.button">Contactar</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg></a>
-
-    <!-- Modal: Visitas Virtuales — Diseñador de Habitaciones 3D (sin login) -->
-    <div class="project-modal" id="modalVisitas" aria-hidden="true" role="dialog" aria-label="Visitas Virtuales demo en vivo">
-        <div class="project-modal-backdrop" id="modalVisitasBackdrop"></div>
-        <div class="project-modal-wrap">
-            <div class="project-modal-bar">
-                <div class="project-modal-dots"><span></span><span></span><span></span></div>
-                <span class="project-modal-url" data-i18n="portfolio.visitasVirtuales.modalUrl">visitas-virtuales-dgwi.vercel.app/demo — Diseñador 3D interactivo</span>
-                <div class="project-modal-actions">
-                    <a href="https://visitas-virtuales-dgwi.vercel.app/demo" target="_blank" rel="noopener"
-                        class="project-modal-btn" title="Abrir en nueva pestaña">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
-                    <button class="project-modal-btn close" id="modalVisitasClose" aria-label="Cerrar">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                </div>
-            </div>
-            <iframe
-                src=""
-                data-src="https://visitas-virtuales-dgwi.vercel.app/demo"
-                class="project-modal-iframe"
-                title="Visitas Virtuales — Diseñador 3D interactivo"
-                allow="fullscreen; accelerometer; gyroscope"
-            ></iframe>
-        </div>
+            <div style="border:1px solid #D9DCD6;border-radius:12px;overflow:hidden"><img src="pf-bot.webp" alt="Assistent de pisos per a una immobiliària" loading="lazy"></div>
+        </article>
     </div>
-
-    <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.26"></script>
-    <script>
-    (function () {
-        var modal = document.getElementById('modalVisitas');
-        if (!modal) return;
-        var backdrop = document.getElementById('modalVisitasBackdrop');
-        var closeBtn = document.getElementById('modalVisitasClose');
-        var iframe = modal.querySelector('.project-modal-iframe');
-        var loaded = false;
-
-        function openModal() {
-            if (!loaded) { iframe.src = iframe.dataset.src; loaded = true; }
-            modal.classList.add('active');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            if (typeof dataLayer !== 'undefined') {
-                dataLayer.push({ event: 'project_demo_open', project: 'visitas_virtuales' });
-            }
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        var imgArea = document.querySelector('#visitasCard .portfolio-image');
-        if (imgArea) imgArea.addEventListener('click', openModal);
-
-        var demoBtn = document.getElementById('visitasDemoBtn');
-        if (demoBtn) demoBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            openModal();
-        });
-
-        backdrop.addEventListener('click', closeModal);
-        closeBtn.addEventListener('click', closeModal);
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-        });
-    }());
-    </script>
+</section>
+<style>@media (max-width:820px){.cas{grid-template-columns:1fr !important}.cas .prose{order:2}}</style>
+<section class="cta-section">
+    <div class="wrap cta-content">
+        <h2 class="cta-title">Vols una cosa semblant per al teu negoci?</h2>
+        <p class="cta-text">Explica-m'ho per WhatsApp i et dic si ho puc fer, quant trigaria i quant costaria.</p>
+        <a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" target="_blank" rel="noopener">Escriu-me per WhatsApp</a>
+    </div>
+</section>
+<footer class="footer">
+    <div class="wrap cols">
+        <span>© 2026 SaeTech · Said El Boudouhi · Andorra</span>
+        <span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+</footer>
 </body>
-
 </html>
