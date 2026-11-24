@@ -1,357 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implementación de IA Segura | Chatbots y automatización con IA | SaeTech</title>
-    <meta name="description"
-        content="Implementamos inteligencia artificial donde aporta valor real: chatbots entrenados con tus datos, automatización inteligente e integración con ChatGPT y Claude, protegiendo siempre tu información. Desde 800€.">
-    <meta name="keywords" content="ia segura, chatbot empresa, implementación ia, chatgpt empresa, claude api, rag, andorra">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://saetechai.com/servicio-ia.html">
-    <meta name="theme-color" content="#00d4ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programari a mida i agents d&#x27;IA per a gestories i despatxos | SaeTech</title>
+<meta name="description" content="CRM d&#x27;expedients, portals de clients, assistents RAG i agents d&#x27;IA connectats a les teves dades. Fet a Andorra, amb la LQPD integrada. Des de 2.500 €.">
+<link rel="canonical" href="https://saetechai.com/servicio-ia.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saetechai.com/servicio-ia.html">
+<meta property="og:title" content="Programari a mida i agents d&#x27;IA per a gestories i despatxos | SaeTech">
+<meta property="og:description" content="CRM d&#x27;expedients, portals de clients, assistents RAG i agents d&#x27;IA connectats a les teves dades. Fet a Andorra, amb la LQPD integrada. Des de 2.500 €.">
+<meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
+<meta property="og:site_name" content="SaeTech">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3.0">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saetechai.com/servicio-ia.html">
-    <meta property="og:title" content="Implementación de IA Segura | SaeTech">
-    <meta property="og:description" content="Chatbots y automatización con IA, protegiendo siempre tus datos.">
-    <meta property="og:image" content="https://saetechai.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Implementación de IA Segura | SaeTech">
-    <meta name="twitter:description" content="Chatbots, automatización e integración de IA con datos protegidos.">
-    <meta name="twitter:image" content="https://saetechai.com/og-image.jpg">
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Implementación de Inteligencia Artificial",
-        "provider": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
-        "areaServed": "Andorra",
-        "description": "Implementación de inteligencia artificial (chatbots, automatización) protegiendo siempre los datos del cliente.",
-        "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "800", "url": "https://saetechai.com/servicio-ia.html"}
-    }
-    </script>
 </head>
-
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" class="active" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%2C%20quiero%20implementar%20IA%20en%20mi%20negocio"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </nav>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag" data-i18n="svc.tag">Servicio</span>
-            <h1 class="page-title" data-i18n="svc.ai.heroTitle">Implementación de <span class="text-gradient">IA Segura</span></h1>
-            <p class="page-subtitle" data-i18n="svc.ai.heroSubtitle">Integramos inteligencia artificial donde aporta valor real a tu negocio,
-                protegiendo siempre tus datos y los de tus clientes.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="ai-media reveal" style="max-width:340px;margin:0 auto 48px;">
-                <img src="ai-secure.webp?v=1" alt="Implementación de IA segura: red neuronal protegida por un escudo"
-                    loading="lazy" width="1216" height="896">
-            </div>
-            <article class="article-body">
-                <p data-i18n="svc.ai.intro">Implementar IA sin criterio es fácil y peligroso: conectar un chatbot a un modelo genérico sin
-                    pensar qué datos ve, quién puede acceder a las conversaciones o qué pasa si el modelo se
-                    equivoca. Nuestro enfoque es distinto: primero entendemos qué proceso de tu negocio se beneficia
-                    de verdad de la IA, y luego lo implementamos con controles de seguridad desde el diseño, no como
-                    un parche posterior.</p>
-
-                <h2 data-i18n="svc.ai.h2Incluye">Qué incluye el servicio</h2>
-                <ul>
-                    <li data-i18n="svc.ai.li1"><strong>Chatbots y asistentes 24/7</strong> entrenados con tu propia información (productos,
-                        precios, políticas), no con respuestas genéricas.</li>
-                    <li data-i18n="svc.ai.li2"><strong>Automatización inteligente</strong> de tareas que hoy hace una persona: clasificar
-                        mensajes, resumir documentos, generar respuestas de primer nivel.</li>
-                    <li data-i18n="svc.ai.li3"><strong>Integración con ChatGPT, Claude</strong> y las herramientas que ya usa tu equipo, sin
-                        reescribir tus procesos desde cero.</li>
-                    <li data-i18n="svc.ai.li4"><strong>RAG (Retrieval-Augmented Generation):</strong> el asistente consulta tus documentos
-                        reales antes de responder, en vez de inventar información.</li>
-                    <li data-i18n="svc.ai.li5"><strong>Datos cifrados y control de accesos:</strong> defines quién puede ver qué, y tus
-                        datos no se usan para entrenar modelos de terceros sin tu consentimiento.</li>
-                </ul>
-
-                <h2 data-i18n="svc.ai.h2Casos">Casos de uso habituales</h2>
-                <ul>
-                    <li data-i18n="svc.ai.caso1"><strong>Atención al cliente 24/7:</strong> un asistente que responde preguntas frecuentes con
-                        la información real de tu negocio, escalando a una persona cuando hace falta.</li>
-                    <li data-i18n="svc.ai.caso2"><strong>Generación de contenido:</strong> borradores de respuestas, descripciones de producto
-                        o resúmenes que un humano revisa antes de publicar.</li>
-                    <li data-i18n="svc.ai.caso3"><strong>Análisis de datos:</strong> extraer información útil de documentos, encuestas o
-                        conversaciones que hoy nadie tiene tiempo de leer.</li>
-                </ul>
-
-                <h2 data-i18n="svc.ai.h2Seguridad">Cómo abordamos la seguridad</h2>
-                <p data-i18n="svc.ai.seguridadIntro">La seguridad no es una casilla que marcamos al final, es parte del diseño:</p>
-                <ul>
-                    <li data-i18n="svc.ai.seg1">Auditamos qué datos va a ver el modelo antes de conectarlo a nada.</li>
-                    <li data-i18n="svc.ai.seg2">Usamos proveedores con acuerdos claros de privacidad de datos (no entrenamiento con tus
-                        conversaciones sin permiso).</li>
-                    <li data-i18n="svc.ai.seg3">Aplicamos control de accesos: cada usuario ve solo lo que le corresponde.</li>
-                    <li data-i18n="svc.ai.seg4">Probamos el sistema para reducir "alucinaciones" (respuestas inventadas) antes de ponerlo en
-                        producción.</li>
-                </ul>
-
-                <h2 data-i18n="svc.ai.h2Proceso">Cómo lo hacemos</h2>
-                <div class="process-timeline reveal" style="margin-top:24px;">
-                    <div class="process-step">
-                        <div class="process-number">01</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.ai.proc1Title">Auditoría de datos y procesos</h3>
-                            <p data-i18n="svc.ai.proc1Desc">Identificamos qué tarea automatizar y qué datos necesita ver la IA.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">02</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.ai.proc2Title">Diseño del asistente</h3>
-                            <p data-i18n="svc.ai.proc2Desc">Definimos el comportamiento, los límites y qué hacer cuando no sabe responder.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">03</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.ai.proc3Title">Entrenamiento con tus datos</h3>
-                            <p data-i18n="svc.ai.proc3Desc">Conectamos tu información real mediante RAG, sin exponerla innecesariamente.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">04</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.ai.proc4Title">Pruebas de seguridad</h3>
-                            <p data-i18n="svc.ai.proc4Desc">Verificamos accesos, privacidad y respuestas antes de lanzar.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">05</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.ai.proc5Title">Despliegue y monitorización</h3>
-                            <p data-i18n="svc.ai.proc5Desc">Lanzamos y supervisamos el comportamiento real durante las primeras semanas.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="pricing-section section-dark">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="svc.pricingTag">Precios</span>
-                <h2 class="section-title" data-i18n="svc.ai.pricingTitle">Inversión <span class="text-gradient">por alcance</span></h2>
-                <p class="section-subtitle" data-i18n="svc.ai.pricingSubtitle">Precios orientativos. Cada implementación se presupuesta a medida.</p>
-            </div>
-            <div class="pricing-grid reveal">
-                <div class="pricing-card">
-                    <div class="pricing-name" data-i18n="pricing.basic.name">Básico</div>
-                    <div class="pricing-title" data-i18n="svc.ai.price1Title">Chatbot Simple</div>
-                    <div class="pricing-price">800€<span data-i18n="svc.perProject"> / proyecto</span></div>
-                    <p class="pricing-desc" data-i18n="svc.ai.price1Desc">Asistente con respuestas predefinidas sobre tu negocio.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.ai.price1F1">Integrado en tu web o WhatsApp</li>
-                        <li data-i18n="svc.ai.price1F2">Respuestas basadas en tu información</li>
-                        <li data-i18n="svc.ai.price1F3">Entrega en 1-2 semanas</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.basic.action">Empezar</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-name" data-i18n="pricing.pro.name">Recomendado</div>
-                    <div class="pricing-title" data-i18n="svc.ai.price2Title">Asistente con RAG</div>
-                    <div class="pricing-price">2.000€<span>+</span></div>
-                    <p class="pricing-desc" data-i18n="svc.ai.price2Desc">Consulta tus documentos reales antes de responder.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.ai.price2F1">Entrenado con tu documentación</li>
-                        <li data-i18n="svc.ai.price2F2">Control de accesos y privacidad</li>
-                        <li data-i18n="svc.ai.price2F3">Escalado a persona cuando hace falta</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-primary" style="width:100%" data-i18n="pricing.pro.action">Empezar</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name" data-i18n="pricing.premium.name">Premium</div>
-                    <div class="pricing-title" data-i18n="svc.ai.price3Title">Automatización con IA</div>
-                    <div class="pricing-price" data-i18n="svc.consult">Consultar</div>
-                    <p class="pricing-desc" data-i18n="svc.ai.price3Desc">Procesos completos automatizados con IA e integraciones.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.ai.price3F1">Múltiples flujos con IA</li>
-                        <li data-i18n="svc.ai.price3F2">Integraciones a medida</li>
-                        <li data-i18n="svc.ai.price3F3">Monitorización continua</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.premium.action">Consultar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section faq-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="svc.faqTag">FAQ</span>
-                <h2 class="section-title" data-i18n="svc.faqTitle">Preguntas <span class="text-gradient">frecuentes</span></h2>
-            </div>
-            <div class="faq-list reveal">
-                <details class="faq-item">
-                    <summary data-i18n="svc.ai.faq1Q">¿Mis datos se usan para entrenar modelos de terceros?</summary>
-                    <p data-i18n="svc.ai.faq1A">No. Trabajamos con proveedores que ofrecen garantías de que tus conversaciones y documentos no
-                        se usan para entrenar sus modelos generales sin tu consentimiento explícito.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.ai.faq2Q">¿Puedo controlar qué responde la IA?</summary>
-                    <p data-i18n="svc.ai.faq2A">Sí. Definimos límites claros: temas que puede tratar, cuándo debe derivar a una persona y qué
-                        tono usar, todo revisable por ti.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.ai.faq3Q">¿Cómo se evita que la IA invente respuestas?</summary>
-                    <p data-i18n="svc.ai.faq3A">Usando RAG: el asistente busca en tu documentación real antes de responder, en vez de generar
-                        la respuesta solo con su conocimiento general. Además probamos casos límite antes de lanzar.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.ai.faq4Q">¿Esto tiene relación con aparecer en ChatGPT o Claude como negocio?</summary>
-                    <p data-i18n="svc.ai.faq4A">Es un servicio distinto pero complementario: si quieres que la IA <em>te recomiende</em> a
-                        terceros, es <a href="servicio-seo.html">posicionamiento SEO y GEO</a>. Esto es implementar
-                        IA <em>dentro</em> de tu propio negocio.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title" data-i18n="svc.ai.ctaTitle">¿Quieres implementar IA en tu negocio?</h2>
-                <p class="cta-text" data-i18n="svc.ai.ctaText">Cuéntanos qué proceso te gustaría automatizar y valoramos juntos el enfoque más
-                    seguro.</p>
-                <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20implementar%20IA%20en%20mi%20negocio"
-                    class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-i18n="svc.ai.ctaBtn">Hablemos</a>
-            </div>
-        </div>
-    </section>
-
-    <p class="article-back container"><a href="servicios.html" data-i18n="svc.backLink">← Volver a Servicios</a></p>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20implementar%20IA%20en%20mi%20negocio" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg></a>
-
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.28"></script>
+<div class="bgfx" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i></i>SaeTech</a>
+    <ul class="menu" id="menu">
+      <li><a href="servicios.html" data-i18n="nav.serveis">Serveis</a></li><li><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a></li><li><a href="contacto.html" data-i18n="nav.contacte">Contacte</a></li>
+      <li class="cta"><a href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang"><button type="button" id="langBtn" aria-haspopup="true"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<section class="hero" style="padding-bottom:0"><div class="wrap hero-grid">
+  <div><span class="eyebrow" data-i18n="sv.eye">Servei · Programari i IA</span><h1 class="h1" data-i18n="sv.h1">Programari a mida i agents d'IA <span class='hl'>per a gestories i despatxos.</span></h1><p class="lead" data-i18n="sv.lead">Un CRM que sap què és un KYC, un portal perquè el client pugi els documents que falten, i agents d'IA que treballen sobre les teves dades, no en un xat a part. Tot amb la Llei 29/2021 integrada.</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20parlar%20d%27un%20CRM%20o%20d%27agents%20d%27IA%20per%20al%20meu%20despatx." target="_blank" rel="noopener" data-i18n-attr="href:sv.wa"><span data-i18n="sv.b1">Explica-m’ho per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="#preus"><span data-i18n="sv.b2">Veure preus</span></a></div></div>
+  <div><div class="device"><div class="device-bar"><i></i><i></i><i></i><span>CRM d'expedients · en ús</span></div><img src="img/crm-dashboard.webp" alt="CRM per a gestories" width="1600" height="1000"></div></div>
+</div></section><section class="section"><div class="wrap"><div class="prose"><p data-i18n="sv.in0">A la gestoria on treballo, cada expedient d'inversió estrangera passa per vint passos, tres administracions i una pila de documents que caduquen. Durant anys això s'ha portat amb Excel i carpetes compartides. Vaig construir el CRM que fem servir ara, i és el que t'ofereixo: adaptat al teu despatx, no una plantilla.</p><p data-i18n="sv.in1">Els agents d'IA són la segona capa: un assistent que respon amb els teus documents (RAG) i agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al CRM, amb registre de tot el que fan, i sense que cap dada surti d'Europa.</p>
+  <h2 data-i18n="sv.t1">Què inclou</h2><ul class="prose" style="margin-top:18px"><li data-i18n="sv.inc.li0"><strong>CRM d'expedients:</strong> clients, KYC, tràmits amb passos, agenda de venciments, alertes de passaports i pòlisses, plantilles de documents.</li><li data-i18n="sv.inc.li1"><strong>Portal de clients:</strong> el client veu què li falta i ho puja des del mòbil, amb enllaç segur i sense comptes que oblidar.</li><li data-i18n="sv.inc.li2"><strong>Assistent RAG:</strong> respon preguntes amb els teus documents i cita la font. Si no ho sap, ho diu.</li><li data-i18n="sv.inc.li3"><strong>Agents amb tasques:</strong> correu, checklists, venciments, esborranys. Cadascun amb un rol i un registre d'activitat.</li><li data-i18n="sv.inc.li4"><strong>Integracions:</strong> HubSpot, correu, calendari, transcripció de reunions, signatura.</li><li data-i18n="sv.inc.li5"><strong>LQPD per disseny:</strong> minimització, registres d’accés, límits de consulta, dades a Europa, registre de tractaments.</li></ul>
+  <h2 data-i18n="sv.t2">Per a qui és</h2><p data-i18n="sv.pq">Gestories, assessories, despatxos d'advocats, administradors de finques, immobiliàries i qualsevol pime d'Andorra que gestioni expedients, documents i terminis. Si avui ho portes amb Excel, carpetes i correu, és per a tu.</p>
+  
+</div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye2">Procés</span><h2 class="h2" data-i18n="sv.t3">Com treballo</h2></div><div class="steps"><div class="step reveal"><h3 data-i18n="sv.st0h">Conversa</h3><p data-i18n="sv.st0p">15 minuts per WhatsApp o videotrucada. M'expliques què et fa perdre temps i et dic si ho puc fer.</p></div><div class="step reveal"><h3 data-i18n="sv.st1h">Proposta</h3><p data-i18n="sv.st1p">Una pàgina: què faré, quant trigaré i quant costarà. Sense lletra petita.</p></div><div class="step reveal"><h3 data-i18n="sv.st2h">Construcció</h3><p data-i18n="sv.st2p">Entregues setmanals perquè ho vegis créixer i canviïs el que calgui a temps.</p></div><div class="step reveal"><h3 data-i18n="sv.st3h">Entrega i manteniment</h3><p data-i18n="sv.st3p">Formació a l'equip, codi i accessos teus, i jo a un missatge de distància.</p></div></div></div></section>
+<section class="section" id="preus"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye3">Preus</span><h2 class="h2" data-i18n="sv.t4">Preus orientatius</h2><p class="lead" data-i18n="sv.pl">Preus orientatius; el pressupost real depèn del que tinguis ja i del que vulguis. Sense llicències mensuals per usuari: el programari és teu.</p></div><div class="price-grid"><div class="price reveal"><span class="tier" data-i18n="sv.pr0t">Assistent</span><h3 data-i18n="sv.pr0h">Assistent RAG amb els teus documents</h3><div class="amount">2.500€<small data-i18n="sv.pr0u">des de</small></div><p class="desc" data-i18n="sv.pr0d">Per respondre preguntes de clients i equip amb fonts.</p><ul><li><span data-i18n="sv.pr0f0">Fins a 500 documents</span></li><li><span data-i18n="sv.pr0f1">Web, WhatsApp o intranet</span></li><li><span data-i18n="sv.pr0f2">Dades a Europa, registre de consultes</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20parlar%20d%27un%20CRM%20o%20d%27agents%20d%27IA%20per%20al%20meu%20despatx." target="_blank" rel="noopener"><span data-i18n="sv.pr0b">Demanar pressupost</span></a></div><div class="price featured reveal"><span class="tier" data-i18n="sv.pr1t">Recomanat</span><h3 data-i18n="sv.pr1h">CRM d'expedients + portal de clients</h3><div class="amount">6.000€<small data-i18n="sv.pr1u">des de</small></div><p class="desc" data-i18n="sv.pr1d">L'eina central del despatx, adaptada als teus tràmits.</p><ul><li><span data-i18n="sv.pr1f0">Clients, KYC, tràmits, agenda, alertes</span></li><li><span data-i18n="sv.pr1f1">Portal perquè el client pugi documents</span></li><li><span data-i18n="sv.pr1f2">Formació i 3 mesos de suport inclosos</span></li></ul><a class="btn btn-primary" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20parlar%20d%27un%20CRM%20o%20d%27agents%20d%27IA%20per%20al%20meu%20despatx." target="_blank" rel="noopener"><span data-i18n="sv.pr1b">Demanar pressupost</span></a></div><div class="price reveal"><span class="tier" data-i18n="sv.pr2t">Complet</span><h3 data-i18n="sv.pr2h">CRM + agents d'IA</h3><div class="amount">12.000€<small data-i18n="sv.pr2u">des de</small></div><p class="desc" data-i18n="sv.pr2d">El despatx amb empleats digitals que treballen sols.</p><ul><li><span data-i18n="sv.pr2f0">Tot el pla recomanat</span></li><li><span data-i18n="sv.pr2f1">Agents de correu, checklists i venciments</span></li><li><span data-i18n="sv.pr2f2">Oficina virtual opcional</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20parlar%20d%27un%20CRM%20o%20d%27agents%20d%27IA%20per%20al%20meu%20despatx." target="_blank" rel="noopener"><span data-i18n="sv.pr2b">Parlem-ne</span></a></div></div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><h2 class="h2" data-i18n="sv.t5">Preguntes freqüents</h2></div><div class="faq reveal"><details><summary data-i18n="sv.fq0">El programari és meu o pago una llicència?</summary><p data-i18n="sv.fa0">És teu: codi, base de dades i accessos. Pagues el desenvolupament i, si vols, un manteniment mensual. Si un dia vols marxar, t'ho emportes tot.</p></details><details><summary data-i18n="sv.fq1">On es guarden les dades?</summary><p data-i18n="sv.fa1">A servidors a Europa (o a Andorra si ho prefereixes). Els models d'IA no s'entrenen amb les teves dades i cada consulta queda registrada.</p></details><details><summary data-i18n="sv.fq2">Quant triga?</summary><p data-i18n="sv.fa2">Un assistent RAG, dues o tres setmanes. Un CRM complet, de sis a deu setmanes amb entregues cada setmana perquè el vagis fent servir.</p></details><details><summary data-i18n="sv.fq3">I si ja tinc HubSpot o un altre CRM?</summary><p data-i18n="sv.fa3">Ho connectem. El CRM d'expedients fa el que HubSpot no fa (tràmits, KYC, venciments) i HubSpot continua fent el que fa bé (contactes, correu, pipeline).</p></details></div></div></section>
+<section class="wrap"><div class="cta-band reveal">
+  <h2 class="h2" data-i18n="cta.h">Explica'm com portes els expedients avui.</h2><p class="lead" data-i18n="cta.l">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+  <div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:cta.wa"><span data-i18n="cta.b1">Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span data-i18n="cta.b2">Envia'm un correu</span></a></div>
+  <p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><b>SaeTech</b><p data-i18n="f.tag">Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+      <div><b data-i18n="f.serveis">Serveis</b><a href="servicio-ia.html" data-i18n="f.s1">Programari i agents d'IA</a><a href="servicio-reels.html" data-i18n="f.s2">Reels amb IA</a><a href="servicio-seguridad.html" data-i18n="f.s3">Revisió LQPD</a><a href="servicio-web.html" data-i18n="f.s4">Webs</a><a href="servicio-apps.html" data-i18n="f.s5">Apps mòbils</a><a href="servicio-seo.html" data-i18n="f.s6">SEO i GEO</a></div>
+      <div><b data-i18n="f.estudi">SaeTech</b><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a><a href="contacto.html" data-i18n="nav.contacte">Contacte</a><a href="rag.html" data-i18n="f.rag">Què és RAG?</a></div>
+      <div><b data-i18n="f.contacte">Contacte</b><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="aviso-legal.html" data-i18n="f.legal">Avís legal</a> · <a href="privacidad.html" data-i18n="f.priv">Privacitat i cookies</a></span></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<script>window.I18N={"es": {"meta.title": "Software a medida y agentes de IA para gestorías y despachos | SaeTech", "meta.desc": "CRM de expedientes, portales de clientes, asistentes RAG y agentes de IA conectados a tus datos. Hecho en Andorra, con la LQPD integrada. Desde 2.500 €.", "sv.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20quiero%20hablar%20de%20un%20CRM%20o%20de%20agentes%20de%20IA%20para%20mi%20despacho.", "sv.eye": "Servicio · Software e IA", "sv.h1": "Software a medida y agentes de IA <span class='hl'>para gestorías y despachos.</span>", "sv.lead": "Un CRM que sabe qué es un KYC, un portal para que el cliente suba los documentos que faltan, y agentes de IA que trabajan sobre tus datos, no en un chat aparte. Todo con la Ley 29/2021 integrada.", "sv.b1": "Cuéntamelo por WhatsApp", "sv.b2": "Ver precios", "sv.in0": "En la gestoría donde trabajo, cada expediente de inversión extranjera pasa por veinte pasos, tres administraciones y una pila de documentos que caducan. Durante años eso se ha llevado con Excel y carpetas compartidas. Construí el CRM que usamos ahora, y es lo que te ofrezco: adaptado a tu despacho, no una plantilla.", "sv.in1": "Los agentes de IA son la segunda capa: un asistente que responde con tus documentos (RAG) y agentes que clasifican el correo, preparan checklists y avisan de lo que caduca. Conectados al CRM, con registro de todo lo que hacen, y sin que ningún dato salga de Europa.", "sv.t1": "Qué incluye", "sv.inc.li0": "<strong>CRM de expedientes:</strong> clientes, KYC, trámites con pasos, agenda de vencimientos, alertas de pasaportes y pólizas, plantillas de documentos.", "sv.inc.li1": "<strong>Portal de clientes:</strong> el cliente ve qué le falta y lo sube desde el móvil, con enlace seguro y sin cuentas que olvidar.", "sv.inc.li2": "<strong>Asistente RAG:</strong> responde preguntas con tus documentos y cita la fuente. Si no lo sabe, lo dice.", "sv.inc.li3": "<strong>Agentes con tareas:</strong> correo, checklists, vencimientos, borradores. Cada uno con un rol y un registro de actividad.", "sv.inc.li4": "<strong>Integraciones:</strong> HubSpot, correo, calendario, transcripción de reuniones, firma.", "sv.inc.li5": "<strong>LQPD por diseño:</strong> minimización, registros de acceso, límites de consulta, datos en Europa, registro de tratamientos.", "sv.t2": "Para quién es", "sv.pq": "Gestorías, asesorías, despachos de abogados, administradores de fincas, inmobiliarias y cualquier pyme de Andorra que gestione expedientes, documentos y plazos. Si hoy lo llevas con Excel, carpetas y correo, es para ti.", "sv.eye2": "Proceso", "sv.t3": "Cómo trabajo", "sv.st0h": "Conversación", "sv.st0p": "Quince minutos por WhatsApp o videollamada. Me cuentas qué te hace perder tiempo y te digo si lo puedo hacer.", "sv.st1h": "Propuesta", "sv.st1p": "Una página: qué haré, cuánto tardaré y cuánto costará. Sin letra pequeña.", "sv.st2h": "Construcción", "sv.st2p": "Entregas semanales para que lo veas crecer y cambies lo que haga falta a tiempo.", "sv.st3h": "Entrega y mantenimiento", "sv.st3p": "Formación al equipo, código y accesos tuyos, y yo a un mensaje de distancia.", "sv.eye3": "Precios", "sv.t4": "Precios orientativos", "sv.pl": "Precios orientativos; el presupuesto real depende de lo que ya tengas y de lo que quieras. Sin licencias mensuales por usuario: el software es tuyo.", "sv.pr0f0": "Hasta 500 documentos", "sv.pr0f1": "Web, WhatsApp o intranet", "sv.pr0f2": "Datos en Europa, registro de consultas", "sv.pr0t": "Asistente", "sv.pr0h": "Asistente RAG con tus documentos", "sv.pr0u": "desde", "sv.pr0d": "Para responder preguntas de clientes y equipo con fuentes.", "sv.pr0b": "Pedir presupuesto", "sv.pr1f0": "Clientes, KYC, trámites, agenda, alertas", "sv.pr1f1": "Portal para que el cliente suba documentos", "sv.pr1f2": "Formación y 3 meses de soporte incluidos", "sv.pr1t": "Recomendado", "sv.pr1h": "CRM de expedientes + portal de clientes", "sv.pr1u": "desde", "sv.pr1d": "La herramienta central del despacho, adaptada a tus trámites.", "sv.pr1b": "Pedir presupuesto", "sv.pr2f0": "Todo el plan recomendado", "sv.pr2f1": "Agentes de correo, checklists y vencimientos", "sv.pr2f2": "Oficina virtual opcional", "sv.pr2t": "Completo", "sv.pr2h": "CRM + agentes de IA", "sv.pr2u": "desde", "sv.pr2d": "El despacho con empleados digitales que trabajan solos.", "sv.pr2b": "Hablemos", "sv.t5": "Preguntas frecuentes", "sv.fq0": "¿El software es mío o pago una licencia?", "sv.fa0": "Es tuyo: código, base de datos y accesos. Pagas el desarrollo y, si quieres, un mantenimiento mensual. Si un día quieres irte, te lo llevas todo.", "sv.fq1": "¿Dónde se guardan los datos?", "sv.fa1": "En servidores en Europa (o en Andorra si lo prefieres). Los modelos de IA no se entrenan con tus datos y cada consulta queda registrada.", "sv.fq2": "¿Cuánto tarda?", "sv.fa2": "Un asistente RAG, dos o tres semanas. Un CRM completo, de seis a diez semanas con entregas cada semana para que lo vayas usando.", "sv.fq3": "¿Y si ya tengo HubSpot u otro CRM?", "sv.fa3": "Lo conectamos. El CRM de expedientes hace lo que HubSpot no hace (trámites, KYC, vencimientos) y HubSpot sigue haciendo lo que hace bien (contactos, correo, pipeline).", "cta.h": "Cuéntame cómo llevas los expedientes hoy.", "cta.l": "Un mensaje de WhatsApp es suficiente. Te digo en una respuesta si lo puedo arreglar, cuánto tardaría y cuánto costaría. Si no soy la persona adecuada, también te lo digo.", "cta.b1": "Escríbeme por WhatsApp", "cta.b2": "Envíame un correo", "cta.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "nav.serveis": "Servicios", "nav.projectes": "Proyectos", "nav.blog": "Blog", "nav.qui": "Quién soy", "nav.contacte": "Contacto", "f.tag": "Software e IA para negocios de Andorra, hechos por un jurista que programa.", "f.serveis": "Servicios", "f.estudi": "SaeTech", "f.contacte": "Contacto", "f.s1": "Software y agentes de IA", "f.s2": "Reels con IA", "f.s3": "Revisión LQPD", "f.s4": "Webs", "f.s5": "Apps móviles", "f.s6": "SEO y GEO", "f.rag": "¿Qué es RAG?", "ck.msg": "Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.", "ck.more": "Más información", "ck.no": "Solo esenciales", "ck.yes": "Aceptar", "f.legal": "Aviso legal", "f.priv": "Privacidad y cookies"}, "fr": {"meta.title": "Logiciels sur mesure et agents IA pour cabinets | SaeTech", "meta.desc": "CRM de dossiers, portails clients, assistants RAG et agents IA connectés à vos données. Fait en Andorre, LQPD intégrée. À partir de 2 500 €.", "sv.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20je%20voudrais%20parler%20d%27un%20CRM%20ou%20d%27agents%20IA%20pour%20mon%20cabinet.", "sv.eye": "Service · Logiciels et IA", "sv.h1": "Logiciels sur mesure et agents IA <span class='hl'>pour cabinets.</span>", "sv.lead": "Un CRM qui sait ce qu'est un KYC, un portail pour que le client dépose les documents manquants, et des agents IA qui travaillent sur vos données. Le tout avec la loi 29/2021 intégrée.", "sv.b1": "Expliquez-moi sur WhatsApp", "sv.b2": "Voir les tarifs", "sv.in0": "Dans le cabinet où je travaille, chaque dossier d'investissement étranger passe par vingt étapes, trois administrations et une pile de documents qui expirent. Pendant des années, cela se gérait avec Excel et des dossiers partagés. J'ai construit le CRM que nous utilisons aujourd'hui, et c'est ce que je vous propose : adapté à votre cabinet, pas un modèle.", "sv.in1": "Les agents IA sont la deuxième couche : un assistant qui répond avec vos documents (RAG) et des agents qui trient le courrier, préparent des checklists et signalent ce qui expire. Connectés au CRM, avec un journal de tout ce qu'ils font, et sans qu'aucune donnée ne quitte l'Europe.", "sv.t1": "Ce qui est inclus", "sv.inc.li0": "<strong>CRM de dossiers :</strong> clients, KYC, démarches par étapes, agenda des échéances, alertes passeports et polices, modèles de documents.", "sv.inc.li1": "<strong>Portail clients :</strong> le client voit ce qui manque et le dépose depuis son mobile, par lien sécurisé, sans compte à retenir.", "sv.inc.li2": "<strong>Assistant RAG :</strong> répond avec vos documents et cite la source. S'il ne sait pas, il le dit.", "sv.inc.li3": "<strong>Agents avec des tâches :</strong> courrier, checklists, échéances, brouillons. Chacun avec un rôle et un journal d'activité.", "sv.inc.li4": "<strong>Intégrations :</strong> HubSpot, e-mail, agenda, transcription de réunions, signature.", "sv.inc.li5": "<strong>LQPD dès la conception :</strong> minimisation, journaux d’accès, limites de requêtes, données en Europe, registre des traitements.", "sv.t2": "Pour qui", "sv.pq": "Cabinets de gestion, conseils, avocats, syndics, agences immobilières et toute PME d'Andorre qui gère des dossiers, des documents et des délais. Si aujourd'hui vous le faites avec Excel, des dossiers et des e-mails, c'est pour vous.", "sv.eye2": "Processus", "sv.t3": "Comment je travaille", "sv.st0h": "Discussion", "sv.st0p": "Quinze minutes sur WhatsApp ou en visio. Vous me dites ce qui vous fait perdre du temps et je vous dis si je peux le faire.", "sv.st1h": "Proposition", "sv.st1p": "Une page : ce que je ferai, en combien de temps et pour combien. Sans petits caractères.", "sv.st2h": "Construction", "sv.st2p": "Livraisons hebdomadaires pour que vous voyiez le projet avancer et corrigiez à temps.", "sv.st3h": "Livraison et maintenance", "sv.st3p": "Formation de l'équipe, code et accès à vous, et moi à un message de distance.", "sv.eye3": "Tarifs", "sv.t4": "Tarifs indicatifs", "sv.pl": "Tarifs indicatifs ; le devis réel dépend de ce que vous avez déjà et de ce que vous voulez. Pas de licence mensuelle par utilisateur : le logiciel est à vous.", "sv.pr0f0": "Jusqu'à 500 documents", "sv.pr0f1": "Web, WhatsApp ou intranet", "sv.pr0f2": "Données en Europe, journal des requêtes", "sv.pr0t": "Assistant", "sv.pr0h": "Assistant RAG avec vos documents", "sv.pr0u": "à partir de", "sv.pr0d": "Pour répondre aux questions des clients et de l’équipe, avec sources.", "sv.pr0b": "Demander un devis", "sv.pr1f0": "Clients, KYC, démarches, agenda, alertes", "sv.pr1f1": "Portail de dépôt de documents", "sv.pr1f2": "Formation et 3 mois de support inclus", "sv.pr1t": "Recommandé", "sv.pr1h": "CRM de dossiers + portail clients", "sv.pr1u": "à partir de", "sv.pr1d": "L'outil central du cabinet, adapté à vos démarches.", "sv.pr1b": "Demander un devis", "sv.pr2f0": "Tout le plan recommandé", "sv.pr2f1": "Agents courrier, checklists et échéances", "sv.pr2f2": "Bureau virtuel en option", "sv.pr2t": "Complet", "sv.pr2h": "CRM + agents IA", "sv.pr2u": "à partir de", "sv.pr2d": "Le cabinet avec des employés numériques autonomes.", "sv.pr2b": "Parlons-en", "sv.t5": "Questions fréquentes", "sv.fq0": "Le logiciel est-il à moi ou je paie une licence ?", "sv.fa0": "Il est à vous : code, base de données et accès. Vous payez le développement et, si vous voulez, une maintenance mensuelle. Si un jour vous partez, vous emportez tout.", "sv.fq1": "Où sont stockées les données ?", "sv.fa1": "Sur des serveurs en Europe (ou en Andorre si vous préférez). Les modèles d'IA ne s'entraînent pas avec vos données et chaque requête est journalisée.", "sv.fq2": "Combien de temps ?", "sv.fa2": "Un assistant RAG, deux ou trois semaines. Un CRM complet, de six à dix semaines avec des livraisons chaque semaine.", "sv.fq3": "Et si j'ai déjà HubSpot ou un autre CRM ?", "sv.fa3": "On les connecte. Le CRM de dossiers fait ce que HubSpot ne fait pas (démarches, KYC, échéances) et HubSpot continue de faire ce qu'il fait bien.", "cta.h": "Dites-moi comment vous gérez vos dossiers aujourd'hui.", "cta.l": "Un message WhatsApp suffit. Je vous dis en une réponse si je peux le résoudre, en combien de temps et pour combien. Si je ne suis pas la bonne personne, je vous le dis aussi.", "cta.b1": "Écrivez-moi sur WhatsApp", "cta.b2": "Envoyez-moi un e-mail", "cta.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "nav.serveis": "Services", "nav.projectes": "Projets", "nav.blog": "Blog", "nav.qui": "Qui suis-je", "nav.contacte": "Contact", "f.tag": "Logiciels et IA pour les entreprises d'Andorre, conçus par un juriste qui programme.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Logiciels et agents IA", "f.s2": "Reels avec IA", "f.s3": "Audit LQPD", "f.s4": "Sites web", "f.s5": "Apps mobiles", "f.s6": "SEO et GEO", "f.rag": "Qu'est-ce que le RAG ?", "ck.msg": "J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.", "ck.more": "En savoir plus", "ck.no": "Essentiels seulement", "ck.yes": "Accepter", "f.legal": "Mentions légales", "f.priv": "Confidentialité et cookies"}, "en": {"meta.title": "Custom software and AI agents for firms | SaeTech", "meta.desc": "Case-file CRMs, client portals, RAG assistants and AI agents connected to your data. Built in Andorra with data-protection law built in. From €2,500.", "sv.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20want%20to%20talk%20about%20a%20CRM%20or%20AI%20agents%20for%20my%20firm.", "sv.eye": "Service · Software and AI", "sv.h1": "Custom software and AI agents <span class='hl'>for firms.</span>", "sv.lead": "A CRM that knows what a KYC is, a portal for clients to upload missing documents, and AI agents that work on your data, not in a separate chat. All with Andorra's data-protection law built in.", "sv.b1": "Tell me on WhatsApp", "sv.b2": "See prices", "sv.in0": "At the firm where I work, every foreign-investment file goes through twenty steps, three administrations and a pile of expiring documents. For years that was handled with Excel and shared folders. I built the CRM we use now, and that's what I offer you: adapted to your firm, not a template.", "sv.in1": "AI agents are the second layer: an assistant that answers from your documents (RAG) and agents that sort email, prepare checklists and flag what expires. Connected to the CRM, with a log of everything they do, and no data leaving Europe.", "sv.t1": "What's included", "sv.inc.li0": "<strong>Case-file CRM:</strong> clients, KYC, procedures with steps, deadline calendar, passport and policy alerts, document templates.", "sv.inc.li1": "<strong>Client portal:</strong> clients see what is missing and upload it from their phone, via a secure link, no account to remember.", "sv.inc.li2": "<strong>RAG assistant:</strong> answers questions from your documents and cites the source. If it doesn't know, it says so.", "sv.inc.li3": "<strong>Agents with tasks:</strong> email, checklists, deadlines, drafts. Each with a role and an activity log.", "sv.inc.li4": "<strong>Integrations:</strong> HubSpot, email, calendar, meeting transcription, e-signature.", "sv.inc.li5": "<strong>Data protection by design:</strong> minimisation, access logs, rate limits, data in Europe, processing register.", "sv.t2": "Who it's for", "sv.pq": "Accounting, advisory and law firms, property managers, estate agencies and any SME in Andorra that manages files, documents and deadlines. If you run it today on Excel, folders and email, this is for you.", "sv.eye2": "Process", "sv.t3": "How I work", "sv.st0h": "Conversation", "sv.st0p": "Fifteen minutes on WhatsApp or a video call. You tell me what wastes your time and I tell you if I can fix it.", "sv.st1h": "Proposal", "sv.st1p": "One page: what I will do, how long it will take and what it will cost. No fine print.", "sv.st2h": "Build", "sv.st2p": "Weekly deliveries so you see it grow and change what you need in time.", "sv.st3h": "Delivery and maintenance", "sv.st3p": "Team training, code and access are yours, and I am one message away.", "sv.eye3": "Prices", "sv.t4": "Indicative prices", "sv.pl": "Indicative prices; the real quote depends on what you already have and what you want. No monthly per-user licences: the software is yours.", "sv.pr0f0": "Up to 500 documents", "sv.pr0f1": "Web, WhatsApp or intranet", "sv.pr0f2": "Data in Europe, query log", "sv.pr0t": "Assistant", "sv.pr0h": "RAG assistant on your documents", "sv.pr0u": "from", "sv.pr0d": "To answer client and team questions, with sources.", "sv.pr0b": "Get a quote", "sv.pr1f0": "Clients, KYC, procedures, calendar, alerts", "sv.pr1f1": "Client upload portal", "sv.pr1f2": "Training and 3 months of support included", "sv.pr1t": "Recommended", "sv.pr1h": "Case-file CRM + client portal", "sv.pr1u": "from", "sv.pr1d": "The firm's central tool, adapted to your procedures.", "sv.pr1b": "Get a quote", "sv.pr2f0": "Everything in the recommended plan", "sv.pr2f1": "Email, checklist and deadline agents", "sv.pr2f2": "Optional virtual office", "sv.pr2t": "Complete", "sv.pr2h": "CRM + AI agents", "sv.pr2u": "from", "sv.pr2d": "The firm with digital employees that work on their own.", "sv.pr2b": "Let's talk", "sv.t5": "FAQ", "sv.fq0": "Is the software mine or do I pay a licence?", "sv.fa0": "It's yours: code, database and access. You pay for development and, optionally, monthly maintenance. If you ever leave, you take everything with you.", "sv.fq1": "Where is the data stored?", "sv.fa1": "On servers in Europe (or in Andorra if you prefer). The AI models are not trained on your data and every query is logged.", "sv.fq2": "How long does it take?", "sv.fa2": "A RAG assistant, two to three weeks. A complete CRM, six to ten weeks with weekly deliveries so you start using it early.", "sv.fq3": "What if I already have HubSpot or another CRM?", "sv.fa3": "We connect them. The case-file CRM does what HubSpot doesn't (procedures, KYC, deadlines) and HubSpot keeps doing what it does well.", "cta.h": "Tell me how you handle your files today.", "cta.l": "A WhatsApp message is enough. I'll tell you in one reply whether I can fix it, how long it would take and what it would cost. If I'm not the right person, I'll say so.", "cta.b1": "Message me on WhatsApp", "cta.b2": "Send me an email", "cta.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "nav.serveis": "Services", "nav.projectes": "Projects", "nav.blog": "Blog", "nav.qui": "About", "nav.contacte": "Contact", "f.tag": "Software and AI for businesses in Andorra, built by a lawyer who codes.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Software and AI agents", "f.s2": "AI-made reels", "f.s3": "Data-protection review", "f.s4": "Websites", "f.s5": "Mobile apps", "f.s6": "SEO and GEO", "f.rag": "What is RAG?", "ck.msg": "I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.", "ck.more": "More info", "ck.no": "Essential only", "ck.yes": "Accept", "f.legal": "Legal notice", "f.priv": "Privacy and cookies"}};</script>
+<script src="site.js?v=3.0"></script>
 </body>
-
 </html>

@@ -1,471 +1,189 @@
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
-    <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaeTech — Programari i IA per a negocis d'Andorra | Said El Boudouhi</title>
-    <meta name="description" content="Programari a mida, agents d'IA i reels per a gestories, despatxos i pimes d'Andorra. Fet per Said El Boudouhi, jurista i desenvolupador, amb la Llei 29/2021 integrada.">
-    <meta name="keywords"
-        content="ia segura, rag, retrieval augmented generation, asistente ia empresa, chatbot con mis datos, inteligencia artificial andorra, desarrollador web andorra, apps móviles, SaaS, automatizaciones n8n">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://saetechai.com">
-    <meta name="google-site-verification" content="rMekWgEES7frJnChiz_xtnQtFQXnlDTbVlhqtHj5EGA">
-    <meta name="theme-color" content="#00d4ff">
-    <meta name="msapplication-TileColor" content="#0a0a0f">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaeTech — Programari i IA per a negocis d&#x27;Andorra | Said El Boudouhi</title>
+<meta name="description" content="Programari a mida, agents d&#x27;IA i reels per a gestories, despatxos i pimes d&#x27;Andorra. Fet per Said El Boudouhi, jurista i desenvolupador, amb la Llei 29/2021 integrada.">
+<link rel="canonical" href="https://saetechai.com/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saetechai.com/">
+<meta property="og:title" content="SaeTech — Programari i IA per a negocis d&#x27;Andorra | Said El Boudouhi">
+<meta property="og:description" content="Programari a mida, agents d&#x27;IA i reels per a gestories, despatxos i pimes d&#x27;Andorra. Fet per Said El Boudouhi, jurista i desenvolupador, amb la Llei 29/2021 integrada.">
+<meta property="og:image" content="https://saetechai.com/img/og-saetech.jpg">
+<meta property="og:site_name" content="SaeTech">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3.0">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "SaeTech", "url": "https://saetechai.com", "telephone": "+376601249", "email": "hola@saetechai.com", "areaServed": "Andorra", "founder": {"@type": "Person", "name": "Said El Boudouhi", "jobTitle": "Jurista i desenvolupador", "sameAs": ["https://www.linkedin.com/in/said-el-boudouhi-b28489301", "https://www.instagram.com/saetechai"]}, "description": "Programari a mida, agents d'IA i reels per a negocis d'Andorra."}</script>
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saetechai.com">
-    <meta property="og:title" content="SaeTech — Programari i IA per a negocis d'Andorra">
-    <meta property="og:description" content="Fets per un jurista que programa. CRMs, agents d'IA i reels per a gestories, despatxos i pimes d'Andorra.">
-    <meta property="og:image" content="https://saetechai.com/img/crm-dashboard.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://saetechai.com">
-    <meta name="twitter:title" content="SaeTech — IA Segura y Asistentes RAG">
-    <meta name="twitter:description"
-        content="IA segura para empresas: asistentes RAG que responden con tus datos reales, con fuentes y sin inventar.">
-    <meta name="twitter:image" content="https://saetechai.com/og-image.jpg">
-
-    <link rel="icon" type="image/svg+xml"
-        href="favicon.svg?v=1">
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Said El Boudouhi",
-        "jobTitle": "Consultor de Estrategia de IA",
-        "description": "Estudio especializado en IA segura y asistentes RAG (Retrieval-Augmented Generation) para empresas, además de desarrollo web, apps móviles y SaaS",
-        "url": "https://saetechai.com",
-        "telephone": "+376601249",
-        "email": "hola@saetechai.com",
-        "address": {"@type": "PostalAddress", "addressCountry": "AD", "addressLocality": "Andorra"},
-        "sameAs": ["https://wa.me/376601249", "https://www.linkedin.com/in/said-el-boudouhi-b28489301"],
-        "knowsAbout": ["IA Segura", "RAG (Retrieval-Augmented Generation)", "Asistentes de IA para empresas", "Desarrollo Web", "Apps Móviles", "SaaS", "React", "Next.js", "Node.js"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "SaeTech - Desarrollo Digital",
-        "url": "https://saetechai.com",
-        "potentialAction": {"@type": "SearchAction", "target": "https://saetechai.com/?s={search_term_string}", "query-input": "required name=search_term_string"}
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "SaeTech - Desarrollo Digital",
-        "description": "IA segura y asistentes RAG para empresas, desarrollo web, apps móviles y SaaS en Andorra",
-        "url": "https://saetechai.com",
-        "telephone": "+376601249",
-        "address": {"@type": "PostalAddress", "addressLocality": "Andorra", "addressCountry": "AD"},
-        "priceRange": "€€",
-        "openingHours": "Mo-Fr 09:00-18:00"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question", "name": "¿Cuánto cuesta un proyecto?", "acceptedAnswer": {"@type": "Answer", "text": "Una landing desde 400€ y una web profesional o app desde 1.200€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos."}},
-            {"@type": "Question", "name": "¿Cuánto tardas en entregar?", "acceptedAnswer": {"@type": "Answer", "text": "Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento."}},
-            {"@type": "Question", "name": "¿El código y los accesos son míos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo."}},
-            {"@type": "Question", "name": "¿Trabajas con clientes fuera de Andorra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios."}},
-            {"@type": "Question", "name": "¿Ofreces soporte después del lanzamiento?", "acceptedAnswer": {"@type": "Answer", "text": "Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas."}},
-            {"@type": "Question", "name": "¿Qué es un asistente RAG y por qué es IA segura?", "acceptedAnswer": {"@type": "Answer", "text": "RAG (Retrieval-Augmented Generation) es la técnica que hace que la IA responda consultando los documentos reales de tu empresa, citando la fuente y sin inventar datos. Tus documentos no se usan para entrenar modelos de terceros y la privacidad se diseña desde el principio."}},
-            {"@type": "Question", "name": "¿Qué es el posicionamiento en IA (GEO)?", "acceptedAnswer": {"@type": "Answer", "text": "Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis."}}
-        ]
-    }
-    </script>
 </head>
-
 <body>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <div class="loader" id="loader">
-        <div class="loader-glow loader-glow--1"></div>
-        <div class="loader-glow loader-glow--2"></div>
-        <div class="loader-glow loader-glow--3"></div>
-        <div class="loader-mark">
-            <svg class="loader-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="lpg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00d4ff"/>
-                        <stop offset="100%" stop-color="#7c3aed"/>
-                    </linearGradient>
-                </defs>
-                <circle class="lsvg-track" cx="60" cy="60" r="54"/>
-                <circle class="lsvg-ring" cx="60" cy="60" r="54"/>
-                <polygon class="lsvg-diamond" points="60,22 98,60 60,98 22,60"/>
-                <circle class="lsvg-core" cx="60" cy="60" r="7"/>
-            </svg>
-        </div>
+<div class="bgfx" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i></i>SaeTech</a>
+    <ul class="menu" id="menu">
+      <li><a href="servicios.html" data-i18n="nav.serveis">Serveis</a></li><li><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a></li><li><a href="contacto.html" data-i18n="nav.contacte">Contacte</a></li>
+      <li class="cta"><a href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang"><button type="button" id="langBtn" aria-haspopup="true"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
+  </div>
+</header>
 
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow" data-i18n="h.eyebrow">Andorra · Programari, IA i reels</span>
+    <h1 class="h1" data-i18n="h.h1">Programari i IA per al teu negoci d'Andorra. <span class='hl'>Fet per un jurista que programa.</span></h1>
+    <p class="lead" data-i18n="h.lead">Sóc Said El Boudouhi. Treballo en una gestoria i construeixo el programari que a mi m'hauria agradat tenir: CRMs d'expedients, portals de clients, agents d'IA i els reels perquè et coneguin. Amb la Llei 29/2021 integrada des del primer dia, no afegida al final.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:h.wa"><span data-i18n="h.b1">Escriu-me per WhatsApp</span></a>
+      <a class="btn btn-ghost btn-lg" href="#projectes"><span data-i18n="h.b2">Veure què he fet</span></a>
+    </div>
+    <div class="trust"><span data-i18n="h.t1">El codi és teu</span><span data-i18n="h.t2">Dades a Europa</span><span data-i18n="h.t3">Sense permanència</span><span data-i18n="h.t4">Respon una persona, no un bot</span></div>
+    <div class="hero-facts">
+      <div><strong>2</strong><span data-i18n="h.f1">eines en ús cada dia a una gestoria</span></div>
+      <div><strong>8.000+</strong><span data-i18n="h.f2">commits en una sola app en producció</span></div>
+      <div><strong>&lt;24h</strong><span data-i18n="h.f3">per respondre't, i qui respon sóc jo</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="device">
+      <div class="device-bar"><i></i><i></i><i></i><span data-i18n="h.dev">CRM d'expedients · gestoria d'Andorra</span><span class="live" data-i18n="h.live">En ús</span></div>
+      <video autoplay muted loop playsinline preload="metadata" poster="img/crm-dashboard.webp" width="1280" height="800"><source src="img/crm-hero.webm" type="video/webm"><source src="img/crm-hero.mp4" type="video/mp4"></video>
+    </div>
+    <p class="device-note" data-i18n="h.devnote">Dades de prova, clients anonimitzats.</p>
+  </div>
+</div></section>
 
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle"
-                    aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </nav>
-    </header>
-    <section class="hero" id="hero">
-        <div class="hf-hero-fade"></div>
-        <div class="hero-content">
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <h1 class="hero-title animate-in">
-                        <span class="hero-headline" data-i18n="h.headline">Programari i IA per a negocis d'Andorra, <span class="text-gradient">fets per un jurista que programa</span></span>
-                    </h1>
-                    <p class="hero-subtitle animate-in" data-i18n="h.subtitle">Sóc Said El Boudouhi. Treballo en una gestoria i construeixo el programari que a mi m'hauria agradat tenir: CRMs d'expedients, portals de clients, agents d'IA i els reels perquè et coneguin. Amb la Llei 29/2021 integrada des del primer dia.</p>
-                    <div class="hero-buttons animate-in">
-                        <a href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar" class="btn btn-primary magnetic" target="_blank" rel="noopener">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-                            <span data-i18n="h.cta1">Escriu-me per WhatsApp</span>
-                        </a>
-                        <a href="#projectes" class="btn btn-ghost magnetic"><span data-i18n="h.cta2">Veure què he fet</span></a>
-                    </div>
-                    <div class="hero-proof animate-in">
-                        <div class="hero-proof-item"><strong>2</strong><span data-i18n="h.proof1">eines en ús cada dia a una gestoria</span></div>
-                        <div class="hero-proof-item"><strong>8.000+</strong><span data-i18n="h.proof2">commits en una sola app en producció</span></div>
-                        <div class="hero-proof-item"><strong>&lt; 24h</strong><span data-i18n="h.proof3">per respondre't, i qui respon sóc jo</span></div>
-                    </div>
-                </div>
-                <div class="hero-visual animate-in">
-                    <div class="rag-mock">
-                        <div class="rag-mock-bar">
-                            <div class="rag-mock-dots"><i></i><i></i><i></i></div>
-                            <div class="rag-mock-title"><span data-i18n="h.mockTitle">CRM d'expedients · gestoria d'Andorra</span><span class="live" data-i18n="h.mockLive">En ús</span></div>
-                        </div>
-                        <video autoplay muted loop playsinline preload="metadata" poster="img/crm-dashboard.webp" width="1280" height="800" style="display:block;width:100%;height:auto;background:#fff" aria-label="El CRM per a gestories en funcionament"><source src="img/crm-hero.webm" type="video/webm"><source src="img/crm-hero.mp4" type="video/mp4"></video>
-                    </div>
-                    <p style="margin-top:10px;font-size:.8rem;color:var(--text-secondary)" data-i18n="h.mockNote">Dades de prova, clients anonimitzats.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="hf-separator">
-    <section class="section" id="serveis">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="h.svcTag">Què faig</span>
-                <h2 class="section-title" data-i18n="h.svcTitle">Tres coses, <span class="text-gradient">i per a qui</span></h2>
-                <p class="section-subtitle" data-i18n="h.svcSub">No sóc una agència. Sóc una persona que programa i que entén com funciona un despatx a Andorra per dins.</p>
-            </div>
-            <div class="services-grid reveal">
-                <a class="service-card" href="servicio-ia.html">
-                    <h3 data-i18n="h.s1t">Programari a mida per a gestories i despatxos</h3>
-                    <p data-i18n="h.s1d">CRM d'expedients, portal perquè el client pugi documents, KYC, venciments, alertes. Substitueix l'Excel i les carpetes compartides per una eina que sap què falta a cada expedient.</p>
-                    <span class="service-link" data-i18n="h.s1f">Per a gestories, assessories, despatxos i administradors de finques →</span>
-                </a>
-                <a class="service-card" href="servicio-ia.html">
-                    <h3 data-i18n="h.s2t">Agents d'IA i automatització</h3>
-                    <p data-i18n="h.s2d">Assistents que responen amb els teus documents (RAG), agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al teu CRM, no en un xat a part.</p>
-                    <span class="service-link" data-i18n="h.s2f">Per a qualsevol pime amb processos repetitius →</span>
-                </a>
-                <a class="service-card" href="servicio-reels.html">
-                    <h3 data-i18n="h.s3t">Un reel a la setmana, fet amb IA</h3>
-                    <p data-i18n="h.s3d">M'envies una idea per WhatsApp i reps el vídeo en català amb veu i rètols, llest per publicar. Sense gravar res. La manera més barata de començar a treballar junts.</p>
-                    <span class="service-link" data-i18n="h.s3f">Per a restaurants, botigues, clíniques, gimnasos i despatxos →</span>
-                </a>
-            </div>
-            <p class="section-subtitle reveal" style="margin-top:28px" data-i18n="h.also">També faig webs, apps mòbils, posicionament (SEO i aparèixer a ChatGPT) i la revisió de seguretat i LQPD del teu portal. <a href="servicios.html" style="color:var(--accent-cyan)">Tots els serveis</a>.</p>
-        </div>
-    </section>
-
-    <hr class="hf-separator">
-    <section class="section section-dark" id="projectes">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="h.prTag">Projectes</span>
-                <h2 class="section-title" data-i18n="h.prTitle">Fet de veritat, <span class="text-gradient">en ús cada dia</span></h2>
-                <p class="section-subtitle" data-i18n="h.prSub">Dues eines que faig servir jo mateix a la feina. Les captures són amb dades de prova.</p>
-            </div>
-            <div class="portfolio-grid reveal">
-                <article class="portfolio-card" onclick="location.href='portfolio.html'" style="cursor:pointer">
-                    <div class="portfolio-image"><img class="portfolio-img" src="img/crm-tauler.webp" alt="Tauler de tràmits del CRM" loading="lazy" width="1600" height="1000"></div>
-                    <div class="portfolio-content">
-                        <h3 data-i18n="h.p1t">CRM d'expedients per a una gestoria</h3>
-                        <p data-i18n="h.p1d">Clients amb KYC, tràmits amb passos, agenda de venciments, portal perquè el client pugi documents. Ctrl+K i qualsevol expedient en un segon.</p>
-                    </div>
-                </article>
-                <article class="portfolio-card" onclick="location.href='portfolio.html'" style="cursor:pointer">
-                    <div class="portfolio-image"><img class="portfolio-img" src="img/oficina-3d.webp" alt="Oficina virtual 3D amb agents d'IA" loading="lazy" width="1600" height="1000"></div>
-                    <div class="portfolio-content">
-                        <h3 data-i18n="h.p2t">Una oficina 3D amb vuit empleats d'IA</h3>
-                        <p data-i18n="h.p2d">Cada agent té taula, tasques i eines. Classifiquen el correu, preparen checklists i avisen del que caduca. La Nova et resumeix la setmana si li ho preguntes.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="section-cta reveal"><a href="portfolio.html" class="btn btn-ghost" data-i18n="h.prAll">Tots els projectes</a></div>
-        </div>
-    </section>
-
-    <hr class="hf-separator">
-    <section class="section" id="qui">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content reveal">
-                    <span class="section-tag" data-i18n="h.quiTag">Qui hi ha darrere</span>
-                    <h2 class="section-title" data-i18n="h.quiTitle">Said El Boudouhi. <span class="text-gradient">Jurista que programa.</span></h2>
-                    <p class="about-text" data-i18n="h.qui1">Sóc andorrà, jurista de formació i desenvolupador per compte propi: vaig començar fent webs per a amics i vaig acabar construint una aplicació de gestió de gimnasos amb més de 8.000 commits.</p>
-                    <p class="about-text" data-i18n="h.qui2">Ara treballo d'assessor jurídic i fiscal en una gestoria d'Andorra la Vella. Quan et faig un CRM, sé què és un expedient d'inversió estrangera, què demana la LQPD i per què el teu equip encara busca les coses en carpetes.</p>
-                    <p class="about-text" data-i18n="h.qui3">No tinc comercials ni equip de vendes. Si m'escrius, parles amb mi, i qui programa sóc jo.</p>
-                    <a href="sobre-mi.html" class="btn btn-ghost" style="margin-top:12px" data-i18n="h.quiMore">Més sobre mi</a>
-                </div>
-                <div class="about-visual reveal">
-                    <div class="service-features" style="display:grid;grid-template-columns:1fr;gap:12px">
-                        <div class="feature"><span class="feature-icon">✓</span><span data-i18n="h.f1">Grau en Dret, màster en Dret i màster en Intel·ligència Artificial</span></div>
-                        <div class="feature"><span class="feature-icon">✓</span><span data-i18n="h.f2">Assessor jurídic i fiscal en una gestoria d'Andorra</span></div>
-                        <div class="feature"><span class="feature-icon">✓</span><span data-i18n="h.f3">LQPD (Llei 29/2021), RGPD, inversió estrangera</span></div>
-                        <div class="feature"><span class="feature-icon">✓</span><span data-i18n="h.f4">Català, castellà, francès i anglès</span></div>
-                        <div class="feature"><span class="feature-icon">✓</span><span data-i18n="h.f5">Andorra. Reunions presencials o per videotrucada</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="hf-separator">
-<section class="section section-dark" id="proceso">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="process.tag">Proceso</span>
-                <h2 class="section-title" data-i18n="process.title">Cómo <span class="text-gradient">trabajo</span></h2>
-                <p class="section-subtitle" data-i18n="process.subtitle">Un proceso claro de principio a fin.</p>
-            </div>
-            <div class="process-timeline reveal">
-                <div class="process-step">
-                    <div class="process-number">01</div>
-                    <div class="process-content">
-                        <h3 data-i18n="process.step1.title">Consulta</h3>
-                        <p data-i18n="process.step1.desc">Analizamos tu idea y objetivos.</p>
-                        <span class="process-time" data-i18n="process.step1.time">1-2 días</span>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">02</div>
-                    <div class="process-content">
-                        <h3 data-i18n="process.step2.title">Propuesta</h3>
-                        <p data-i18n="process.step2.desc">Presupuesto detallado con plazos.</p>
-                        <span class="process-time" data-i18n="process.step2.time">2-3 días</span>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">03</div>
-                    <div class="process-content">
-                        <h3 data-i18n="process.step3.title">Diseño</h3>
-                        <p data-i18n="process.step3.desc">Creo el diseño visual de tu proyecto.</p>
-                        <span class="process-time" data-i18n="process.step3.time">1-2 semanas</span>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">04</div>
-                    <div class="process-content">
-                        <h3 data-i18n="process.step4.title">Desarrollo</h3>
-                        <p data-i18n="process.step4.desc">Programamos con actualizaciones semanales.</p>
-                        <span class="process-time" data-i18n="process.step4.time">2-6 semanas</span>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">05</div>
-                    <div class="process-content">
-                        <h3 data-i18n="process.step5.title">Lanzamiento</h3>
-                        <p data-i18n="process.step5.desc">Ajustes finales y publicación.</p>
-                        <span class="process-time" data-i18n="process.step5.time">1-2 días</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust/Guarantees Section -->
-    <section class="section faq-section" id="faq">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="faq.tag">FAQ</span>
-                <h2 class="section-title" data-i18n="faq.title">Preguntas <span class="text-gradient">frecuentes</span></h2>
-                <p class="section-subtitle" data-i18n="faq.subtitle">Lo que más me preguntan antes de empezar un proyecto.</p>
-            </div>
-            <div class="faq-list reveal">
-                <details class="faq-item">
-                    <summary data-i18n="faq.q1.q">¿Cuánto cuesta un proyecto?</summary>
-                    <p data-i18n="faq.q1.a">Una landing desde 400€ y una web profesional o app desde 1.200€. Siempre te doy un presupuesto cerrado por adelantado, sin sorpresas ni costes ocultos.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="faq.q2.q">¿Cuánto tardas en entregar?</summary>
-                    <p data-i18n="faq.q2.a">Una web entre 1 y 4 semanas; apps y plataformas SaaS entre 4 y 8 semanas. Recibes avances cada semana para que veas el progreso en todo momento.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="faq.q3.q">¿El código y los accesos son míos?</summary>
-                    <p data-i18n="faq.q3.a">Sí. Al finalizar te entrego todo el código fuente y los accesos. Sin dependencias ocultas ni lock-in: tu proyecto es 100% tuyo.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="faq.q4.q">¿Trabajas con clientes fuera de Andorra?</summary>
-                    <p data-i18n="faq.q4.a">Sí, trabajo en remoto con clientes de toda Europa. Comunicación directa conmigo por WhatsApp o videollamada, sin intermediarios.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="faq.q5.q">¿Ofreces soporte después del lanzamiento?</summary>
-                    <p data-i18n="faq.q5.a">Incluyo 30 días de soporte gratuito tras la entrega. Después puedes contratar un plan de mantenimiento mensual opcional si lo necesitas.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="faq.q6.q">¿Qué es el posicionamiento en IA (GEO)?</summary>
-                    <p data-i18n="faq.q6.a">Optimizo tu negocio para que ChatGPT, Claude o Perplexity te recomienden, no solo Google. Es un canal con muy poca competencia todavía. Pídeme una auditoría gratis.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title" data-i18n="cta.title">¿Tienes un proyecto en mente?</h2>
-                <p class="cta-text" data-i18n="cta.desc">Cuéntame tu idea y te ayudo a hacerla realidad.</p>
-                <a href="contacto.html" class="btn btn-primary btn-lg" data-i18n="cta.btn">Hablemos</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:hola@saetechai.com">hola@saetechai.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg>
+<section class="section alt" id="serveis"><div class="wrap">
+  <div class="section-head reveal">
+    <span class="eyebrow" data-i18n="s.eye">Què faig</span>
+    <h2 class="h2" data-i18n="s.h2">Tres coses, i per a qui.</h2>
+    <p class="lead" data-i18n="s.lead">No sóc una agència. Sóc una persona que programa i que entén com funciona un despatx a Andorra per dins. Això limita el que puc agafar, i millora el que entrego.</p>
+  </div>
+  <div class="grid grid-3">
+    <a class="card reveal featured" href="servicio-ia.html">
+      <span class="num">01</span>
+      <h3 data-i18n="s.c1h">Programari a mida per a gestories i despatxos</h3>
+      <p data-i18n="s.c1p">CRM d'expedients, portal perquè el client pugi documents, KYC, venciments, alertes. Substitueix l'Excel i les carpetes compartides per una eina que sap què falta a cada expedient.</p>
+      <span class="for" data-i18n="s.c1f">Gestories, assessories, despatxos, administradors de finques</span>
+      <span class="more" data-i18n="s.more">Veure el servei →</span>
     </a>
+    <a class="card reveal" href="servicio-ia.html#agents">
+      <span class="num">02</span>
+      <h3 data-i18n="s.c2h">Agents d'IA i automatització</h3>
+      <p data-i18n="s.c2p">Assistents que responen amb els teus documents (RAG), agents que classifiquen el correu, preparen checklists i avisen del que caduca. Connectats al teu CRM, no en un xat a part.</p>
+      <span class="for" data-i18n="s.c2f">Qualsevol pime amb processos repetitius i documents</span>
+      <span class="more" data-i18n="s.more">Veure el servei →</span>
+    </a>
+    <a class="card reveal" href="servicio-reels.html">
+      <span class="num">03</span>
+      <h3 data-i18n="s.c3h">Un reel a la setmana, fet amb IA</h3>
+      <p data-i18n="s.c3p">M'envies una idea per WhatsApp i reps el vídeo en català amb veu i rètols, llest per publicar. Sense gravar res. La manera més barata de començar a treballar junts.</p>
+      <span class="for" data-i18n="s.c3f">Restaurants, botigues, clíniques, gimnasos i despatxos</span>
+      <span class="more" data-i18n="s.more">Veure el servei →</span>
+    </a>
+  </div>
+  <p class="muted reveal" data-i18n="s.also" style="margin-top:28px;max-width:70ch">També faig webs, apps mòbils, posicionament (SEO i aparèixer a ChatGPT) i la <a href='servicio-seguridad.html' style='color:var(--accent)'>revisió de seguretat i LQPD</a> del teu portal. <a href='servicios.html' style='color:var(--accent)'>Tots els serveis</a>.</p>
+</div></section>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <!-- Email Capture Popup -->
-    <div class="email-popup" id="emailPopup">
-        <button class="email-popup-close" id="emailPopupClose">&times;</button>
-        <h4 data-i18n="emailPopup.title">🎁 Recibe consejos gratis</h4>
-        <p data-i18n="emailPopup.desc">Trucos de desarrollo web y ofertas exclusivas. Sin spam.</p>
-        <form class="email-popup-form" action="https://formsubmit.co/s91564774@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Nuevo suscriptor desde saetechai.com">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="email" name="email" placeholder="Tu email" data-i18n-placeholder="emailPopup.placeholder" required>
-            <button type="submit" class="btn btn-primary" data-i18n="emailPopup.submit">Suscribirme</button>
-        </form>
+<section class="section" id="projectes"><div class="wrap">
+  <div class="section-head reveal">
+    <span class="eyebrow" data-i18n="c.eye">Projectes</span>
+    <h2 class="h2" data-i18n="c.h2">Fet de veritat, en ús cada dia.</h2>
+    <p class="lead" data-i18n="c.lead">Dues eines que faig servir jo mateix a la feina. Les captures són amb dades de prova.</p>
+  </div>
+  <article class="case reveal">
+    <div class="case-media device"><div class="device-bar"><i></i><i></i><i></i><span>gestoria · processos</span></div><img src="img/crm-tauler.webp" alt="Tauler de tràmits per estat del CRM" width="1600" height="1000" loading="lazy"></div>
+    <div>
+      <h3 data-i18n="c.p1h">CRM d'expedients per a una gestoria</h3>
+      <p class="lead" data-i18n="c.p1l">Cada client amb el seu KYC, cada tràmit amb els seus passos, i una agenda que avisa abans que caduqui res. Ctrl+K i qualsevol expedient en un segon.</p>
+      <ul>
+        <li data-i18n="c.p1a">Portal perquè el client pugi els documents que falten</li>
+        <li data-i18n="c.p1b">Tauler de tràmits per estat, arrossegant</li>
+        <li data-i18n="c.p1c">Alertes de venciments, KYC i passaports</li>
+        <li data-i18n="c.p1d">Integrat amb HubSpot i amb els agents d'IA</li>
+      </ul>
+      <p class="meta" data-i18n="c.p1m">Expedients d'inversió estrangera, constitucions, residències. Fet per a la gestoria on treballo.</p>
     </div>
+  </article>
+  <article class="case flip reveal">
+    <div class="case-media device"><div class="device-bar"><i></i><i></i><i></i><span>oficina virtual · 8 agents</span></div><img src="img/oficina-3d.webp" alt="Oficina virtual 3D amb vuit agents d'IA" width="1600" height="1000" loading="lazy"></div>
+    <div>
+      <h3 data-i18n="c.p2h">Una oficina 3D amb vuit empleats d'IA</h3>
+      <p class="lead" data-i18n="c.p2l">Cada agent té la seva taula, les seves tasques i les seves eines. Treballen sols sobre el CRM i, si vols saber com va la setmana, li ho preguntes a la Nova, la portaveu.</p>
+      <ul>
+        <li data-i18n="c.p2a">Classifiquen el correu i preparen checklists</li>
+        <li data-i18n="c.p2b">Avisen del que caduca i redacten esborranys</li>
+        <li data-i18n="c.p2c">Tot el que fan queda registrat i és revisable</li>
+      </ul>
+      <p class="meta" data-i18n="c.p2m">Hi ha un vídeo de 30 segons a <a href='{IG}' target='_blank' rel='noopener' style='color:var(--accent)'>@saetechai</a>.</p>
+    </div>
+  </article>
+  <p class="reveal" style="margin-top:40px"><a class="btn btn-ghost" href="portfolio.html"><span data-i18n="c.all">Tots els projectes</span></a></p>
+  <div class="midcta reveal"><p data-i18n="c.mid">Vols una cosa semblant per al teu despatx? Et dic en una resposta si es pot i quant costa.</p><a class="btn btn-primary" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:h.wa"><span data-i18n="c.midb">Escriu-me per WhatsApp</span></a></div>
+</div></section>
 
-    <script src="script.js?v=3.28"></script>
-    <script src="higgsfield-visuals.js?v=2.2"></script>
+<section class="section alt" id="qui"><div class="wrap case">
+  <div>
+    <span class="eyebrow" data-i18n="q.eye">Qui hi ha darrere</span>
+    <h2 class="h2" data-i18n="q.h2" style="margin-top:12px">Said El Boudouhi. Jurista que programa.</h2>
+    <p class="lead" data-i18n="q.p1" style="margin-top:18px">Sóc andorrà, jurista de formació i desenvolupador per compte propi: vaig començar fent webs per a amics i vaig acabar construint una aplicació de gestió de gimnasos amb més de 8.000 commits.</p>
+    <p class="lead" data-i18n="q.p2" style="margin-top:14px">Ara treballo d'assessor jurídic i fiscal en una gestoria d'Andorra la Vella. Quan et faig un CRM, sé què és un expedient d'inversió estrangera, què demana la LQPD i per què el teu equip encara busca les coses en carpetes.</p>
+    <p class="lead" data-i18n="q.p3" style="margin-top:14px">No tinc comercials ni equip de vendes. Si m'escrius, parles amb mi, i qui programa sóc jo.</p>
+    <p style="margin-top:24px"><a class="btn btn-ghost" href="sobre-mi.html"><span data-i18n="q.more">Més sobre mi</span></a></p>
+  </div>
+  <div class="facts reveal">
+    <div><b data-i18n="q.k1">Formació</b><span data-i18n="q.v1">Grau en Dret, màster en Dret i màster en Intel·ligència Artificial</span></div>
+    <div><b data-i18n="q.k2">Feina</b><span data-i18n="q.v2">Assessor jurídic i fiscal en una gestoria d'Andorra</span></div>
+    <div><b data-i18n="q.k3">Llengües</b><span data-i18n="q.v3">Català, castellà, francès i anglès</span></div>
+    <div><b data-i18n="q.k4">Normativa</b><span data-i18n="q.v4">LQPD (Llei 29/2021), RGPD, inversió estrangera</span></div>
+    <div><b data-i18n="q.k5">On</b><span data-i18n="q.v5">Andorra. Reunions presencials o per videotrucada</span></div>
+    <div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">said-el-boudouhi</a></span></div>
+  </div>
+</div></section>
+
+<section class="section" id="blog"><div class="wrap">
+  <div class="section-head reveal">
+    <span class="eyebrow" data-i18n="b.eye">Blog</span>
+    <h2 class="h2" data-i18n="b.h2">Coses que escric.</h2>
+    <p class="lead" data-i18n="b.lead">Articles en castellà sobre IA, programari i normativa a Andorra. Sense fum.</p>
+  </div>
+  <div class="posts">
+    <a class="post reveal" href="blog-ciberataque-cass.html"><div class="cover"><img src="blog-cass-cover.webp" alt="" loading="lazy"></div><div class="body"><time datetime="2026-11-17">17 nov 2026</time><h3>Ciberataque a la CASS: 477.238 NIA expuestos. Qué ha pasado y qué debes hacer</h3><p>Cómo entraron, qué dice la Llei 29/2021 y cinco lecciones para cualquier empresa con un portal de datos.</p></div></a>
+    <a class="post reveal" href="blog-cuanto-cuesta-rag.html"><div class="cover"><img src="blog-rag-coste-cover.webp" alt="" loading="lazy"></div><div class="body"><time datetime="2026-11-05">5 nov 2026</time><h3>Cuánto cuesta un asistente RAG para tu empresa en 2026</h3><p>Rangos de precio reales, qué incluye cada tramo y qué preguntas hacer para comparar presupuestos.</p></div></a>
+    <a class="post reveal" href="blog-rag-empresas.html"><div class="cover"><img src="rag-cover.webp" alt="" loading="lazy"></div><div class="body"><time datetime="2026-07-15">15 jul 2026</time><h3>Por qué tu empresa necesita un RAG (y no un chatbot que inventa)</h3><p>La diferencia entre un asistente que responde con tus documentos y uno que improvisa.</p></div></a>
+  </div>
+  <p class="reveal" style="margin-top:28px"><a class="btn btn-ghost" href="blog.html"><span data-i18n="b.all">Tots els articles</span></a></p>
+</div></section>
+<section class="wrap"><div class="cta-band reveal">
+  <h2 class="h2" data-i18n="cta.h">Explica'm què et fa perdre temps al despatx.</h2><p class="lead" data-i18n="cta.l">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+  <div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:cta.wa"><span data-i18n="cta.b1">Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span data-i18n="cta.b2">Envia'm un correu</span></a></div>
+  <p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><b>SaeTech</b><p data-i18n="f.tag">Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+      <div><b data-i18n="f.serveis">Serveis</b><a href="servicio-ia.html" data-i18n="f.s1">Programari i agents d'IA</a><a href="servicio-reels.html" data-i18n="f.s2">Reels amb IA</a><a href="servicio-seguridad.html" data-i18n="f.s3">Revisió LQPD</a><a href="servicio-web.html" data-i18n="f.s4">Webs</a><a href="servicio-apps.html" data-i18n="f.s5">Apps mòbils</a><a href="servicio-seo.html" data-i18n="f.s6">SEO i GEO</a></div>
+      <div><b data-i18n="f.estudi">SaeTech</b><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a><a href="contacto.html" data-i18n="nav.contacte">Contacte</a><a href="rag.html" data-i18n="f.rag">Què és RAG?</a></div>
+      <div><b data-i18n="f.contacte">Contacte</b><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="aviso-legal.html" data-i18n="f.legal">Avís legal</a> · <a href="privacidad.html" data-i18n="f.priv">Privacitat i cookies</a></span></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<script>window.I18N={"es": {"meta.title": "SaeTech — Software e IA para negocios de Andorra | Said El Boudouhi", "meta.desc": "Software a medida, agentes de IA y reels para gestorías, despachos y pymes de Andorra. Hecho por Said El Boudouhi, jurista y desarrollador, con la Ley 29/2021 integrada.", "h.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "h.eyebrow": "Andorra · Software, IA y reels", "h.h1": "Software e IA para tu negocio de Andorra. <span class='hl'>Hecho por un jurista que programa.</span>", "h.lead": "Soy Said El Boudouhi. Trabajo en una gestoría y construyo el software que a mí me habría gustado tener: CRMs de expedientes, portales de clientes, agentes de IA y los reels para que te conozcan. Con la Ley 29/2021 integrada desde el primer día, no añadida al final.", "h.b1": "Escríbeme por WhatsApp", "h.b2": "Ver qué he hecho", "h.t1": "El código es tuyo", "h.t2": "Datos en Europa", "h.t3": "Sin permanencia", "h.t4": "Responde una persona, no un bot", "h.f1": "herramientas en uso cada día en una gestoría", "h.f2": "commits en una sola app en producción", "h.f3": "para responderte, y quien responde soy yo", "h.dev": "CRM de expedientes · gestoría de Andorra", "h.live": "En uso", "h.devnote": "Datos de prueba, clientes anonimizados.", "s.eye": "Qué hago", "s.h2": "Tres cosas, y para quién.", "s.lead": "No soy una agencia. Soy una persona que programa y que entiende cómo funciona un despacho en Andorra por dentro. Eso limita lo que puedo coger, y mejora lo que entrego.", "s.c1h": "Software a medida para gestorías y despachos", "s.c1p": "CRM de expedientes, portal para que el cliente suba documentos, KYC, vencimientos, alertas. Sustituye el Excel y las carpetas compartidas por una herramienta que sabe qué falta en cada expediente.", "s.c1f": "Gestorías, asesorías, despachos, administradores de fincas", "s.more": "Ver el servicio →", "s.c2h": "Agentes de IA y automatización", "s.c2p": "Asistentes que responden con tus documentos (RAG), agentes que clasifican el correo, preparan checklists y avisan de lo que caduca. Conectados a tu CRM, no en un chat aparte.", "s.c2f": "Cualquier pyme con procesos repetitivos y documentos", "s.c3h": "Un reel a la semana, hecho con IA", "s.c3p": "Me envías una idea por WhatsApp y recibes el vídeo con voz y rótulos, listo para publicar. Sin grabar nada. La forma más barata de empezar a trabajar juntos.", "s.c3f": "Restaurantes, tiendas, clínicas, gimnasios y despachos", "s.also": "También hago webs, apps móviles, posicionamiento (SEO y aparecer en ChatGPT) y la <a href=\"servicio-seguridad.html\" style=\"color:var(--accent)\">revisión de seguridad y LQPD</a> de tu portal. <a href=\"servicios.html\" style=\"color:var(--accent)\">Todos los servicios</a>.", "c.eye": "Proyectos", "c.h2": "Hecho de verdad, en uso cada día.", "c.lead": "Dos herramientas que uso yo mismo en el trabajo. Las capturas son con datos de prueba.", "c.p1h": "CRM de expedientes para una gestoría", "c.p1l": "Cada cliente con su KYC, cada trámite con sus pasos, y una agenda que avisa antes de que caduque nada. Ctrl+K y cualquier expediente en un segundo.", "c.p1a": "Portal para que el cliente suba los documentos que faltan", "c.p1b": "Tablero de trámites por estado, arrastrando", "c.p1c": "Alertas de vencimientos, KYC y pasaportes", "c.p1d": "Integrado con HubSpot y con los agentes de IA", "c.p1m": "Expedientes de inversión extranjera, constituciones, residencias. Hecho para la gestoría donde trabajo.", "c.p2h": "Una oficina 3D con ocho empleados de IA", "c.p2l": "Cada agente tiene su mesa, sus tareas y sus herramientas. Trabajan solos sobre el CRM y, si quieres saber cómo va la semana, se lo preguntas a Nova, la portavoz.", "c.p2a": "Clasifican el correo y preparan checklists", "c.p2b": "Avisan de lo que caduca y redactan borradores", "c.p2c": "Todo lo que hacen queda registrado y es revisable", "c.p2m": "Hay un vídeo de 30 segundos en <a href=\"https://www.instagram.com/saetechai\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent)\">@saetechai</a>.", "c.all": "Todos los proyectos", "c.mid": "¿Quieres algo parecido para tu despacho? Te digo en una respuesta si se puede y cuánto cuesta.", "c.midb": "Escríbeme por WhatsApp", "q.eye": "Quién hay detrás", "q.h2": "Said El Boudouhi. Jurista que programa.", "q.p1": "Soy andorrano, jurista de formación y desarrollador por mi cuenta: empecé haciendo webs para amigos y acabé construyendo una aplicación de gestión de gimnasios con más de 8.000 commits.", "q.p2": "Ahora trabajo de asesor jurídico y fiscal en una gestoría de Andorra la Vella. Cuando te hago un CRM, sé qué es un expediente de inversión extranjera, qué pide la LQPD y por qué tu equipo aún busca las cosas en carpetas.", "q.p3": "No tengo comerciales ni equipo de ventas. Si me escribes, hablas conmigo, y quien programa soy yo.", "q.more": "Más sobre mí", "q.k1": "Formación", "q.v1": "Grado en Derecho, máster en Derecho y máster en Inteligencia Artificial", "q.k2": "Trabajo", "q.v2": "Asesor jurídico y fiscal en una gestoría de Andorra", "q.k3": "Idiomas", "q.v3": "Catalán, castellano, francés e inglés", "q.k4": "Normativa", "q.v4": "LQPD (Ley 29/2021), RGPD, inversión extranjera", "q.k5": "Dónde", "q.v5": "Andorra. Reuniones presenciales o por videollamada", "b.eye": "Blog", "b.h2": "Cosas que escribo.", "b.lead": "Artículos sobre IA, software y normativa en Andorra. Sin humo.", "b.all": "Todos los artículos", "cta.h": "Cuéntame qué te hace perder tiempo en el despacho.", "cta.l": "Un mensaje de WhatsApp es suficiente. Te digo en una respuesta si lo puedo arreglar, cuánto tardaría y cuánto costaría. Si no soy la persona adecuada, también te lo digo.", "cta.b1": "Escríbeme por WhatsApp", "cta.b2": "Envíame un correo", "cta.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "nav.serveis": "Servicios", "nav.projectes": "Proyectos", "nav.blog": "Blog", "nav.qui": "Quién soy", "nav.contacte": "Contacto", "f.tag": "Software e IA para negocios de Andorra, hechos por un jurista que programa.", "f.serveis": "Servicios", "f.estudi": "SaeTech", "f.contacte": "Contacto", "f.s1": "Software y agentes de IA", "f.s2": "Reels con IA", "f.s3": "Revisión LQPD", "f.s4": "Webs", "f.s5": "Apps móviles", "f.s6": "SEO y GEO", "f.rag": "¿Qué es RAG?", "ck.msg": "Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.", "ck.more": "Más información", "ck.no": "Solo esenciales", "ck.yes": "Aceptar", "f.legal": "Aviso legal", "f.priv": "Privacidad y cookies"}, "fr": {"meta.title": "SaeTech — Logiciels et IA pour les entreprises d'Andorre | Said El Boudouhi", "meta.desc": "Logiciels sur mesure, agents IA et reels pour cabinets et PME d'Andorre. Par Said El Boudouhi, juriste et développeur, avec la loi 29/2021 intégrée.", "h.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "h.eyebrow": "Andorre · Logiciels, IA et reels", "h.h1": "Logiciels et IA pour votre entreprise en Andorre. <span class='hl'>Par un juriste qui programme.</span>", "h.lead": "Je suis Said El Boudouhi. Je travaille dans un cabinet et je construis le logiciel que j'aurais aimé avoir : CRM de dossiers, portails clients, agents IA et des reels pour vous faire connaître. Avec la loi 29/2021 intégrée dès le premier jour.", "h.b1": "Écrivez-moi sur WhatsApp", "h.b2": "Voir mes réalisations", "h.t1": "Le code est à vous", "h.t2": "Données en Europe", "h.t3": "Sans engagement", "h.t4": "Une personne répond, pas un bot", "h.f1": "outils utilisés chaque jour dans un cabinet", "h.f2": "commits sur une seule app en production", "h.f3": "pour vous répondre, et c'est moi qui réponds", "h.dev": "CRM de dossiers · cabinet andorran", "h.live": "En service", "h.devnote": "Données de test, clients anonymisés.", "s.eye": "Ce que je fais", "s.h2": "Trois choses, et pour qui.", "s.lead": "Je ne suis pas une agence. Je suis une personne qui programme et qui connaît un cabinet andorran de l'intérieur. Cela limite ce que je peux prendre, et améliore ce que je livre.", "s.c1h": "Logiciel sur mesure pour cabinets", "s.c1p": "CRM de dossiers, portail de dépôt de documents, KYC, échéances, alertes. Remplace Excel et les dossiers partagés par un outil qui sait ce qui manque à chaque dossier.", "s.c1f": "Cabinets de gestion, conseils, avocats, syndics", "s.more": "Voir le service →", "s.c2h": "Agents IA et automatisation", "s.c2p": "Assistants qui répondent avec vos documents (RAG), agents qui trient le courrier, préparent des checklists et signalent ce qui expire. Connectés à votre CRM.", "s.c2f": "Toute PME avec des processus répétitifs", "s.c3h": "Un reel par semaine, fait avec l'IA", "s.c3p": "Vous m'envoyez une idée sur WhatsApp et vous recevez la vidéo avec voix et sous-titres, prête à publier. Sans rien filmer.", "s.c3f": "Restaurants, commerces, cliniques, salles de sport et cabinets", "s.also": "Je fais aussi des sites web, des apps mobiles, du référencement (SEO et visibilité sur ChatGPT) et l'<a href='servicio-seguridad.html' style='color:var(--accent)'>audit sécurité et LQPD</a> de votre portail. <a href='servicios.html' style='color:var(--accent)'>Tous les services</a>.", "c.eye": "Projets", "c.h2": "Du concret, utilisé chaque jour.", "c.lead": "Deux outils que j'utilise moi-même au travail. Captures avec des données de test.", "c.p1h": "CRM de dossiers pour un cabinet", "c.p1l": "Chaque client avec son KYC, chaque démarche avec ses étapes, et un agenda qui prévient avant toute expiration. Ctrl+K et n'importe quel dossier en une seconde.", "c.p1a": "Portail pour que le client dépose les documents manquants", "c.p1b": "Tableau des démarches par état, en glisser-déposer", "c.p1c": "Alertes d'échéances, KYC et passeports", "c.p1d": "Intégré à HubSpot et aux agents IA", "c.p1m": "Dossiers d'investissement étranger, constitutions, résidences. Fait pour le cabinet où je travaille.", "c.p2h": "Un bureau 3D avec huit employés IA", "c.p2l": "Chaque agent a son bureau, ses tâches et ses outils. Ils travaillent seuls sur le CRM et, si vous voulez savoir où en est la semaine, vous le demandez à Nova, la porte-parole.", "c.p2a": "Trient le courrier et préparent des checklists", "c.p2b": "Signalent ce qui expire et rédigent des brouillons", "c.p2c": "Tout ce qu'ils font est enregistré et vérifiable", "c.p2m": "Il y a une vidéo de 30 secondes sur <a href=\"https://www.instagram.com/saetechai\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent)\">@saetechai</a>.", "c.all": "Tous les projets", "c.mid": "Vous voulez quelque chose de semblable pour votre cabinet ? Je vous dis en une réponse si c’est possible et à quel prix.", "c.midb": "Écrivez-moi sur WhatsApp", "q.eye": "Qui est derrière", "q.h2": "Said El Boudouhi. Juriste qui programme.", "q.p1": "Je suis andorran, juriste de formation et développeur autodidacte : j'ai commencé par des sites pour des amis et j'ai fini par construire une application de gestion de salles de sport avec plus de 8 000 commits.", "q.p2": "Je travaille aujourd'hui comme conseiller juridique et fiscal dans un cabinet d'Andorre-la-Vieille. Quand je vous fais un CRM, je sais ce qu'est un dossier d'investissement étranger, ce qu'exige la LQPD et pourquoi votre équipe cherche encore dans des dossiers.", "q.p3": "Je n'ai ni commerciaux ni équipe de vente. Si vous m'écrivez, vous parlez avec moi, et c'est moi qui programme.", "q.more": "En savoir plus", "q.k1": "Formation", "q.v1": "Licence en droit, master en droit et master en intelligence artificielle", "q.k2": "Travail", "q.v2": "Conseiller juridique et fiscal dans un cabinet andorran", "q.k3": "Langues", "q.v3": "Catalan, espagnol, français et anglais", "q.k4": "Réglementation", "q.v4": "LQPD (loi 29/2021), RGPD, investissement étranger", "q.k5": "Où", "q.v5": "Andorre. En personne ou en visio", "b.eye": "Blog", "b.h2": "Ce que j'écris.", "b.lead": "Articles (en espagnol) sur l'IA, les logiciels et la réglementation en Andorre. Sans blabla.", "b.all": "Tous les articles", "cta.h": "Dites-moi ce qui vous fait perdre du temps au bureau.", "cta.l": "Un message WhatsApp suffit. Je vous dis en une réponse si je peux le résoudre, en combien de temps et pour combien. Si je ne suis pas la bonne personne, je vous le dis aussi.", "cta.b1": "Écrivez-moi sur WhatsApp", "cta.b2": "Envoyez-moi un e-mail", "cta.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "nav.serveis": "Services", "nav.projectes": "Projets", "nav.blog": "Blog", "nav.qui": "Qui suis-je", "nav.contacte": "Contact", "f.tag": "Logiciels et IA pour les entreprises d'Andorre, conçus par un juriste qui programme.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Logiciels et agents IA", "f.s2": "Reels avec IA", "f.s3": "Audit LQPD", "f.s4": "Sites web", "f.s5": "Apps mobiles", "f.s6": "SEO et GEO", "f.rag": "Qu'est-ce que le RAG ?", "ck.msg": "J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.", "ck.more": "En savoir plus", "ck.no": "Essentiels seulement", "ck.yes": "Accepter", "f.legal": "Mentions légales", "f.priv": "Confidentialité et cookies"}, "en": {"meta.title": "SaeTech — Software and AI for businesses in Andorra | Said El Boudouhi", "meta.desc": "Custom software, AI agents and reels for firms and SMEs in Andorra. By Said El Boudouhi, lawyer and developer, with Andorran data-protection law built in.", "h.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "h.eyebrow": "Andorra · Software, AI and reels", "h.h1": "Software and AI for your business in Andorra. <span class='hl'>By a lawyer who codes.</span>", "h.lead": "I'm Said El Boudouhi. I work at a firm and I build the software I wish I'd had: case-file CRMs, client portals, AI agents and the reels that get you noticed. With Andorra's data-protection law built in from day one.", "h.b1": "Message me on WhatsApp", "h.b2": "See what I've built", "h.t1": "The code is yours", "h.t2": "Data in Europe", "h.t3": "No commitment", "h.t4": "A person replies, not a bot", "h.f1": "tools used every day at a firm", "h.f2": "commits on one app in production", "h.f3": "to reply, and it's me who replies", "h.dev": "Case-file CRM · Andorran firm", "h.live": "In use", "h.devnote": "Test data, anonymised clients.", "s.eye": "What I do", "s.h2": "Three things, and who they're for.", "s.lead": "I'm not an agency. I'm one person who codes and knows how a firm in Andorra works from the inside. That limits what I take on, and improves what I deliver.", "s.c1h": "Custom software for firms", "s.c1p": "Case-file CRM, client upload portal, KYC, deadlines, alerts. Replaces Excel and shared folders with a tool that knows what's missing in every file.", "s.c1f": "Accounting, advisory and law firms, property managers", "s.more": "See the service →", "s.c2h": "AI agents and automation", "s.c2p": "Assistants that answer from your documents (RAG), agents that sort email, prepare checklists and flag what expires. Connected to your CRM, not a separate chat.", "s.c2f": "Any SME with repetitive processes and documents", "s.c3h": "One reel a week, made with AI", "s.c3p": "Send me an idea on WhatsApp and get the video with voice and captions, ready to post. No filming. The cheapest way to start working together.", "s.c3f": "Restaurants, shops, clinics, gyms and firms", "s.also": "I also build websites, mobile apps, SEO (and showing up in ChatGPT) and <a href='servicio-seguridad.html' style='color:var(--accent)'>security and data-protection reviews</a> of your portal. <a href='servicios.html' style='color:var(--accent)'>All services</a>.", "c.eye": "Projects", "c.h2": "Real work, used every day.", "c.lead": "Two tools I use myself at work. Screenshots use test data.", "c.p1h": "Case-file CRM for a firm", "c.p1l": "Every client with their KYC, every procedure with its steps, and a calendar that warns before anything expires. Ctrl+K and any file in one second.", "c.p1a": "Portal for clients to upload missing documents", "c.p1b": "Drag-and-drop board of procedures by status", "c.p1c": "Deadline, KYC and passport alerts", "c.p1d": "Integrated with HubSpot and the AI agents", "c.p1m": "Foreign-investment files, incorporations, residencies. Built for the firm where I work.", "c.p2h": "A 3D office with eight AI employees", "c.p2l": "Each agent has a desk, tasks and tools. They work on the CRM on their own and, if you want to know how the week is going, you ask Nova, the spokesperson.", "c.p2a": "Sort email and prepare checklists", "c.p2b": "Flag what expires and draft documents", "c.p2c": "Everything they do is logged and reviewable", "c.p2m": "There is a 30-second video on <a href=\"https://www.instagram.com/saetechai\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--accent)\">@saetechai</a>.", "c.all": "All projects", "c.mid": "Want something similar for your firm? I’ll tell you in one reply if it’s possible and what it costs.", "c.midb": "Message me on WhatsApp", "q.eye": "Who's behind it", "q.h2": "Said El Boudouhi. A lawyer who codes.", "q.p1": "I'm Andorran, trained as a lawyer and a self-taught developer: I started building websites for friends and ended up building a gym management app with over 8,000 commits.", "q.p2": "I now work as a legal and tax adviser at a firm in Andorra la Vella. When I build you a CRM, I know what a foreign-investment file is, what the data-protection law requires and why your team still digs through folders.", "q.p3": "No sales team. If you write to me, you talk to me, and I'm the one who codes.", "q.more": "More about me", "q.k1": "Education", "q.v1": "Law degree, master's in Law and master's in AI", "q.k2": "Work", "q.v2": "Legal and tax adviser at a firm in Andorra", "q.k3": "Languages", "q.v3": "Catalan, Spanish, French and English", "q.k4": "Regulation", "q.v4": "LQPD (Law 29/2021), GDPR, foreign investment", "q.k5": "Where", "q.v5": "Andorra. In person or by video call", "b.eye": "Blog", "b.h2": "Things I write.", "b.lead": "Articles (in Spanish) on AI, software and regulation in Andorra. No fluff.", "b.all": "All articles", "cta.h": "Tell me what wastes your time at the office.", "cta.l": "A WhatsApp message is enough. I'll tell you in one reply whether I can fix it, how long it would take and what it would cost. If I'm not the right person, I'll say so.", "cta.b1": "Message me on WhatsApp", "cta.b2": "Send me an email", "cta.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "nav.serveis": "Services", "nav.projectes": "Projects", "nav.blog": "Blog", "nav.qui": "About", "nav.contacte": "Contact", "f.tag": "Software and AI for businesses in Andorra, built by a lawyer who codes.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Software and AI agents", "f.s2": "AI-made reels", "f.s3": "Data-protection review", "f.s4": "Websites", "f.s5": "Mobile apps", "f.s6": "SEO and GEO", "f.rag": "What is RAG?", "ck.msg": "I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.", "ck.more": "More info", "ck.no": "Essential only", "ck.yes": "Accept", "f.legal": "Legal notice", "f.priv": "Privacy and cookies"}};</script>
+<script src="site.js?v=3.0"></script>
 </body>
-
 </html>

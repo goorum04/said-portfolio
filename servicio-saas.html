@@ -1,336 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollo de Plataformas SaaS | Software como servicio | SaeTech</title>
-    <meta name="description"
-        content="Diseñamos y desarrollamos plataformas SaaS completas: suscripciones con Stripe, dashboard de administración y API. Desde 1.500€.">
-    <meta name="keywords" content="desarrollo saas, plataforma software como servicio, stripe, dashboard, api rest, andorra">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://saetechai.com/servicio-saas.html">
-    <meta name="theme-color" content="#00d4ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataformes SaaS i productes digitals | SaeTech Andorra</title>
+<meta name="description" content="Del prototip al producte amb subscripcions: arquitectura, pagaments, multiusuari i escalat. Fet a Andorra. Des de 8.000 €.">
+<link rel="canonical" href="https://saetechai.com/servicio-saas.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saetechai.com/servicio-saas.html">
+<meta property="og:title" content="Plataformes SaaS i productes digitals | SaeTech Andorra">
+<meta property="og:description" content="Del prototip al producte amb subscripcions: arquitectura, pagaments, multiusuari i escalat. Fet a Andorra. Des de 8.000 €.">
+<meta property="og:image" content="https://saetechai.com/img/og-saetech.jpg">
+<meta property="og:site_name" content="SaeTech">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3.0">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saetechai.com/servicio-saas.html">
-    <meta property="og:title" content="Desarrollo de Plataformas SaaS | SaeTech">
-    <meta property="og:description" content="Software como servicio completo: suscripciones, dashboard y API.">
-    <meta property="og:image" content="https://saetechai.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Desarrollo de Plataformas SaaS | SaeTech">
-    <meta name="twitter:description" content="Software como servicio completo a medida.">
-    <meta name="twitter:image" content="https://saetechai.com/og-image.jpg">
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Desarrollo de Plataformas SaaS",
-        "provider": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
-        "areaServed": "Andorra",
-        "description": "Software como servicio completo con sistema de suscripciones, dashboard de administración y API.",
-        "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "1500", "url": "https://saetechai.com/servicio-saas.html"}
-    }
-    </script>
 </head>
-
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" class="active" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%2C%20me%20interesa%20un%20SaaS"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </nav>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag" data-i18n="svc.tag">Servicio</span>
-            <h1 class="page-title" data-i18n="svc.saas.heroTitle">Plataformas <span class="text-gradient">SaaS</span></h1>
-            <p class="page-subtitle" data-i18n="svc.saas.heroSubtitle">Software como servicio completo, con suscripciones, panel de administración y
-                API, listo para escalar.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <article class="article-body">
-                <p data-i18n="svc.saas.intro">Un SaaS (Software as a Service) es un producto que tus clientes pagan mes a mes para usar: un
-                    software vertical para tu sector, una herramienta interna que decides vender a otros negocios, o
-                    una idea completamente nueva. A diferencia de una web o una app puntual, un SaaS necesita
-                    arquitectura pensada para crecer: múltiples clientes, planes de precio, facturación automática y
-                    un panel para que tú controles todo sin tocar código.</p>
-
-                <h2 data-i18n="svc.saas.h2Incluye">Qué incluye el servicio</h2>
-                <ul>
-                    <li data-i18n="svc.saas.li1"><strong>Sistema de suscripciones con Stripe:</strong> cobros recurrentes, planes, pruebas
-                        gratuitas y cancelaciones gestionadas automáticamente.</li>
-                    <li data-i18n="svc.saas.li2"><strong>Dashboard de administración:</strong> para ti (métricas de negocio) y para tus
-                        clientes (su propio panel de uso).</li>
-                    <li data-i18n="svc.saas.li3"><strong>Gestión de usuarios y roles:</strong> permisos distintos según el tipo de cuenta.</li>
-                    <li data-i18n="svc.saas.li4"><strong>API REST documentada</strong> para que otros sistemas se conecten a tu plataforma.</li>
-                    <li data-i18n="svc.saas.li5"><strong>Arquitectura multi-cliente (multi-tenant)</strong> pensada para escalar sin
-                        reescribir el sistema cada vez que crece.</li>
-                    <li data-i18n="svc.saas.li6"><strong>Infraestructura en la nube</strong> con copias de seguridad y monitorización.</li>
-                </ul>
-
-                <h2 data-i18n="svc.saas.h2Casos">Casos de uso habituales</h2>
-                <ul>
-                    <li data-i18n="svc.saas.caso1"><strong>Software vertical:</strong> una herramienta de gestión específica para un sector
-                        (gimnasios, clínicas, inmobiliarias) que vendes por suscripción.</li>
-                    <li data-i18n="svc.saas.caso2"><strong>Producto interno que se convierte en negocio:</strong> automatizaste algo para tu
-                        empresa y ves que otros negocios lo necesitan también.</li>
-                    <li data-i18n="svc.saas.caso3"><strong>Marketplace o plataforma de reservas</strong> con múltiples proveedores y clientes.</li>
-                </ul>
-
-                <h2 data-i18n="svc.saas.h2Tech">Tecnologías</h2>
-                <p data-i18n="svc.saas.techP">Construimos sobre <strong>Next.js</strong> para el frontend y las rutas de API,
-                    <strong>PostgreSQL</strong> como base de datos relacional robusta, <strong>Stripe</strong> para
-                    todo el ciclo de pagos y <strong>AWS</strong> para una infraestructura que escala según el
-                    crecimiento real de usuarios.</p>
-
-                <h2 data-i18n="svc.saas.h2Proceso">Cómo lo hacemos</h2>
-                <div class="process-timeline reveal" style="margin-top:24px;">
-                    <div class="process-step">
-                        <div class="process-number">01</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.saas.proc1Title">Validación de la idea</h3>
-                            <p data-i18n="svc.saas.proc1Desc">Definimos el modelo de negocio, planes de precio y funcionalidades imprescindibles.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">02</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.saas.proc2Title">MVP</h3>
-                            <p data-i18n="svc.saas.proc2Desc">Construimos una primera versión funcional para validarla con usuarios reales.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">03</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.saas.proc3Title">Iteración</h3>
-                            <p data-i18n="svc.saas.proc3Desc">Ajustamos según el feedback real antes de invertir en funcionalidades avanzadas.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">04</div>
-                        <div class="process-content">
-                            <h3 data-i18n="svc.saas.proc4Title">Escalado</h3>
-                            <p data-i18n="svc.saas.proc4Desc">Reforzamos la infraestructura y añadimos funcionalidades a medida que creces.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="pricing-section section-dark">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="svc.pricingTag">Precios</span>
-                <h2 class="section-title" data-i18n="svc.saas.pricingTitle">Inversión <span class="text-gradient">por fase</span></h2>
-                <p class="section-subtitle" data-i18n="svc.saas.pricingSubtitle">Precios orientativos. Cada SaaS se presupuesta según su complejidad.</p>
-            </div>
-            <div class="pricing-grid reveal">
-                <div class="pricing-card">
-                    <div class="pricing-name" data-i18n="pricing.basic.name">Básico</div>
-                    <div class="pricing-title" data-i18n="svc.saas.price1Title">MVP</div>
-                    <div class="pricing-price">1.500€<span data-i18n="svc.perProject"> / proyecto</span></div>
-                    <p class="pricing-desc" data-i18n="svc.saas.price1Desc">Primera versión funcional para validar tu idea.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.saas.price1F1">Funcionalidades esenciales</li>
-                        <li data-i18n="svc.saas.price1F2">Un plan de suscripción</li>
-                        <li data-i18n="svc.saas.price1F3">Panel de administración básico</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.basic.action">Empezar</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-name" data-i18n="pricing.pro.name">Recomendado</div>
-                    <div class="pricing-title" data-i18n="svc.saas.price2Title">Plataforma Completa</div>
-                    <div class="pricing-price">4.000€<span>+</span></div>
-                    <p class="pricing-desc" data-i18n="svc.saas.price2Desc">Múltiples planes, roles de usuario y API.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.saas.price2F1">Múltiples planes de precio</li>
-                        <li data-i18n="svc.saas.price2F2">Dashboard de métricas</li>
-                        <li data-i18n="svc.saas.price2F3">API REST documentada</li>
-                        <li data-i18n="svc.saas.price2F4">Soporte 3 meses</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-primary" style="width:100%" data-i18n="pricing.pro.action">Empezar</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name" data-i18n="pricing.premium.name">Premium</div>
-                    <div class="pricing-title" data-i18n="svc.saas.price3Title">A medida</div>
-                    <div class="pricing-price" data-i18n="svc.consult">Consultar</div>
-                    <p class="pricing-desc" data-i18n="svc.saas.price3Desc">Arquitectura compleja, integraciones múltiples o alto volumen.</p>
-                    <ul class="pricing-features">
-                        <li data-i18n="svc.saas.price3F1">Arquitectura multi-tenant</li>
-                        <li data-i18n="svc.saas.price3F2">Integraciones a medida</li>
-                        <li data-i18n="svc.saas.price3F3">Soporte continuo</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-ghost" style="width:100%" data-i18n="pricing.premium.action">Consultar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section faq-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-i18n="svc.faqTag">FAQ</span>
-                <h2 class="section-title" data-i18n="svc.faqTitle">Preguntas <span class="text-gradient">frecuentes</span></h2>
-            </div>
-            <div class="faq-list reveal">
-                <details class="faq-item">
-                    <summary data-i18n="svc.saas.faq1Q">¿El código de mi SaaS es mío?</summary>
-                    <p data-i18n="svc.saas.faq1A">Sí, al 100%. Te entregamos todo el código fuente y accesos; no hay lock-in con nosotros.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.saas.faq2Q">¿Puede crecer si consigo muchos clientes?</summary>
-                    <p data-i18n="svc.saas.faq2A">Sí, diseñamos la arquitectura desde el principio pensando en escalar, y reforzamos
-                        infraestructura según el crecimiento real.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.saas.faq3Q">¿Incluye mantenimiento después del lanzamiento?</summary>
-                    <p data-i18n="svc.saas.faq3A">Incluimos soporte inicial tras la entrega. Para un SaaS en producción recomendamos un plan de
-                        mantenimiento mensual que cubra monitorización, seguridad y pequeñas mejoras.</p>
-                </details>
-                <details class="faq-item">
-                    <summary data-i18n="svc.saas.faq4Q">¿Cuánto tarda en estar listo un MVP?</summary>
-                    <p data-i18n="svc.saas.faq4A">Depende del alcance, pero un MVP funcional suele tardar entre 4 y 8 semanas.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title" data-i18n="svc.saas.ctaTitle">¿Tienes una idea de SaaS?</h2>
-                <p class="cta-text" data-i18n="svc.saas.ctaText">Cuéntanos tu proyecto y te ayudamos a definir el MVP más rápido de validar.</p>
-                <a href="https://wa.me/376601249?text=Hola%2C%20me%20interesa%20un%20SaaS" class="btn btn-primary btn-lg"
-                    target="_blank" rel="noopener" data-i18n="svc.saas.ctaBtn">Hablemos</a>
-            </div>
-        </div>
-    </section>
-
-    <p class="article-back container"><a href="servicios.html" data-i18n="svc.backLink">← Volver a Servicios</a></p>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%2C%20me%20interesa%20un%20SaaS" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg></a>
-
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.28"></script>
+<div class="bgfx" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i></i>SaeTech</a>
+    <ul class="menu" id="menu">
+      <li><a href="servicios.html" data-i18n="nav.serveis">Serveis</a></li><li><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a></li><li><a href="contacto.html" data-i18n="nav.contacte">Contacte</a></li>
+      <li class="cta"><a href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang"><button type="button" id="langBtn" aria-haspopup="true"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<section class="hero" style="padding-bottom:0"><div class="wrap hero-grid">
+  <div><span class="eyebrow" data-i18n="sv.eye">Servei · SaaS</span><h1 class="h1" data-i18n="sv.h1">De la idea al producte <span class='hl'>que cobra cada mes.</span></h1><p class="lead" data-i18n="sv.lead">Si tens un procés que resols bé i vols vendre'l com a eina a altres negocis, t'ajudo a construir-lo: arquitectura, subscripcions, multiusuari i tot el que no es veu però fa que funcioni.</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20una%20idea%20de%20producte%20digital%20i%20vull%20parlar-ne." target="_blank" rel="noopener" data-i18n-attr="href:sv.wa"><span data-i18n="sv.b1">Parlem-ne</span></a><a class="btn btn-ghost btn-lg" href="#preus"><span data-i18n="sv.b2">Veure preus</span></a></div></div>
+  <div><div class="device"><div class="device-bar"><i></i><i></i><i></i><span>producte · multiusuari</span></div><img src="img/crm-tauler.webp" alt="SaaS" width="1600" height="1000"></div></div>
+</div></section><section class="section"><div class="wrap"><div class="prose"><p data-i18n="sv.in0">He construït i mantinc productes amb subscripcions en producció: una app de gestió de gimnasos venuda en marca blanca a altres entrenadors, i el CRM de gestoria que ara s'ofereix a altres despatxos. Sé què es trenca quan passes de 10 a 1.000 usuaris, i ho tinc en compte des del primer dia.</p>
+  <h2 data-i18n="sv.t1">Què inclou</h2><ul class="prose" style="margin-top:18px"><li data-i18n="sv.inc.li0">Arquitectura multiusuari (cada client veu només el seu)</li><li data-i18n="sv.inc.li1">Subscripcions i facturació amb Stripe</li><li data-i18n="sv.inc.li2">Panell d’administració, rols i permisos</li><li data-i18n="sv.inc.li3">API i integracions (correu, WhatsApp, HubSpot, Zapier/n8n)</li><li data-i18n="sv.inc.li4">Monitoratge, còpies i LQPD/RGPD des del disseny</li></ul>
+  <h2 data-i18n="sv.t2">Per a qui és</h2><p data-i18n="sv.pq">Professionals i empreses d'Andorra amb un procés que ja funciona i que altres pagarien per tenir: gestories, entrenadors, acadèmies, administradors, assegurances. També fundadors que necessiten un soci tècnic per a la primera versió.</p>
+  
+</div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye2">Procés</span><h2 class="h2" data-i18n="sv.t3">Com treballo</h2></div><div class="steps"><div class="step reveal"><h3 data-i18n="sv.st0h">Conversa</h3><p data-i18n="sv.st0p">15 minuts per WhatsApp o videotrucada. M'expliques què et fa perdre temps i et dic si ho puc fer.</p></div><div class="step reveal"><h3 data-i18n="sv.st1h">Proposta</h3><p data-i18n="sv.st1p">Una pàgina: què faré, quant trigaré i quant costarà. Sense lletra petita.</p></div><div class="step reveal"><h3 data-i18n="sv.st2h">Construcció</h3><p data-i18n="sv.st2p">Entregues setmanals perquè ho vegis créixer i canviïs el que calgui a temps.</p></div><div class="step reveal"><h3 data-i18n="sv.st3h">Entrega i manteniment</h3><p data-i18n="sv.st3p">Formació a l'equip, codi i accessos teus, i jo a un missatge de distància.</p></div></div></div></section>
+<section class="section" id="preus"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye3">Preus</span><h2 class="h2" data-i18n="sv.t4">Preus orientatius</h2><p class="lead" data-i18n="sv.pl">Per fases, amb una primera versió que ja es pugui vendre.</p></div><div class="price-grid"><div class="price featured reveal"><span class="tier" data-i18n="sv.pr0t">Fase 1</span><h3 data-i18n="sv.pr0h">Prototip venible</h3><div class="amount">8.000€<small data-i18n="sv.pr0u">des de</small></div><p class="desc" data-i18n="sv.pr0d">El nucli del producte amb subscripcions i 2 o 3 clients pilot.</p><ul><li><span data-i18n="sv.pr0f0">8 a 10 setmanes</span></li><li><span data-i18n="sv.pr0f1">Stripe i multiusuari</span></li></ul><a class="btn btn-primary" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20una%20idea%20de%20producte%20digital%20i%20vull%20parlar-ne." target="_blank" rel="noopener"><span data-i18n="sv.pr0b">Parlem-ne</span></a></div><div class="price reveal"><span class="tier" data-i18n="sv.pr1t">Fase 2</span><h3 data-i18n="sv.pr1h">Producte complet</h3><div class="amount">Pressupost<small data-i18n="sv.pr1u"></small></div><p class="desc" data-i18n="sv.pr1d">Integracions, API, panell avançat i escalat.</p><ul><li><span data-i18n="sv.pr1f0">Segons el que hagin dit els pilots</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20una%20idea%20de%20producte%20digital%20i%20vull%20parlar-ne." target="_blank" rel="noopener"><span data-i18n="sv.pr1b">Consultar</span></a></div><div class="price reveal"><span class="tier" data-i18n="sv.pr2t">Continu</span><h3 data-i18n="sv.pr2h">Evolució mensual</h3><div class="amount">1.200€<small data-i18n="sv.pr2u">/mes</small></div><p class="desc" data-i18n="sv.pr2d">Jo com a equip tècnic a temps parcial.</p><ul><li><span data-i18n="sv.pr2f0">Noves funcions cada mes</span></li><li><span data-i18n="sv.pr2f1">Suport i monitoratge</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20una%20idea%20de%20producte%20digital%20i%20vull%20parlar-ne." target="_blank" rel="noopener"><span data-i18n="sv.pr2b">Consultar</span></a></div></div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><h2 class="h2" data-i18n="sv.t5">Preguntes freqüents</h2></div><div class="faq reveal"><details><summary data-i18n="sv.fq0">Puc començar petit?</summary><p data-i18n="sv.fa0">És l'única manera sensata. Primer la part que resol el problema i es pot cobrar; la resta, quan els primers clients t'hagin dit què necessiten.</p></details><details><summary data-i18n="sv.fq1">Treballes amb participació en lloc de factura?</summary><p data-i18n="sv.fa1">En casos concrets, una part. Ho parlem al principi, no a mitges.</p></details></div></div></section>
+<section class="wrap"><div class="cta-band reveal">
+  <h2 class="h2" data-i18n="cta.h">Explica’m el procés que ja resols bé.</h2><p class="lead" data-i18n="cta.l">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+  <div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:cta.wa"><span data-i18n="cta.b1">Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span data-i18n="cta.b2">Envia'm un correu</span></a></div>
+  <p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><b>SaeTech</b><p data-i18n="f.tag">Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+      <div><b data-i18n="f.serveis">Serveis</b><a href="servicio-ia.html" data-i18n="f.s1">Programari i agents d'IA</a><a href="servicio-reels.html" data-i18n="f.s2">Reels amb IA</a><a href="servicio-seguridad.html" data-i18n="f.s3">Revisió LQPD</a><a href="servicio-web.html" data-i18n="f.s4">Webs</a><a href="servicio-apps.html" data-i18n="f.s5">Apps mòbils</a><a href="servicio-seo.html" data-i18n="f.s6">SEO i GEO</a></div>
+      <div><b data-i18n="f.estudi">SaeTech</b><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a><a href="contacto.html" data-i18n="nav.contacte">Contacte</a><a href="rag.html" data-i18n="f.rag">Què és RAG?</a></div>
+      <div><b data-i18n="f.contacte">Contacte</b><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="aviso-legal.html" data-i18n="f.legal">Avís legal</a> · <a href="privacidad.html" data-i18n="f.priv">Privacitat i cookies</a></span></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<script>window.I18N={"es": {"meta.title": "Plataformas SaaS y productos digitales | SaeTech Andorra", "meta.desc": "Del prototipo al producto con suscripciones: arquitectura, pagos, multiusuario y escalado. Hecho en Andorra. Desde 8.000 €.", "sv.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20una%20idea%20de%20producto%20digital%20y%20quiero%20hablarlo.", "sv.eye": "Servicio · SaaS", "sv.h1": "De la idea al producto <span class='hl'>que cobra cada mes.</span>", "sv.lead": "Si tienes un proceso que resuelves bien y quieres venderlo como herramienta a otros negocios, te ayudo a construirlo: arquitectura, suscripciones, multiusuario y todo lo que no se ve pero hace que funcione.", "sv.b1": "Hablemos", "sv.b2": "Ver precios", "sv.in0": "He construido y mantengo productos con suscripciones en producción: una app de gestión de gimnasios vendida en marca blanca a otros entrenadores, y el CRM de gestoría que ahora se ofrece a otros despachos. Sé qué se rompe cuando pasas de 10 a 1.000 usuarios, y lo tengo en cuenta desde el primer día.", "sv.t1": "Qué incluye", "sv.inc.li0": "Arquitectura multiusuario (cada cliente ve solo lo suyo)", "sv.inc.li1": "Suscripciones y facturación con Stripe", "sv.inc.li2": "Panel de administración, roles y permisos", "sv.inc.li3": "API e integraciones (correo, WhatsApp, HubSpot, Zapier/n8n)", "sv.inc.li4": "Monitorización, copias y LQPD/RGPD desde el diseño", "sv.t2": "Para quién es", "sv.pq": "Profesionales y empresas de Andorra con un proceso que ya funciona y que otros pagarían por tener: gestorías, entrenadores, academias, administradores, seguros. También fundadores que necesitan un socio técnico para la primera versión.", "sv.eye2": "Proceso", "sv.t3": "Cómo trabajo", "sv.st0h": "Conversación", "sv.st0p": "Quince minutos por WhatsApp o videollamada. Me cuentas qué te hace perder tiempo y te digo si lo puedo hacer.", "sv.st1h": "Propuesta", "sv.st1p": "Una página: qué haré, cuánto tardaré y cuánto costará. Sin letra pequeña.", "sv.st2h": "Construcción", "sv.st2p": "Entregas semanales para que lo veas crecer y cambies lo que haga falta a tiempo.", "sv.st3h": "Entrega y mantenimiento", "sv.st3p": "Formación al equipo, código y accesos tuyos, y yo a un mensaje de distancia.", "sv.eye3": "Precios", "sv.t4": "Precios orientativos", "sv.pl": "Por fases, con una primera versión que ya se pueda vender.", "sv.pr0f0": "8 a 10 semanas", "sv.pr0f1": "Stripe y multiusuario", "sv.pr0t": "Fase 1", "sv.pr0h": "Prototipo vendible", "sv.pr0u": "desde", "sv.pr0d": "El núcleo del producto con suscripciones y 2 o 3 clientes piloto.", "sv.pr0b": "Hablemos", "sv.pr1f0": "Según lo que hayan dicho los pilotos", "sv.pr1t": "Fase 2", "sv.pr1h": "Producto completo", "sv.pr1u": "", "sv.pr1d": "Integraciones, API, panel avanzado y escalado.", "sv.pr1b": "Consultar", "sv.pr2f0": "Nuevas funciones cada mes", "sv.pr2f1": "Soporte y monitorización", "sv.pr2t": "Continuo", "sv.pr2h": "Evolución mensual", "sv.pr2u": "/mes", "sv.pr2d": "Yo como equipo técnico a tiempo parcial.", "sv.pr2b": "Consultar", "sv.t5": "Preguntas frecuentes", "sv.fq0": "¿Puedo empezar pequeño?", "sv.fa0": "Es la única manera sensata. Primero la parte que resuelve el problema y se puede cobrar; el resto, cuando los primeros clientes te hayan dicho qué necesitan.", "sv.fq1": "¿Trabajas con participación en lugar de factura?", "sv.fa1": "En casos concretos, una parte. Lo hablamos al principio, no a medias.", "cta.h": "Cuéntame el proceso que ya resuelves bien.", "cta.l": "Un mensaje de WhatsApp es suficiente. Te digo en una respuesta si lo puedo arreglar, cuánto tardaría y cuánto costaría. Si no soy la persona adecuada, también te lo digo.", "cta.b1": "Escríbeme por WhatsApp", "cta.b2": "Envíame un correo", "cta.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "nav.serveis": "Servicios", "nav.projectes": "Proyectos", "nav.blog": "Blog", "nav.qui": "Quién soy", "nav.contacte": "Contacto", "f.tag": "Software e IA para negocios de Andorra, hechos por un jurista que programa.", "f.serveis": "Servicios", "f.estudi": "SaeTech", "f.contacte": "Contacto", "f.s1": "Software y agentes de IA", "f.s2": "Reels con IA", "f.s3": "Revisión LQPD", "f.s4": "Webs", "f.s5": "Apps móviles", "f.s6": "SEO y GEO", "f.rag": "¿Qué es RAG?", "ck.msg": "Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.", "ck.more": "Más información", "ck.no": "Solo esenciales", "ck.yes": "Aceptar", "f.legal": "Aviso legal", "f.priv": "Privacidad y cookies"}, "fr": {"meta.title": "Plateformes SaaS et produits numériques | SaeTech Andorre", "meta.desc": "Du prototype au produit par abonnement : architecture, paiements, multi-utilisateurs. À partir de 8 000 €.", "sv.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20id%C3%A9e%20de%20produit%20num%C3%A9rique%20et%20je%20voudrais%20en%20parler.", "sv.eye": "Service · SaaS", "sv.h1": "De l'idée au produit <span class='hl'>qui facture chaque mois.</span>", "sv.lead": "Si vous maîtrisez un processus et voulez le vendre comme outil à d'autres entreprises, je vous aide à le construire : architecture, abonnements, multi-utilisateurs et tout ce qui ne se voit pas mais fait que ça marche.", "sv.b1": "Parlons-en", "sv.b2": "Voir les tarifs", "sv.in0": "J'ai construit et je maintiens des produits par abonnement en production : une app de salle de sport vendue en marque blanche à d'autres coachs, et le CRM de cabinet proposé aujourd'hui à d'autres cabinets. Je sais ce qui casse quand on passe de 10 à 1 000 utilisateurs, et j'en tiens compte dès le premier jour.", "sv.t1": "Ce qui est inclus", "sv.inc.li0": "Architecture multi-utilisateurs (chaque client ne voit que le sien)", "sv.inc.li1": "Abonnements et facturation avec Stripe", "sv.inc.li2": "Panneau d'administration, rôles et permissions", "sv.inc.li3": "API et intégrations (e-mail, WhatsApp, HubSpot, Zapier/n8n)", "sv.inc.li4": "Supervision, sauvegardes et LQPD/RGPD dès la conception", "sv.t2": "Pour qui", "sv.pq": "Professionnels et entreprises d'Andorre avec un processus qui fonctionne déjà et que d'autres paieraient pour avoir. Et des fondateurs qui ont besoin d'un partenaire technique pour la première version.", "sv.eye2": "Processus", "sv.t3": "Comment je travaille", "sv.st0h": "Discussion", "sv.st0p": "Quinze minutes sur WhatsApp ou en visio. Vous me dites ce qui vous fait perdre du temps et je vous dis si je peux le faire.", "sv.st1h": "Proposition", "sv.st1p": "Une page : ce que je ferai, en combien de temps et pour combien. Sans petits caractères.", "sv.st2h": "Construction", "sv.st2p": "Livraisons hebdomadaires pour que vous voyiez le projet avancer et corrigiez à temps.", "sv.st3h": "Livraison et maintenance", "sv.st3p": "Formation de l'équipe, code et accès à vous, et moi à un message de distance.", "sv.eye3": "Tarifs", "sv.t4": "Tarifs indicatifs", "sv.pl": "Par phases, avec une première version déjà vendable.", "sv.pr0f0": "8 à 10 semaines", "sv.pr0f1": "Stripe et multi-utilisateurs", "sv.pr0t": "Phase 1", "sv.pr0h": "Prototype vendable", "sv.pr0u": "à partir de", "sv.pr0d": "Le cœur du produit avec abonnements et 2 ou 3 clients pilotes.", "sv.pr0b": "Parlons-en", "sv.pr1f0": "Selon les retours des pilotes", "sv.pr1t": "Phase 2", "sv.pr1h": "Produit complet", "sv.pr1u": "", "sv.pr1d": "Intégrations, API, panneau avancé et montée en charge.", "sv.pr1b": "Demander", "sv.pr2f0": "Nouvelles fonctions chaque mois", "sv.pr2f1": "Support et supervision", "sv.pr2t": "Continu", "sv.pr2h": "Évolution mensuelle", "sv.pr2u": "/mois", "sv.pr2d": "Moi comme équipe technique à temps partiel.", "sv.pr2b": "Demander", "sv.t5": "Questions fréquentes", "sv.fq0": "Puis-je commencer petit ?", "sv.fa0": "C'est la seule façon raisonnable. D'abord la partie qui résout le problème et peut être facturée ; le reste, quand les premiers clients vous auront dit ce dont ils ont besoin.", "sv.fq1": "Travaillez-vous contre une participation au lieu d’une facture ?", "sv.fa1": "Dans certains cas, en partie. On en parle au début, pas à mi-parcours.", "cta.h": "Dites-moi le processus que vous maîtrisez déjà.", "cta.l": "Un message WhatsApp suffit. Je vous dis en une réponse si je peux le résoudre, en combien de temps et pour combien. Si je ne suis pas la bonne personne, je vous le dis aussi.", "cta.b1": "Écrivez-moi sur WhatsApp", "cta.b2": "Envoyez-moi un e-mail", "cta.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "nav.serveis": "Services", "nav.projectes": "Projets", "nav.blog": "Blog", "nav.qui": "Qui suis-je", "nav.contacte": "Contact", "f.tag": "Logiciels et IA pour les entreprises d'Andorre, conçus par un juriste qui programme.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Logiciels et agents IA", "f.s2": "Reels avec IA", "f.s3": "Audit LQPD", "f.s4": "Sites web", "f.s5": "Apps mobiles", "f.s6": "SEO et GEO", "f.rag": "Qu'est-ce que le RAG ?", "ck.msg": "J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.", "ck.more": "En savoir plus", "ck.no": "Essentiels seulement", "ck.yes": "Accepter", "f.legal": "Mentions légales", "f.priv": "Confidentialité et cookies"}, "en": {"meta.title": "SaaS platforms and digital products | SaeTech Andorra", "meta.desc": "From prototype to subscription product: architecture, payments, multi-tenant. From €8,000.", "sv.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20digital%20product%20idea%20and%20want%20to%20talk.", "sv.eye": "Service · SaaS", "sv.h1": "From the idea to the product <span class='hl'>that bills every month.</span>", "sv.lead": "If you solve a process well and want to sell it as a tool to other businesses, I help you build it: architecture, subscriptions, multi-tenant and everything invisible that makes it work.", "sv.b1": "Let's talk", "sv.b2": "See prices", "sv.in0": "I have built and maintain subscription products in production: a gym app sold white-label to other trainers, and the firm CRM now offered to other firms. I know what breaks when you go from 10 to 1,000 users, and I plan for it from day one.", "sv.t1": "What's included", "sv.inc.li0": "Multi-tenant architecture (each client sees only their own)", "sv.inc.li1": "Subscriptions and billing with Stripe", "sv.inc.li2": "Admin panel, roles and permissions", "sv.inc.li3": "API and integrations (email, WhatsApp, HubSpot, Zapier/n8n)", "sv.inc.li4": "Monitoring, backups and LQPD/GDPR by design", "sv.t2": "Who it's for", "sv.pq": "Professionals and companies in Andorra with a process that already works and others would pay for. Also founders who need a technical partner for the first version.", "sv.eye2": "Process", "sv.t3": "How I work", "sv.st0h": "Conversation", "sv.st0p": "Fifteen minutes on WhatsApp or a video call. You tell me what wastes your time and I tell you if I can fix it.", "sv.st1h": "Proposal", "sv.st1p": "One page: what I will do, how long it will take and what it will cost. No fine print.", "sv.st2h": "Build", "sv.st2p": "Weekly deliveries so you see it grow and change what you need in time.", "sv.st3h": "Delivery and maintenance", "sv.st3p": "Team training, code and access are yours, and I am one message away.", "sv.eye3": "Prices", "sv.t4": "Indicative prices", "sv.pl": "In phases, with a first version you can already sell.", "sv.pr0f0": "8 to 10 weeks", "sv.pr0f1": "Stripe and multi-tenant", "sv.pr0t": "Phase 1", "sv.pr0h": "Sellable prototype", "sv.pr0u": "from", "sv.pr0d": "The product core with subscriptions and 2–3 pilot clients.", "sv.pr0b": "Let's talk", "sv.pr1f0": "Based on pilot feedback", "sv.pr1t": "Phase 2", "sv.pr1h": "Full product", "sv.pr1u": "", "sv.pr1d": "Integrations, API, advanced panel and scaling.", "sv.pr1b": "Ask", "sv.pr2f0": "New features every month", "sv.pr2f1": "Support and monitoring", "sv.pr2t": "Ongoing", "sv.pr2h": "Monthly evolution", "sv.pr2u": "/month", "sv.pr2d": "Me as your part-time tech team.", "sv.pr2b": "Ask", "sv.t5": "FAQ", "sv.fq0": "Can I start small?", "sv.fa0": "It's the only sensible way. First the part that solves the problem and can be charged for; the rest once the first clients tell you what they need.", "sv.fq1": "Do you work for equity instead of a fee?", "sv.fa1": "In specific cases, partly. We discuss it at the start, not midway.", "cta.h": "Tell me the process you already solve well.", "cta.l": "A WhatsApp message is enough. I'll tell you in one reply whether I can fix it, how long it would take and what it would cost. If I'm not the right person, I'll say so.", "cta.b1": "Message me on WhatsApp", "cta.b2": "Send me an email", "cta.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "nav.serveis": "Services", "nav.projectes": "Projects", "nav.blog": "Blog", "nav.qui": "About", "nav.contacte": "Contact", "f.tag": "Software and AI for businesses in Andorra, built by a lawyer who codes.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Software and AI agents", "f.s2": "AI-made reels", "f.s3": "Data-protection review", "f.s4": "Websites", "f.s5": "Mobile apps", "f.s6": "SEO and GEO", "f.rag": "What is RAG?", "ck.msg": "I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.", "ck.more": "More info", "ck.no": "Essential only", "ck.yes": "Accept", "f.legal": "Legal notice", "f.priv": "Privacy and cookies"}};</script>
+<script src="site.js?v=3.0"></script>
 </body>
-
 </html>

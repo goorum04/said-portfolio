@@ -1,331 +1,74 @@
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
-    <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisió de seguretat i LQPD de portals web | SaeTech Andorra</title>
-    <meta name="description" content="Revisamos tu portal de clientes, intranet o app para evitar fugas de datos como la de la CASS: parte técnica (minimización, límites de consulta, 2FA, logs) y parte legal (Llei 29/2021, plan de respuesta a brechas en 72 h). Informe con semáforo en una semana. Desde 450€.">
-    <meta name="keywords" content="auditoría seguridad web andorra, lqpd, llei 29/2021, protección de datos andorra, brecha de seguridad, revisión portal clientes, apda, ciberseguridad pyme andorra">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://saetechai.com/servicio-seguridad.html">
-    <meta name="theme-color" content="#00d4ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisió de seguretat i LQPD de portals web | SaeTech Andorra</title>
+<meta name="description" content="El teu portal de clients faria el mateix que la CASS? Revisió tècnica i legal (Llei 29/2021) en una setmana, amb informe amb semàfor. Des de 450 €.">
+<link rel="canonical" href="https://saetechai.com/servicio-seguridad.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saetechai.com/servicio-seguridad.html">
+<meta property="og:title" content="Revisió de seguretat i LQPD de portals web | SaeTech Andorra">
+<meta property="og:description" content="El teu portal de clients faria el mateix que la CASS? Revisió tècnica i legal (Llei 29/2021) en una setmana, amb informe amb semàfor. Des de 450 €.">
+<meta property="og:image" content="https://saetechai.com/blog-cass-cover.webp">
+<meta property="og:site_name" content="SaeTech">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3.0">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saetechai.com/servicio-seguridad.html">
-    <meta property="og:title" content="Revisión de seguridad y LQPD de portales | SaeTech">
-    <meta property="og:description" content="¿Tu web haría lo mismo que la CASS? Revisión técnica + legal de tu portal de datos en una semana.">
-    <meta property="og:image" content="https://saetechai.com/blog-cass-cover.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Revisión de seguridad y LQPD de portales | SaeTech">
-    <meta name="twitter:description" content="Revisión técnica + legal de tu portal de datos en una semana.">
-    <meta name="twitter:image" content="https://saetechai.com/blog-cass-cover.webp">
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Revisión de seguridad y cumplimiento LQPD de portales web",
-        "provider": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
-        "areaServed": "Andorra",
-        "description": "Revisión técnica y legal de portales de clientes, intranets y apps para prevenir fugas de datos personales y cumplir la Llei 29/2021 de Andorra.",
-        "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "450", "url": "https://saetechai.com/servicio-seguridad.html"}
-    }
-    </script>
 </head>
-
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" class="active" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%2C%20quiero%20una%20auditor%C3%ADa%20SEO%20y%20GEO"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </nav>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag">Servei</span>
-            <h1 class="page-title">Revisió de seguretat <span class="text-gradient">i LQPD</span> del teu portal</h1>
-            <p class="page-subtitle">La teva àrea de clients faria el mateix que la CASS? Reviso en una setmana la part tècnica i la part legal del teu portal, intranet o app, i t'entrego un informe amb semàfor i les correccions ordenades per risc.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="article-cover reveal">
-                <img src="blog-cass-cover.webp?v=1" alt="Revisió de seguretat i LQPD de portals web" width="1376" height="768">
-            </div>
-            <article class="article-body">
-                <p>El novembre de 2026 un atacant va buidar el portal d'empreses de la CASS amb quatre certificats robats i 1,2 milions de consultes automàtiques: <strong>477.238 NIA amb nom i data de naixement</strong>, gairebé tot Andorra. L'error no va ser cap virus ni cap hacker genial: va ser una pantalla que tornava dades personals a partir d'un identificador, sense límit de consultes i sense ningú mirant els registres. <a href="blog-ciberataque-cass.html">Ho explico en detall al blog.</a></p>
-                <p>Qualsevol portal de clients, intranet o app amb un cercador "per DNI/NIA" té exactament el mateix problema. I a Andorra, a més, la <strong>Llei 29/2021 (LQPD)</strong> t'obliga a tenir mesures adequades, a notificar una bretxa a l'APDA en 72 hores i a avisar els afectats. Sóc jurista i desenvolupador alhora, així que reviso les dues coses en un sol encàrrec.</p>
-
-                <h2>Què reviso</h2>
-                <h3 style="margin-top:28px">Part tècnica</h3>
-                <ul>
-                    <li><strong>Minimització:</strong> alguna pantalla o API torna nom, data de naixement o altres dades a partir d'un identificador? Ha de respondre "sí/no", no omplir la fitxa.</li>
-                    <li><strong>Límit de consultes i alertes:</strong> ningú legítim fa mil cerques en una hora. Comprovo rate limiting, bloqueig d'intents i avisos automàtics.</li>
-                    <li><strong>Credencials i accessos:</strong> doble factor als comptes que veuen dades de tercers, caducitat de sessions, revocació immediata, permisos mínims.</li>
-                    <li><strong>Registres d'accés:</strong> que existeixin, que no omplin el disc, i que algú o alguna cosa els llegeixi i avisi.</li>
-                    <li><strong>Dades que sobren:</strong> què guardes que no necessites, còpies de seguretat, xifratge i proveïdors externs (hosting, correu, CRM) que també toquen les dades.</li>
-                </ul>
-                <h3 style="margin-top:28px">Part legal (Llei 29/2021)</h3>
-                <ul>
-                    <li><strong>Registre d'activitats de tractament:</strong> quines dades tractes, per a què, quant de temps i amb qui les comparteixes. El creo o l'actualitzo.</li>
-                    <li><strong>Pla de resposta a bretxes:</strong> qui fa què les primeres 72 hores, model de notificació a l'APDA i model d'avís als afectats, llestos per omplir.</li>
-                    <li><strong>Contractes amb proveïdors</strong> (encarregats del tractament) i clàusules que falten.</li>
-                    <li><strong>Necessites DPO?</strong> T'ho dic clar, i si no, qui assumeix la funció.</li>
-                </ul>
-
-                <h2>Què reps</h2>
-                <ul>
-                    <li>Un <strong>informe de 5 a 10 pàgines</strong> amb semàfor (vermell / ambre / verd) per cada punt i què vol dir en llenguatge normal.</li>
-                    <li>La <strong>llista de correccions ordenada per risc</strong>, amb una estimació d'esforç per a cadascuna.</li>
-                    <li>Els <strong>documents legals</strong> (registre de tractaments, pla de resposta, models d'avís) adaptats a la teva empresa.</li>
-                    <li>Una <strong>reunió de 45 minuts</strong> per explicar-ho a qui decideix, sense tecnicismes.</li>
-                </ul>
-                <p>Les correccions de codi les pot aplicar el teu proveïdor amb l'informe a la mà, o les aplico jo amb un pressupost a part.</p>
-
-                <h2>Per a qui és</h2>
-                <p>Gestories, immobiliàries, clíniques i consultes, asseguradores i corredories, administradors de finques, acadèmies, gimnasos amb app, i qualsevol empresa d'Andorra que tingui una <strong>"àrea de clients"</strong>, un portal d'empleats o una app que mostri dades personals.</p>
-
-                <h2>Com ho faig</h2>
-                <div class="process-timeline reveal" style="margin-top:24px;">
-                    <div class="process-step">
-                        <div class="process-number">01</div>
-                        <div class="process-content">
-                            <h3>Primer cop d'ull (gratis)</h3>
-                            <p>15 minuts per videotrucada o WhatsApp: m'ensenyes el portal i et dic si té sentit revisar-lo i què em caldria.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">02</div>
-                        <div class="process-content">
-                            <h3>Revisió tècnica</h3>
-                            <p>Amb un usuari de prova que em dones tu, mai amb dades reals de clients. Provo les pantalles i les APIs com ho faria un atacant, sense tocar res.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">03</div>
-                        <div class="process-content">
-                            <h3>Revisió legal</h3>
-                            <p>Contrasto el que fa el portal amb el que exigeix la Llei 29/2021 i preparo els documents que falten.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-number">04</div>
-                        <div class="process-content">
-                            <h3>Informe i reunió</h3>
-                            <p>En una setmana des que tinc accés. Semàfor, prioritats i els documents llestos.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="pricing-section section-dark">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Preus</span>
-                <h2 class="section-title">Inversió <span class="text-gradient">en tranquil·litat</span></h2>
-                <p class="section-subtitle">Preus orientatius per a una pime amb un portal. Sense quotes ni permanències.</p>
-            </div>
-            <div class="pricing-grid reveal">
-                <div class="pricing-card">
-                    <div class="pricing-name">Bàsic</div>
-                    <div class="pricing-title">Revisió tècnica</div>
-                    <div class="pricing-price">450€<span> / un sol cop</span></div>
-                    <p class="pricing-desc">Els cinc punts tècnics del teu portal.</p>
-                    <ul class="pricing-features">
-                        <li>Informe amb semàfor</li>
-                        <li>Correccions per ordre de risc</li>
-                        <li>Reunió de 45 min</li>
-                    </ul>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Començar</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-name">Recomanat</div>
-                    <div class="pricing-title">Tècnica + legal</div>
-                    <div class="pricing-price">750€<span> / un sol cop</span></div>
-                    <p class="pricing-desc">Tot l'anterior més el compliment de la Llei 29/2021.</p>
-                    <ul class="pricing-features">
-                        <li>Registre de tractaments</li>
-                        <li>Pla de resposta a bretxes (72 h)</li>
-                        <li>Models d'avís a l'APDA i als afectats</li>
-                    </ul>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary" style="width:100%" target="_blank" rel="noopener">Començar</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name">A mida</div>
-                    <div class="pricing-title">Correcció i seguiment</div>
-                    <div class="pricing-price">Pressupost</div>
-                    <p class="pricing-desc">Aplico les correccions i torno a comprovar.</p>
-                    <ul class="pricing-features">
-                        <li>Rate limiting, 2FA, logs i alertes</li>
-                        <li>Re-revisió després dels canvis</li>
-                        <li>Revisió anual opcional</li>
-                    </ul>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Consultar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section faq-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">FAQ</span>
-                <h2 class="section-title">Preguntes <span class="text-gradient">freqüents</span></h2>
-            </div>
-            <div class="faq-list reveal">
-                <details class="faq-item">
-                    <summary>Entraràs al meu sistema o tocaràs dades reals?</summary>
-                    <p>No. Treballo amb un usuari de prova que em crees tu i només en mode lectura. No faig proves d'intrusió agressives ni descarrego dades de clients. Si cal alguna cosa més profunda, ho acordem per escrit abans.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>La meva web la va fer una altra empresa. Serveix igual?</summary>
-                    <p>Sí, és el cas més habitual. L'informe està pensat perquè el teu proveïdor actual pugui aplicar les correccions. No cal canviar de proveïdor.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Això és una auditoria oficial o una certificació?</summary>
-                    <p>No. És una revisió pràctica per reduir el risc real i tenir la documentació que demana la Llei 29/2021. No substitueix una auditoria de seguretat certificada (ISO 27001, pentest formal) si el teu sector l'exigeix.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>I si ja he tingut una fuita de dades?</summary>
-                    <p>Escriu-me avui. El rellotge de les 72 hores per notificar a l'APDA ja corre, i el primer és documentar què ha passat i preparar la notificació i l'avís als afectats.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title">El teu portal torna dades de clients?</h2>
-                <p class="cta-text">Primer cop d'ull de 15 minuts gratis. Et dic si tens el mateix forat que la CASS.</p>
-                <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Demanar el primer cop d'ull</a>
-            </div>
-        </div>
-    </section>
-
-    <p class="article-back container"><a href="servicios.html">← Tornar a Serveis</a></p>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg></a>
-
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.28"></script>
+<div class="bgfx" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i></i>SaeTech</a>
+    <ul class="menu" id="menu">
+      <li><a href="servicios.html" data-i18n="nav.serveis">Serveis</a></li><li><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a></li><li><a href="contacto.html" data-i18n="nav.contacte">Contacte</a></li>
+      <li class="cta"><a href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang"><button type="button" id="langBtn" aria-haspopup="true"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<section class="hero" style="padding-bottom:0"><div class="wrap hero-grid">
+  <div><span class="eyebrow" data-i18n="sv.eye">Servei · Seguretat i LQPD</span><h1 class="h1" data-i18n="sv.h1">El teu portal faria el mateix que la CASS? <span class='hl'>Reviso-ho en una setmana.</span></h1><p class="lead" data-i18n="sv.lead">Part tècnica i part legal (Llei 29/2021) del teu portal de clients, intranet o app, en un sol encàrrec. Informe amb semàfor, correccions ordenades per risc i els documents que la llei et demana.</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20revisar%20la%20seguretat%20del%20meu%20portal." target="_blank" rel="noopener" data-i18n-attr="href:sv.wa"><span data-i18n="sv.b1">Demanar el primer cop d'ull</span></a><a class="btn btn-ghost btn-lg" href="#preus"><span data-i18n="sv.b2">Veure preus</span></a></div></div>
+  <div><div class="device"><div class="device-bar"><i></i><i></i><i></i><span>cas CASS · novembre 2026</span></div><img src="blog-cass-cover.webp" alt="Ciberatac a la CASS" width="1600" height="1000"></div></div>
+</div></section><section class="section"><div class="wrap"><div class="prose"><p data-i18n="sv.in0">El novembre de 2026 un atacant va buidar el portal d'empreses de la CASS amb quatre certificats robats i 1,2 milions de consultes: 477.238 NIA amb nom i data de naixement. No va ser cap hacker genial: va ser una pantalla que tornava dades a partir d'un identificador, sense límit de consultes i sense ningú mirant els registres. <a href='blog-ciberataque-cass.html'>Ho explico al blog</a>.</p><p data-i18n="sv.in1">Qualsevol portal amb un cercador "per DNI/NIA" té el mateix problema. I a Andorra la Llei 29/2021 t'obliga a tenir mesures adequades, a notificar una bretxa a l'APDA en 72 hores i a avisar els afectats. Sóc jurista i desenvolupador: reviso les dues coses en un sol encàrrec.</p>
+  <h2 data-i18n="sv.t1">Què inclou</h2><ul class="prose" style="margin-top:18px"><li data-i18n="sv.inc.li0"><strong>Minimització:</strong> cap pantalla ni API torna dades personals a partir d'un identificador.</li><li data-i18n="sv.inc.li1"><strong>Límits de consulta i alertes:</strong> rate limiting, bloqueig d’intents, avisos automàtics.</li><li data-i18n="sv.inc.li2"><strong>Credencials i accessos:</strong> doble factor, caducitat de sessions, permisos mínims.</li><li data-i18n="sv.inc.li3"><strong>Registres d'accés</strong> que existeixen, no omplen el disc, i algú llegeix.</li><li data-i18n="sv.inc.li4"><strong>Registre d'activitats de tractament</strong> i <strong>pla de resposta a bretxes</strong> (72 h, APDA) amb models d'avís.</li><li data-i18n="sv.inc.li5"><strong>Informe de 5 a 10 pàgines</strong> amb semàfor i una reunió de 45 minuts amb qui decideix.</li></ul>
+  <h2 data-i18n="sv.t2">Per a qui és</h2><p data-i18n="sv.pq">Gestories, immobiliàries, clíniques, asseguradores, administradors de finques, acadèmies, gimnasos amb app, i qualsevol empresa d'Andorra amb una àrea de clients, un portal d'empleats o una app que mostri dades personals. Treballo amb un usuari de prova, en mode lectura, mai amb dades reals.</p>
+  
+</div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye2">Procés</span><h2 class="h2" data-i18n="sv.t3">Com treballo</h2></div><div class="steps"><div class="step reveal"><h3 data-i18n="sv.st0h">Conversa</h3><p data-i18n="sv.st0p">15 minuts per WhatsApp o videotrucada. M'expliques què et fa perdre temps i et dic si ho puc fer.</p></div><div class="step reveal"><h3 data-i18n="sv.st1h">Proposta</h3><p data-i18n="sv.st1p">Una pàgina: què faré, quant trigaré i quant costarà. Sense lletra petita.</p></div><div class="step reveal"><h3 data-i18n="sv.st2h">Construcció</h3><p data-i18n="sv.st2p">Entregues setmanals perquè ho vegis créixer i canviïs el que calgui a temps.</p></div><div class="step reveal"><h3 data-i18n="sv.st3h">Entrega i manteniment</h3><p data-i18n="sv.st3p">Formació a l'equip, codi i accessos teus, i jo a un missatge de distància.</p></div></div></div></section>
+<section class="section" id="preus"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="sv.eye3">Preus</span><h2 class="h2" data-i18n="sv.t4">Preus orientatius</h2><p class="lead" data-i18n="sv.pl">Per a una pime amb un portal. Sense quotes ni permanències.</p></div><div class="price-grid"><div class="price reveal"><span class="tier" data-i18n="sv.pr0t">Bàsic</span><h3 data-i18n="sv.pr0h">Revisió tècnica</h3><div class="amount">450€<small data-i18n="sv.pr0u">un cop</small></div><p class="desc" data-i18n="sv.pr0d">Els cinc punts tècnics del teu portal.</p><ul><li><span data-i18n="sv.pr0f0">Informe amb semàfor</span></li><li><span data-i18n="sv.pr0f1">Correccions per ordre de risc</span></li><li><span data-i18n="sv.pr0f2">Reunió de 45 min</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20revisar%20la%20seguretat%20del%20meu%20portal." target="_blank" rel="noopener"><span data-i18n="sv.pr0b">Començar</span></a></div><div class="price featured reveal"><span class="tier" data-i18n="sv.pr1t">Recomanat</span><h3 data-i18n="sv.pr1h">Tècnica + legal</h3><div class="amount">750€<small data-i18n="sv.pr1u">un cop</small></div><p class="desc" data-i18n="sv.pr1d">Tot l'anterior més el compliment de la Llei 29/2021.</p><ul><li><span data-i18n="sv.pr1f0">Registre de tractaments</span></li><li><span data-i18n="sv.pr1f1">Pla de resposta a bretxes (72 h)</span></li><li><span data-i18n="sv.pr1f2">Models d'avís a l'APDA i als afectats</span></li></ul><a class="btn btn-primary" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20revisar%20la%20seguretat%20del%20meu%20portal." target="_blank" rel="noopener"><span data-i18n="sv.pr1b">Començar</span></a></div><div class="price reveal"><span class="tier" data-i18n="sv.pr2t">A mida</span><h3 data-i18n="sv.pr2h">Correcció i seguiment</h3><div class="amount">Pressupost<small data-i18n="sv.pr2u"></small></div><p class="desc" data-i18n="sv.pr2d">Aplico les correccions i torno a comprovar.</p><ul><li><span data-i18n="sv.pr2f0">Rate limiting, 2FA, logs i alertes</span></li><li><span data-i18n="sv.pr2f1">Re-revisió després dels canvis</span></li><li><span data-i18n="sv.pr2f2">Revisió anual opcional</span></li></ul><a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%20Said%2C%20vull%20revisar%20la%20seguretat%20del%20meu%20portal." target="_blank" rel="noopener"><span data-i18n="sv.pr2b">Consultar</span></a></div></div></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head reveal"><h2 class="h2" data-i18n="sv.t5">Preguntes freqüents</h2></div><div class="faq reveal"><details><summary data-i18n="sv.fq0">Entraràs al meu sistema o tocaràs dades reals?</summary><p data-i18n="sv.fa0">No. Treballo amb un usuari de prova que em crees tu i només en mode lectura. No faig proves d'intrusió agressives ni descarrego dades de clients. Si cal alguna cosa més profunda, ho acordem per escrit abans.</p></details><details><summary data-i18n="sv.fq1">La meva web la va fer una altra empresa. Serveix igual?</summary><p data-i18n="sv.fa1">Sí, és el cas més habitual. L'informe està pensat perquè el teu proveïdor actual pugui aplicar les correccions. No cal canviar de proveïdor.</p></details><details><summary data-i18n="sv.fq2">Això és una auditoria oficial o una certificació?</summary><p data-i18n="sv.fa2">No. És una revisió pràctica per reduir el risc real i tenir la documentació que demana la Llei 29/2021. No substitueix una auditoria certificada (ISO 27001, pentest formal) si el teu sector l'exigeix.</p></details><details><summary data-i18n="sv.fq3">I si ja he tingut una fuita de dades?</summary><p data-i18n="sv.fa3">Escriu-me avui. El rellotge de les 72 hores per notificar a l'APDA ja corre, i el primer és documentar què ha passat i preparar la notificació i l'avís als afectats.</p></details></div></div></section>
+<section class="wrap"><div class="cta-band reveal">
+  <h2 class="h2" data-i18n="cta.h">El teu portal torna dades de clients?</h2><p class="lead" data-i18n="cta.l">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+  <div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:cta.wa"><span data-i18n="cta.b1">Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span data-i18n="cta.b2">Envia'm un correu</span></a></div>
+  <p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><b>SaeTech</b><p data-i18n="f.tag">Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+      <div><b data-i18n="f.serveis">Serveis</b><a href="servicio-ia.html" data-i18n="f.s1">Programari i agents d'IA</a><a href="servicio-reels.html" data-i18n="f.s2">Reels amb IA</a><a href="servicio-seguridad.html" data-i18n="f.s3">Revisió LQPD</a><a href="servicio-web.html" data-i18n="f.s4">Webs</a><a href="servicio-apps.html" data-i18n="f.s5">Apps mòbils</a><a href="servicio-seo.html" data-i18n="f.s6">SEO i GEO</a></div>
+      <div><b data-i18n="f.estudi">SaeTech</b><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a><a href="contacto.html" data-i18n="nav.contacte">Contacte</a><a href="rag.html" data-i18n="f.rag">Què és RAG?</a></div>
+      <div><b data-i18n="f.contacte">Contacte</b><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="aviso-legal.html" data-i18n="f.legal">Avís legal</a> · <a href="privacidad.html" data-i18n="f.priv">Privacitat i cookies</a></span></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<script>window.I18N={"es": {"meta.title": "Revisión de seguridad y LQPD de portales web | SaeTech Andorra", "meta.desc": "¿Tu portal de clientes haría lo mismo que la CASS? Revisión técnica y legal (Ley 29/2021) en una semana, con informe con semáforo. Desde 450 €.", "sv.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal.", "sv.eye": "Servicio · Seguridad y LQPD", "sv.h1": "¿Tu portal haría lo mismo que la CASS? <span class='hl'>Lo reviso en una semana.</span>", "sv.lead": "Parte técnica y parte legal (Ley 29/2021) de tu portal de clientes, intranet o app, en un solo encargo. Informe con semáforo, correcciones ordenadas por riesgo y los documentos que la ley te pide.", "sv.b1": "Pedir el primer vistazo", "sv.b2": "Ver precios", "sv.in0": "En noviembre de 2026 un atacante vació el portal de empresas de la CASS con cuatro certificados robados y 1,2 millones de consultas: 477.238 NIA con nombre y fecha de nacimiento. No fue ningún hacker genial: fue una pantalla que devolvía datos a partir de un identificador, sin límite de consultas y sin nadie mirando los registros. <a href=\"blog-ciberataque-cass.html\">Lo explico en el blog</a>.", "sv.in1": "Cualquier portal con un buscador \"por DNI/NIA\" tiene el mismo problema. Y en Andorra la Ley 29/2021 te obliga a tener medidas adecuadas, a notificar una brecha a la APDA en 72 horas y a avisar a los afectados. Soy jurista y desarrollador: reviso las dos cosas en un solo encargo.", "sv.t1": "Qué incluye", "sv.inc.li0": "<strong>Minimización:</strong> ninguna pantalla ni API devuelve datos personales a partir de un identificador.", "sv.inc.li1": "<strong>Límites de consulta y alertas:</strong> rate limiting, bloqueo de intentos, avisos automáticos.", "sv.inc.li2": "<strong>Credenciales y accesos:</strong> doble factor, caducidad de sesiones, permisos mínimos.", "sv.inc.li3": "<strong>Registros de acceso</strong> que existen, no llenan el disco, y alguien lee.", "sv.inc.li4": "<strong>Registro de actividades de tratamiento</strong> y <strong>plan de respuesta a brechas</strong> (72 h, APDA) con modelos de aviso.", "sv.inc.li5": "<strong>Informe de 5 a 10 páginas</strong> con semáforo y una reunión de 45 minutos con quien decide.", "sv.t2": "Para quién es", "sv.pq": "Gestorías, inmobiliarias, clínicas, aseguradoras, administradores de fincas, academias, gimnasios con app, y cualquier empresa de Andorra con un área de clientes, un portal de empleados o una app que muestre datos personales. Trabajo con un usuario de prueba, en modo lectura, nunca con datos reales.", "sv.eye2": "Proceso", "sv.t3": "Cómo trabajo", "sv.st0h": "Conversación", "sv.st0p": "Quince minutos por WhatsApp o videollamada. Me cuentas qué te hace perder tiempo y te digo si lo puedo hacer.", "sv.st1h": "Propuesta", "sv.st1p": "Una página: qué haré, cuánto tardaré y cuánto costará. Sin letra pequeña.", "sv.st2h": "Construcción", "sv.st2p": "Entregas semanales para que lo veas crecer y cambies lo que haga falta a tiempo.", "sv.st3h": "Entrega y mantenimiento", "sv.st3p": "Formación al equipo, código y accesos tuyos, y yo a un mensaje de distancia.", "sv.eye3": "Precios", "sv.t4": "Precios orientativos", "sv.pl": "Para una pyme con un portal. Sin cuotas ni permanencias.", "sv.pr0f0": "Informe con semáforo", "sv.pr0f1": "Correcciones por orden de riesgo", "sv.pr0f2": "Reunión de 45 min", "sv.pr0t": "Básico", "sv.pr0h": "Revisión técnica", "sv.pr0u": "una vez", "sv.pr0d": "Los cinco puntos técnicos de tu portal.", "sv.pr0b": "Empezar", "sv.pr1f0": "Registro de tratamientos", "sv.pr1f1": "Plan de respuesta a brechas (72 h)", "sv.pr1f2": "Modelos de aviso a la APDA y a los afectados", "sv.pr1t": "Recomendado", "sv.pr1h": "Técnica + legal", "sv.pr1u": "una vez", "sv.pr1d": "Todo lo anterior más el cumplimiento de la Ley 29/2021.", "sv.pr1b": "Empezar", "sv.pr2f0": "Rate limiting, 2FA, logs y alertas", "sv.pr2f1": "Re-revisión tras los cambios", "sv.pr2f2": "Revisión anual opcional", "sv.pr2t": "A medida", "sv.pr2h": "Corrección y seguimiento", "sv.pr2u": "", "sv.pr2d": "Aplico las correcciones y vuelvo a comprobar.", "sv.pr2b": "Consultar", "sv.t5": "Preguntas frecuentes", "sv.fq0": "¿Entrarás en mi sistema o tocarás datos reales?", "sv.fa0": "No. Trabajo con un usuario de prueba que me creas tú y solo en modo lectura. No hago pruebas de intrusión agresivas ni descargo datos de clientes. Si hace falta algo más profundo, lo acordamos por escrito antes.", "sv.fq1": "Mi web la hizo otra empresa. ¿Sirve igual?", "sv.fa1": "Sí, es el caso más habitual. El informe está pensado para que tu proveedor actual pueda aplicar las correcciones. No hace falta cambiar de proveedor.", "sv.fq2": "¿Esto es una auditoría oficial o una certificación?", "sv.fa2": "No. Es una revisión práctica para reducir el riesgo real y tener la documentación que pide la Ley 29/2021. No sustituye una auditoría certificada (ISO 27001, pentest formal) si tu sector la exige.", "sv.fq3": "¿Y si ya he tenido una fuga de datos?", "sv.fa3": "Escríbeme hoy. El reloj de las 72 horas para notificar a la APDA ya corre, y lo primero es documentar qué ha pasado y preparar la notificación y el aviso a los afectados.", "cta.h": "¿Tu portal devuelve datos de clientes?", "cta.l": "Un mensaje de WhatsApp es suficiente. Te digo en una respuesta si lo puedo arreglar, cuánto tardaría y cuánto costaría. Si no soy la persona adecuada, también te lo digo.", "cta.b1": "Escríbeme por WhatsApp", "cta.b2": "Envíame un correo", "cta.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "nav.serveis": "Servicios", "nav.projectes": "Proyectos", "nav.blog": "Blog", "nav.qui": "Quién soy", "nav.contacte": "Contacto", "f.tag": "Software e IA para negocios de Andorra, hechos por un jurista que programa.", "f.serveis": "Servicios", "f.estudi": "SaeTech", "f.contacte": "Contacto", "f.s1": "Software y agentes de IA", "f.s2": "Reels con IA", "f.s3": "Revisión LQPD", "f.s4": "Webs", "f.s5": "Apps móviles", "f.s6": "SEO y GEO", "f.rag": "¿Qué es RAG?", "ck.msg": "Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.", "ck.more": "Más información", "ck.no": "Solo esenciales", "ck.yes": "Aceptar", "f.legal": "Aviso legal", "f.priv": "Privacidad y cookies"}, "fr": {"meta.title": "Audit sécurité et LQPD de portails web | SaeTech Andorre", "meta.desc": "Votre espace client ferait-il la même erreur que la CASS ? Audit technique et juridique (loi 29/2021) en une semaine. À partir de 450 €.", "sv.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20je%20voudrais%20faire%20auditer%20la%20s%C3%A9curit%C3%A9%20de%20mon%20portail.", "sv.eye": "Service · Sécurité et LQPD", "sv.h1": "Votre portail ferait-il la même erreur que la CASS ? <span class='hl'>Je l'audite en une semaine.</span>", "sv.lead": "Partie technique et partie juridique (loi 29/2021) de votre portail client, intranet ou app, en une seule mission. Rapport en feux tricolores, corrections classées par risque et les documents exigés par la loi.", "sv.b1": "Demander un premier regard", "sv.b2": "Voir les tarifs", "sv.in0": "En novembre 2026, un attaquant a vidé le portail entreprises de la CASS avec quatre certificats volés et 1,2 million de requêtes : 477 238 NIA avec nom et date de naissance. Pas un hacker de génie : un écran qui renvoyait des données à partir d'un identifiant, sans limite de requêtes et sans personne pour lire les journaux.", "sv.in1": "Tout portail avec une recherche « par DNI/NIA » a le même problème. Et en Andorre, la loi 29/2021 vous oblige à des mesures adéquates, à notifier une violation à l'APDA sous 72 heures et à prévenir les personnes concernées. Je suis juriste et développeur : j'audite les deux en une seule mission.", "sv.t1": "Ce qui est inclus", "sv.inc.li0": "<strong>Minimisation :</strong> aucun écran ni API ne renvoie de données personnelles à partir d'un identifiant.", "sv.inc.li1": "<strong>Limites de requêtes et alertes :</strong> rate limiting, blocage des tentatives, alertes automatiques.", "sv.inc.li2": "<strong>Identifiants et accès :</strong> double facteur, expiration des sessions, permissions minimales.", "sv.inc.li3": "<strong>Journaux d'accès</strong> qui existent, ne saturent pas le disque, et que quelqu'un lit.", "sv.inc.li4": "<strong>Registre des traitements</strong> et <strong>plan de réponse aux violations</strong> (72 h, APDA) avec modèles de notification.", "sv.inc.li5": "<strong>Rapport de 5 à 10 pages</strong> en feux tricolores et une réunion de 45 minutes avec le décideur.", "sv.t2": "Pour qui", "sv.pq": "Cabinets, agences immobilières, cliniques, assureurs, syndics, écoles, salles de sport avec app, et toute entreprise d'Andorre avec un espace client, un portail employés ou une app affichant des données personnelles. Je travaille avec un utilisateur de test, en lecture seule, jamais avec des données réelles.", "sv.eye2": "Processus", "sv.t3": "Comment je travaille", "sv.st0h": "Discussion", "sv.st0p": "Quinze minutes sur WhatsApp ou en visio. Vous me dites ce qui vous fait perdre du temps et je vous dis si je peux le faire.", "sv.st1h": "Proposition", "sv.st1p": "Une page : ce que je ferai, en combien de temps et pour combien. Sans petits caractères.", "sv.st2h": "Construction", "sv.st2p": "Livraisons hebdomadaires pour que vous voyiez le projet avancer et corrigiez à temps.", "sv.st3h": "Livraison et maintenance", "sv.st3p": "Formation de l'équipe, code et accès à vous, et moi à un message de distance.", "sv.eye3": "Tarifs", "sv.t4": "Tarifs indicatifs", "sv.pl": "Pour une PME avec un portail. Sans abonnement ni engagement.", "sv.pr0f0": "Rapport en feux tricolores", "sv.pr0f1": "Corrections classées par risque", "sv.pr0f2": "Réunion de 45 min", "sv.pr0t": "Basique", "sv.pr0h": "Audit technique", "sv.pr0u": "une fois", "sv.pr0d": "Les cinq points techniques de votre portail.", "sv.pr0b": "Commencer", "sv.pr1f0": "Registre des traitements", "sv.pr1f1": "Plan de réponse aux violations (72 h)", "sv.pr1f2": "Modèles de notification à l'APDA et aux personnes concernées", "sv.pr1t": "Recommandé", "sv.pr1h": "Technique + juridique", "sv.pr1u": "une fois", "sv.pr1d": "Tout ce qui précède plus la conformité à la loi 29/2021.", "sv.pr1b": "Commencer", "sv.pr2f0": "Rate limiting, 2FA, logs et alertes", "sv.pr2f1": "Nouvel audit après les changements", "sv.pr2f2": "Audit annuel en option", "sv.pr2t": "Sur mesure", "sv.pr2h": "Correction et suivi", "sv.pr2u": "", "sv.pr2d": "J'applique les corrections et je revérifie.", "sv.pr2b": "Demander", "sv.t5": "Questions fréquentes", "sv.fq0": "Entrerez-vous dans mon système ou toucherez-vous des données réelles ?", "sv.fa0": "Non. Je travaille avec un utilisateur de test que vous me créez, en lecture seule. Pas de tests d'intrusion agressifs ni de téléchargement de données clients. Si besoin d'aller plus loin, on l'écrit avant.", "sv.fq1": "Mon site a été fait par une autre entreprise. Ça marche quand même ?", "sv.fa1": "Oui, c'est le cas le plus fréquent. Le rapport est conçu pour que votre prestataire actuel puisse appliquer les corrections. Pas besoin d'en changer.", "sv.fq2": "Est-ce un audit officiel ou une certification ?", "sv.fa2": "Non. C'est un audit pratique pour réduire le risque réel et disposer de la documentation exigée par la loi 29/2021. Il ne remplace pas un audit certifié (ISO 27001, pentest formel) si votre secteur l'exige.", "sv.fq3": "Et si j'ai déjà eu une fuite de données ?", "sv.fa3": "Écrivez-moi aujourd'hui. Le compte à rebours de 72 heures pour notifier l'APDA a déjà commencé ; la priorité est de documenter ce qui s'est passé et de préparer la notification et l'information des personnes concernées.", "cta.h": "Votre portail renvoie-t-il des données clients ?", "cta.l": "Un message WhatsApp suffit. Je vous dis en une réponse si je peux le résoudre, en combien de temps et pour combien. Si je ne suis pas la bonne personne, je vous le dis aussi.", "cta.b1": "Écrivez-moi sur WhatsApp", "cta.b2": "Envoyez-moi un e-mail", "cta.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "nav.serveis": "Services", "nav.projectes": "Projets", "nav.blog": "Blog", "nav.qui": "Qui suis-je", "nav.contacte": "Contact", "f.tag": "Logiciels et IA pour les entreprises d'Andorre, conçus par un juriste qui programme.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Logiciels et agents IA", "f.s2": "Reels avec IA", "f.s3": "Audit LQPD", "f.s4": "Sites web", "f.s5": "Apps mobiles", "f.s6": "SEO et GEO", "f.rag": "Qu'est-ce que le RAG ?", "ck.msg": "J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.", "ck.more": "En savoir plus", "ck.no": "Essentiels seulement", "ck.yes": "Accepter", "f.legal": "Mentions légales", "f.priv": "Confidentialité et cookies"}, "en": {"meta.title": "Security and data-protection review of web portals | SaeTech Andorra", "meta.desc": "Would your client portal make the same mistake as the CASS? Technical and legal review (Law 29/2021) in one week. From €450.", "sv.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20want%20to%20review%20the%20security%20of%20my%20portal.", "sv.eye": "Service · Security and data protection", "sv.h1": "Would your portal make the same mistake as the CASS? <span class='hl'>I review it in a week.</span>", "sv.lead": "Technical and legal (Law 29/2021) review of your client portal, intranet or app, in one engagement. Traffic-light report, fixes ordered by risk and the documents the law requires.", "sv.b1": "Ask for a first look", "sv.b2": "See prices", "sv.in0": "In November 2026 an attacker emptied the CASS business portal with four stolen certificates and 1.2 million queries: 477,238 NIA with name and date of birth. Not a genius hacker: a screen that returned data from an identifier, with no rate limit and nobody reading the logs.", "sv.in1": "Any portal with a \"search by ID\" has the same problem. And in Andorra, Law 29/2021 requires adequate measures, notifying a breach to the APDA within 72 hours and informing those affected. I am a lawyer and a developer: I review both in one engagement.", "sv.t1": "What's included", "sv.inc.li0": "<strong>Minimisation:</strong> no screen or API returns personal data from an identifier.", "sv.inc.li1": "<strong>Rate limits and alerts:</strong> rate limiting, attempt blocking, automatic alerts.", "sv.inc.li2": "<strong>Credentials and access:</strong> two-factor, session expiry, least privilege.", "sv.inc.li3": "<strong>Access logs</strong> that exist, do not fill the disk, and someone reads.", "sv.inc.li4": "<strong>Processing register</strong> and <strong>breach response plan</strong> (72 h, APDA) with notification templates.", "sv.inc.li5": "<strong>5–10 page report</strong> with traffic lights and a 45-minute meeting with the decision-maker.", "sv.t2": "Who it's for", "sv.pq": "Firms, estate agencies, clinics, insurers, property managers, schools, gyms with an app, and any company in Andorra with a client area, employee portal or app showing personal data. I work with a test user, read-only, never with real data.", "sv.eye2": "Process", "sv.t3": "How I work", "sv.st0h": "Conversation", "sv.st0p": "Fifteen minutes on WhatsApp or a video call. You tell me what wastes your time and I tell you if I can fix it.", "sv.st1h": "Proposal", "sv.st1p": "One page: what I will do, how long it will take and what it will cost. No fine print.", "sv.st2h": "Build", "sv.st2p": "Weekly deliveries so you see it grow and change what you need in time.", "sv.st3h": "Delivery and maintenance", "sv.st3p": "Team training, code and access are yours, and I am one message away.", "sv.eye3": "Prices", "sv.t4": "Indicative prices", "sv.pl": "For an SME with one portal. No subscriptions or commitments.", "sv.pr0f0": "Traffic-light report", "sv.pr0f1": "Fixes ordered by risk", "sv.pr0f2": "45-minute meeting", "sv.pr0t": "Basic", "sv.pr0h": "Technical review", "sv.pr0u": "one-off", "sv.pr0d": "The five technical points of your portal.", "sv.pr0b": "Start", "sv.pr1f0": "Processing register", "sv.pr1f1": "Breach response plan (72 h)", "sv.pr1f2": "Notification templates for the APDA and affected people", "sv.pr1t": "Recommended", "sv.pr1h": "Technical + legal", "sv.pr1u": "one-off", "sv.pr1d": "Everything above plus Law 29/2021 compliance.", "sv.pr1b": "Start", "sv.pr2f0": "Rate limiting, 2FA, logs and alerts", "sv.pr2f1": "Re-review after changes", "sv.pr2f2": "Optional annual review", "sv.pr2t": "Custom", "sv.pr2h": "Fixes and follow-up", "sv.pr2u": "", "sv.pr2d": "I apply the fixes and re-check.", "sv.pr2b": "Ask", "sv.t5": "FAQ", "sv.fq0": "Will you access my system or touch real data?", "sv.fa0": "No. I work with a test user you create for me, read-only. No aggressive intrusion tests, no downloading client data. If something deeper is needed, we agree it in writing first.", "sv.fq1": "My site was built by another company. Does it still work?", "sv.fa1": "Yes, that's the most common case. The report is written so your current provider can apply the fixes. No need to switch providers.", "sv.fq2": "Is this an official audit or a certification?", "sv.fa2": "No. It is a practical review to reduce real risk and have the documentation Law 29/2021 requires. It does not replace a certified audit (ISO 27001, formal pentest) if your sector requires one.", "sv.fq3": "What if I have already had a data breach?", "sv.fa3": "Write to me today. The 72-hour clock to notify the APDA is already running; the first thing is to document what happened and prepare the notification and the message to those affected.", "cta.h": "Does your portal return client data?", "cta.l": "A WhatsApp message is enough. I'll tell you in one reply whether I can fix it, how long it would take and what it would cost. If I'm not the right person, I'll say so.", "cta.b1": "Message me on WhatsApp", "cta.b2": "Send me an email", "cta.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "nav.serveis": "Services", "nav.projectes": "Projects", "nav.blog": "Blog", "nav.qui": "About", "nav.contacte": "Contact", "f.tag": "Software and AI for businesses in Andorra, built by a lawyer who codes.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Software and AI agents", "f.s2": "AI-made reels", "f.s3": "Data-protection review", "f.s4": "Websites", "f.s5": "Mobile apps", "f.s6": "SEO and GEO", "f.rag": "What is RAG?", "ck.msg": "I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.", "ck.more": "More info", "ck.no": "Essential only", "ck.yes": "Accept", "f.legal": "Legal notice", "f.priv": "Privacy and cookies"}};</script>
+<script src="site.js?v=3.0"></script>
 </body>
-
 </html>

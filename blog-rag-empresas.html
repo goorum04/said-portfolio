@@ -1,286 +1,157 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech</title>
-    <meta name="description"
-        content="Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.">
-    <meta name="keywords" content="rag, retrieval augmented generation, chatbot empresa, ia segura, alucinaciones ia, asistente ia documentos, permisos ia, andorra">
-    <meta name="author" content="SaeTech">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://saetechai.com/blog-rag-empresas.html">
-    <meta name="theme-color" content="#00d4ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech</title>
+<meta name="description" content="Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.">
+<link rel="canonical" href="https://saetechai.com/blog-rag-empresas.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://saetechai.com/blog-rag-empresas.html">
+<meta property="og:title" content="Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech">
+<meta property="og:description" content="Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.">
+<meta property="og:image" content="https://saetechai.com/rag-cover.webp">
+<meta property="og:site_name" content="SaeTech">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3.0">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Por qué tu empresa necesita un RAG (y no un chatbot que inventa)", "datePublished": "2026-07-15", "author": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"}, "image": "https://saetechai.com/rag-cover.webp", "description": "Los chatbots genéricos inventan precios, políticas y plazos. Qué es un RAG (Retrieval-Augmented Generation), por qué responde con los documentos reales de tu empresa citando la fuente, y cómo respeta los permisos de cada empleado."}</script>
+<script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;var c=document.createElement('script');c.src='https://tracker.metricool.com/resources/be.js';c.onload=function(){try{beTracker.t({hash:'fe56f62cbc848978db26ed05b321a9fd'})}catch(e){}};document.head.appendChild(c);};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://saetechai.com/blog-rag-empresas.html">
-    <meta property="og:title" content="Por qué tu empresa necesita un RAG (y no un chatbot que inventa)">
-    <meta property="og:description" content="Los chatbots genéricos inventan datos y eso cuesta dinero. Qué es un RAG, por qué responde con fuentes y cómo respeta los permisos de cada empleado.">
-    <meta property="og:image" content="https://saetechai.com/rag-cover.webp">
-    <meta property="og:site_name" content="SaeTech - Desarrollo Digital">
-    <meta property="og:locale" content="es_ES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Por qué tu empresa necesita un RAG | SaeTech">
-    <meta name="twitter:description" content="Los chatbots genéricos inventan datos y eso cuesta dinero. Qué es un RAG y por qué lo cambia todo.">
-    <meta name="twitter:image" content="https://saetechai.com/rag-cover.webp">
-
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.19">
-    <link rel="stylesheet" href="higgsfield-visuals.css?v=1.9">
-    <link rel="stylesheet" href="theme.css?v=3.2">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Por qué tu empresa necesita un RAG (y no un chatbot que inventa)",
-        "datePublished": "2026-07-15",
-        "author": {"@type": "Organization", "name": "SaeTech", "url": "https://saetechai.com"},
-        "image": "https://saetechai.com/rag-cover.webp",
-        "description": "Los chatbots genéricos inventan precios, políticas y plazos. Qué es un RAG (Retrieval-Augmented Generation), por qué responde con los documentos reales de tu empresa citando la fuente, y cómo respeta los permisos de cada empleado."
-    }
-    </script>
-
-    <script>window.__loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NQBVM9WR');};window.__loadMetricool=function(){if(window.__micLoaded)return;window.__micLoaded=true;function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe56f62cbc848978db26ed05b321a9fd"})});};try{if(localStorage.getItem('cookieConsent')==='accepted'){window.__loadGTM();window.__loadMetricool();}}catch(e){}</script>
 </head>
-
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <header>
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo"><span class="logo-bracket">&lt;</span>SaeTech<span
-                        class="logo-bracket">/&gt;</span></a>
-                <ul class="nav-links">
-                    <li><a href="servicios.html" data-number="01" data-i18n="nav.services">Servicios</a></li>
-                    <li><a href="portfolio.html" data-number="02" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" class="active" data-number="03" data-i18n="nav.blog">Blog</a></li>
-                    <li><a href="sobre-mi.html" data-number="04" data-i18n="nav.about">Sobre mí</a></li>
-                    <li><a href="contacto.html" data-number="05" data-i18n="nav.contact">Contacto</a></li>
-                    <li><a href="https://wa.me/376601249?text=Hola%2C%20quiero%20un%20asistente%20RAG%20para%20mi%20empresa"
-                            class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
-                </ul>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-dropbtn" id="langDropBtn">
-                        <span id="currentLang">ES</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="lang-dropdown-content" id="langDropdownContent">
-                        <button data-lang="es">Español</button>
-                        <button data-lang="ca">Català</button>
-                        <button data-lang="fr">Français</button>
-                        <button data-lang="en">English</button>
-                    </div>
-                </div>
-                <button class="nav-toggle" id="navToggle"
-                    aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </nav>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="section-tag">Blog · IA Segura</span>
-            <h1 class="page-title">Por qué tu empresa necesita un <span class="text-gradient">RAG</span> (y no un
-                chatbot que inventa)</h1>
-            <p class="page-subtitle">La mitad de las empresas quiere "un ChatGPT con nuestros datos". La otra mitad ya
+<div class="bgfx" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i></i>SaeTech</a>
+    <ul class="menu" id="menu">
+      <li><a href="servicios.html" data-i18n="nav.serveis">Serveis</a></li><li><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a></li><li><a href="contacto.html" data-i18n="nav.contacte">Contacte</a></li>
+      <li class="cta"><a href="https://wa.me/376601249" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang"><button type="button" id="langBtn" aria-haspopup="true"><span id="langCur">CA</span> ▾</button><div class="lang-menu" id="langMenu" role="menu"></div></div>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<section class="article-hero"><div class="wrap"><span class="eyebrow">Blog · IA Segura</span><h1 class="h1" style="margin-top:14px">Por qué tu empresa necesita un RAG (y no un
+                chatbot que inventa)</h1><p class="lead" style="margin-top:16px">La mitad de las empresas quiere "un ChatGPT con nuestros datos". La otra mitad ya
                 se ha llevado un susto con uno. La diferencia entre ambas es una tecnología con nombre feo y
-                consecuencias enormes: RAG.</p>
-            <p class="article-meta">Por Said · 15 jul 2026 · 8 min de lectura</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="article-cover reveal">
-                <img src="rag-cover.webp?v=2" alt="Asistente de IA con RAG consultando los documentos de una empresa"
-                    width="1376" height="768">
-            </div>
-            <article class="article-body">
-                <p>En 2024, un tribunal obligó a <strong>Air Canada</strong> a pagar una indemnización porque su
+                consecuencias enormes: RAG.</p><p class="article-meta">Por Said · 15 jul 2026 · 8 min de lectura</p></div></section>
+<section class="section" style="padding-top:0"><div class="wrap article-wrap"><div class="article-cover"><img alt="Asistente de IA con RAG consultando los documentos de una empresa" height="768" src="rag-cover.webp?v=2" width="1376"/></div><div class="prose">
+<p>En 2024, un tribunal obligó a <strong>Air Canada</strong> a pagar una indemnización porque su
                     chatbot se inventó una política de reembolsos que la aerolínea no tenía. El cliente compró el
                     billete confiando en lo que el bot le dijo, la aerolínea alegó que "el chatbot es responsable de
                     sus propias acciones" — y el tribunal, con buen criterio, respondió que no: si tu empresa pone
                     una IA a atender clientes, <strong>lo que la IA promete, lo prometes tú</strong>.</p>
-
-                <p>Ese caso resume el problema de media industria: todo el mundo quiere poner IA a responder
+<p>Ese caso resume el problema de media industria: todo el mundo quiere poner IA a responder
                     preguntas de clientes y empleados, pero un chatbot genérico conectado "a pelo" a ChatGPT o a
                     cualquier otro modelo tiene un defecto de fábrica: <strong>cuando no sabe algo, no se calla — se
                     lo inventa</strong>. Y lo hace con una seguridad pasmosa.</p>
-
-                <h2>El problema tiene nombre: alucinaciones</h2>
-                <p>Los modelos de lenguaje no "consultan" información: generan el texto más probable según lo que
+<h2>El problema tiene nombre: alucinaciones</h2>
+<p>Los modelos de lenguaje no "consultan" información: generan el texto más probable según lo que
                     aprendieron durante su entrenamiento. Saben muchísimo del mundo en general y <strong>nada de tu
                     negocio en particular</strong>: ni tus precios, ni tus plazos de entrega, ni tu política de
                     devoluciones, ni el convenio de tus empleados. Cuando alguien les pregunta por eso, rellenan el
                     hueco con una respuesta que <em>suena</em> perfectamente razonable.</p>
-                <p>En una conversación casual es una anécdota. En tu empresa es un precio inventado que un cliente
+<p>En una conversación casual es una anécdota. En tu empresa es un precio inventado que un cliente
                     reclama, un plazo imposible que alguien promete por ti, o una cláusula mal citada en un contrato.
                     Las alucinaciones no son un fallo raro que ocurre de vez en cuando: son el comportamiento por
                     defecto de un modelo al que se le pregunta por información que no tiene.</p>
-
-                <h2>Qué es un RAG (y por qué lo cambia todo)</h2>
-                <p><strong>RAG</strong> son las siglas de <em>Retrieval-Augmented Generation</em>: generación
+<h2>Qué es un RAG (y por qué lo cambia todo)</h2>
+<p><strong>RAG</strong> son las siglas de <em>Retrieval-Augmented Generation</em>: generación
                     aumentada por recuperación. La idea es simple de contar: antes de responder, el sistema
                     <strong>busca en los documentos reales de tu empresa</strong> — manuales, catálogos, tarifas,
                     contratos, políticas — recupera los fragmentos relevantes para esa pregunta concreta, y el modelo
                     redacta la respuesta <strong>usando solo eso</strong>, citando de qué documento sale cada dato.</p>
-                <p>La forma más fácil de entenderlo: un chatbot normal hace el examen <em>de memoria</em>; un
+<p>La forma más fácil de entenderlo: un chatbot normal hace el examen <em>de memoria</em>; un
                     asistente con RAG lo hace <em>con tu libro abierto delante</em>. Si la información no está en el
                     libro, no responde de memoria: dice que no la tiene. Lo explicamos a fondo, con esquemas y casos
                     de uso, en nuestra página <a href="rag.html">¿Qué es RAG?</a></p>
-
-                <h2>Las cuatro garantías que un chatbot normal no te da</h2>
-                <ul>
-                    <li><strong>Respuestas con fuente.</strong> Cada respuesta indica el documento y el apartado del
+<h2>Las cuatro garantías que un chatbot normal no te da</h2>
+<ul>
+<li><strong>Respuestas con fuente.</strong> Cada respuesta indica el documento y el apartado del
                         que sale. Si un cliente o un auditor pregunta "¿de dónde ha salido esto?", hay respuesta.</li>
-                    <li><strong>Si no lo sabe, lo dice.</strong> Un RAG bien construido prefiere un "no tengo esa
+<li><strong>Si no lo sabe, lo dice.</strong> Un RAG bien construido prefiere un "no tengo esa
                         información" a una invención convincente. Es exactamente lo que le faltó al chatbot de Air
                         Canada.</li>
-                    <li><strong>Siempre actualizado sin reentrenar.</strong> ¿Cambia una tarifa? Subes el documento
+<li><strong>Siempre actualizado sin reentrenar.</strong> ¿Cambia una tarifa? Subes el documento
                         nuevo y el asistente responde con él desde ese momento. El conocimiento no se congela el día
                         del lanzamiento.</li>
-                    <li><strong>Tus datos, protegidos.</strong> Tus documentos se consultan, no se usan para entrenar
+<li><strong>Tus datos, protegidos.</strong> Tus documentos se consultan, no se usan para entrenar
                         modelos de terceros. La privacidad se diseña desde el principio: cifrado, control de accesos
                         y tus datos sin salir de donde tú decidas.</li>
-                </ul>
-
-                <h2>Y dentro de la empresa: cada empleado ve solo lo suyo</h2>
-                <p>Aquí está la pregunta que casi nadie hace antes de contratar un asistente de IA y que debería ser
+</ul>
+<h2>Y dentro de la empresa: cada empleado ve solo lo suyo</h2>
+<p>Aquí está la pregunta que casi nadie hace antes de contratar un asistente de IA y que debería ser
                     la primera: si le cargamos <em>toda</em> la documentación de la empresa, ¿puede cualquier empleado
                     preguntar por <em>todo</em>? Con un RAG serio, no. Cada documento se etiqueta con los roles que
                     pueden verlo, y el filtro se aplica <strong>antes de que la información llegue a la IA</strong>:
                     lo que un rol no puede ver ni siquiera entra en el contexto del modelo, así que no hay forma de
                     "engañar" al asistente para que lo revele.</p>
-                <p>El de recepción pregunta por las bandas salariales y obtiene un "no está en los documentos de tu
+<p>El de recepción pregunta por las bandas salariales y obtiene un "no está en los documentos de tu
                     rol"; dirección hace la misma pregunta y obtiene la cifra con su cita. Los permisos pueden
                     heredarse de los que ya usas en Google Drive o SharePoint, y cada consulta queda registrada para
                     auditoría.</p>
-
-                <h2>Casos donde un RAG paga su coste rápido</h2>
-                <ul>
-                    <li><strong>Atención al cliente:</strong> dudas de productos, envíos, devoluciones y garantías
+<h2>Casos donde un RAG paga su coste rápido</h2>
+<ul>
+<li><strong>Atención al cliente:</strong> dudas de productos, envíos, devoluciones y garantías
                         respondidas 24/7 consultando tu catálogo y tus políticas reales — no una versión imaginada.</li>
-                    <li><strong>Asistente interno de RRHH:</strong> "¿cuántos días de vacaciones me quedan según el
+<li><strong>Asistente interno de RRHH:</strong> "¿cuántos días de vacaciones me quedan según el
                         convenio?" deja de interrumpir a nadie: la respuesta sale del convenio, citada.</li>
-                    <li><strong>Documentación legal y normativa:</strong> buscar en contratos y pólizas citando el
+<li><strong>Documentación legal y normativa:</strong> buscar en contratos y pólizas citando el
                         artículo exacto, en lugar de leer 200 páginas.</li>
-                    <li><strong>Catálogos grandes:</strong> "piso de 2 habitaciones con terraza por menos de
+<li><strong>Catálogos grandes:</strong> "piso de 2 habitaciones con terraza por menos de
                         250.000 €" busca en tu cartera real y responde con las fichas.</li>
-                </ul>
-
-                <div class="article-cta">
-                    <h3>No te lo cuento: pruébalo</h3>
-                    <p>Hemos publicado una <strong>demo en vivo</strong> con los documentos de un hotel ficticio:
+</ul>
+<div class="article-cta">
+<h3>No te lo cuento: pruébalo</h3>
+<p>Hemos publicado una <strong>demo en vivo</strong> con los documentos de un hotel ficticio:
                         pregunta lo que quieras, comprueba cada respuesta contra su fuente, intenta que se invente
                         algo… y cambia de rol para ver cómo los permisos dejan las bandas salariales fuera del
                         alcance de quien no debe verlas.</p>
-                    <a href="demo-rag.html" class="btn btn-primary btn-lg">Probar la demo RAG en vivo →</a>
-                </div>
-
-                <h2>Por dónde empezar</h2>
-                <p>Un proyecto RAG no es un "instalar un plugin": incluye la ingesta de tus documentos (PDF, Word,
+<a class="btn btn-primary" href="demo-rag.html">Probar la demo RAG en vivo →</a>
+</div>
+<h2>Por dónde empezar</h2>
+<p>Un proyecto RAG no es un "instalar un plugin": incluye la ingesta de tus documentos (PDF, Word,
                     webs, bases de datos), la base vectorial con búsqueda semántica, la conexión con el modelo
                     adecuado, las <strong>pruebas con casos límite antes de lanzar</strong> — incluidas las preguntas
                     trampa — y el canal donde vivirá: el chat de tu web, WhatsApp o una herramienta interna. Tienes el
                     detalle del servicio completo en <a href="servicio-ia.html">Implementación de IA segura</a>.</p>
-                <p>Lo razonable es empezar por un caso acotado — el que más preguntas repetitivas genera — medir, y
+<p>Lo razonable es empezar por un caso acotado — el que más preguntas repetitivas genera — medir, y
                     crecer desde ahí. En unas semanas se nota dónde estaba yendo el tiempo del equipo.</p>
-
-                <div class="article-cta">
-                    <h3>¿Tiene sentido un RAG para tu empresa?</h3>
-                    <p>Cuéntame qué documentación tienes y qué preguntas os quitan más tiempo, y te digo con franqueza
+<div class="article-cta">
+<h3>¿Tiene sentido un RAG para tu empresa?</h3>
+<p>Cuéntame qué documentación tienes y qué preguntas os quitan más tiempo, y te digo con franqueza
                         si un RAG te lo resuelve — y un presupuesto cerrado si quieres seguir.</p>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20he%20le%C3%ADdo%20el%20art%C3%ADculo%20sobre%20RAG%20y%20quiero%20saber%20si%20encaja%20en%20mi%20empresa"
-                        class="btn btn-primary btn-lg" target="_blank" rel="noopener">Hablemos de tu caso</a>
-                </div>
+<a class="btn btn-ghost" href="https://wa.me/376601249?text=Hola%2C%20he%20le%C3%ADdo%20el%20art%C3%ADculo%20sobre%20RAG%20y%20quiero%20saber%20si%20encaja%20en%20mi%20empresa" rel="noopener" target="_blank">Hablemos de tu caso</a>
+</div>
 
-                <p class="article-back"><a href="blog.html">← Volver al blog</a></p>
-            </article>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand"><span class="logo-bracket">&lt;</span>SaeTech<span class="logo-bracket">/&gt;</span>
-                    <p data-i18n="footer.tagline">Estudio digital en Andorra. IA segura con RAG, webs, apps y SaaS a medida para negocios que quieren crecer.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-                        </a>
-                        <a href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colServices">Servicios</h4>
-                    <ul>
-                        <li><a href="servicio-ia.html" data-i18n="servicesHome.ai.title">IA Segura & RAG</a></li>
-                        <li><a href="servicio-web.html" data-i18n="servicesHome.web.title">Desarrollo Web</a></li>
-                        <li><a href="servicio-apps.html" data-i18n="servicesHome.apps.title">Apps Móviles</a></li>
-                        <li><a href="servicio-saas.html" data-i18n="servicesHome.saas.title">SaaS</a></li>
-                        <li><a href="servicio-automatizaciones.html" data-i18n="servicesHome.auto.title">Automatizaciones</a></li>
-                        <li><a href="servicio-seo.html" data-i18n="servicesHome.seo.title">SEO y GEO</a></li>
-                        <li><a href="servicio-seguridad.html">Seguridad y LQPD</a></li>
-                        <li><a href="servicio-reels.html">Reels amb IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colCompany">Estudio</h4>
-                    <ul>
-                        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
-                        <li><a href="rag.html" data-i18n="footer.whatIsRag">¿Qué es RAG?</a></li>
-                        <li><a href="demo-rag.html" data-i18n="footer.demo">Demo RAG en vivo</a></li>
-                        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.colContact">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:said@saetech.com">said@saetech.com</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a></li>
-                        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="footer.location">Andorra · Trabajo remoto en toda Europa</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2026 SaeTech. Todos los derechos reservados.</p>
-                <p class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/376601249?text=Hola%20Said%2C%20me%20interesa%20un%20presupuesto" class="whatsapp-float"
-        target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.507-7.507c-.303-.152-1.791-.885-2.069-.986-.278-.101-.48-.152-.682.152-.202.303-.786.986-.964 1.19-.178.202-.356.228-.659.076-.303-.152-1.281-.472-2.44-1.507-.902-.805-1.511-1.8-1.689-2.103-.178-.303-.019-.467.133-.619.136-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.531-.076-.152-.682-1.643-.934-2.25-.246-.59-.495-.509-.682-.518-.177-.009-.379-.009-.581-.009s-.531.076-.81.379c-.278.303-1.062 1.039-1.062 2.531 0 1.492 1.088 2.933 1.241 3.133.152.202 2.137 3.263 5.177 4.577.723.312 1.287.498 1.726.637.725.23 1.385.198 1.907.12.582-.087 1.791-.732 2.043-1.439.252-.707.252-1.314.176-1.441-.076-.127-.278-.202-.581-.354z" />
-        </svg></a>
-
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
-    <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.28"></script>
+</div>
+<p class="article-back"><a href="blog.html" data-i18n="art.back">← Tornar al blog</a></p></div></section>
+<section class="wrap"><div class="cta-band reveal">
+  <h2 class="h2" data-i18n="cta.h">Explica'm què et fa perdre temps al despatx.</h2><p class="lead" data-i18n="cta.l">Un missatge de WhatsApp és suficient. Et dic en una resposta si ho puc arreglar, quant trigaria i quant costaria. Si no sóc la persona adequada, també t'ho dic.</p>
+  <div class="actions"><a class="btn btn-primary btn-lg" href="https://wa.me/376601249?text=Hola%20Said%2C%20tinc%20un%20negoci%20a%20Andorra%20i%20vull%20parlar." target="_blank" rel="noopener" data-i18n-attr="href:cta.wa"><span data-i18n="cta.b1">Escriu-me per WhatsApp</span></a><a class="btn btn-ghost btn-lg" href="mailto:hola@saetechai.com"><span data-i18n="cta.b2">Envia'm un correu</span></a></div>
+  <p class="tel">+376 601 249 · Andorra</p>
+</div></section>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><b>SaeTech</b><p data-i18n="f.tag">Programari i IA per a negocis d'Andorra, fets per un jurista que programa.</p><p>Said El Boudouhi · Andorra</p></div>
+      <div><b data-i18n="f.serveis">Serveis</b><a href="servicio-ia.html" data-i18n="f.s1">Programari i agents d'IA</a><a href="servicio-reels.html" data-i18n="f.s2">Reels amb IA</a><a href="servicio-seguridad.html" data-i18n="f.s3">Revisió LQPD</a><a href="servicio-web.html" data-i18n="f.s4">Webs</a><a href="servicio-apps.html" data-i18n="f.s5">Apps mòbils</a><a href="servicio-seo.html" data-i18n="f.s6">SEO i GEO</a></div>
+      <div><b data-i18n="f.estudi">SaeTech</b><a href="portfolio.html" data-i18n="nav.projectes">Projectes</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="sobre-mi.html" data-i18n="nav.qui">Qui sóc</a><a href="contacto.html" data-i18n="nav.contacte">Contacte</a><a href="rag.html" data-i18n="f.rag">Què és RAG?</a></div>
+      <div><b data-i18n="f.contacte">Contacte</b><a href="https://wa.me/376601249" target="_blank" rel="noopener">+376 601 249</a><a href="mailto:hola@saetechai.com">hola@saetechai.com</a><a href="https://www.instagram.com/saetechai" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/said-el-boudouhi-b28489301" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 SaeTech · Said El Boudouhi</span><span><a href="aviso-legal.html" data-i18n="f.legal">Avís legal</a> · <a href="privacidad.html" data-i18n="f.priv">Privacitat i cookies</a></span></div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/376601249" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.65-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.874 0-3.646-.523-5.16-1.433l-.374-.224-3.703 1.185 1.19-3.603-.246-.382A9.936 9.936 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm5.3-7.5c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<script>window.I18N={"es": {"meta.title": "Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech", "meta.desc": "Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.", "art.back": "← Volver al blog", "cta.h": "Cuéntame qué te hace perder tiempo en el despacho.", "cta.l": "Un mensaje de WhatsApp es suficiente. Te digo en una respuesta si lo puedo arreglar, cuánto tardaría y cuánto costaría. Si no soy la persona adecuada, también te lo digo.", "cta.b1": "Escríbeme por WhatsApp", "cta.b2": "Envíame un correo", "cta.wa": "https://wa.me/376601249?text=Hola%20Said%2C%20tengo%20un%20negocio%20en%20Andorra%20y%20quiero%20hablar.", "nav.serveis": "Servicios", "nav.projectes": "Proyectos", "nav.blog": "Blog", "nav.qui": "Quién soy", "nav.contacte": "Contacto", "f.tag": "Software e IA para negocios de Andorra, hechos por un jurista que programa.", "f.serveis": "Servicios", "f.estudi": "SaeTech", "f.contacte": "Contacto", "f.s1": "Software y agentes de IA", "f.s2": "Reels con IA", "f.s3": "Revisión LQPD", "f.s4": "Webs", "f.s5": "Apps móviles", "f.s6": "SEO y GEO", "f.rag": "¿Qué es RAG?", "ck.msg": "Uso cookies de análisis (Google) para entender cómo se usa la web. Solo se activan si aceptas.", "ck.more": "Más información", "ck.no": "Solo esenciales", "ck.yes": "Aceptar", "f.legal": "Aviso legal", "f.priv": "Privacidad y cookies"}, "fr": {"meta.title": "Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech", "meta.desc": "Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.", "art.back": "← Retour au blog", "cta.h": "Dites-moi ce qui vous fait perdre du temps au bureau.", "cta.l": "Un message WhatsApp suffit. Je vous dis en une réponse si je peux le résoudre, en combien de temps et pour combien. Si je ne suis pas la bonne personne, je vous le dis aussi.", "cta.b1": "Écrivez-moi sur WhatsApp", "cta.b2": "Envoyez-moi un e-mail", "cta.wa": "https://wa.me/376601249?text=Bonjour%20Said%2C%20j%27ai%20une%20entreprise%20en%20Andorre%20et%20je%20voudrais%20en%20parler.", "nav.serveis": "Services", "nav.projectes": "Projets", "nav.blog": "Blog", "nav.qui": "Qui suis-je", "nav.contacte": "Contact", "f.tag": "Logiciels et IA pour les entreprises d'Andorre, conçus par un juriste qui programme.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Logiciels et agents IA", "f.s2": "Reels avec IA", "f.s3": "Audit LQPD", "f.s4": "Sites web", "f.s5": "Apps mobiles", "f.s6": "SEO et GEO", "f.rag": "Qu'est-ce que le RAG ?", "ck.msg": "J’utilise des cookies d’analyse (Google) pour comprendre l’usage du site. Activés seulement si vous acceptez.", "ck.more": "En savoir plus", "ck.no": "Essentiels seulement", "ck.yes": "Accepter", "f.legal": "Mentions légales", "f.priv": "Confidentialité et cookies"}, "en": {"meta.title": "Por qué tu empresa necesita un RAG (y no un chatbot que inventa) | Blog SaeTech", "meta.desc": "Los chatbots genéricos inventan precios, políticas y plazos — y eso cuesta dinero. Qué es un RAG, por qué responde con tus documentos reales y con fuentes, y cómo protege lo que cada empleado puede ver.", "art.back": "← Back to the blog", "cta.h": "Tell me what wastes your time at the office.", "cta.l": "A WhatsApp message is enough. I'll tell you in one reply whether I can fix it, how long it would take and what it would cost. If I'm not the right person, I'll say so.", "cta.b1": "Message me on WhatsApp", "cta.b2": "Send me an email", "cta.wa": "https://wa.me/376601249?text=Hi%20Said%2C%20I%20have%20a%20business%20in%20Andorra%20and%20would%20like%20to%20talk.", "nav.serveis": "Services", "nav.projectes": "Projects", "nav.blog": "Blog", "nav.qui": "About", "nav.contacte": "Contact", "f.tag": "Software and AI for businesses in Andorra, built by a lawyer who codes.", "f.serveis": "Services", "f.estudi": "SaeTech", "f.contacte": "Contact", "f.s1": "Software and AI agents", "f.s2": "AI-made reels", "f.s3": "Data-protection review", "f.s4": "Websites", "f.s5": "Mobile apps", "f.s6": "SEO and GEO", "f.rag": "What is RAG?", "ck.msg": "I use analytics cookies (Google) to understand how the site is used. Only enabled if you accept.", "ck.more": "More info", "ck.no": "Essential only", "ck.yes": "Accept", "f.legal": "Legal notice", "f.priv": "Privacy and cookies"}};</script>
+<script src="site.js?v=3.0"></script>
 </body>
-
 </html>
