@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 
 <head>
     <meta charset="UTF-8">
     <script>if(location.protocol==="http:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace(location.href.replace(/^http:/,"https:"));}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisión de seguridad y LQPD de portales web | SaeTech Andorra</title>
+    <title>Revisió de seguretat i LQPD de portals web | SaeTech Andorra</title>
     <meta name="description" content="Revisamos tu portal de clientes, intranet o app para evitar fugas de datos como la de la CASS: parte técnica (minimización, límites de consulta, 2FA, logs) y parte legal (Llei 29/2021, plan de respuesta a brechas en 72 h). Informe con semáforo en una semana. Desde 450€.">
     <meta name="keywords" content="auditoría seguridad web andorra, lqpd, llei 29/2021, protección de datos andorra, brecha de seguridad, revisión portal clientes, apda, ciberseguridad pyme andorra">
     <meta name="author" content="SaeTech">
@@ -91,78 +91,78 @@
 
     <section class="page-hero">
         <div class="container">
-            <span class="section-tag">Servicio</span>
-            <h1 class="page-title">Revisión de seguridad <span class="text-gradient">y LQPD</span> de tu portal</h1>
-            <p class="page-subtitle">¿Tu área de clientes haría lo mismo que la CASS? Revisamos en una semana la parte técnica y la parte legal de tu portal, intranet o app, y te entregamos un informe con semáforo y las correcciones ordenadas por riesgo.</p>
+            <span class="section-tag">Servei</span>
+            <h1 class="page-title">Revisió de seguretat <span class="text-gradient">i LQPD</span> del teu portal</h1>
+            <p class="page-subtitle">La teva àrea de clients faria el mateix que la CASS? Reviso en una setmana la part tècnica i la part legal del teu portal, intranet o app, i t'entrego un informe amb semàfor i les correccions ordenades per risc.</p>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
             <div class="article-cover reveal">
-                <img src="blog-cass-cover.webp?v=1" alt="Revisión de seguridad y LQPD de portales web" width="1376" height="768">
+                <img src="blog-cass-cover.webp?v=1" alt="Revisió de seguretat i LQPD de portals web" width="1376" height="768">
             </div>
             <article class="article-body">
-                <p>En noviembre de 2026 un atacante vació el portal de empresas de la CASS con cuatro certificados robados y 1,2 millones de consultas automáticas: <strong>477.238 NIA con nombre y fecha de nacimiento</strong>, casi toda Andorra. El fallo no fue un virus ni un hacker genial: fue una pantalla que devolvía datos personales a partir de un identificador, sin límite de consultas y sin nadie mirando los registros. <a href="blog-ciberataque-cass.html">Lo explicamos en detalle en el blog.</a></p>
-                <p>Cualquier portal de clientes, intranet o app con un buscador "por DNI/NIA" tiene exactamente el mismo problema. Y en Andorra, además, la <strong>Llei 29/2021 (LQPD)</strong> te obliga a tener medidas adecuadas, a notificar una brecha a la APDA en 72 horas y a avisar a los afectados. Somos jurista y desarrollador a la vez, así que revisamos las dos cosas en un solo encargo.</p>
+                <p>El novembre de 2026 un atacant va buidar el portal d'empreses de la CASS amb quatre certificats robats i 1,2 milions de consultes automàtiques: <strong>477.238 NIA amb nom i data de naixement</strong>, gairebé tot Andorra. L'error no va ser cap virus ni cap hacker genial: va ser una pantalla que tornava dades personals a partir d'un identificador, sense límit de consultes i sense ningú mirant els registres. <a href="blog-ciberataque-cass.html">Ho explico en detall al blog.</a></p>
+                <p>Qualsevol portal de clients, intranet o app amb un cercador "per DNI/NIA" té exactament el mateix problema. I a Andorra, a més, la <strong>Llei 29/2021 (LQPD)</strong> t'obliga a tenir mesures adequades, a notificar una bretxa a l'APDA en 72 hores i a avisar els afectats. Sóc jurista i desenvolupador alhora, així que reviso les dues coses en un sol encàrrec.</p>
 
-                <h2>Qué revisamos</h2>
-                <h3 style="margin-top:28px">Parte técnica</h3>
+                <h2>Què reviso</h2>
+                <h3 style="margin-top:28px">Part tècnica</h3>
                 <ul>
-                    <li><strong>Minimización:</strong> ¿alguna pantalla o API devuelve nombre, fecha de nacimiento u otros datos a partir de un identificador? Debe responder "sí/no", no rellenar la ficha.</li>
-                    <li><strong>Límite de consultas y alertas:</strong> nadie legítimo hace mil búsquedas en una hora. Comprobamos rate limiting, bloqueo de intentos y avisos automáticos.</li>
-                    <li><strong>Credenciales y accesos:</strong> doble factor en cuentas que ven datos de terceros, caducidad de sesiones, revocación inmediata, permisos mínimos.</li>
-                    <li><strong>Registros de acceso:</strong> que existan, que no se llenen el disco, y que alguien o algo los lea y avise.</li>
-                    <li><strong>Datos que sobran:</strong> qué guardas que no necesitas, copias de seguridad, cifrado y proveedores externos (hosting, email, CRM) que también tocan los datos.</li>
+                    <li><strong>Minimització:</strong> alguna pantalla o API torna nom, data de naixement o altres dades a partir d'un identificador? Ha de respondre "sí/no", no omplir la fitxa.</li>
+                    <li><strong>Límit de consultes i alertes:</strong> ningú legítim fa mil cerques en una hora. Comprovo rate limiting, bloqueig d'intents i avisos automàtics.</li>
+                    <li><strong>Credencials i accessos:</strong> doble factor als comptes que veuen dades de tercers, caducitat de sessions, revocació immediata, permisos mínims.</li>
+                    <li><strong>Registres d'accés:</strong> que existeixin, que no omplin el disc, i que algú o alguna cosa els llegeixi i avisi.</li>
+                    <li><strong>Dades que sobren:</strong> què guardes que no necessites, còpies de seguretat, xifratge i proveïdors externs (hosting, correu, CRM) que també toquen les dades.</li>
                 </ul>
-                <h3 style="margin-top:28px">Parte legal (Llei 29/2021)</h3>
+                <h3 style="margin-top:28px">Part legal (Llei 29/2021)</h3>
                 <ul>
-                    <li><strong>Registro de actividades de tratamiento:</strong> qué datos tratas, para qué, cuánto tiempo y con quién los compartes. Lo creamos o lo actualizamos.</li>
-                    <li><strong>Plan de respuesta a brechas:</strong> quién hace qué en las primeras 72 horas, modelo de notificación a la APDA y modelo de aviso a los afectados, listos para rellenar.</li>
-                    <li><strong>Contratos con proveedores</strong> (encargados del tratamiento) y cláusulas que faltan.</li>
-                    <li><strong>¿Necesitas DPO?</strong> Te lo decimos claro, y si no, quién asume la función.</li>
+                    <li><strong>Registre d'activitats de tractament:</strong> quines dades tractes, per a què, quant de temps i amb qui les comparteixes. El creo o l'actualitzo.</li>
+                    <li><strong>Pla de resposta a bretxes:</strong> qui fa què les primeres 72 hores, model de notificació a l'APDA i model d'avís als afectats, llestos per omplir.</li>
+                    <li><strong>Contractes amb proveïdors</strong> (encarregats del tractament) i clàusules que falten.</li>
+                    <li><strong>Necessites DPO?</strong> T'ho dic clar, i si no, qui assumeix la funció.</li>
                 </ul>
 
-                <h2>Qué recibes</h2>
+                <h2>Què reps</h2>
                 <ul>
-                    <li>Un <strong>informe de 5 a 10 páginas</strong> con semáforo (rojo / ámbar / verde) por cada punto y lo que significa en lenguaje normal.</li>
-                    <li>La <strong>lista de correcciones ordenada por riesgo</strong>, con una estimación de esfuerzo para cada una.</li>
-                    <li>Los <strong>documentos legales</strong> (registro de tratamientos, plan de respuesta, modelos de aviso) adaptados a tu empresa.</li>
-                    <li>Una <strong>reunión de 45 minutos</strong> para explicarlo a quien decide, sin tecnicismos.</li>
+                    <li>Un <strong>informe de 5 a 10 pàgines</strong> amb semàfor (vermell / ambre / verd) per cada punt i què vol dir en llenguatge normal.</li>
+                    <li>La <strong>llista de correccions ordenada per risc</strong>, amb una estimació d'esforç per a cadascuna.</li>
+                    <li>Els <strong>documents legals</strong> (registre de tractaments, pla de resposta, models d'avís) adaptats a la teva empresa.</li>
+                    <li>Una <strong>reunió de 45 minuts</strong> per explicar-ho a qui decideix, sense tecnicismes.</li>
                 </ul>
-                <p>Las correcciones de código las puede aplicar tu proveedor con el informe en la mano, o las aplicamos nosotros con un presupuesto aparte.</p>
+                <p>Les correccions de codi les pot aplicar el teu proveïdor amb l'informe a la mà, o les aplico jo amb un pressupost a part.</p>
 
-                <h2>Para quién es</h2>
-                <p>Gestorías, inmobiliarias, clínicas y consultas, aseguradoras y corredurías, administradores de fincas, academias, gimnasios con app, y cualquier empresa de Andorra que tenga un <strong>"área de clientes"</strong>, un portal de empleados o una app que muestre datos personales.</p>
+                <h2>Per a qui és</h2>
+                <p>Gestories, immobiliàries, clíniques i consultes, asseguradores i corredories, administradors de finques, acadèmies, gimnasos amb app, i qualsevol empresa d'Andorra que tingui una <strong>"àrea de clients"</strong>, un portal d'empleats o una app que mostri dades personals.</p>
 
-                <h2>Cómo lo hacemos</h2>
+                <h2>Com ho faig</h2>
                 <div class="process-timeline reveal" style="margin-top:24px;">
                     <div class="process-step">
                         <div class="process-number">01</div>
                         <div class="process-content">
-                            <h3>Primer vistazo (gratis)</h3>
-                            <p>15 minutos por videollamada o WhatsApp: nos enseñas el portal y te decimos si tiene sentido revisarlo y qué nos haría falta.</p>
+                            <h3>Primer cop d'ull (gratis)</h3>
+                            <p>15 minuts per videotrucada o WhatsApp: m'ensenyes el portal i et dic si té sentit revisar-lo i què em caldria.</p>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number">02</div>
                         <div class="process-content">
-                            <h3>Revisión técnica</h3>
-                            <p>Con un usuario de prueba que nos das tú, nunca con datos reales de clientes. Probamos las pantallas y APIs como lo haría un atacante, sin tocar nada.</p>
+                            <h3>Revisió tècnica</h3>
+                            <p>Amb un usuari de prova que em dones tu, mai amb dades reals de clients. Provo les pantalles i les APIs com ho faria un atacant, sense tocar res.</p>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number">03</div>
                         <div class="process-content">
-                            <h3>Revisión legal</h3>
-                            <p>Contrastamos lo que hace el portal con lo que exige la Llei 29/2021 y preparamos los documentos que faltan.</p>
+                            <h3>Revisió legal</h3>
+                            <p>Contrasto el que fa el portal amb el que exigeix la Llei 29/2021 i preparo els documents que falten.</p>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number">04</div>
                         <div class="process-content">
-                            <h3>Informe y reunión</h3>
-                            <p>En una semana desde que tenemos acceso. Semáforo, prioridades y los documentos listos.</p>
+                            <h3>Informe i reunió</h3>
+                            <p>En una setmana des que tinc accés. Semàfor, prioritats i els documents llestos.</p>
                         </div>
                     </div>
                 </div>
@@ -173,44 +173,44 @@
     <section class="pricing-section section-dark">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Precios</span>
-                <h2 class="section-title">Inversión <span class="text-gradient">en tranquilidad</span></h2>
-                <p class="section-subtitle">Precios orientativos para una pyme con un portal. Sin cuotas ni permanencias.</p>
+                <span class="section-tag">Preus</span>
+                <h2 class="section-title">Inversió <span class="text-gradient">en tranquil·litat</span></h2>
+                <p class="section-subtitle">Preus orientatius per a una pime amb un portal. Sense quotes ni permanències.</p>
             </div>
             <div class="pricing-grid reveal">
                 <div class="pricing-card">
-                    <div class="pricing-name">Básico</div>
-                    <div class="pricing-title">Revisión técnica</div>
-                    <div class="pricing-price">450€<span> / única vez</span></div>
-                    <p class="pricing-desc">Los cinco puntos técnicos de tu portal.</p>
+                    <div class="pricing-name">Bàsic</div>
+                    <div class="pricing-title">Revisió tècnica</div>
+                    <div class="pricing-price">450€<span> / un sol cop</span></div>
+                    <p class="pricing-desc">Els cinc punts tècnics del teu portal.</p>
                     <ul class="pricing-features">
-                        <li>Informe con semáforo</li>
-                        <li>Correcciones por orden de riesgo</li>
-                        <li>Reunión de 45 min</li>
+                        <li>Informe amb semàfor</li>
+                        <li>Correccions per ordre de risc</li>
+                        <li>Reunió de 45 min</li>
                     </ul>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Empezar</a>
+                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Començar</a>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="pricing-name">Recomendado</div>
-                    <div class="pricing-title">Técnica + legal</div>
-                    <div class="pricing-price">750€<span> / única vez</span></div>
-                    <p class="pricing-desc">Todo lo anterior más el cumplimiento de la Llei 29/2021.</p>
+                    <div class="pricing-name">Recomanat</div>
+                    <div class="pricing-title">Tècnica + legal</div>
+                    <div class="pricing-price">750€<span> / un sol cop</span></div>
+                    <p class="pricing-desc">Tot l'anterior més el compliment de la Llei 29/2021.</p>
                     <ul class="pricing-features">
-                        <li>Registro de tratamientos</li>
-                        <li>Plan de respuesta a brechas (72 h)</li>
-                        <li>Modelos de aviso a APDA y afectados</li>
+                        <li>Registre de tractaments</li>
+                        <li>Pla de resposta a bretxes (72 h)</li>
+                        <li>Models d'avís a l'APDA i als afectats</li>
                     </ul>
-                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary" style="width:100%" target="_blank" rel="noopener">Empezar</a>
+                    <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary" style="width:100%" target="_blank" rel="noopener">Començar</a>
                 </div>
                 <div class="pricing-card">
-                    <div class="pricing-name">A medida</div>
-                    <div class="pricing-title">Corrección y seguimiento</div>
-                    <div class="pricing-price">Presupuesto</div>
-                    <p class="pricing-desc">Aplicamos las correcciones y volvemos a comprobar.</p>
+                    <div class="pricing-name">A mida</div>
+                    <div class="pricing-title">Correcció i seguiment</div>
+                    <div class="pricing-price">Pressupost</div>
+                    <p class="pricing-desc">Aplico les correccions i torno a comprovar.</p>
                     <ul class="pricing-features">
-                        <li>Rate limiting, 2FA, logs y alertas</li>
-                        <li>Re-revisión tras los cambios</li>
-                        <li>Revisión anual opcional</li>
+                        <li>Rate limiting, 2FA, logs i alertes</li>
+                        <li>Re-revisió després dels canvis</li>
+                        <li>Revisió anual opcional</li>
                     </ul>
                     <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-ghost" style="width:100%" target="_blank" rel="noopener">Consultar</a>
                 </div>
@@ -222,24 +222,24 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">FAQ</span>
-                <h2 class="section-title">Preguntas <span class="text-gradient">frecuentes</span></h2>
+                <h2 class="section-title">Preguntes <span class="text-gradient">freqüents</span></h2>
             </div>
             <div class="faq-list reveal">
                 <details class="faq-item">
-                    <summary>¿Vais a entrar en mi sistema o a tocar datos reales?</summary>
-                    <p>No. Trabajamos con un usuario de prueba que nos creas tú y solo en modo lectura. No hacemos pruebas de intrusión agresivas ni descargamos datos de clientes. Si hace falta algo más profundo, lo acordamos por escrito antes.</p>
+                    <summary>Entraràs al meu sistema o tocaràs dades reals?</summary>
+                    <p>No. Treballo amb un usuari de prova que em crees tu i només en mode lectura. No faig proves d'intrusió agressives ni descarrego dades de clients. Si cal alguna cosa més profunda, ho acordem per escrit abans.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>Mi web la hizo otra empresa. ¿Sirve igual?</summary>
-                    <p>Sí, es el caso más habitual. El informe está pensado para que tu proveedor actual pueda aplicar las correcciones. No hace falta cambiar de proveedor.</p>
+                    <summary>La meva web la va fer una altra empresa. Serveix igual?</summary>
+                    <p>Sí, és el cas més habitual. L'informe està pensat perquè el teu proveïdor actual pugui aplicar les correccions. No cal canviar de proveïdor.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>¿Esto es una auditoría oficial o una certificación?</summary>
-                    <p>No. Es una revisión práctica para reducir el riesgo real y tener la documentación que pide la Llei 29/2021. No sustituye a una auditoría de seguridad certificada (ISO 27001, pentest formal) si tu sector la exige.</p>
+                    <summary>Això és una auditoria oficial o una certificació?</summary>
+                    <p>No. És una revisió pràctica per reduir el risc real i tenir la documentació que demana la Llei 29/2021. No substitueix una auditoria de seguretat certificada (ISO 27001, pentest formal) si el teu sector l'exigeix.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>¿Y si ya he tenido una fuga de datos?</summary>
-                    <p>Escríbenos hoy. El reloj de las 72 horas para notificar a la APDA ya corre, y lo primero es documentar qué ha pasado y preparar la notificación y el aviso a los afectados.</p>
+                    <summary>I si ja he tingut una fuita de dades?</summary>
+                    <p>Escriu-me avui. El rellotge de les 72 hores per notificar a l'APDA ja corre, i el primer és documentar què ha passat i preparar la notificació i l'avís als afectats.</p>
                 </details>
             </div>
         </div>
@@ -248,14 +248,14 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content reveal">
-                <h2 class="cta-title">¿Tu portal devuelve datos de clientes?</h2>
-                <p class="cta-text">Primer vistazo de 15 minutos gratis. Te decimos si tienes el mismo agujero que la CASS.</p>
-                <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Pedir el primer vistazo</a>
+                <h2 class="cta-title">El teu portal torna dades de clients?</h2>
+                <p class="cta-text">Primer cop d'ull de 15 minuts gratis. Et dic si tens el mateix forat que la CASS.</p>
+                <a href="https://wa.me/376601249?text=Hola%2C%20quiero%20revisar%20la%20seguridad%20de%20mi%20portal" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Demanar el primer cop d'ull</a>
             </div>
         </div>
     </section>
 
-    <p class="article-back container"><a href="servicios.html">← Volver a Servicios</a></p>
+    <p class="article-back container"><a href="servicios.html">← Tornar a Serveis</a></p>
 
     <footer class="footer">
         <div class="container">
@@ -325,7 +325,7 @@
     </button>
 
     <script src="higgsfield-visuals.js?v=2.2"></script>
-    <script src="script.js?v=3.27"></script>
+    <script src="script.js?v=3.28"></script>
 </body>
 
 </html>
