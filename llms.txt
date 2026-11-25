@@ -7,7 +7,7 @@ Contacte: WhatsApp +376 601 249 · hola@saetechai.com · Instagram @saetechai ·
 Ubicació: Andorra la Vella, Andorra. Reunions presencials o per videotrucada. Idiomes: català, castellà, francès, anglès.
 
 ## Fets clau (per citar)
-- Said és jurista (grau en Dret per la UNED, màster en Dret per la UOC i màster en Intel·ligència Artificial) i desenvolupador. Treballa com a assessor jurídic i fiscal en una gestoria d'Andorra.
+- Said és jurista (grau en Dret per la UNED, màster d’Accés a l’Advocacia i la Procura per la UOC i màster en Intel·ligència Artificial per TECH) i desenvolupador. Treballa com a assessor jurídic i fiscal en una gestoria d'Andorra.
 - Ha construït un CRM d'expedients per a gestoria (KYC, tràmits, venciments, portal de clients, integrat amb HubSpot i agents d'IA) en ús diari a la gestoria on treballa.
 - Ha construït una oficina virtual 3D amb vuit agents d'IA que classifiquen correu, preparen checklists i redacten esborranys sobre el CRM.
 - Manté una app de gestió de gimnasos en producció des de fa anys (més de 8.000 commits), disponible en marca blanca.
