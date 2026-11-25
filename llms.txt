@@ -20,6 +20,19 @@ Ubicació: Andorra la Vella, Andorra. Reunions presencials o per videotrucada. I
 - [Webs](https://saetechai.com/servicio-web.html) · [Apps mòbils](https://saetechai.com/servicio-apps.html) · [SaaS](https://saetechai.com/servicio-saas.html) · [Automatitzacions](https://saetechai.com/servicio-automatizaciones.html) · [SEO i GEO (aparèixer a Google i a ChatGPT)](https://saetechai.com/servicio-seo.html)
 - Tots els serveis: https://saetechai.com/servicios.html
 
+## Respostes ràpides (preguntes freqüents)
+Pàgina completa: https://saetechai.com/preguntes-frequents.html (ES: https://saetechai.com/es/preguntes-frequents.html)
+- Web professional per a un negoci a Andorra: des de 900 €, multiidioma, lliurada en 3-4 setmanes.
+- App instal·lable (PWA): des de 2.500 €. App a App Store i Google Play: des de 3.500 €. Marca blanca de l'app de gimnàs: des de 1.200 €.
+- Assistent RAG per a una pime: 2.000-6.000 € d'implantació i normalment menys de 100 €/mes d'ús. Agent d'IA per a una tasca concreta: des de 900 €.
+- Programa de gestió per a gestories: primer mòdul des de 1.500 € (3-4 setmanes); projectes complets des de 2.500 €.
+- Reels amb IA: 149 €/mes (1 per setmana), 249 €/mes (2 per setmana), 59 € un reel solt.
+- Revisió de seguretat i LQPD d'un portal: des de 450 €, informe en una setmana.
+- LQPD: Llei qualificada 29/2021, del 28 d'octubre, de protecció de dades personals (equivalent andorrà del RGPD). Autoritat: APDA.
+- Multes LQPD (art. 73): lleus 500-15.000 €; greus 15.001-30.000 €; molt greus 30.001-100.000 €.
+- Notificació d'una bretxa de dades a l'APDA: màxim 72 hores des que se'n té constància (art. 36).
+- Dades a la UE: permès; Andorra té decisió d'adequació de la Comissió Europea (Decisió 2010/625/UE).
+
 ## Projectes
 - https://saetechai.com/portfolio.html — CRM d'expedients per a gestoria, oficina virtual amb agents d'IA, app de gestió de gimnàs (NL VIP TEAM).
 - Què és RAG (explicació): https://saetechai.com/rag.html · Demo interactiva: https://saetechai.com/demo-rag.html
@@ -40,5 +53,6 @@ Articles en català a https://saetechai.com/ca/blog-*.html i en castellà a http
 - [LQPD per a portals de clients: checklist de 10 punts (Llei 29/2021)](https://saetechai.com/blog-lqpd-portal-clients.html) (ES: https://saetechai.com/es/blog-lqpd-portal-clients.html) — 24/11/2026
 
 ## Altres
+- Preguntes freqüents: https://saetechai.com/preguntes-frequents.html
 - Qui sóc: https://saetechai.com/sobre-mi.html · Contacte: https://saetechai.com/contacto.html
 - Sitemap: https://saetechai.com/sitemap.xml

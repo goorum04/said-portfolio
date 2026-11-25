@@ -873,6 +873,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://saetechai.com/blog.html"/>
   </url>
   <url>
+    <loc>https://saetechai.com/preguntes-frequents.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://saetechai.com/preguntes-frequents.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://saetechai.com/es/preguntes-frequents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saetechai.com/preguntes-frequents.html"/>
+  </url>
+  <url>
+    <loc>https://saetechai.com/es/preguntes-frequents.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://saetechai.com/preguntes-frequents.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://saetechai.com/es/preguntes-frequents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saetechai.com/preguntes-frequents.html"/>
+  </url>
+  <url>
     <loc>https://saetechai.com/rag.html</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.6</priority>
